@@ -8,8 +8,8 @@ Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 // necesitamos conexion de 5v y tierra
 
 // capturamos los pines del teclado
-const byte ROWS = 4; //four rows
-const byte COLS = 3; //three columns
+const byte ROWS = 4; 
+const byte COLS = 3; 
 
 
 char keys[ROWS][COLS] = {
@@ -19,8 +19,8 @@ char keys[ROWS][COLS] = {
 {'*','0','#'}
 };
 
- byte rowPins[ROWS] = {2,3,4,5}; //connect to the row pinouts of the   keypad
- byte colPins[COLS] = {6, 7, 8}; //connect to the column pinouts of the keypad
+ byte rowPins[ROWS] = {2,3,4,5}; 
+ byte colPins[COLS] = {6, 7, 8}; 
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
