@@ -19,8 +19,7 @@ textarea {
     display: flex;
 }
 
-$color1: #252850;
-$color2: #102c54;
+$color1: #102c54;
 .loader {
     top: 0;
     left: 0;
@@ -28,7 +27,7 @@ $color2: #102c54;
     position: fixed;
     z-index: 20;
     height: 100vh;
-    background-color: $color2;
+    background-color: $color1;
     @include centrado();
     transition: 0.5s;
     .contLoader {

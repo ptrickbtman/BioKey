@@ -47,7 +47,7 @@ textarea {
   position: fixed;
   height: 80px;
   z-index: 19;
-  background-color: #252850;
+  background-color: #102c54;
 }
 .menu .logo {
   width: 90px;
@@ -103,7 +103,7 @@ textarea {
   z-index: 10;
   height: 100vh;
   right: 0;
-  background-color: #252850;
+  background-color: #102c54;
   justify-content: center;
   align-items: center;
   display: flex;
