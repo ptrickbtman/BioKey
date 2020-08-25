@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p,
+button,
+input,
+span,
+h1,
+h2,
+textarea {
+    font-family: sans-serif;
+}
+
+@mixin centrado() {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+$color1: #252850;
+$color2: #102c54;
+.loader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    height: 100vh;
+    background-color: $color2;
+    @include centrado();
+    transition: 0.5s;
+    .contLoader {
+        text-align: center;
+        .circleLoader {
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            border-top: 2px solid white;
+            animation: spinner 700ms infinite linear;
+        }
+    }
+}
+
+// animacion loadSpinner
+@keyframes spinner {
+    0% {}
+    100% {
+        transform: rotate(306deg);
+    }
+}
+
+////// menu
+.menu {
+    width: 100%;
+    position: fixed;
+    height: 80px;
+    background-color: $color1;
+    .logo {
+        width: 90px;
+        @include centrado();
+        height: 100%;
+        float: left;
+        .textLogo {
+            color: white;
+            font-size: 30px;
+        }
+    }
+    .hamburger {
+        width: 90px;
+        height: 100%;
+        float: right;
+        @include centrado();
+        .stick {
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            transition: 0.3s;
+            background-color: white;
+        }
+        .stick1 {
+            transform: translateY(-8px);
+        }
+        .stick3 {
+            transform: translateY(8px);
+        }
+        .stick1On {
+            transform: translateY(0px) rotate(45deg);
+        }
+        .stick2On {
+            opacity: 0;
+        }
+        .stick3On {
+            transform: translateY(0px) rotate(-45deg);
+        }
+    }
+}
