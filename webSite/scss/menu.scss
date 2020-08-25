@@ -56,6 +56,7 @@ $color2: #102c54;
     width: 100%;
     position: fixed;
     height: 80px;
+    z-index: 19;
     background-color: $color1;
     .logo {
         width: 90px;
@@ -72,6 +73,11 @@ $color2: #102c54;
         height: 100%;
         float: right;
         @include centrado();
+        z-index: 11;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
         .stick {
             position: absolute;
             width: 40px;
@@ -93,6 +99,41 @@ $color2: #102c54;
         }
         .stick3On {
             transform: translateY(0px) rotate(-45deg);
+        }
+    }
+    .itemsMenu {
+        transition: 0.5s;
+        width: 0%;
+        position: fixed;
+        z-index: 10;
+        height: 100vh;
+        right: 0;
+        background-color: $color1;
+        @include centrado();
+    }
+    .contLogin {
+        width: 50px;
+        height: 100%;
+        float: right;
+        @include centrado();
+        z-index: 11;
+        position: absolute;
+        right: 90px;
+        top: 0;
+        // background: red;
+        cursor: pointer;
+        i {
+            font-size: 30px;
+            color: white;
+        }
+    }
+    .itemsMenuOn {
+        width: 100%;
+    }
+    @media screen and(min-width:992px) {
+        .itemsMenu {}
+        .itemsMenuOn {
+            width: 30%;
         }
     }
 }

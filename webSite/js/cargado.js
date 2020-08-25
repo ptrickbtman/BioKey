@@ -14,4 +14,5 @@ $(".hamburger").on("click", function() {
     $(".stick1").toggleClass("stick1On");
     $(".stick2").toggleClass("stick2On");
     $(".stick3").toggleClass("stick3On")
+    $(".itemsMenu").toggleClass("itemsMenuOn")
 });

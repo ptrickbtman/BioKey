@@ -46,6 +46,7 @@ textarea {
   width: 100%;
   position: fixed;
   height: 80px;
+  z-index: 19;
   background-color: #252850;
 }
 .menu .logo {
@@ -67,6 +68,11 @@ textarea {
   justify-content: center;
   align-items: center;
   display: flex;
+  z-index: 11;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 }
 .menu .hamburger .stick {
   position: absolute;
@@ -89,6 +95,43 @@ textarea {
 }
 .menu .hamburger .stick3On {
   transform: translateY(0px) rotate(-45deg);
+}
+.menu .itemsMenu {
+  transition: 0.5s;
+  width: 0%;
+  position: fixed;
+  z-index: 10;
+  height: 100vh;
+  right: 0;
+  background-color: #252850;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.menu .contLogin {
+  width: 50px;
+  height: 100%;
+  float: right;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 11;
+  position: absolute;
+  right: 90px;
+  top: 0;
+  cursor: pointer;
+}
+.menu .contLogin i {
+  font-size: 30px;
+  color: white;
+}
+.menu .itemsMenuOn {
+  width: 100%;
+}
+@media screen and (min-width: 992px) {
+  .menu .itemsMenuOn {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=menu.css.map */
