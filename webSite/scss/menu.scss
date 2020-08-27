@@ -9,14 +9,66 @@ input,
 span,
 h1,
 h2,
-textarea {
+label,
+textarea,
+i {
     font-family: 'Quicksand', sans-serif;
 }
 
+$glow: rgb(69, 201, 206);
 @mixin centrado() {
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+.loader {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-color: black;
+    @include centrado();
+    z-index: 1000;
+    transition: 0.5s;
+    .circle {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        box-shadow: 0 0 25px rgb(69, 201, 206);
+        -o-box-shadow: 0 0 25px rgb(69, 201, 206);
+        -moz-box-shadow: 0 0 25px rgb(69, 201, 206);
+        -webkit-box-shadow: 0 0 25px rgb(69, 201, 206);
+        animation: spinner 2000ms infinite linear;
+    }
+    @keyframes spinner {
+        0% {}
+        25% {
+            box-shadow: 0 0 25px rgb(206, 69, 115);
+            -o-box-shadow: 0 0 25px rgb(206, 69, 115);
+            -moz-box-shadow: 0 0 25px rgb(206, 69, 115);
+            -webkit-box-shadow: 0 0 25px rgb(206, 69, 115);
+        }
+        50% {
+            box-shadow: 0 0 25px rgb(167, 69, 206);
+            -o-box-shadow: 0 0 25px rgb(167, 69, 206);
+            -moz-box-shadow: 0 0 25px rgb(167, 69, 206);
+            -webkit-box-shadow: 0 0 25px rgb(167, 69, 206);
+        }
+        75% {
+            box-shadow: 0 0 25px rgb(170, 206, 69);
+            -o-box-shadow: 0 0 25px rgb(170, 206, 69);
+            -moz-box-shadow: 0 0 25px rgb(170, 206, 69);
+            -webkit-box-shadow: 0 0 25px rgb(170, 206, 69);
+        }
+        100% {
+            box-shadow: 0 0 25px rgb(74, 206, 69);
+            -o-box-shadow: 0 0 25pxrgb(74, 206, 69);
+            -moz-box-shadow: 0 0 25px rgb(74, 206, 69);
+            -webkit-box-shadow: 0 0 25px rgb(74, 206, 69);
+        }
+    }
 }
 
 .menu {
@@ -39,10 +91,11 @@ textarea {
     .contLogin {
         height: 80px;
         float: right;
+        transition: 0.4s;
         @include centrado();
         .contLogin {
             text-align: right;
-            cursor: pointer;
+            cursor: default;
             p {
                 font-size: calc(22px);
                 color: white;
@@ -53,6 +106,10 @@ textarea {
                 }
             }
         }
+    }
+    .contLoginOn {
+        cursor: default;
+        opacity: 0;
     }
     .hamburger {
         float: right;
@@ -81,6 +138,174 @@ textarea {
         }
         .stick3On {
             transform: translateY(0px) rotate(-45deg);
+        }
+    }
+}
+
+.modalLogin {
+    width: 0%;
+    height: 100vh;
+    transition: 0.6s;
+    top: 0;
+    position: fixed;
+    z-index: 997;
+    @include centrado();
+    background-color: black;
+    right: 0;
+    .contLoginBinary {
+        opacity: 0;
+        width: 0%;
+        height: 0px;
+        overflow: hidden;
+        transition: 0.7s;
+    }
+    .contModalLogin {
+        width: 90%;
+        opacity: 0;
+        transition: 0.7s;
+        form {
+            width: 80%;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+            .cerrarLogin {
+                color: $glow;
+                text-shadow: 0 0 5px $glow;
+                margin-top: 20px;
+                font-size: 20px;
+            }
+            p,
+            label,
+            span,
+            input {
+                display: block;
+                margin: 0 auto;
+            }
+            .tittleForm {
+                font-size: 40px;
+                //text-shadow: 0 0 20px $glow;
+            }
+            label {
+                margin-top: 15px;
+                font-size: 20px;
+                text-align: left;
+            }
+            input {
+                width: 100%;
+                border: none;
+                height: 25px;
+            }
+            .btnEnvio {
+                transition: 0.1s;
+                cursor: pointer;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                height: 40px;
+                font-size: 20px;
+                letter-spacing: 2px;
+                background-color: black;
+                border: none;
+                color: $glow;
+                font-weight: 500;
+                text-transform: uppercase;
+                border: 1px solid $glow;
+                box-shadow: 0 0 10px $glow;
+                text-shadow: 0 0 10px $glow;
+                -webkit-box-shadow: 0 0 10px $glow;
+                -webkit-text-shadow: 0 0 10px $glow;
+                -moz-box-shadow: 0 0 10px $glow;
+                -moz-text-shadow: 0 0 10px $glow;
+                -o-box-shadow: 0 0 10px $glow;
+                -ow-text-shadow: 0 0 10px $glow;
+            }
+            span {
+                margin-top: 0px;
+            }
+        }
+    }
+    .contLoginBinaryOn {
+        opacity: 1;
+    }
+    .contModalLoginOn {
+        opacity: 1;
+    }
+}
+
+.modalLoginOn {
+    width: 100%;
+}
+
+@media screen and(min-width:992px) {
+    .modalLogin {
+        display: inline-block;
+        //background-color: red;
+        .contLoginBinary {
+            width: 60%;
+            position: absolute;
+            height: 100%;
+            float: left;
+            position: relative;
+            @include centrado();
+            .contLoginBinary2 {
+                width: 55%;
+                text-align: center;
+                color: white;
+                /*  transform: rotate(-15deg);
+                -webkit-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                -o-transform: rotate(-15deg);
+                */
+                p {
+                    font-size: calc(30px + 1.8vh);
+                    color: $glow;
+                    text-shadow: 0 0 15px $glow;
+                }
+            }
+        }
+        .contModalLogin {
+            position: absolute;
+            width: 60%;
+            height: 100%;
+            right: 0;
+            @include centrado();
+            //background-color: white;
+            form {
+                width: 50%;
+                float: right;
+                text-align: left;
+                i {
+                    cursor: pointer;
+                    width: 100%;
+                    text-align: center;
+                }
+                .tittleForm {
+                    font-size: calc(18px + 5vh);
+                    line-height: calc(18px + 3vh);
+                    ;
+                }
+                label {
+                    font-size: calc(13px + 1vh);
+                    margin-top: 10px;
+                }
+                span {
+                    text-align: center;
+                }
+                input {
+                    margin-top: 5px;
+                    font-size: calc(12px + 1vh);
+                    height: calc(15px + 1.2vh);
+                }
+                .btnEnvio {
+                    transition: 0.3s;
+                    font-size: calc(13px + 1vh);
+                    height: calc(20px + 3.5vh);
+                    &:hover {
+                        background-color: $glow;
+                        color: #000;
+                        text-shadow: 0 0 10px black;
+                    }
+                }
+            }
         }
     }
 }

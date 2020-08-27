@@ -70,7 +70,7 @@
     letter-spacing: -2px;
     font-size: calc(30px + 10vh);
     line-height: calc(30px + 6vh);
-    text-shadow: 0px 0px 10px #45c9ce;
+    text-shadow: 0px 0px 15px #45c9ce;
   }
   .cover .rightCover .conCover .subTittle {
     font-size: calc(20px + 3vh);

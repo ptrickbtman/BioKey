@@ -9,8 +9,60 @@ input,
 span,
 h1,
 h2,
-textarea {
+label,
+textarea,
+i {
   font-family: "Quicksand", sans-serif;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 1000;
+  transition: 0.5s;
+}
+.loader .circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  box-shadow: 0 0 25px #45c9ce;
+  -o-box-shadow: 0 0 25px #45c9ce;
+  -moz-box-shadow: 0 0 25px #45c9ce;
+  -webkit-box-shadow: 0 0 25px #45c9ce;
+  animation: spinner 2000ms infinite linear;
+}
+@keyframes spinner {
+  25% {
+    box-shadow: 0 0 25px #ce4573;
+    -o-box-shadow: 0 0 25px #ce4573;
+    -moz-box-shadow: 0 0 25px #ce4573;
+    -webkit-box-shadow: 0 0 25px #ce4573;
+  }
+  50% {
+    box-shadow: 0 0 25px #a745ce;
+    -o-box-shadow: 0 0 25px #a745ce;
+    -moz-box-shadow: 0 0 25px #a745ce;
+    -webkit-box-shadow: 0 0 25px #a745ce;
+  }
+  75% {
+    box-shadow: 0 0 25px #aace45;
+    -o-box-shadow: 0 0 25px #aace45;
+    -moz-box-shadow: 0 0 25px #aace45;
+    -webkit-box-shadow: 0 0 25px #aace45;
+  }
+  100% {
+    box-shadow: 0 0 25px #4ace45;
+    -o-box-shadow: 0 0 25pxrgb 74, 206, 69;
+    -moz-box-shadow: 0 0 25px #4ace45;
+    -webkit-box-shadow: 0 0 25px #4ace45;
+  }
 }
 
 .menu {
@@ -36,13 +88,14 @@ textarea {
 .menu .contLogin {
   height: 80px;
   float: right;
+  transition: 0.4s;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 .menu .contLogin .contLogin {
   text-align: right;
-  cursor: pointer;
+  cursor: default;
 }
 .menu .contLogin .contLogin p {
   font-size: calc(22px);
@@ -52,6 +105,10 @@ textarea {
 }
 .menu .contLogin .contLogin p:hover {
   letter-spacing: 2px;
+}
+.menu .contLoginOn {
+  cursor: default;
+  opacity: 0;
 }
 .menu .hamburger {
   float: right;
@@ -83,6 +140,176 @@ textarea {
 }
 .menu .hamburger .stick3On {
   transform: translateY(0px) rotate(-45deg);
+}
+
+.modalLogin {
+  width: 0%;
+  height: 100vh;
+  transition: 0.6s;
+  top: 0;
+  position: fixed;
+  z-index: 997;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: black;
+  right: 0;
+}
+.modalLogin .contLoginBinary {
+  opacity: 0;
+  width: 0%;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.7s;
+}
+.modalLogin .contModalLogin {
+  width: 90%;
+  opacity: 0;
+  transition: 0.7s;
+}
+.modalLogin .contModalLogin form {
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+.modalLogin .contModalLogin form .cerrarLogin {
+  color: #45c9ce;
+  text-shadow: 0 0 5px #45c9ce;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.modalLogin .contModalLogin form p,
+.modalLogin .contModalLogin form label,
+.modalLogin .contModalLogin form span,
+.modalLogin .contModalLogin form input {
+  display: block;
+  margin: 0 auto;
+}
+.modalLogin .contModalLogin form .tittleForm {
+  font-size: 40px;
+}
+.modalLogin .contModalLogin form label {
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: left;
+}
+.modalLogin .contModalLogin form input {
+  width: 100%;
+  border: none;
+  height: 25px;
+}
+.modalLogin .contModalLogin form .btnEnvio {
+  transition: 0.1s;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: black;
+  border: none;
+  color: #45c9ce;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 1px solid #45c9ce;
+  box-shadow: 0 0 10px #45c9ce;
+  text-shadow: 0 0 10px #45c9ce;
+  -webkit-box-shadow: 0 0 10px #45c9ce;
+  -webkit-text-shadow: 0 0 10px #45c9ce;
+  -moz-box-shadow: 0 0 10px #45c9ce;
+  -moz-text-shadow: 0 0 10px #45c9ce;
+  -o-box-shadow: 0 0 10px #45c9ce;
+  -ow-text-shadow: 0 0 10px #45c9ce;
+}
+.modalLogin .contModalLogin form span {
+  margin-top: 0px;
+}
+.modalLogin .contLoginBinaryOn {
+  opacity: 1;
+}
+.modalLogin .contModalLoginOn {
+  opacity: 1;
+}
+
+.modalLoginOn {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .modalLogin {
+    display: inline-block;
+  }
+  .modalLogin .contLoginBinary {
+    width: 60%;
+    position: absolute;
+    height: 100%;
+    float: left;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .modalLogin .contLoginBinary .contLoginBinary2 {
+    width: 55%;
+    text-align: center;
+    color: white;
+    /*  transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    */
+  }
+  .modalLogin .contLoginBinary .contLoginBinary2 p {
+    font-size: calc(30px + 1.8vh);
+    color: #45c9ce;
+    text-shadow: 0 0 15px #45c9ce;
+  }
+  .modalLogin .contModalLogin {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .modalLogin .contModalLogin form {
+    width: 50%;
+    float: right;
+    text-align: left;
+  }
+  .modalLogin .contModalLogin form i {
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  .modalLogin .contModalLogin form .tittleForm {
+    font-size: calc(18px + 5vh);
+    line-height: calc(18px + 3vh);
+  }
+  .modalLogin .contModalLogin form label {
+    font-size: calc(13px + 1vh);
+    margin-top: 10px;
+  }
+  .modalLogin .contModalLogin form span {
+    text-align: center;
+  }
+  .modalLogin .contModalLogin form input {
+    margin-top: 5px;
+    font-size: calc(12px + 1vh);
+    height: calc(15px + 1.2vh);
+  }
+  .modalLogin .contModalLogin form .btnEnvio {
+    transition: 0.3s;
+    font-size: calc(13px + 1vh);
+    height: calc(20px + 3.5vh);
+  }
+  .modalLogin .contModalLogin form .btnEnvio:hover {
+    background-color: #45c9ce;
+    color: #000;
+    text-shadow: 0 0 10px black;
+  }
 }
 
 /*# sourceMappingURL=menu.css.map */
