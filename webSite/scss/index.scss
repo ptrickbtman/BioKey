@@ -10,3 +10,81 @@
 }
 
 $color1: rgb(87, 62, 189);
+.cover {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    .leftCover {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../medias/img/finer2.jpg");
+    }
+    .rightCover {
+        width: 100%;
+        position: absolute;
+        bottom: 20px;
+        background-color: black;
+        @include centrado();
+        .conCover {
+            width: 90%;
+            color: white;
+            text-align: center;
+            .tittle {
+                font-size: 55px;
+                display: block;
+                line-height: 45px;
+            }
+            .subTittle {
+                font-size: 18px;
+            }
+            i {
+                margin-bottom: 10px;
+                animation: down 700ms infinite alternate;
+            }
+            @keyframes down {
+                0% {}
+                100% {
+                    transform: translateY(10px);
+                }
+            }
+        }
+    }
+    @media screen and(min-width:992px) {
+        .leftCover {
+            position: relative;
+            width: 40%;
+            height: 100%;
+            float: left;
+        }
+        .rightCover {
+            width: 60%;
+            height: 100%;
+            position: relative;
+            bottom: 0px;
+            float: right;
+            .conCover {
+                width: 95%;
+                text-align: left;
+                .tittle {
+                    letter-spacing: -2px;
+                    font-size: calc(30px + 10vh);
+                    line-height: calc(30px + 6vh);
+                    text-shadow: 0px 0px 10px rgb(69, 201, 206);
+                }
+                .subTittle {
+                    font-size: calc(20px + 3vh);
+                }
+                i {
+                    overflow: hidden;
+                    font-size: 0px;
+                    width: 50%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
