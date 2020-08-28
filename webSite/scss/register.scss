@@ -80,7 +80,7 @@ $glow: rgb(69, 201, 206);
             float: right;
             @include centrado();
             .contRight {
-                height: 90%;
+                height: 80%;
                 form {
                     width: 50%;
                     .tittleReg {
@@ -136,7 +136,7 @@ $glow: rgb(69, 201, 206);
         -ms-filter: blur($spread);
         filter: blur($spread);
         background: linear-gradient(270deg, $colorA, $colorB);
-        background-size: 200% 200%;
+        background-size: 250% 250%;
         animation: animateGlow 4s ease infinite;
         @keyframes animateGlow {
             0% {
@@ -152,14 +152,16 @@ $glow: rgb(69, 201, 206);
     }
 }
 
-.contRight {
-    position: relative;
-    text-align: center;
-    color: #252B37;
-    background-color: black;
-    animation: textColor 1s ease infinite;
-    @include backlight(0, 5vw, 5vw, 0.75, #0fffc1, #7e0fff, 10s);
-    @include centrado();
+@media screen and(min-width:992px) {
+    .contRight {
+        position: relative;
+        text-align: center;
+        color: #252B37;
+        background-color: black;
+        //animation: textColor 1s ease infinite;
+        @include backlight(-200px, 0vw, 8vw, 0.75, #0fffc1, #7e0fff, 10s);
+        @include centrado();
+    }
 }
 
 /////// finn glow div form
