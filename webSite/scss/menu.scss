@@ -218,8 +218,17 @@ $glow: rgb(69, 201, 206);
                 -o-box-shadow: 0 0 10px $glow;
                 -ow-text-shadow: 0 0 10px $glow;
             }
-            span {
+            .ir {
                 margin-top: 0px;
+                text-align: center;
+            }
+            span {
+                color: $glow;
+                transition: 0.3s;
+                &:hover {
+                    letter-spacing: 2px;
+                    cursor: pointer;
+                }
             }
         }
     }

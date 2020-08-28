@@ -1,0 +1,156 @@
+body {
+  background: black;
+}
+
+.container {
+  width: 100%;
+  height: calc(100vh - 0px);
+}
+.container .right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.container .right .contRight {
+  width: 90%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.container .right .contRight form {
+  width: 90%;
+  text-align: center;
+}
+.container .right .contRight form .tittleReg {
+  color: white;
+  font-size: 35px;
+  font-weight: 500;
+}
+.container .right .contRight form label {
+  margin-top: 5px;
+  color: white;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+.container .right .contRight form input {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border: none;
+  height: 20px;
+  font-size: 16px;
+}
+.container .right .contRight form .btnReg {
+  margin-top: 20px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #45c9ce;
+  box-shadow: 0 0 10px #45c9ce;
+  text-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #45c9ce;
+  -moz-text-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #45c9ce;
+  -o-text-shadow: 0 0 10px #000;
+  -webkit-box-shadow: 0 0 10px #45c9ce;
+  -webkit-text-shadow: 0 0 10px #000;
+}
+@media screen and (min-width: 992px) {
+  .container .left {
+    width: 40%;
+    height: 100%;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .container .right {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .container .right .contRight {
+    height: 90%;
+  }
+  .container .right .contRight form {
+    width: 50%;
+  }
+  .container .right .contRight form .tittleReg {
+    font-size: calc(20px + 2.5vh);
+    text-align: left;
+  }
+  .container .right .contRight form label {
+    margin-top: 10px;
+    height: calc(14px + 1vh);
+  }
+  .container .right .contRight form input {
+    height: calc(18px + 1vh);
+  }
+  .container .right .contRight form .btnReg {
+    height: calc(20px + 4vh);
+    font-size: calc(14px + 1vh);
+    border: 2px solid #45c9ce;
+    transition: 0.4s;
+    cursor: pointer;
+    color: black;
+  }
+  .container .right .contRight form .btnReg:hover {
+    background-color: transparent;
+    color: #45c9ce;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #45c9ce;
+    -moz-text-shadow: 0 0 10px #45c9ce;
+    -o-text-shadow: 0 0 10px #45c9ce;
+    -webkit-text-shadow: 0 0 10px #45c9ce;
+  }
+}
+.contRight {
+  position: relative;
+  text-align: center;
+  color: #252B37;
+  background-color: black;
+  animation: textColor 1s ease infinite;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.contRight:after {
+  position: absolute;
+  content: "";
+  top: 5vw;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.75);
+  -webkit-filter: blur(5vw);
+  -moz-filter: blur(5vw);
+  -ms-filter: blur(5vw);
+  filter: blur(5vw);
+  background: linear-gradient(270deg, #0fffc1, #7e0fff);
+  background-size: 200% 200%;
+  animation: animateGlow 4s ease infinite;
+}
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*# sourceMappingURL=register.css.map */

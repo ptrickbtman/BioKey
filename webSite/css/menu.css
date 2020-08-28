@@ -222,8 +222,17 @@ i {
   -o-box-shadow: 0 0 10px #45c9ce;
   -ow-text-shadow: 0 0 10px #45c9ce;
 }
-.modalLogin .contModalLogin form span {
+.modalLogin .contModalLogin form .ir {
   margin-top: 0px;
+  text-align: center;
+}
+.modalLogin .contModalLogin form span {
+  color: #45c9ce;
+  transition: 0.3s;
+}
+.modalLogin .contModalLogin form span:hover {
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 .modalLogin .contLoginBinaryOn {
   opacity: 1;
