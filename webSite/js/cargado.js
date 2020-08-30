@@ -29,20 +29,8 @@ $(".abrirModal").on("click", function() {
     setTimeout(function() {
         $(".contLoginBinary").addClass("contLoginBinaryOn");
         $(".contModalLogin").addClass("contModalLoginOn");
-        setTimeout(function() {
-            $(".btnEnvio").css("opacity", "0");
-            setTimeout(function() {
-                $(".btnEnvio").css("opacity", "1");
-                setTimeout(function() {
-                    $(".btnEnvio").css("opacity", "0");
-                    setTimeout(function() {
-                        $(".btnEnvio").css("opacity", "1");
-                    }, 100)
-                }, 200)
-            }, 200)
 
 
-        }, 350)
     }, 600)
 });
 

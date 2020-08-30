@@ -78,6 +78,13 @@ $glow: rgb(69, 201, 206);
     top: 0;
     color: white;
     z-index: 999;
+    .itemsServicios {
+        width: 100%;
+        position: absolute;
+        float: left;
+        height: 100px;
+        background-color: red;
+    }
     .logo {
         width: 80px;
         height: 100%;
@@ -216,7 +223,7 @@ $glow: rgb(69, 201, 206);
                 -moz-box-shadow: 0 0 10px $glow;
                 -moz-text-shadow: 0 0 10px $glow;
                 -o-box-shadow: 0 0 10px $glow;
-                -ow-text-shadow: 0 0 10px $glow;
+                animation: btnRegis 5000ms infinite linear;
             }
             .ir {
                 margin-top: 0px;
@@ -308,6 +315,7 @@ $glow: rgb(69, 201, 206);
                     transition: 0.3s;
                     font-size: calc(13px + 1vh);
                     height: calc(20px + 3.5vh);
+                    animation: btnRegis 1500ms infinite linear;
                     &:hover {
                         background-color: $glow;
                         color: #000;
@@ -316,5 +324,23 @@ $glow: rgb(69, 201, 206);
                 }
             }
         }
+    }
+}
+
+@keyframes btnRegis {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    11% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }

@@ -73,6 +73,13 @@ i {
   color: white;
   z-index: 999;
 }
+.menu .itemsServicios {
+  width: 100%;
+  position: absolute;
+  float: left;
+  height: 100px;
+  background-color: red;
+}
 .menu .logo {
   width: 80px;
   height: 100%;
@@ -220,7 +227,7 @@ i {
   -moz-box-shadow: 0 0 10px #45c9ce;
   -moz-text-shadow: 0 0 10px #45c9ce;
   -o-box-shadow: 0 0 10px #45c9ce;
-  -ow-text-shadow: 0 0 10px #45c9ce;
+  animation: btnRegis 5000ms infinite linear;
 }
 .modalLogin .contModalLogin form .ir {
   margin-top: 0px;
@@ -313,11 +320,29 @@ i {
     transition: 0.3s;
     font-size: calc(13px + 1vh);
     height: calc(20px + 3.5vh);
+    animation: btnRegis 1500ms infinite linear;
   }
   .modalLogin .contModalLogin form .btnEnvio:hover {
     background-color: #45c9ce;
     color: #000;
     text-shadow: 0 0 10px black;
+  }
+}
+@keyframes btnRegis {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  11% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
