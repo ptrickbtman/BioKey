@@ -7,13 +7,9 @@ Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 
 // necesitamos conexion de 5v y tierra
 
-
 // capturamos los pines del teclado
 const byte ROWS = 4; 
 const byte COLS = 3; 
-
-
-
 
 // arquitectura teclado
 
