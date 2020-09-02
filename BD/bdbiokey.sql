@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-08-2020 a las 02:59:35
+-- Tiempo de generación: 02-09-2020 a las 22:25:04
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `biokey`
+-- Base de datos: `bdbiokey`
 --
 
 -- --------------------------------------------------------
@@ -185,6 +185,7 @@ CREATE TABLE `tipo_solicitud` (
 CREATE TABLE `usuarios` (
   `ID_USU` bigint(20) NOT NULL,
   `CORREO_USU` varchar(50) NOT NULL,
+  `ALIAS_USU` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `PASS_USU` varchar(50) NOT NULL,
   `NOM_USU` varchar(40) NOT NULL,
   `APE_USU` varchar(40) NOT NULL,
@@ -297,7 +298,9 @@ ALTER TABLE `tipo_solicitud`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_USU`);
+  ADD PRIMARY KEY (`ID_USU`),
+  ADD UNIQUE KEY `uniAliasUsu` (`ALIAS_USU`),
+  ADD UNIQUE KEY `CORREO_USU` (`CORREO_USU`);
 
 --
 -- Indices de la tabla `ventas`
@@ -370,6 +373,12 @@ ALTER TABLE `tipo_registro`
 --
 ALTER TABLE `tipo_solicitud`
   MODIFY `ID_TIPSOLI` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID_USU` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
