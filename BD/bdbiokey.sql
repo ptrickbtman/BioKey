@@ -185,7 +185,7 @@ CREATE TABLE `tipo_solicitud` (
 CREATE TABLE `usuarios` (
   `ID_USU` bigint(20) NOT NULL,
   `CORREO_USU` varchar(50) NOT NULL,
-  `ALIAS_USU` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `ALIAS_USU` varchar(40) NOT NULL,
   `PASS_USU` varchar(50) NOT NULL,
   `NOM_USU` varchar(40) NOT NULL,
   `APE_USU` varchar(40) NOT NULL,
@@ -299,7 +299,7 @@ ALTER TABLE `tipo_solicitud`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`ID_USU`),
-  ADD UNIQUE KEY `uniAliasUsu` (`ALIAS_USU`),
+  ADD UNIQUE KEY `ALIAS_USU` (`ALIAS_USU`),
   ADD UNIQUE KEY `CORREO_USU` (`CORREO_USU`);
 
 --
