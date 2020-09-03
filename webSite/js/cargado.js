@@ -46,3 +46,47 @@ $(".cerrarLogin").on("click", function() {
 
     }, 700)
 });
+
+
+
+
+
+$(".btnEnvio").on("click", function() {
+    crearModalEsperaLogin();
+    login();
+});
+
+function login() {
+    var dataArray = $('.' + 'formLogin').serializeArray(),
+        dataObj = {};
+    $(dataArray).each(function(i, field) {
+        dataObj[field.name] = field.value;
+    });
+
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        data: { "loginAccess": dataObj },
+        type: "POST",
+        url: "./controller/access.php",
+        success: function(loginVerify) {
+            console.log(loginVerify);
+        }
+    });
+}
+
+
+function crearModalEsperaLogin() {
+    $('.btnEnvio').prop('disabled', true);
+    var modal = "<div class='modalEspera'><div class='circleModalEspera'></div></div>";
+    $("body").append(modal);
+}
+
+function cerrarModalEspera() {
+    $(".modalEspera").css("opacity", "0");
+    setTimeout(function() {
+        $(".modalEspera").remove();
+    }, 500);
+}

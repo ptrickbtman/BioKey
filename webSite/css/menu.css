@@ -38,32 +38,6 @@ i {
   -webkit-box-shadow: 0 0 25px #45c9ce;
   animation: spinner 2000ms infinite linear;
 }
-@keyframes spinner {
-  25% {
-    box-shadow: 0 0 25px #ce4573;
-    -o-box-shadow: 0 0 25px #ce4573;
-    -moz-box-shadow: 0 0 25px #ce4573;
-    -webkit-box-shadow: 0 0 25px #ce4573;
-  }
-  50% {
-    box-shadow: 0 0 25px #a745ce;
-    -o-box-shadow: 0 0 25px #a745ce;
-    -moz-box-shadow: 0 0 25px #a745ce;
-    -webkit-box-shadow: 0 0 25px #a745ce;
-  }
-  75% {
-    box-shadow: 0 0 25px #aace45;
-    -o-box-shadow: 0 0 25px #aace45;
-    -moz-box-shadow: 0 0 25px #aace45;
-    -webkit-box-shadow: 0 0 25px #aace45;
-  }
-  100% {
-    box-shadow: 0 0 25px #4ace45;
-    -o-box-shadow: 0 0 25pxrgb 74, 206, 69;
-    -moz-box-shadow: 0 0 25px #4ace45;
-    -webkit-box-shadow: 0 0 25px #4ace45;
-  }
-}
 
 .menu {
   position: fixed;
@@ -104,14 +78,11 @@ i {
   text-align: right;
   cursor: default;
 }
-.menu .contLogin .contLogin p {
+.menu .contLogin .contLogin i {
   font-size: calc(22px);
   color: white;
   transition: 0.3s;
   text-align: left;
-}
-.menu .contLogin .contLogin p:hover {
-  letter-spacing: 2px;
 }
 .menu .contLoginOn {
   cursor: default;
@@ -343,6 +314,55 @@ i {
   }
   100% {
     opacity: 1;
+  }
+}
+.modalEspera {
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  position: fixed;
+  opacity: 1;
+  z-index: 10001;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.modalEspera .circleModalEspera {
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 100%;
+  border-top: 1px solid white;
+  -o-box-shadow: 0 0 25px #45c9ce;
+  -moz-box-shadow: 0 0 25px #45c9ce;
+  -webkit-box-shadow: 0 0 25px #45c9ce;
+  animation: spinner 2000ms infinite linear;
+}
+
+@keyframes spinner {
+  25% {
+    box-shadow: 0 0 25px #ce4573;
+    -o-box-shadow: 0 0 25px #ce4573;
+    -moz-box-shadow: 0 0 25px #ce4573;
+    -webkit-box-shadow: 0 0 25px #ce4573;
+  }
+  50% {
+    box-shadow: 0 0 25px #a745ce;
+    -o-box-shadow: 0 0 25px #a745ce;
+    -moz-box-shadow: 0 0 25px #a745ce;
+    -webkit-box-shadow: 0 0 25px #a745ce;
+  }
+  75% {
+    box-shadow: 0 0 25px #aace45;
+    -o-box-shadow: 0 0 25px #aace45;
+    -moz-box-shadow: 0 0 25px #aace45;
+    -webkit-box-shadow: 0 0 25px #aace45;
+  }
+  100% {
+    box-shadow: 0 0 25px #4ace45;
+    -o-box-shadow: 0 0 25pxrgb 74, 206, 69;
+    -moz-box-shadow: 0 0 25px #4ace45;
+    -webkit-box-shadow: 0 0 25px #4ace45;
   }
 }
 
