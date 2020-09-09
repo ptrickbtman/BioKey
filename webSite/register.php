@@ -7,9 +7,10 @@
     <title>BioKey</title>
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="js/jquery.js">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="library/jquery.js"></script>
+    <script src="js/jquery.js"></script>
+    
+
     <script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
 </head>
 
@@ -17,13 +18,13 @@
     
     <?php
         include 'controller/menu.php';
-        include 'controller/register.php';
         DesplegarMenu();
-        DesplegarFormulario();
+        include "view/register.php";
     ?>
 
 
     <!--  Script  -->
+    <script src="js/registrar.js"></script>
     <script src="js/cargado.js"></script>
 </body>
 

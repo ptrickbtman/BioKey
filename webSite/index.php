@@ -20,8 +20,6 @@
     DesplegarMenu();
     ?>
 
-    
-
     <div class="cover">
         <div class="leftCover"></div>
         <div class="rightCover">

@@ -53,16 +53,11 @@ $(".cerrarLogin").on("click", function() {
 
 $(".btnEnvio").on("click", function() {
     crearModalEsperaLogin();
-    login();
+    login("formLogin");
 });
 
-function login() {
-    var dataArray = $('.' + 'formLogin').serializeArray(),
-        dataObj = {};
-    $(dataArray).each(function(i, field) {
-        dataObj[field.name] = field.value;
-    });
-
+function login(nombreForm) {
+    var dataObj = obtenerDatosForm(nombreForm);
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
@@ -70,13 +65,24 @@ function login() {
         async: true,
         data: { "loginAccess": dataObj },
         type: "POST",
-        url: "./controller/access.php",
+        url: "./ajax/access.php",
         success: function(loginVerify) {
             console.log(loginVerify);
         }
     });
 }
 
+
+/////////////////////////////////////////////////////////
+
+function obtenerDatosForm(nombreForm) {
+    var dataArray = $('.' + nombreForm).serializeArray(),
+        dataObj = {};
+    $(dataArray).each(function(i, field) {
+        dataObj[field.name] = field.value;
+    });
+    return dataObj;
+}
 
 function crearModalEsperaLogin() {
     $('.btnEnvio').prop('disabled', true);

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+//session_destroy();
 // fin login
 function DesplegarMenu() {
     $data = 1;
@@ -10,12 +10,4 @@ function DesplegarMenu() {
     }
     include 'view/menu.php';
 }
-    
-
-
-
-
-
-
-
 ?>
