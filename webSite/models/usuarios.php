@@ -2,7 +2,8 @@
 
 
 class usuario
-{
+{   
+    protected $id;
     protected $email;
     protected $alias;
     protected $pass;
@@ -11,16 +12,29 @@ class usuario
     protected $cell;
     protected $date;
     protected $estado;
+    protected $hora;
     
-    public function __construct($email , $alias, $pass, $name, $surname, $cell , $date, $estado)
+    public function __construct($id, $email , $alias, $pass, $name, $surname, $cell , $date, $estado , $hora)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->alias = $alias;
         $this->pass = $pass;
-        $this->surname = $name;
-        $this->cell = $surname;
-        $this->date = $cell;
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->cell = $cell;
+        $this->date = $date;
         $this->estado = $estado;
+        $this->hora = $$hora;
+    }
+    function get_id_user()
+    {
+        return $this->id;
+    }
+
+    function set_id_user($id)
+    {
+        $this->id = $id;
     }
 
     function get_email()
@@ -103,6 +117,19 @@ class usuario
     {
         $this->estado = $t;
     }
+
+    function get_hora()
+    {
+        return $this->hora;
+    }
+
+    function set_hora($t)
+    {
+        $this->hora = $t;
+    }
+
+
+
 
 }
 

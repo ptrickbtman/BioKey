@@ -5,7 +5,7 @@ include "../controller/usuario.php";
 if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     $data = $_POST['loginAccess']; // user and pass
     
-    $user = new usuariosDB(null,null,null,null,null,null,null,null);
+    $user = new usuariosDB(null,null,null,null,null,null,null,null,null,null);
 
 
     if(validarEmail($data["user"]) ){
@@ -15,8 +15,18 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     }
     $user->set_pass($data["passUser"]);
     
-    print_r($user) ;
-    echo $user->findUsu();
+    $user =  $user->accessUsu($user);
+    
+    if($user->get_id_user() != "" ){
+        session_start();
+        session_regenerate_id();
+        $_SESSION['usuario'] = $user;
+    }
+
+    print_r( $_SESSION['usuario']);
+    
+
+    
 
     /*
     if($ilUsuario->findUsu()){

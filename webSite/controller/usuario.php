@@ -20,10 +20,10 @@ class usuariosDB extends usuario {
         
 	}
 
-	
-	public function findUsu(){
+
+	public function accessUsu(){
 		$con = conexion();
-		$sql = "SELECT `PASS_USU` FROM usuarios WHERE";
+		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
 		$data = $this->email;
 		if($data == "" ){
 			$sql .= " `ALIAS_USU` = '" .$this->alias."'";
@@ -33,13 +33,17 @@ class usuariosDB extends usuario {
 
 		if ($resultado = $con->query($sql)) {
 			$dataQueryPass = $resultado->fetch_assoc();
-			if($dataQueryPass['PASS_USU']== $this->pass){
-				return "paso";
-			}else{
-				return "No paso";
+			if($dataQueryPass['PASS_USU'] == $this->get_pass() ){
+				$this->set_id_user($dataQueryPass['ID_USU']);
+				$this->set_name($dataQueryPass['NOM_USU']);
+				$this->set_surname($dataQueryPass['APE_USU']);
+				$this->set_alias($dataQueryPass['ALIAS_USU']);
+				$this->set_name($dataQueryPass['NOM_USU']);
+				$this->set_estado($dataQueryPass['EST_USU']);
+				$this->set_hora(date("i"));
+				$this->set_pass("");
+				return $this;
 			}
-		}else{
-			return "Error de consulta";
 		}
 	}
 }

@@ -17,9 +17,16 @@
 <body>
     
     <?php
+
         include 'controller/menu.php';
         DesplegarMenu();
         include "view/register.php";
+        
+        if(isset($_SESSION["usuario"])){
+            header("Location:index.php");
+        }else{
+            echo "no";
+        }
     ?>
 
 
