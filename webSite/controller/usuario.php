@@ -43,6 +43,7 @@ class usuariosDB extends usuario {
 				$this->set_hora(date("i"));
 				$this->set_pass("");
 				return $this;
+				
 			}
 		}
 	}
