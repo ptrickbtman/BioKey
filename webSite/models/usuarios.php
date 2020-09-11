@@ -12,7 +12,7 @@ class usuario
     protected $cell;
     protected $date;
     protected $estado;
-    protected $hora;
+ 
     
     public function __construct($id, $email , $alias, $pass, $name, $surname, $cell , $date, $estado , $hora)
     {
@@ -118,15 +118,7 @@ class usuario
         $this->estado = $t;
     }
 
-    function get_hora()
-    {
-        return $this->hora;
-    }
-
-    function set_hora($t)
-    {
-        $this->hora = $t;
-    }
+  
 
 
 

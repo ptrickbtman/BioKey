@@ -24,18 +24,7 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     }
 
     print_r( $_SESSION['usuario']);
-    
-
-    
-
-    /*
-    if($ilUsuario->findUsu()){
-        echo "paso";
-    }else{
-        echo "no paso";
-    }
-    */
-    
+  
     
 }
 
