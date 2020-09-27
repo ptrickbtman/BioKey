@@ -1,0 +1,113 @@
+body {
+  background-color: #000;
+}
+
+.containerVerify {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerVerify .left {
+  width: 90%;
+  height: 50%;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerVerify .left .contLeft {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.containerVerify .left .contLeft .contVeryfu {
+  width: 90%;
+  margin: 0 auto;
+}
+.containerVerify .left .contLeft .contVeryfu .titulo {
+  font-size: calc(20px + 2vh);
+  color: white;
+  line-height: calc(20px + 3vh);
+  margin-bottom: 15px;
+}
+.containerVerify .left .contLeft .contVeryfu .subTit {
+  font-size: calc(15px + 1vh);
+  margin-bottom: 15px;
+}
+.containerVerify .left .contLeft .contVeryfu .codeInput {
+  width: 100%;
+  height: 30px;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+}
+.containerVerify .left .contLeft .contVeryfu .btnVerify {
+  margin-top: 20px;
+  width: 80%;
+  height: calc(20px + 2vh);
+  border: none;
+  cursor: pointer;
+  background-color: #45c9ce;
+  color: white;
+  font-size: calc(10px + 1vh);
+  box-shadow: 0px 0px 10px #45c9ce;
+  border: 1px solid #45c9ce;
+  transition: 0.3s;
+}
+.containerVerify .left .contLeft .contVeryfu .btnVerify:hover {
+  background-color: black;
+  color: #45c9ce;
+  letter-spacing: 2px;
+}
+@media screen and (min-width: 992px) {
+  .containerVerify .left {
+    width: 70%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .containerVerify .left:after {
+    position: absolute;
+    content: "";
+    top: 0vw;
+    left: 0px;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.75);
+    -webkit-filter: blur(8vw);
+    -moz-filter: blur(8vw);
+    -ms-filter: blur(8vw);
+    filter: blur(8vw);
+    background: linear-gradient(270deg, #0fffc1, #7e0fff);
+    background-size: 250% 250%;
+    animation: animateGlow 4s ease infinite;
+  }
+  @keyframes animateGlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .containerVerify .left .contLeft .contVeryfu {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .containerVerify .left .contLeft .contVeryfu .btnVerify {
+    margin-top: 20px;
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=perfil.css.map */

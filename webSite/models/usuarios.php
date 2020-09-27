@@ -14,7 +14,7 @@ class usuario
     protected $estado;
  
     
-    public function __construct($id, $email , $alias, $pass, $name, $surname, $cell , $date, $estado , $hora)
+    public function __construct($id, $email , $alias, $pass, $name, $surname, $cell , $date, $estado )
     {
         $this->id = $id;
         $this->email = $email;
@@ -25,7 +25,7 @@ class usuario
         $this->cell = $cell;
         $this->date = $date;
         $this->estado = $estado;
-        $this->hora = $$hora;
+
     }
     function get_id_user()
     {

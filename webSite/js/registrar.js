@@ -22,6 +22,10 @@ function enviarData(dataObj) {
         url: "./ajax/register.php",
         success: function(loginVerify) {
             console.log(loginVerify);
+            if (loginVerify == "1") {
+                window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/index.php");
+
+            }
         }
     });
 }

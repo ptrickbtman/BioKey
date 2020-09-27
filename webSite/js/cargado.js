@@ -56,6 +56,10 @@ $(".btnEnvio").on("click", function() {
     login("formLogin");
 });
 
+$(".btnRegistr").on("click", function() {
+    window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/register.php");
+});
+
 function login(nombreForm) {
     var dataObj = obtenerDatosForm(nombreForm);
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
@@ -68,6 +72,9 @@ function login(nombreForm) {
         url: "./ajax/access.php",
         success: function(loginVerify) {
             console.log(loginVerify);
+            if (loginVerify == "1") {
+                window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/perfil.php");
+            }
         }
     });
 }
@@ -85,7 +92,7 @@ function obtenerDatosForm(nombreForm) {
 }
 
 function crearModalEsperaLogin() {
-    $('.btnEnvio').prop('disabled', true);
+    // $('.btnEnvio').prop('disabled', true);
     var modal = "<div class='modalEspera'><div class='circleModalEspera'></div></div>";
     $("body").append(modal);
 }

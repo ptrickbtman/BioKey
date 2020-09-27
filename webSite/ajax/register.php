@@ -1,7 +1,7 @@
 <?php
 
 include '../controller/usuario.php';
-include "validacionTxtNumEmail.php";
+include "../controller/validacionTxtNumEmail.php";
 
 if ( isset($_POST['dataRegis']) ) {
     $data = $_POST['dataRegis'];
