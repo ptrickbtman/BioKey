@@ -188,7 +188,7 @@ CREATE TABLE `usuarios` (
   `ID_USU` bigint(20) NOT NULL,
   `CORREO_USU` varchar(50) NOT NULL,
   `ALIAS_USU` varchar(40) NOT NULL,
-  `PASS_USU` varchar(50) NOT NULL,
+  `PASS_USU` varchar(255) NOT NULL,
   `NOM_USU` varchar(40) NOT NULL,
   `APE_USU` varchar(40) NOT NULL,
   `TEL_USU` decimal(9,0) NOT NULL,
