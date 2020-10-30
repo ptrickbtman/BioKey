@@ -23,14 +23,11 @@ $(".hamburger").on("click", function() {
 // login modal
 
 $(".abrirModal").on("click", function() {
-
     $(".contLogin").addClass("contLoginOn")
     $(".modalLogin").addClass("modalLoginOn");
     setTimeout(function() {
         $(".contLoginBinary").addClass("contLoginBinaryOn");
         $(".contModalLogin").addClass("contModalLoginOn");
-
-
     }, 600)
 });
 
@@ -57,7 +54,7 @@ $(".btnEnvio").on("click", function() {
 });
 
 $(".btnRegistr").on("click", function() {
-    window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/register.php");
+    window.location.replace("http://192.168.64.2/BioKey/webSite/register.php");
 });
 
 function login(nombreForm) {
@@ -73,7 +70,7 @@ function login(nombreForm) {
         success: function(loginVerify) {
             console.log(loginVerify);
             if (loginVerify == "1") {
-                window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/perfil.php");
+                window.location.replace("http://192.168.64.2/BioKey/webSite/perfil.php");
             }
         }
     });

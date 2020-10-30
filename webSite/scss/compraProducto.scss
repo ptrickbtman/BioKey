@@ -1,0 +1,136 @@
+body {
+    background-color: #000;
+}
+
+@mixin centrado() {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    .contForm {
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        transition: 0.1s;
+        @include centrado();
+        opacity: 0;
+        form {
+            width: 80%;
+            text-align: left;
+            input,
+            label {
+                display: block;
+            }
+            .tittleForm {
+                font-size: calc(13px + 1vh);
+                color: white;
+            }
+            label {
+                color: white;
+                font-size: calc(10px + 1vh);
+            }
+            input {
+                width: 100%;
+                margin-bottom: 8px;
+                height: calc(13px + 1.5vh);
+            }
+            .tittleForm {
+                font-size: calc(13px + 2vh);
+                color: white;
+                text-shadow: 0 0 7px yellow;
+                margin-bottom: 5px;
+            }
+            .next {
+                opacity: 0;
+                width: 50%;
+                height: 30px;
+                margin-top: 5px;
+                float: right;
+                background-color: yellow;
+                box-shadow: 0 0 10px 5px yellow;
+                @include centrado();
+                font-weight: 500;
+                font-family: 'Quicksand', sans-serif;
+                transition: 0.4s;
+                transition-delay: 0.5s;
+                cursor: pointer;
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+            .nextActive {
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            .back {
+                opacity: 1;
+                width: 23%;
+                height: 30px;
+                margin-top: 5px;
+                float: left;
+                background-color: rgb(91, 196, 231);
+                box-shadow: 0 0 10px 5px rgb(91, 196, 231);
+                @include centrado();
+                font-weight: 500;
+                font-family: 'Quicksand', sans-serif;
+                transition: 0.4s;
+                color: white;
+                cursor: pointer;
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+            .backActive {
+                opacity: 1;
+                transition-delay: 0s;
+            }
+        }
+    }
+    .contForm2 {
+        width: 0%;
+        transition: 0s;
+    }
+    .contForm2Active {
+        width: 100%;
+        transition: 0s;
+    }
+    .contFormActive {
+        transition: 0.5s;
+        opacity: 1;
+    }
+    .right {
+        width: 100%;
+        height: 0%;
+        overflow: hidden;
+    }
+    @media screen and(min-width:992px) {
+        .contForm2Active {
+            width: 60%;
+            transition: 0s;
+        }
+        .contFormActive {
+            width: 60%;
+        }
+        .contForm {
+            z-index: 9;
+        }
+        .right {
+            position: absolute;
+            height: 100vh;
+            width: 50%;
+            right: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("../medias/img/neon.jpg");
+            z-index: 7;
+            opacity: 0.4;
+        }
+    }
+}

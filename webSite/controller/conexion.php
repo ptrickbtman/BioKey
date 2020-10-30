@@ -3,14 +3,15 @@ function conexion(){
     $server = "localhost";
 	$user = "root";
 	$pass = "";
-	$bd = "bdBioKey";
+	$bd = "bdBioKey2";
 
 	$con = mysqli_connect($server, $user, $pass, $bd);
 
-//	if (!$con) {
-// 	echo("Conexion fallida: " . mysqli_connect_error());
-//	}
-//	echo "Conexion establecida";
+	//if (!$con) {
+ 	//echo("Conexion fallida: " . mysqli_connect_error());
+	//}
+	//echo "Conexion establecida";
     return $con;
 }   
+
 ?>

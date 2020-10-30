@@ -23,8 +23,10 @@ function enviarData(dataObj) {
         success: function(loginVerify) {
             console.log(loginVerify);
             if (loginVerify == "1") {
-                window.location.replace("http://192.168.64.5/Proyectos/BioKey/webSite/index.php");
+                window.location.replace("http://192.168.64.2/BioKey/webSite/index.php");
 
+            } else {
+                console.log("no");
             }
         }
     });

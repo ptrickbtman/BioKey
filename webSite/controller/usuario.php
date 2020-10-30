@@ -1,32 +1,29 @@
 <?php
-
 //include 'conexion.php';
 include "../models/usuarios.php";
-
-// class
-
 class usuariosDB extends usuario {
     
     public function insertUsu(){
 		include 'conexion.php';
         $con = conexion();
 		$sql = "INSERT INTO usuarios (`CORREO_USU`, `ALIAS_USU`, `PASS_USU`, `NOM_USU`, `APE_USU`, `TEL_USU`, `FECHA_USU`, `EST_USU`) VALUES ('".$this->email."', '".$this->alias."' , '".$this->pass."', '".$this->name."', '".$this->surname."', '".$this->cell."', '".$this->date."', '".$this->estado."')";
-		if ($con->query($sql) === TRUE) {
+		if ($con->query($sql)) {
 			$con->close();
-			return true;
+			return True;
 		} else {
 			$con->close();
-			return false;
+			return $con -> error;
         }
         
 	}
 
-
 	public function accessUsu(){
 		include 'conexion.php';
+		include 'hashToSalted.php';
 		$con = conexion();
 		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
 		$data = $this->email;
+
 		if($data == "" ){
 			$sql .= " `ALIAS_USU` = '" .$this->alias."'";
 		}else{
@@ -35,7 +32,7 @@ class usuariosDB extends usuario {
 
 		if ($resultado = $con->query($sql)) {
 			$dataQueryPass = $resultado->fetch_assoc();
-			if($dataQueryPass['PASS_USU'] == $this->get_pass() ){
+			if(hashVerify($dataQueryPass['PASS_USU'] , $this->get_pass())){
 				$this->set_id_user($dataQueryPass['ID_USU']);
 				$this->set_name($dataQueryPass['NOM_USU']);
 				$this->set_surname($dataQueryPass['APE_USU']);
@@ -61,6 +58,4 @@ class usuariosDB extends usuario {
 
 	
 }
-
-
 ?>

@@ -8,7 +8,7 @@
         $data = $_POST['codigoProducto']; // dataVerify
      
         $user = $_SESSION["usuario"];
-        $cerradura = new cerraduraBD (null,null,null,null,null);
+        $cerradura = new cerraduraBD (null,null,null,null,null,null,null);
         //print_r($user);
 
         

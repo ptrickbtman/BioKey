@@ -1,16 +1,19 @@
 <?php 
 
     function generarCodigo(){
+        $data = "";
         for($i = 0 ; $i<=19 ; $i++){
             if ($i==4 || $i==9 ||  $i==14   ){
-                $data ="-";
+                $data .="-";
             }else if($i%2 ==0 && $i!=4 && $i!=9 &&  $i!=14 ){
-                $data = rand(1,9);
+                $data .= (String)rand(1,9);
             }else{
-                $data = chr(rand(ord("a"), ord("z")));
+                $data .= chr(rand(ord("a"), ord("z")));
             }
-            return $data;
+            
         }
+        return $data;
     }
+    echo generarCodigo();
 
 ?>

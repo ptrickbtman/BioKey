@@ -4,7 +4,7 @@ include "../controller/usuario.php";
 
 if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     $data = $_POST['loginAccess']; // user and pass
-    $user = new usuariosDB(null,null,null,null,null,null,null,null,null,null);
+    $user = new usuariosDB(null,null,null,null,null,null,null,null,null);
     
     if(validarEmail($data["user"]) ){
         $user->set_email($data["user"]);

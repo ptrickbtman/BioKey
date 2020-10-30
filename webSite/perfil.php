@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioKey</title>
-    <link rel="stylesheet" href="css/perfil.css">    
+    <link rel="stylesheet" href="css/perfil.css"> 
+    <!-- para el menu -->   
     <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/jquery.js"></script>

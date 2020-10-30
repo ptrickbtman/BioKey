@@ -10,7 +10,7 @@
                     <label>Email:</label>
                     <input type="email" name="email_usu">
                     <label>Nombre usuario:</label>
-                    <input type="email" name="alias_usu">
+                    <input type="text" name="alias_usu">
                     
                     <label>Nombre:</label>
                     <input type="text" name="nombre_usu">
