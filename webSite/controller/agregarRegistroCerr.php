@@ -1,13 +1,13 @@
 <?php  
 if (isset($_GET["idc"])){
-	include 'cerradura.php';
+	include 'registroCerrBd.php';
 	$con = conexion();
 	date_default_timezone_set("America/Santiago");
 	$fecha_act = date("d-m-Y G:i");
-	$cerradura = new cerraduraBD($_GET["idc"], null, null, $fecha_act, null);
+	$registro = new registroCerrBD(null, $_GET["idc"], $_GET["idt"], null, $fecha_act);
 	
 
-	echo "-0#".$cerradura->actualizarCerradura()."#0-";
+	echo "-0#".$registro->agregarRegistro()."#0-";
 }else{
 	echo "-0#error#0-";
 }

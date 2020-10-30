@@ -9,8 +9,6 @@
     funciones get_ && set_ + variable
 
 */
-
-
     include "../models/cerraduras.php";
     include 'conexion.php';
 
@@ -44,12 +42,12 @@
             $con = conexion();
             $sql = "UPDATE `cerraduras` SET `DATE_CERR`= '". $this->fecha_cerradura."' WHERE  `COD_CERR` = ". $this->cod_cerradura . "";
             if($con->query($sql)){
-                $sql = "SELECT `ID_USU`, `PASS_CERR`, `DATE_CERR` FROM cerraduras WHERE `ID_USU` = ".$this->cod_cerradura;
+                $sql = "SELECT `SSID_RED`, `PASS_RED`, `PASS_CERR` FROM cerraduras WHERE `ID_USU` = ".$this->cod_cerradura;
                 $datos = $con->query($sql);
                 $registros;
                 if ($datos->num_rows > 0) {
                     while($reg = $datos->fetch_assoc()) {
-                        $registros = json_encode(array($this->cod_cerradura,$reg["ID_USU"],$reg["PASS_CERR"], $reg["DATE_CERR"]));
+                        $registros = $reg["SSID_RED"].",".$reg["PASS_RED"].";".$reg["PASS_CERR"];
                     }
 
                 } else {
