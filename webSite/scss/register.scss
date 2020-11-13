@@ -1,167 +1,96 @@
-body {
-    background: black;
-}
-
-$glow: rgb(69, 201, 206);
-@mixin centrado {
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: rgb(243, 159, 123);
+$color4: rgb(8, 2, 56);
+@mixin centrado() {
     justify-content: center;
     align-items: center;
     display: flex;
 }
 
-.container {
+.cover {
     width: 100%;
-    height: calc(100vh - 0px);
-    //background-color: #fff;
-    .right {
-        position: absolute;
+    height: 100vh;
+    background-color: rgba($color: $color1, $alpha: 0.4);
+    background-size: cover;
+    background-image: url("../medias/bgk3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    .leftCover {
         width: 100%;
-        height: 100%;
+        height: 0%;
+        /*
+        background-size: cover;
+        background-image: url("../medias/profesional3.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        */
+        transform: rotate(180deg);
+    }
+    .rightCover {
+        width: 100%;
+        height: 100vh;
         @include centrado();
-        .contRight {
+        form {
+            text-align: left;
             width: 90%;
-            height: 80%;
-            @include centrado();
-            form {
-                width: 90%;
-                text-align: center;
-                .tittleReg {
-                    color: white;
-                    font-size: 35px;
-                    font-weight: 500;
+            input,
+            label {
+                display: block;
+            }
+            .tittleFormReg {
+                font-size: calc(20px + 7vh);
+                line-height: calc(20px + 5vh);
+                font-weight: 600;
+                color: white;
+            }
+            label {
+                margin-top: 8px;
+                color: rgba(255, 255, 255, 1);
+                transition: 0.3s;
+                &.error {
+                    color: rgb(240, 86, 86);
                 }
-                label {
-                    margin-top: 5px;
-                    color: white;
-                    text-align: left;
-                    display: block;
-                    width: 100%;
-                }
-                input {
-                    display: block;
-                    margin: 0 auto;
-                    width: 100%;
-                    border: none;
-                    height: 20px;
-                    font-size: 16px;
-                }
-                .btnReg {
-                    margin-top: 20px;
-                    height: 40px;
-                    font-size: 20px;
-                    background-color: $glow;
-                    box-shadow: 0 0 10px $glow;
-                    text-shadow: 0 0 10px #000;
-                    -moz-box-shadow: 0 0 10px $glow;
-                    -moz-text-shadow: 0 0 10px #000;
-                    -o-box-shadow: 0 0 10px $glow;
-                    -o-text-shadow: 0 0 10px #000;
-                    -webkit-box-shadow: 0 0 10px $glow;
-                    -webkit-text-shadow: 0 0 10px #000;
+            }
+            input {
+                width: 100%;
+                border: none;
+                height: 25px;
+            }
+            .registrar {
+                background-color: $color3;
+                height: 40px;
+                margin-top: 10px;
+                color: white;
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: capitalize;
+                border-radius: 5px;
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    letter-spacing: 2.5px;
                 }
             }
         }
     }
-    @media screen and(min-width: 992px) {}
-}
-
-@media screen and(min-width:992px) {
-    .container {
-        .left {
-            width: 40%;
-            height: 100%;
-            float: left;
-            @include centrado();
-        }
-        .right {
-            position: relative;
-            width: 60%;
+    @media screen and(min-width:992px) {
+        .leftCover {
+            width: 50%;
             height: 100%;
             float: right;
-            @include centrado();
-            .contRight {
-                height: 80%;
-                form {
-                    width: 50%;
-                    .tittleReg {
-                        font-size: calc(20px + 2.5vh);
-                        text-align: left;
-                    }
-                    label {
-                        margin-top: 10px;
-                        height: calc(14px + 1vh);
-                    }
-                    input {
-                        height: calc(18px + 1vh);
-                    }
-                    .btnReg {
-                        height: calc(20px + 4vh);
-                        font-size: calc(14px + 1vh);
-                        border: 2px solid $glow;
-                        transition: 0.4s;
-                        cursor: pointer;
-                        color: black;
-                        &:hover {
-                            background-color: transparent;
-                            color: $glow;
-                            letter-spacing: 2px;
-                            text-shadow: 0 0 10px $glow;
-                            -moz-text-shadow: 0 0 10px $glow;
-                            -o-text-shadow: 0 0 10px $glow;
-                            -webkit-text-shadow: 0 0 10px $glow;
-                        }
-                    }
+        }
+        .rightCover {
+            width: 50%;
+            height: 100vh;
+            float: left;
+            form {
+                width: 80%;
+                input {
+                    margin-top: 10px;
                 }
             }
         }
     }
 }
-
-// efecto glow en div
-// nooo tocarrrrrrrrr
-@mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
-    &:after {
-        position: absolute;
-        content: "";
-        top: $y;
-        left: $x;
-        right: 0;
-        z-index: -1;
-        height: 100%;
-        width: 100%;
-        margin: 0 auto;
-        transform: scale($size);
-        -webkit-filter: blur($spread);
-        -moz-filter: blur($spread);
-        -ms-filter: blur($spread);
-        filter: blur($spread);
-        background: linear-gradient(270deg, $colorA, $colorB);
-        background-size: 250% 250%;
-        animation: animateGlow 4s ease infinite;
-        @keyframes animateGlow {
-            0% {
-                background-position: 0% 50%
-            }
-            50% {
-                background-position: 100% 50%
-            }
-            100% {
-                background-position: 0% 50%
-            }
-        }
-    }
-}
-
-@media screen and(min-width:992px) {
-    .contRight {
-        position: relative;
-        text-align: center;
-        color: #252B37;
-        background-color: black;
-        //animation: textColor 1s ease infinite;
-        @include backlight(-200px, 0vw, 8vw, 0.75, #0fffc1, #7e0fff, 10s);
-        @include centrado();
-    }
-}
-
-/////// finn glow div form

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include "../controller/cerradura.php";
-    include "../controller/usuario.php";
+    include "../controller/usuarioBD.php";
 
     if (isset($_POST["codigoProducto"]) && isset($_SESSION["usuario"]) && !empty($_SESSION['usuario'])){
         

@@ -1,6 +1,6 @@
 <?php
 include "../controller/validacionTxtNumEmail.php";
-include "../controller/usuario.php";
+include "../controller/usuarioBD.php";
 
 if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     $data = $_POST['loginAccess']; // user and pass
@@ -11,23 +11,19 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     }else{
         $user->set_alias($data["user"]);
     }
-
-    $user->set_pass($data["passUser"]);
-    $user =  $user->accessUsu($user);
-
-    //print_r($user);
+ 
+    $user->set_pass($data["pass"]);
     
-    
-    if($user->get_id_user() != "" ){ 
+    if($user->accessUsu($user)){
         session_start();
         session_regenerate_id();
         $usuario =[$user->get_id_user(), $user->get_alias(),$user->get_name(),$user->get_surname(),$user->get_estado()];
         $_SESSION["usuario"] = $usuario;
         echo 1;
+    }else{
+        echo -1;
     }
-    
-    
-    
+      
 }
 
 ?>

@@ -1,58 +1,51 @@
-<!--  crear funcion para llamar al codigo -->
 
-<div class="loader">
-        <div class="circle"></div>
+<?php 
+
+function menu(){?>
+<div class="loading">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>
     </div>
 
     <div class="menu">
-        <div class="logo">
-            <p>BK</p>
-        </div>
-
-
 
         <div class="hamburger">
             <div class="stick stick1"></div>
             <div class="stick stick2"></div>
-            <div class="stick stick3"></div>
         </div>
 
-        <?php 
-            if($data ==1){ 
-        ?> 
-        <div class="contLogin">
-            <div class="contLogin">
-                <i class="fas fa-sign-in-alt abrirModal"></i>
-            </div>
+        <div class="login">
+            <i class="fas fa-sign-in-alt access"></i>
         </div>
-        <?php
-            }
-        ?>    
 
     </div>
 
-    <div class="modalLogin">
-        <div class="contLoginBinary">
-            <div class="contLoginBinary2">
-                <p class="textBinary">01010100 01110010 01100001 01100010 01100001 01101010 01100001 01101101 01101111 01110011 00100000 01110000 01100001 01110010 01100001 00100000 01110100 01101001</p>
-            </div>
-        </div>
-        <div class="contModalLogin">
+
+    <div class="loginCont">
+        <div class="leftForm">
             <form class="formLogin">
-                <p class="tittleForm">Bienvenido</p>
-                <label> Usuario o email</label>
-                <input type="text" name="user">
-                <label> Pass</label>
-                <input type="password" name="passUser">
-                <input type="button" class="btnEnvio" value="ingresar">
-                <p class="ir">¿No tienes cuenta? </p>
-                <span class="btnRegistr"> Click Aqui </span>
-                <i class="fas fa-chevron-left cerrarLogin"> Atras </i>
+                <p class="tittleForm tittleForm1">Bienvenido!</p>
+                <p class="tittleForm tittleForm2">Gracias por ser nuestro cliente.</p>
+                <label class="log1">Usuario o email:</label>
+                <input class="inputLogin inputLogin1" type="text" name="user">
+                <label class="log2" >Contraseña:</label>
+                <input class="inputLogin inputLogin2" type="password" name="pass">
+                <input type="button" class="btnLogin" value="Entrar">
+                <p class="recuperar">¿no tienes cuenta? registrate <span>aquí!</span></p>
+
             </form>
         </div>
+
+        <div class="rightForm">
+
+        </div>
     </div>
 
 
 
 
-    <!-- fin crear funcion para llamar al codigo -->
+    <!--   fin menu  -->
+<?php
+}
+?>
