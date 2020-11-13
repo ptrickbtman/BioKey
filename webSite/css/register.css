@@ -1,156 +1,89 @@
-body {
-  background: black;
-}
-
-.container {
+.cover {
   width: 100%;
-  height: calc(100vh - 0px);
+  height: 100vh;
+  background-color: rgba(60, 85, 166, 0.4);
+  background-size: cover;
+  background-image: url("../medias/bgk3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.container .right {
-  position: absolute;
+.cover .leftCover {
   width: 100%;
-  height: 100%;
+  height: 0%;
+  /*
+  background-size: cover;
+  background-image: url("../medias/profesional3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  */
+  transform: rotate(180deg);
+}
+.cover .rightCover {
+  width: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.container .right .contRight {
-  width: 90%;
-  height: 80%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-.container .right .contRight form {
-  width: 90%;
-  text-align: center;
-}
-.container .right .contRight form .tittleReg {
-  color: white;
-  font-size: 35px;
-  font-weight: 500;
-}
-.container .right .contRight form label {
-  margin-top: 5px;
-  color: white;
+.cover .rightCover form {
   text-align: left;
-  display: block;
-  width: 100%;
+  width: 90%;
 }
-.container .right .contRight form input {
+.cover .rightCover form input,
+.cover .rightCover form label {
   display: block;
-  margin: 0 auto;
+}
+.cover .rightCover form .tittleFormReg {
+  font-size: calc(20px + 7vh);
+  line-height: calc(20px + 5vh);
+  font-weight: 600;
+  color: white;
+}
+.cover .rightCover form label {
+  margin-top: 8px;
+  color: white;
+  transition: 0.3s;
+}
+.cover .rightCover form label.error {
+  color: #f05656;
+}
+.cover .rightCover form input {
   width: 100%;
   border: none;
-  height: 20px;
-  font-size: 16px;
+  height: 25px;
 }
-.container .right .contRight form .btnReg {
-  margin-top: 20px;
+.cover .rightCover form .registrar {
+  background-color: #f39f7b;
   height: 40px;
+  margin-top: 10px;
+  color: white;
   font-size: 20px;
-  background-color: #45c9ce;
-  box-shadow: 0 0 10px #45c9ce;
-  text-shadow: 0 0 10px #000;
-  -moz-box-shadow: 0 0 10px #45c9ce;
-  -moz-text-shadow: 0 0 10px #000;
-  -o-box-shadow: 0 0 10px #45c9ce;
-  -o-text-shadow: 0 0 10px #000;
-  -webkit-box-shadow: 0 0 10px #45c9ce;
-  -webkit-text-shadow: 0 0 10px #000;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.cover .rightCover form .registrar:hover {
+  letter-spacing: 2.5px;
 }
 @media screen and (min-width: 992px) {
-  .container .left {
-    width: 40%;
-    height: 100%;
-    float: left;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  .container .right {
-    position: relative;
-    width: 60%;
+  .cover .leftCover {
+    width: 50%;
     height: 100%;
     float: right;
-    justify-content: center;
-    align-items: center;
-    display: flex;
   }
-  .container .right .contRight {
-    height: 80%;
-  }
-  .container .right .contRight form {
+  .cover .rightCover {
     width: 50%;
+    height: 100vh;
+    float: left;
   }
-  .container .right .contRight form .tittleReg {
-    font-size: calc(20px + 2.5vh);
-    text-align: left;
+  .cover .rightCover form {
+    width: 80%;
   }
-  .container .right .contRight form label {
+  .cover .rightCover form input {
     margin-top: 10px;
-    height: calc(14px + 1vh);
-  }
-  .container .right .contRight form input {
-    height: calc(18px + 1vh);
-  }
-  .container .right .contRight form .btnReg {
-    height: calc(20px + 4vh);
-    font-size: calc(14px + 1vh);
-    border: 2px solid #45c9ce;
-    transition: 0.4s;
-    cursor: pointer;
-    color: black;
-  }
-  .container .right .contRight form .btnReg:hover {
-    background-color: transparent;
-    color: #45c9ce;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px #45c9ce;
-    -moz-text-shadow: 0 0 10px #45c9ce;
-    -o-text-shadow: 0 0 10px #45c9ce;
-    -webkit-text-shadow: 0 0 10px #45c9ce;
-  }
-}
-@media screen and (min-width: 992px) {
-  .contRight {
-    position: relative;
-    text-align: center;
-    color: #252B37;
-    background-color: black;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  .contRight:after {
-    position: absolute;
-    content: "";
-    top: 0vw;
-    left: -200px;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.75);
-    -webkit-filter: blur(8vw);
-    -moz-filter: blur(8vw);
-    -ms-filter: blur(8vw);
-    filter: blur(8vw);
-    background: linear-gradient(270deg, #0fffc1, #7e0fff);
-    background-size: 250% 250%;
-    animation: animateGlow 4s ease infinite;
-  }
-  @keyframes animateGlow {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
   }
 }
 

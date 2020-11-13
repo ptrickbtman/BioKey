@@ -1,366 +1,301 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-p,
-button,
-input,
-span,
-h1,
-h2,
-label,
-textarea,
-div,
-i {
-    font-family: 'Quicksand', sans-serif;
-}
-
-$glow: rgb(69, 201, 206);
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: rgb(243, 159, 123);
+$color4: rgb(8, 2, 56);
+//
 @mixin centrado() {
     justify-content: center;
     align-items: center;
     display: flex;
 }
 
-.loader {
-    height: 100%;
-    width: 100%;
-    top: 0;
+.loading {
     position: fixed;
-    background-color: black;
-    @include centrado();
+    width: 100%;
+    height: 100vh;
     z-index: 1000;
+    top: 0px;
+    background-color: $color3;
+    @include centrado();
+    opacity: 1;
     transition: 0.5s;
-    .circle {
+    .circular {
+        animation: rotate 2s linear infinite;
+        height: 100px;
+        transform-origin: center center;
+        width: 100px;
         position: absolute;
-        width: 60px;
-        height: 60px;
-        border-radius: 100px;
-        box-shadow: 0 0 25px rgb(69, 201, 206);
-        -o-box-shadow: 0 0 25px rgb(69, 201, 206);
-        -moz-box-shadow: 0 0 25px rgb(69, 201, 206);
-        -webkit-box-shadow: 0 0 25px rgb(69, 201, 206);
-        animation: spinner 2000ms infinite linear;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .path {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        stroke: white;
+        animation: dash 1.5s ease-in-out infinite;
+        stroke-linecap: round;
+    }
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -35px;
+        }
+        100% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -124px;
+            stroke: orange;
+        }
     }
 }
 
+//// menuuuuuuuuu
 .menu {
-    position: fixed;
     width: 100%;
     height: 80px;
+    position: fixed;
     top: 0;
-    color: white;
+    right: 0;
     z-index: 999;
-    .itemsServicios {
-        width: 100%;
-        position: absolute;
-        float: left;
-        height: 100px;
-        background-color: red;
-    }
-    .logo {
-        width: 80px;
+    .login,
+    .hamburger {
+        width: 90px;
         height: 100%;
-        float: left;
-        @include centrado();
-        p {
-            font-size: calc(22px);
-            color: white;
-        }
-    }
-    .contLogin {
-        height: 80px;
         float: right;
-        transition: 0.4s;
-        @include centrado();
-        .contLogin {
-            text-align: right;
-            cursor: default;
-            i {
-                font-size: calc(22px);
-                color: white;
-                transition: 0.3s;
-                text-align: left;
-            }
-        }
-    }
-    .contLoginOn {
-        cursor: default;
-        opacity: 0;
+        display: inline;
     }
     .hamburger {
-        float: right;
-        width: 80px;
-        height: 80px;
-        @include centrado();
         cursor: pointer;
+        @include centrado();
         .stick {
             position: absolute;
-            width: calc(10px + 2vh);
-            height: 1.5px;
-            background-color: #fff;
-            transition: 0.5s;
+            width: 42px;
+            height: 3px;
+            background-color: white;
+            transition: 0.3s;
+            &.stick1 {
+                transform: translateY(-5px);
+            }
+            &.stick2 {
+                transform: translateY(5px);
+            }
+            &.stick1On {
+                transform: translateY(0px) rotate(45deg);
+            }
+            &.stick2On {
+                transform: translateY(0px) rotate(-45deg);
+            }
         }
-        .stick1 {
-            transform: translateY(-7px);
-        }
-        .stick3 {
-            transform: translateY(7px);
-        }
-        .stick1On {
-            transform: translateY(0px) rotate(45deg);
-        }
-        .stick2On {
-            opacity: 0;
-        }
-        .stick3On {
-            transform: translateY(0px) rotate(-45deg);
+    }
+    .login {
+        width: auto;
+        @include centrado();
+        i {
+            padding: 2px;
+            color: white;
+            cursor: pointer;
+            font-size: calc(14px + 1vh);
+            /*
+            &:hover {
+                color: $color1;
+            }
+            */
         }
     }
 }
 
-.modalLogin {
-    width: 0%;
-    height: 100vh;
-    transition: 0.6s;
-    top: 0;
+/// login contenedor:
+.loginCont {
+    overflow: hidden;
+    width: 100%;
+    height: 0vh;
     position: fixed;
     z-index: 997;
-    @include centrado();
-    background-color: black;
-    right: 0;
-    .contLoginBinary {
-        opacity: 0;
-        width: 0%;
-        height: 0px;
-        overflow: hidden;
-        transition: 0.7s;
-    }
-    .contModalLogin {
-        width: 90%;
-        opacity: 0;
-        transition: 0.7s;
+    background-color: white;
+    bottom: 0;
+    opacity: 0;
+    transition: 1s;
+    .leftForm {
+        width: 100%;
+        height: 100%;
+        @include centrado();
         form {
-            width: 80%;
-            margin: 0 auto;
-            color: white;
+            width: 90%;
             text-align: center;
-            .cerrarLogin {
-                color: $glow;
-                text-shadow: 0 0 5px $glow;
-                margin-top: 20px;
-                font-size: 20px;
-            }
             p,
             label,
-            span,
-            input {
+            input,
+            button {
                 display: block;
                 margin: 0 auto;
+                transition: 0.3s;
             }
             .tittleForm {
-                font-size: 40px;
-                //text-shadow: 0 0 20px $glow;
+                font-size: calc(20px + 6vh);
+                line-height: calc(20px + 4vh);
+                font-weight: 600;
+                color: $color1;
+                letter-spacing: -1.3px;
+                color: $color4;
+                &.tittleForm2 {
+                    font-size: calc(13px + 1.2vh);
+                    font-weight: 400;
+                    color: rgba($color: $color1, $alpha: 1.0);
+                    margin-bottom: 30px;
+                }
             }
             label {
-                margin-top: 15px;
-                font-size: 20px;
-                text-align: left;
-            }
-            input {
-                width: 100%;
-                border: none;
-                height: 25px;
-            }
-            .btnEnvio {
-                transition: 0.1s;
-                cursor: pointer;
                 margin-top: 20px;
-                margin-bottom: 20px;
-                height: 40px;
-                font-size: 20px;
-                letter-spacing: 2px;
-                background-color: black;
+                font-size: calc(13px + 1vh);
+                color: rgba($color: $color2, $alpha: 0.7);
+                &.error {
+                    color: rgb(240, 86, 86);
+                }
+            }
+            .inputLogin {
+                width: 90%;
+                height: 35px;
                 border: none;
-                color: $glow;
-                font-weight: 500;
-                text-transform: uppercase;
-                border: 1px solid $glow;
-                box-shadow: 0 0 10px $glow;
-                text-shadow: 0 0 10px $glow;
-                -webkit-box-shadow: 0 0 10px $glow;
-                -webkit-text-shadow: 0 0 10px $glow;
-                -moz-box-shadow: 0 0 10px $glow;
-                -moz-text-shadow: 0 0 10px $glow;
-                -o-box-shadow: 0 0 10px $glow;
-                animation: btnRegis 5000ms infinite linear;
-            }
-            .ir {
-                margin-top: 0px;
-                text-align: center;
-            }
-            span {
-                color: $glow;
-                transition: 0.3s;
-                &:hover {
-                    letter-spacing: 2px;
-                    cursor: pointer;
+                margin-top: 10px;
+                box-shadow: 0px 0px 10px 0.2px gray;
+                &.error {
+                    box-shadow: 0px 0px 4px red;
                 }
             }
-        }
-    }
-    .contLoginBinaryOn {
-        opacity: 1;
-    }
-    .contModalLoginOn {
-        opacity: 1;
-    }
-}
-
-.modalLoginOn {
-    width: 100%;
-}
-
-@media screen and(min-width:992px) {
-    .modalLogin {
-        display: inline-block;
-        //background-color: red;
-        .contLoginBinary {
-            width: 60%;
-            position: absolute;
-            height: 100%;
-            float: left;
-            position: relative;
-            @include centrado();
-            .contLoginBinary2 {
-                width: 55%;
-                text-align: center;
+            .btnLogin {
+                width: 90%;
+                height: 50px;
+                margin-top: 25px;
+                margin-bottom: 10px;
+                background: $color1;
+                font-family: 'Roboto', sans-serif;
                 color: white;
-                /*  transform: rotate(-15deg);
-                -webkit-transform: rotate(-15deg);
-                -moz-transform: rotate(-15deg);
-                -o-transform: rotate(-15deg);
-                */
-                p {
-                    font-size: calc(30px + 1.8vh);
-                    color: $glow;
-                    text-shadow: 0 0 15px $glow;
-                }
+                text-transform: capitalize;
+                letter-spacing: 2px;
+                border: none;
+                border-radius: 10px;
             }
-        }
-        .contModalLogin {
-            position: absolute;
-            width: 60%;
-            height: 100%;
-            right: 0;
-            @include centrado();
-            //background-color: white;
-            form {
-                width: 50%;
-                float: right;
-                text-align: left;
-                i {
-                    cursor: pointer;
-                    width: 100%;
-                    text-align: center;
-                }
-                .tittleForm {
-                    font-size: calc(18px + 5vh);
-                    line-height: calc(18px + 3vh);
-                    ;
-                }
-                label {
-                    font-size: calc(13px + 1vh);
-                    margin-top: 10px;
-                }
+            .recuperar {
                 span {
-                    text-align: center;
-                }
-                input {
-                    margin-top: 5px;
-                    font-size: calc(12px + 1vh);
-                    height: calc(15px + 1.2vh);
-                }
-                .btnEnvio {
-                    transition: 0.3s;
-                    font-size: calc(13px + 1vh);
-                    height: calc(20px + 3.5vh);
-                    animation: btnRegis 1500ms infinite linear;
+                    color: green;
+                    cursor: pointer;
+                    transition: 0.2s;
                     &:hover {
-                        background-color: $glow;
-                        color: #000;
-                        text-shadow: 0 0 10px black;
+                        letter-spacing: 2px;
                     }
                 }
             }
         }
     }
+    @media screen and(min-width:992px) {
+        .leftForm {
+            width: 50%;
+            height: 100%;
+            float: left;
+            form {
+                text-align: left;
+                width: 80%;
+                display: block;
+                .tittleForm {
+                    font-size: calc(24px + 8vh);
+                    line-height: calc(24px + 8vh);
+                    font-weight: 600;
+                    color: $color1;
+                    text-align: left;
+                    color: $color4;
+                    &.tittleForm2 {
+                        font-size: calc(14px + 1.2vh);
+                        line-height: calc(15px + 1.2vh);
+                        margin-bottom: 15px;
+                        color: $color3;
+                        letter-spacing: 1.3px;
+                    }
+                }
+                label {
+                    width: 100%;
+                    display: block;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    opacity: 0.7;
+                    height: calc(12px + 1vh);
+                    font-size: calc(12px + 1vh);
+                }
+                .inputLogin {
+                    width: 100%;
+                    float: left;
+                    display: block;
+                    margin-bottom: 9px;
+                    box-shadow: 0px 0px 4px $color3;
+                    &.inputLogin2 {
+                        margin-top: 30px;
+                    }
+                }
+                .btnLogin {
+                    width: 100%;
+                    float: left;
+                    margin-top: 15px;
+                    display: block;
+                    height: calc(25px + 4vh);
+                    cursor: pointer;
+                    transition: 0.5s;
+                    border: 2px solid $color1;
+                    font-size: calc(14px + 1vh);
+                    &:hover {
+                        letter-spacing: 4px;
+                        color: $color1;
+                        background-color: white;
+                    }
+                }
+                .recuperar {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 30px;
+                    bottom: 0%;
+                    text-align: center;
+                    span {
+                        color: green;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        &:hover {
+                            letter-spacing: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        .rightForm {
+            width: 50%;
+            height: 100vh;
+            float: right;
+            background-color: $color1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("../medias/geo2.jpg");
+            transform: rotate(180deg);
+        }
+    }
 }
 
-@keyframes btnRegis {
-    0% {
-        opacity: 0;
-    }
-    5% {
-        opacity: 1;
-    }
-    10% {
-        opacity: 0;
-    }
-    11% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.modalEspera {
-    width: 100%;
-    height: calc(100vh - 80px);
-    margin-top: 80px;
-    position: fixed;
+.loginContOn {
+    height: 100vh;
     opacity: 1;
-    z-index: 10001;
-    @include centrado();
-    .circleModalEspera {
-        width: 70px;
-        height: 70px;
-        border: none;
-        border-radius: 100%;
-        border-top: 1px solid white;
-        -o-box-shadow: 0 0 25px rgb(69, 201, 206);
-        -moz-box-shadow: 0 0 25px rgb(69, 201, 206);
-        -webkit-box-shadow: 0 0 25px rgb(69, 201, 206);
-        animation: spinner 2000ms infinite linear;
-    }
-}
-
-@keyframes spinner {
-    0% {}
-    25% {
-        box-shadow: 0 0 25px rgb(206, 69, 115);
-        -o-box-shadow: 0 0 25px rgb(206, 69, 115);
-        -moz-box-shadow: 0 0 25px rgb(206, 69, 115);
-        -webkit-box-shadow: 0 0 25px rgb(206, 69, 115);
-    }
-    50% {
-        box-shadow: 0 0 25px rgb(167, 69, 206);
-        -o-box-shadow: 0 0 25px rgb(167, 69, 206);
-        -moz-box-shadow: 0 0 25px rgb(167, 69, 206);
-        -webkit-box-shadow: 0 0 25px rgb(167, 69, 206);
-    }
-    75% {
-        box-shadow: 0 0 25px rgb(170, 206, 69);
-        -o-box-shadow: 0 0 25px rgb(170, 206, 69);
-        -moz-box-shadow: 0 0 25px rgb(170, 206, 69);
-        -webkit-box-shadow: 0 0 25px rgb(170, 206, 69);
-    }
-    100% {
-        box-shadow: 0 0 25px rgb(74, 206, 69);
-        -o-box-shadow: 0 0 25pxrgb(74, 206, 69);
-        -moz-box-shadow: 0 0 25px rgb(74, 206, 69);
-        -webkit-box-shadow: 0 0 25px rgb(74, 206, 69);
-    }
 }
