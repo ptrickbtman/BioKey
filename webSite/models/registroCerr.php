@@ -7,18 +7,19 @@ class registroCerradura
 	protected $id_tipo_reg;
 	protected $descripcion_registro_cerr;
 	protected $fecha_registro_cerr;
+    protected $est_log_cerr;
 
 
-	function __construct($id_registro_cerr, $cod_cerradura, $id_tipo_reg, $descripcion_registro_cerr, $fecha_registro_cerr)
-	{
-		$this->id_registro_cerr = $id_registro_cerr;
+    function __construct($id_registro_cerr, $cod_cerradura, $id_tipo_reg, $descripcion_registro_cerr, $fecha_registro_cerr, $est_log_cerr){
+        $this->id_registro_cerr = $id_registro_cerr;
         $this->cod_cerradura = $cod_cerradura;
         $this->id_tipo_reg = $id_tipo_reg;
         $this->descripcion_registro_cerr = $descripcion_registro_cerr;
         $this->fecha_registro_cerr = $fecha_registro_cerr;
-	}
+        $this->est_log_cerr = $est_log_cerr;
+    }
 
-	function get_id_registro_cerr()
+    function get_id_registro_cerr()
     {
         return $this->id_registro_cerr;
     }
@@ -66,6 +67,15 @@ class registroCerradura
     function set_fecha_registro_cerr($i)
     {
         $this->fecha_registro_cerr = $i;
+    }
+    function get_est_log_cerr()
+    {
+        return $this->est_log_cerr;
+    }
+
+    function set_est_log_cerr($i)
+    {
+        $this->est_log_cerr = $i;
     }
 
 }

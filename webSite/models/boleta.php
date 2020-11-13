@@ -7,8 +7,9 @@ class boleta extends cliente {
     protected $id_metenv;
     protected $total_bol;
     protected $fecha_bol;
+    protected $est_log_bol;
 
-    function __construct ($id_bol , $id_metpag , $id_metenv , $total_bol , $fecha_bol,$rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente){
+    function __construct ($id_bol , $id_metpag , $id_metenv , $total_bol , $fecha_bol,$rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente, $est_log_bol){
         $this->id_bol = $id_bol;
         $this->id_metpag = $id_metpag;
         $this->id_metenv = $id_metenv;
@@ -18,6 +19,7 @@ class boleta extends cliente {
         $this->nom_cliente = $nom_cliente;
         $this->ape_cliente = $ape_cliente;
         $this->corr_cliente = $corr_cliente;
+        $this->est_log_bol = $est_log_bol;
     }
 
     
@@ -52,6 +54,10 @@ class boleta extends cliente {
     function get_fecha_bol()
     {
         return $this->fecha_bol ;
+    } 
+    function get_est_log_bol()
+    {
+        return $this->est_log_bol ;
     }
 
     
@@ -86,6 +92,10 @@ class boleta extends cliente {
     function set_fecha_bol($i)
     {
         $this->fecha_bol = $i;
+    }
+    function set_est_log_bol($i)
+    {
+        $this->est_log_bol = $i;
     }
 
 

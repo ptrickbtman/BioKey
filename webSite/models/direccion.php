@@ -12,8 +12,9 @@ class direccion{
     protected $num_dir;
     protected $villa_dir;
     protected $block_dir;
+    protected $est_log_dir;
 
-    function __construct ($id_dir,$id_bol,$id_region,$id_ciu,$comuna_dir,$calle1_dir,$calle2_dir,$num_dir,$villa_dir,$block_dir){
+    function __construct ($id_dir,$id_bol,$id_region,$id_ciu,$comuna_dir,$calle1_dir,$calle2_dir,$num_dir,$villa_dir,$block_dir, $est_log_dir){
         $this->id_dir = $id_dir;
         $this->id_bol = $id_bol;
         $this->id_region = $id_region;
@@ -23,6 +24,7 @@ class direccion{
         $this->num_dir = $num_dir;
         $this->villa_dir = $villa_dir;
         $this->block_dir = $block_dir;
+        $this->est_log_dir = $est_log_dir;
 
     }
 
@@ -53,6 +55,9 @@ class direccion{
     function get_block_dir(){
         return $this->block_dir;
     }
+    function get_est_log_dir(){
+        return $this->est_log_dir;
+    }
 
     function set_id_dir($data){
         $this->id_dir = $data;
@@ -82,6 +87,9 @@ class direccion{
     }
     function set_block_dir($data){
         $this->block_dir = $data;
+    }
+     function set_est_log_dir($data){
+        $this->est_log_dir = $data;
     }
 
     
