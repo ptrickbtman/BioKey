@@ -3,6 +3,7 @@ class cerradura
 {   
     protected $cod_cerradura;
     protected $id_usuario_cerradura;
+    protected $serial_cerradura;
     protected $pass_cerradura;
     protected $fecha_cerradura;
     protected $estado_cerradura;
@@ -10,9 +11,10 @@ class cerradura
     protected $passRed_cerradura;
     
 
-    public function __construct($cod_cerradura, $id_usuario_cerradura, $pass_cerradura, $fecha_cerradura, $estado_cerradura,$ssid_cerradura, $passRed_cerradura){
+    public function __construct($cod_cerradura, $id_usuario_cerradura, $serial_cerradura, $pass_cerradura, $fecha_cerradura, $estado_cerradura,$ssid_cerradura, $passRed_cerradura){
         $this->cod_cerradura = $cod_cerradura;
         $this->id_usuario_cerradura = $id_usuario_cerradura;
+        $this->serial_cerradura = $serial_cerradura;
         $this->pass_cerradura = $pass_cerradura;
         $this->fecha_cerradura = $fecha_cerradura;
         $this->estado_cerradura = $estado_cerradura;
@@ -88,6 +90,15 @@ class cerradura
     function set_estado_cerradura($i)
     {
         $this->estado_cerradura = $i;
+    }
+    function get_serial_cerradura()
+    {
+        return $this->serial_cerradura;
+    }
+
+    function set_serial_cerradura($i)
+    {
+        $this->serial_cerradura = $i;
     }
 }
 
