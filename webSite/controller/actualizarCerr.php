@@ -4,7 +4,7 @@ if (isset($_GET["idc"])){
 	$con = conexion();
 	date_default_timezone_set("America/Santiago");
 	$fecha_act = date("d-m-Y G:i");
-	$cerradura = new cerraduraBD($_GET["idc"], null, null, $fecha_act, null);
+	$cerradura = new cerraduraBD($_GET["idc"], null, null, null, $fecha_act, null, null, null);
 	
 
 	echo "-0#".$cerradura->actualizarCerradura()."#0-";
