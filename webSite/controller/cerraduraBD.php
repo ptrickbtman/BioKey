@@ -61,6 +61,73 @@
             $con->close();
             return $registros;
         } 
+
+        public function selectCerradurasDeUsuario(){
+            $con = conexion();
+
+            $sql = "SELECT `COD_CERR`, `SERIAL_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED` FROM `cerraduras` WHERE `ID_USU` =".$this->id_usuario_cerradura;
+            $datos = $con->query($sql);
+            $registros = array();
+            if ($datos->num_rows > 0) {
+                while($reg = $datos->fetch_assoc()) {
+                    array_push($registros, new cerraduraBD($reg["COD_CERR"], null, $reg["SERIAL_CERR"], null, $reg["DATE_CERR"], $reg["EST_CERR"],$reg["SSID_RED"], null));
+                }
+            } else {
+                $registros = "error";
+            }  
+            return $registros; 
+        }
+
+        public function selectCerradura(){
+            $con = conexion();
+
+            $sql = "SELECT `COD_CERR`, `SERIAL_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED` FROM `cerraduras` WHERE `COD_CERR` =".$this->cod_cerradura;
+            $datos = $con->query($sql);
+            $registro = new cerraduraBD(null, null, null, null, null, null, null, null);
+            if ($datos->num_rows > 0) {
+                while($reg = $datos->fetch_assoc()) {
+                    $registro->set_cod_cerradura($reg["COD_CERR"]);
+                    $registro->set_serial_cerradura($reg["SERIAL_CERR"]);
+                    $registro->set_fecha_cerradura($reg["DATE_CERR"]);
+                    $registro->set_estado_cerradura($reg["EST_CERR"]);
+                    $registro->set_ssid_cerradura($reg["SSID_RED"]);
+                }
+            } else {
+                $registro = "error";
+            }  
+            return $registro; 
+        }
+
+        public function updateContraseñaCerr(){
+
+            $con = conexion();
+
+            $sql = "UPDATE `cerraduras` SET `PASS_CERR`=".$this->pass_cerradura.",`DATE_CERR`='".$this->fecha_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
+
+            if ($con->query($sql) === true) {
+                $con->close();
+                return true;
+            } else {
+                $con->close();
+                return false;
+            }
+
+        }
+
+        public function updateRedCerr(){
+
+            $con = conexion();
+
+            $sql = "UPDATE `cerraduras` SET `DATE_CERR`='".$this->fecha_cerradura."', `SSID_RED`='".$this->ssid_cerradura."',`PASS_RED`='".$this->passRed_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
+            
+            if ($con->query($sql) === true) {
+                $con->close();
+                return true;
+            } else {
+                $con->close();
+                return false;
+            }
+        }
     }
 
 
