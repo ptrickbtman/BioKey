@@ -1,5 +1,5 @@
 <?php 
-include "../models/registroCerr.php";
+include "models/registroCerr.php";
 include 'conexion.php';
 
 class registroCerrBD extends registroCerradura {

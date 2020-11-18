@@ -3,7 +3,7 @@ function conexion(){
     $server = "localhost";
 	$user = "root";
 	$pass = "";
-	$bd = "bdBioKey2";
+	$bd = "bdbiokey";
 
 	$con = mysqli_connect($server, $user, $pass, $bd);
 
