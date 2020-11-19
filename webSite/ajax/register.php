@@ -16,7 +16,7 @@ if ( isset($_POST['dataRegis']) ) {
     $ilUsuario->set_cell($data["num"]); 
     $ilUsuario->set_pass(hashData($data["pass1"])); 
     $ilUsuario->set_date(date("m-d-y")); 
-    $ilUsuario->set_estado(3);
+    $ilUsuario->set_estado(0);
 
     if($ilUsuario->buscarUsuarioRegEmail() ){
     }else{

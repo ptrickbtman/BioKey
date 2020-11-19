@@ -79,8 +79,25 @@ $(".registrar").on("click", function() {
                 console.log(regisData);
                 if (regisData == 1) {
                     cerrarModalEspera();
-                } else {
-                    alert("error de datos, intentelo nuevamente");
+                } else if (regisData == -2) {
+                    $(".reg1").text("Nombre Usuario::");
+                    $(".reg1").removeClass("error");
+                    $(".reg2").text("Email ya registrado");
+                    $(".reg2").addClass("error");
+                    cerrarModalEspera();
+
+                } else if (regisData == -2) {
+                    $(".reg2").text("Email:");
+                    $(".reg2").removeClass("error");
+                    $(".reg1").text("Usuario ya registrado");
+                    $(".reg1").addClass("error");
+                    cerrarModalEspera();
+
+                } else if (regisData == "-2-3") {
+                    $(".reg1").text("Usuario ya registrado");
+                    $(".reg1").addClass("error");
+                    $(".reg2").text("Email ya registrado");
+                    $(".reg2").addClass("error");
                     cerrarModalEspera();
                 }
             }

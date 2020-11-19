@@ -10,10 +10,31 @@
 
 */
     
-    include "models/cerraduras.php";
+    require_once "../models/cerraduras.php";
     include 'conexion.php';
 
     class cerraduraBD extends cerradura {
+
+        public function jsonCerraduraPorId(){
+            $con = conexion();
+            $jsondata = array();
+            $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
+            if ($result = $con->query($sql)) {
+                if( $result->num_rows > 0 ) {
+
+                    //$jsondata["success"] = false;
+                    //$jsondata["data"]["message"] = sprintf("Se han encontrado %d usuarios", $result->num_rows);
+                    $jsondata["data"]["users"] = array();
+                    while( $row = $result->fetch_object() ) {
+                       $jsondata["data"]["users"][] = $row;
+                     }
+                     return $jsondata;
+                   }
+                   
+            }else{
+                return False;
+            }
+        }
 
         public function validarCerradura(){
             $con = conexion();
@@ -121,6 +142,37 @@
             $sql = "UPDATE `cerraduras` SET `DATE_CERR`='".$this->fecha_cerradura."', `SSID_RED`='".$this->ssid_cerradura."',`PASS_RED`='".$this->passRed_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
             
             if ($con->query($sql) === true) {
+                $con->close();
+                return true;
+            } else {
+                $con->close();
+                return false;
+            }
+        }
+
+        public function buscarCerraduraSerialValidar(){
+            $con = conexion();
+            $sql = "SELECT * FROM `cerraduras` WHERE SERIAL_CERR='".$this->serial_cerradura."' ";
+            if ($resultado = $con->query($sql)) {
+                $row_cnt = $resultado->num_rows;
+            
+                if($row_cnt==1){
+                    $fila = mysqli_fetch_row($resultado);
+                    $this->cod_cerradura = $fila[0];
+                    $this->estado_cerradura = 1;
+                    $con->close();
+                    return True;
+                }else{
+                    $con->close();
+                    return False;
+                }
+            }
+        }
+
+        public function validarCerraduraPorId(){
+            $con = conexion();
+            $sql = "UPDATE `cerraduras` SET `EST_CERR`=1 , `ID_USU`=".$this->id_usuario_cerradura."  WHERE `COD_CERR` =".$this->cod_cerradura." AND `EST_CERR`=3 AND `ID_USU`=''";
+            if ($con->query($sql)) {
                 $con->close();
                 return true;
             } else {

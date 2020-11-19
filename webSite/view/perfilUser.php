@@ -1,10 +1,27 @@
-
-
-
-
-
 <?php
 
+function desplegarToken($name){
+    ?>
+
+        <div class="cover">
+            <form class="validarCuenta">
+
+                <p class="tittleVali">Hola <?php echo $name?></p>
+                <p class="subTittleVali">Ingrese el serial de su producto para validar la cuenta. Gracias por su preferencia :)</p>
+                <input type="text" class="inputValidar" name="serial" placeholder="xxxx-xxxx-xxxx-xxxx">
+                <input type="button" value="validarSerial" class="btnValidar">
+            </form>
+        </div>
+
+    <?php
+}
+?>
+
+
+<!--  separamos la funcion -->
+
+<?php
+function desplegarCerraduras(){
 include 'controller/cerraduraBD.php';
 
 if (true) { //if para validar variable de sesion
@@ -45,5 +62,6 @@ if (true) { //if para validar variable de sesion
 			</table>
 		</div>
 	<?php  
+}
 }
 ?>

@@ -2,7 +2,7 @@
 
     function generarCodigo(){
         $data = "";
-        for($i = 0 ; $i<=19 ; $i++){
+        for($i = 0 ; $i<=18 ; $i++){
             if ($i==4 || $i==9 ||  $i==14   ){
                 $data .="-";
             }else if($i%2 ==0 && $i!=4 && $i!=9 &&  $i!=14 ){

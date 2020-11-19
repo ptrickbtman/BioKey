@@ -23,8 +23,7 @@
     include "view/menu.php";
         menu();
     ?>
-
-
+    
         <div class="cover">
             <div class="leftCover"></div>
 

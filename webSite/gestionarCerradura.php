@@ -1,6 +1,7 @@
 <?php 
 include 'controller/cerraduraBD.php';
 
+
 if (isset($_POST['idC'])) { //if para validar variable de sesion
 	$cerraduras = new cerraduraBD($_POST['idC'],null, null, null, null, null, null, null);
 	$cerradura = $cerraduras->selectCerradura();

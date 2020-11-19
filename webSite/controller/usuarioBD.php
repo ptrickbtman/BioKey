@@ -1,12 +1,12 @@
 <?php
-//include 'conexion.php';
+
 include "../models/usuarios.php";
+include 'conexion.php';
+
+
 class usuariosDB extends usuario {
-    
 
 	public function accessUsu(){
-		include 'conexion.php';
-		include 'hashToSalted.php';
 		$con = conexion();
 		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
 		$data = $this->email;
@@ -27,12 +27,15 @@ class usuariosDB extends usuario {
 				$this->set_name($dataQueryPass['NOM_USU']);
 				$this->set_estado($dataQueryPass['EST_USU']);
 				$this->set_pass("");
+				$con->close();
 				return True;
 				
 			}else{
+				$con->close();
 				return False;
 			}
 		}else{
+			$con->close();
 			return -3;
 		}
 	}
@@ -41,8 +44,10 @@ class usuariosDB extends usuario {
 		$con = conexion();
         $sql = "UPDATE `usuarios` SET `EST_USU`= '". $this->estado ."' WHERE  `ID_USU` = ". $this->id . "";
 		if ($resultado = $con->query($sql)) {
-            return true;
+			$con->close();
+			return true;
         }else{
+			$con->close();
             return false;
         }
 	}
@@ -51,7 +56,6 @@ class usuariosDB extends usuario {
 	// validando usuario registradooo para insertar
 
 	public function buscarUsuarioRegEmail(){
-		include 'conexion.php';
 		$con = conexion();
         $sql = "SELECT `ID_USU`, `CORREO_USU`, `ALIAS_USU`, `PASS_USU`, `NOM_USU`, `APE_USU`, `TEL_USU`, `FECHA_USU`, `EST_USU` FROM `usuarios` WHERE `CORREO_USU` = '" .$this->email."' ";
 		
@@ -97,7 +101,7 @@ class usuariosDB extends usuario {
 			return True;
 		} else {
 			$con->close();
-			return $con -> error;
+			return False;
         }
         
 	}
