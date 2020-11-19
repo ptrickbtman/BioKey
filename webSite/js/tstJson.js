@@ -1,16 +1,26 @@
 $(document).ready(function() {
-
+    var data = 5;
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
     $.ajax({
         async: true,
-        data: { "loginAccess": data },
+        data: { "id": data },
         type: "POST",
-        url: "./ajax/access.php",
-        success: function(loginVerify) {
-            console.log(loginVerify);
+        url: "./ajax/testJSON.php",
+        success: function(data) {
+
+            data = JSON.parse(data)
+            console.log(data)
+
+
+
+
+
         }
     });
+
+
+
 
 });

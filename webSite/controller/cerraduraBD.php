@@ -21,12 +21,11 @@
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
             if ($result = $con->query($sql)) {
                 if( $result->num_rows > 0 ) {
-
                     //$jsondata["success"] = false;
                     //$jsondata["data"]["message"] = sprintf("Se han encontrado %d usuarios", $result->num_rows);
-                    $jsondata["data"]["users"] = array();
+                    //$jsondata["data"]["cerraduras"] = array();
                     while( $row = $result->fetch_object() ) {
-                       $jsondata["data"]["users"][] = $row;
+                       $jsondata["cerraduras"]["cerradura"] = $row;
                      }
                      return $jsondata;
                    }

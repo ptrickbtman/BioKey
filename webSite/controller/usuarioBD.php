@@ -5,7 +5,7 @@ include 'conexion.php';
 
 
 class usuariosDB extends usuario {
-
+	
 	public function accessUsu(){
 		$con = conexion();
 		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
@@ -102,12 +102,7 @@ class usuariosDB extends usuario {
 		} else {
 			$con->close();
 			return False;
-        }
-        
+        }   
 	}
-
-
-
-	
 }
 ?>
