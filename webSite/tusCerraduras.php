@@ -27,20 +27,26 @@ if (true) { //if para validar variable de sesion
 					<th><span>Estado actual:</span></th>
 					<th><span>Opciones:</span></th>
 				</tr>
-				<?php  for ($i=0; $i <count($cerraduras) ; $i++) { ?>
-					<tr>
-						<td><?php echo $cerraduras[$i]->get_serial_cerradura(); ?></td>
-						<td><?php echo $cerraduras[$i]->get_ssid_cerradura(); ?></td>
-						<td><?php echo $cerraduras[$i]->get_fecha_cerradura(); ?></td>
-						<td><?php echo $cerraduras[$i]->get_estado_cerradura(); ?></td>
-						<td>
-							<form action="gestionarCerradura.php" method="post">
-								<input type="hidden" name="idC" value="<?php echo $cerraduras[$i]->get_cod_cerradurar(); ?>">
-								<input type="submit" value="Gestionar cerradura">
-							</form>
-						</td>
-					</tr>
-				<?php } ?>
+				<?php 
+				if ($cerraduras!="error") {
+					for ($i=0; $i <count($cerraduras) ; $i++) { 
+						?>
+						<tr>
+							<td><?php echo $cerraduras[$i]->get_serial_cerradura(); ?></td>
+							<td><?php echo $cerraduras[$i]->get_ssid_cerradura(); ?></td>
+							<td><?php echo $cerraduras[$i]->get_fecha_cerradura(); ?></td>
+							<td><?php echo $cerraduras[$i]->get_estado_cerradura(); ?></td>
+							<td>
+								<form action="gestionarCerradura.php" method="post">
+									<input type="hidden" name="idC" value="<?php echo $cerraduras[$i]->get_cod_cerradurar(); ?>">
+									<input type="submit" value="Gestionar cerradura">
+								</form>
+							</td>
+						</tr>
+						<?php 
+					}
+				} 
+				?>
 			</table>
 		</div>
 	</body>
