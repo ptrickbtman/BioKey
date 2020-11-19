@@ -11,10 +11,7 @@ $(document).ready(function() {
         success: function(data) {
 
             data = JSON.parse(data)
-            console.log(data)
-
-
-
+            console.log(data);
 
 
         }
