@@ -6,7 +6,7 @@ function conexion(){
 	$bd = "bdbiokey";
 
 	$con = mysqli_connect($server, $user, $pass, $bd);
-
+	$con -> set_charset("utf8");
 	//if (!$con) {
  	//echo("Conexion fallida: " . mysqli_connect_error());
 	//}
