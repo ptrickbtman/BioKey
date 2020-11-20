@@ -25,11 +25,11 @@
                     //$jsondata["data"]["message"] = sprintf("Se han encontrado %d usuarios", $result->num_rows);
                     //$jsondata["data"]["cerraduras"] = array();
                     while( $row = $result->fetch_object() ) {
-                       $jsondata["cerraduras"]["cerradura"] = $row;
-                     }
-                     return $jsondata;
-                   }
-                   
+                        array_push($jsondata, $row);
+                    }
+                    return json_encode($jsondata, JSON_FORCE_OBJECT);
+                }
+
             }else{
                 return False;
             }
@@ -63,7 +63,7 @@
             $con = conexion();
             $sql = "UPDATE `cerraduras` SET `DATE_CERR`= '". $this->fecha_cerradura."' WHERE  `COD_CERR` = ". $this->cod_cerradura . "";
             if($con->query($sql)){
-                $sql = "SELECT `SSID_RED`, `PASS_RED`, `PASS_CERR` FROM cerraduras WHERE `ID_USU` = ".$this->cod_cerradura;
+                $sql = "SELECT `SSID_RED`, `PASS_RED`, `PASS_CERR` FROM cerraduras WHERE `COD_CERR` = ".$this->cod_cerradura;
                 $datos = $con->query($sql);
                 $registros;
                 if ($datos->num_rows > 0) {
@@ -154,7 +154,7 @@
             $sql = "SELECT * FROM `cerraduras` WHERE SERIAL_CERR='".$this->serial_cerradura."' ";
             if ($resultado = $con->query($sql)) {
                 $row_cnt = $resultado->num_rows;
-            
+
                 if($row_cnt==1){
                     $fila = mysqli_fetch_row($resultado);
                     $this->cod_cerradura = $fila[0];
