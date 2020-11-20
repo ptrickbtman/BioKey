@@ -87,7 +87,7 @@ void actualizar() {//actualiza y trae datos para el funcionamiento de la cerradu
       Serial.println("ESP8266 conectado con el servidor");
 
     }
-    peticionHTTP = "GET /webSite/actualizarCerr.php?idc=" + String(IDCerr) + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
+    peticionHTTP = "GET /webSite/controller/actualizarCerr.php?idc=" + String(IDCerr) + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
     SerialESP8266.print("AT+CIPSEND=");
     SerialESP8266.println(peticionHTTP.length() + 4);
     if (SerialESP8266.find(">"))
@@ -165,7 +165,7 @@ void agregarRegistro(String tipoRegistro) {//Crea registros de cerraduras en la 
       Serial.println("ESP8266 conectado con el servidor");
 
     }
-    peticionHTTP = "GET /webSite/agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=" + tipoRegistro + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
+    peticionHTTP = "GET /webSite/controller/agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=" + tipoRegistro + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
     SerialESP8266.print("AT+CIPSEND=");
     SerialESP8266.println(peticionHTTP.length() + 4);
     if (SerialESP8266.find(">"))
