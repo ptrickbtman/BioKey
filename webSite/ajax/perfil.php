@@ -3,12 +3,30 @@
     include "../controller/cerraduraBD.php";
     include "../controller/usuarioBD.php";
 
+
+    if($_POST["d2asdx3123sxxd1"] && isset($_SESSION["usuario"])){
+        $user  = $_SESSION["usuario"];
+
+        if($user[4]==3){
+            echo 1;
+        }else if($user[4]==2){
+            $cerradura = new cerraduraBD (null,null,null,null,null,null,null,null);
+            $cerradura->set_id_usuario_cerradura($user[0]);
+            $json = $cerradura->jsonCerraduraPorId();
+            print_r($json);           
+        }
+        
+    }
+
+
+
+
     if (isset($_POST["codigoProducto"]) && isset($_SESSION["usuario"]) && !empty($_SESSION['usuario'])){
         
         $data = $_POST['codigoProducto']; // dataVerify
      
         $user = $_SESSION["usuario"];
-        $cerradura = new cerraduraBD (null,null,null,null,null,null,null);
+        $cerradura = new cerraduraBD (null,null,null,null,null,null,null,null);
         //print_r($user);
 
         
@@ -36,8 +54,6 @@
         }else{
             echo "datos";
         }
-    }else{
-        echo "No post";
     }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 include "../controller/validacionTxtNumEmail.php";
 include "../controller/usuarioBD.php";
-
+include "../controller/hashToSalted.php";
 if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     $data = $_POST['loginAccess']; // user and pass
     $user = new usuariosDB(null,null,null,null,null,null,null,null,null);

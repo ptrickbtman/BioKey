@@ -11,26 +11,25 @@
 */
     
     require_once "../models/cerraduras.php";
-    include 'conexion.php';
+    include_once 'conexion2.php';
 
     class cerraduraBD extends cerradura {
 
         public function jsonCerraduraPorId(){
-            $con = conexion();
+            
+            $con = conexion2();
             $jsondata = array();
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
             if ($result = $con->query($sql)) {
                 if( $result->num_rows > 0 ) {
-                    //$jsondata["success"] = false;
-                    //$jsondata["data"]["message"] = sprintf("Se han encontrado %d usuarios", $result->num_rows);
-                    //$jsondata["data"]["cerraduras"] = array();
                     while( $row = $result->fetch_object() ) {
                         array_push($jsondata, $row);
                     }
-                    return json_encode($jsondata, JSON_FORCE_OBJECT);
+                    return json_encode($jsondata);
                 }
 
             }else{
+                $con->close();
                 return False;
             }
         }

@@ -1,7 +1,7 @@
 <?php
 
 
-function conexion(){
+function conexion2(){
     $server = "localhost";
 	$user = "root";
 	$pass = "";
@@ -15,7 +15,6 @@ function conexion(){
 	//echo "Conexion establecida";
 
     return $con;
-}
-
+}   
 
 ?>

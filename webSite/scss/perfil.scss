@@ -1,0 +1,11 @@
+.cover {
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    .contCover {
+        width: 90%;
+        height: 80%;
+    }
+}
