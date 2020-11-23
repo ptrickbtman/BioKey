@@ -1,15 +1,7 @@
 <?php 
-/*
-    protected $rut_cliente;
-    protected $nom_cliente;
-    protected $ape_cliente;
-    protected $corr_cliente;
-
-*/
-
 
     include "../models/cliente.php";
-    //include 'conexion.php';
+    include 'conexion.php';
 
     class clienteBD extends cliente {
        
