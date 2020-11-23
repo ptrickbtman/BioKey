@@ -17,7 +17,7 @@
     <title>Index</title>
 
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/perfil.css">
 
     <script src="js/validacion.js"></script>
     <script src="js/jquery.js"></script>
@@ -32,14 +32,13 @@
         include "view/menu.php";
         include "view/perfilUser.php";
         menu();
-        /*if($datos[4]==0){
-            desplegarToken($datos[1]);
-        }
-        */
+       
     ?>
 
     <div class="cover">
-     <div class="contCover"></div>
+        <div class="contCover">
+            
+        </div>
     </div>
 
 

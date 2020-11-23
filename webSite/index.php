@@ -21,6 +21,7 @@
 <body>
     <?php
         include "view/menu.php";
+        session_start();
         menu();
     ?>
     <!--   menu  -->

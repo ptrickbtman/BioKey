@@ -1,6 +1,5 @@
 <?php
 
-
 function conexion(){
     $server = "localhost";
 	$user = "root";

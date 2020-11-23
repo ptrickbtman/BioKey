@@ -1,11 +1,143 @@
-.cover {
-    width: 100%;
-    height: 100vh;
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: rgb(243, 159, 123);
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+@mixin centrado() {
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+body {
+    background-color: $color1;
+}
+
+.cover {
+    width: 100%;
+    @include centrado();
+    overflow: hidden;
+    margin-top: 80px;
+    margin-bottom: 40px;
     .contCover {
         width: 90%;
-        height: 80%;
+        text-align: center;
+        overflow: hidden;
+        .contForm {
+            @include centrado();
+            height: 150px;
+            background-color: white;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            .formCerraduras {
+                width: 100%;
+                margin-bottom: 15px;
+                .cerraduraTi {
+                    font-size: 20px;
+                }
+                .inputCerr {
+                    width: 80%;
+                    height: 35px;
+                    font-size: 20px;
+                    margin-top: 5px;
+                    border-radius: 5px;
+                    color: white;
+                    background-color: $color5;
+                    border: none;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    &:hover {
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+        .contAdd {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            background-color: white;
+            @include centrado();
+            float: right;
+            transition: 0.5s;
+            &:hover {
+                transform: rotate(360deg);
+            }
+        }
+    }
+    @media screen and(min-width:992px) {
+        .contCover {
+            width: 50%;
+            float: right;
+        }
+    }
+}
+
+//// form de validacion:
+.coverVali {
+    width: 100%;
+    height: 100vh;
+    @include centrado();
+    opacity: 0;
+    transition: 1s;
+    position: fixed;
+    top: 0;
+    background-color: $color1;
+    .contCoverVali {
+        width: 90%;
+        border-radius: 10px;
+        background-color: #fff;
+        form {
+            width: 100%;
+            text-align: center;
+            .tittleFormVali {
+                margin-top: 40px;
+                font-size: 40px;
+                color: $color1;
+            }
+            .subTittleFormVali {
+                padding: 5px;
+                font-size: 18px;
+                color: $color5;
+            }
+            input {
+                width: 90%;
+                margin: 0 auto;
+            }
+            .inputValidar {
+                text-align: center;
+                border: none;
+                border-bottom: 1px solid $color5;
+                height: 35px;
+                font-size: 18px;
+            }
+            .btnValidar {
+                height: 40px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                background-color: $color5;
+                color: white;
+                border: none;
+                text-transform: uppercase;
+                font-size: 20px;
+                transition: 0.5s;
+                cursor: pointer;
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+            .back {
+                opacity: 0;
+                transition: 0.5s;
+                color: $color5;
+                margin-bottom: 40px;
+                cursor: pointer;
+                font-size: 20px;
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+        }
     }
 }

@@ -1,3 +1,8 @@
+$(".btnModalReg").on("click", function() {
+    window.location.href = "https://cambiardireccion.js";
+});
+
+
 // es requerido importal el script validacion.js en el html
 
 $(".registrar").on("click", function() {
@@ -78,6 +83,8 @@ $(".registrar").on("click", function() {
             success: function(regisData) {
                 console.log(regisData);
                 if (regisData == 1) {
+                    console.log("crearModal");
+                    crearModalValidado();
                     cerrarModalEspera();
                 } else if (regisData == -2) {
                     $(".reg1").text("Nombre Usuario::");
@@ -116,4 +123,11 @@ function obtenerDatosForm(nombreForm) {
         dataObj[field.name] = field.value;
     });
     return dataObj;
+}
+
+function crearModalValidado() {
+    var data = '<div class="modalRegistrado"><div class="contModal"><form action=""><p class="tittleModalReg">Bienvenido!</p><p class="subModalReg">Usuario correctamente registrado</p><input type="button" class="btnModalReg" value="aceptar" name="qweqwe"></form></div></div>';
+    $("body").append(data)
+    $(".modalRegistrado").css("opacity", "1");
+
 }

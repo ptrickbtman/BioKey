@@ -1,0 +1,141 @@
+body {
+  background-color: #3c55a6;
+}
+
+.cover {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+.cover .contCover {
+  width: 90%;
+  text-align: center;
+  overflow: hidden;
+}
+.cover .contCover .contForm {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 150px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.cover .contCover .contForm .formCerraduras {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.cover .contCover .contForm .formCerraduras .cerraduraTi {
+  font-size: 20px;
+}
+.cover .contCover .contForm .formCerraduras .inputCerr {
+  width: 80%;
+  height: 35px;
+  font-size: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #60b960;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cover .contCover .contForm .formCerraduras .inputCerr:hover {
+  letter-spacing: 2px;
+}
+.cover .contCover .contAdd {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  float: right;
+  transition: 0.5s;
+}
+.cover .contCover .contAdd:hover {
+  transform: rotate(360deg);
+}
+@media screen and (min-width: 992px) {
+  .cover .contCover {
+    width: 50%;
+    float: right;
+  }
+}
+
+.coverVali {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  transition: 1s;
+  position: fixed;
+  top: 0;
+  background-color: #3c55a6;
+}
+.coverVali .contCoverVali {
+  width: 90%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.coverVali .contCoverVali form {
+  width: 100%;
+  text-align: center;
+}
+.coverVali .contCoverVali form .tittleFormVali {
+  margin-top: 40px;
+  font-size: 40px;
+  color: #3c55a6;
+}
+.coverVali .contCoverVali form .subTittleFormVali {
+  padding: 5px;
+  font-size: 18px;
+  color: #60b960;
+}
+.coverVali .contCoverVali form input {
+  width: 90%;
+  margin: 0 auto;
+}
+.coverVali .contCoverVali form .inputValidar {
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #60b960;
+  height: 35px;
+  font-size: 18px;
+}
+.coverVali .contCoverVali form .btnValidar {
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #60b960;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.coverVali .contCoverVali form .btnValidar:hover {
+  letter-spacing: 2px;
+}
+.coverVali .contCoverVali form .back {
+  opacity: 0;
+  transition: 0.5s;
+  color: #60b960;
+  margin-bottom: 40px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.coverVali .contCoverVali form .back:hover {
+  letter-spacing: 2px;
+}
+
+/*# sourceMappingURL=perfil.css.map */

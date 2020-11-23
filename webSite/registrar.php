@@ -58,8 +58,6 @@
         </div>
 
 
-
-
 </body>
 <script src="js/menu.js"></script>
 <script src="js/registrar.js"></script>

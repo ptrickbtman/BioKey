@@ -16,7 +16,8 @@ function menu(){?>
         </div>
 
         <div class="login">
-            <i class="fas fa-sign-in-alt access"></i>
+            <i class="fas fa-sign-in-alt <?php 
+            if (isset($_SESSION["usuario"]) && !empty($_SESSION["usuario"]) && $_SESSION["usuario"][0]!= "" ){echo "access2";}else{echo "access";} ?>"></i>
         </div>
 
     </div>

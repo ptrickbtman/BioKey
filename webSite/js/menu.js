@@ -16,6 +16,10 @@ $(".access").on("click", function() {
     $(".loginCont").toggleClass("loginContOn");
 });
 
+$(".access2").on("click", function() {
+    window.location.href = "http://192.168.64.2/BioKey/webSite/perfilUser.php?";
+});
+
 
 function crearModalEspera() {
     dataLoader = '<div class="loading"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>';
