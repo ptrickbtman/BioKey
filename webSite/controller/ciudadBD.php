@@ -23,6 +23,9 @@ class ciudadBD extends ciudad
 			return False;
 		}
 	}
+
+	
+	
 }
 
 ?>
