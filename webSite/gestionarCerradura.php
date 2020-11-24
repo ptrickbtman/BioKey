@@ -1,92 +1,82 @@
 <?php 
-include 'controller/cerraduraBD.php';
-
 
 if (isset($_POST['idC'])) { //if para validar variable de sesion
-	$cerraduras = new cerraduraBD($_POST['idC'],null, null, null, null, null, null, null);
-	$cerradura = $cerraduras->selectCerradura();
+	
+	$IDC = $_POST['idC'];
+
 	?>
 	<!DOCTYPE html>
 	<html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+		<meta name="viewport" >
 		<title>Gestionar cerradura</title>
+		<script src="js/jquery.js"></script>
+		<script src="js/gestionarCerradura.js"></script>
 	</head>
 	<style>
 
 	</style>
 	<body>
 		<div class="contP">
-			<h1>Gestionar cerradura <?php echo $cerradura->get_serial_cerradura(); ?></h1>
-			<form action="actualizarCerr.php" method="post">
-				<table>
-					<tr>
-						<td colspan="2">
-							<h3>Cambiar contraseña cerradura (numerica)</h3>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>Ingrese nueva coontraseña: </span>
-						</td>
-						<td>
-							<input type="text" name="NPass" required="" maxlength="6">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>Repita nueva coontraseña: </span>
-						</td>
-						<td>
-							<input type="text" name="RNPass" required="" maxlength="6">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="hidden" name="idC" value="<?php echo $cerradura->get_cod_cerradurar(); ?>">
-							<input type="submit" name="btn" value="Actualizar contraseña">
-						</td>
-					</tr>
-				</table>
+			<h1>Gestionar cerradura <span id="serGes"></span></h1>
+			<form class="formNPass">	
+				<h3>Cambiar contraseña cerradura (numerica)</h3>
+
+				<br>
+
+				<span>Ingrese nueva coontraseña: </span>				
+				<input type="text" name="NPass" required="" maxlength="6">
+
+				<br>
+
+				<span>Repita nueva coontraseña: </span>
+				<input type="text" name="RNPass" required="" maxlength="6">
+
+
+				<br>
+
+				<input type="hidden" name="idC" id="idC" value="<?php echo $IDC; ?>">
+				<input type="hidden" name="idOp" value="1">
+				<input type="button" name="btn" value="Actualizar contraseña" onclick="updateCerr('formNPass')">
+
+
+
 			</form>
-			<form action="actualizarCerr.php" method="post">
-				<table>
-					<tr>
-						<td colspan="3">
-							<h3>Cambiar red WiFi de cerradura</h3>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>Ingrese nueva SSID: </span>
-						</td>
-						<td>
-							<input type="text" name="NSsid" required="" maxlength="30">
-						</td>
-						<td>
-							<span>SSID actual: <?php echo $cerradura->get_ssid_cerradura(); ?></span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>Ingrese nueva coontraseña de Wifi: </span>
-						</td>
-						<td>
-							<input type="text" name="NWFPass" required="" maxlength="30">
-						</td>	
-					</tr>
-					<tr>
-						<td colspan="3">
-							<input type="hidden" name="idC" value="<?php echo $cerradura->get_cod_cerradurar(); ?>">
-							<input type="submit" name="btn" value="Actualizar red">
-						</td>
-					</tr>
-				</table>
+			<form class="formNWifi">
+				
+				<br>
+				
+				<h3>Cambiar red WiFi de cerradura</h3>
+
+
+				<br>	
+
+
+				<span>Ingrese nueva SSID: </span>
+				<input type="text" name="NSsid" required="" maxlength="30">
+				<span>SSID actual: </span><span id="ssidActGes"></span>
+
+				<br>
+
+				<span>Ingrese nueva coontraseña de Wifi: </span>
+				<input type="text" name="NWFPass" required="" maxlength="30">
+
+				<br>
+
+				<input type="hidden" name="idC" value="<?php echo $IDC; ?>">
+				<input type="hidden" name="idOp" value="2">
+				<input type="button" name="btn" value="Actualizar red" onclick="updateCerr('formNWifi')">
+
+
+
 			</form>
 		</div>
 	</body>
 	</html>
 	<?php  
+}else{
+	echo "Error";
 }
+
 ?>

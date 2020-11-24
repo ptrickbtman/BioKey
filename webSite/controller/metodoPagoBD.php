@@ -19,7 +19,7 @@ class metodoPagoBD extends metodoPago
 
 		}else{
 			$con->close();
-			return False;
+			return 'Error';
 		}
 	}
 	

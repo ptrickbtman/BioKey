@@ -11,12 +11,12 @@
 */
     
     require_once "../models/cerraduras.php";
-    include_once 'conexion2.php';
+    include_once 'conexion.php';
 
     class cerraduraBD extends cerradura {
 
         public function jsonCerraduraPorId(){
-            
+
             $con = conexion2();
             $jsondata = array();
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
@@ -100,23 +100,23 @@
 
         public function selectCerradura(){
             $con = conexion();
-
+            $jsondata = array();
             $sql = "SELECT `COD_CERR`, `SERIAL_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED` FROM `cerraduras` WHERE `COD_CERR` =".$this->cod_cerradura;
-            $datos = $con->query($sql);
-            $registro = new cerraduraBD(null, null, null, null, null, null, null, null);
-            if ($datos->num_rows > 0) {
-                while($reg = $datos->fetch_assoc()) {
-                    $registro->set_cod_cerradura($reg["COD_CERR"]);
-                    $registro->set_serial_cerradura($reg["SERIAL_CERR"]);
-                    $registro->set_fecha_cerradura($reg["DATE_CERR"]);
-                    $registro->set_estado_cerradura($reg["EST_CERR"]);
-                    $registro->set_ssid_cerradura($reg["SSID_RED"]);
+            if ($result = $con->query($sql)) {
+                if( $result->num_rows > 0 ) {
+                    while( $row = $result->fetch_object() ) {
+                        array_push($jsondata, $row);
+                    }
+                    $con->close();
+                    return $jsondata;
                 }
-            } else {
-                $registro = "error";
-            }  
-            return $registro; 
+
+            }else{
+                $con->close();
+                return 'Error';
+            } 
         }
+
 
         public function updateContraseñaCerr(){
 
@@ -126,10 +126,10 @@
 
             if ($con->query($sql) === true) {
                 $con->close();
-                return true;
+                return 1;
             } else {
                 $con->close();
-                return false;
+                return 0;
             }
 
         }
@@ -142,10 +142,10 @@
             
             if ($con->query($sql) === true) {
                 $con->close();
-                return true;
+                return 1;
             } else {
                 $con->close();
-                return false;
+                return 0;
             }
         }
 
