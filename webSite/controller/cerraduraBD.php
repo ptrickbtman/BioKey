@@ -36,7 +36,8 @@
 
         public function validarCerradura(){
             $con = conexion();
-            $sql = "SELECT * FROM cerraduras WHERE `EST_CERR`= 4 AND `COD_CERR` = ". $this->cod_cerradura . "";
+            $sql = "SELECT * FROM cerraduras WHERE `EST_CERR`= 4 AND `SERIAL_CERR` = '". $this->serial_cerradura . "'";
+            $this->set_estado_cerradura($sql);
             if ($resultado = $con->query($sql)) {
                 $row_cnt = $resultado->num_rows;
                 if($row_cnt==1){
@@ -50,7 +51,7 @@
 
         public function cambiarUsuarioEstadoCerradura(){
             $con = conexion();
-            $sql = "UPDATE `cerraduras` SET `ID_USU`= '". $this->id_usuario_cerradura."' , `EST_CERR`= 3 WHERE  `COD_CERR` = ". $this->cod_cerradura . "";
+            $sql = "UPDATE `cerraduras` SET `ID_USU`= '". $this->id_usuario_cerradura."' , `EST_CERR`= 1 WHERE  `SERIAL_CERR` = '". $this->serial_cerradura . "'";
             if ($resultado = $con->query($sql)) {
                 return true;
             }else{

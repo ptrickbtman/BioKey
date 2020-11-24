@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "./ajax/perfil.php",
         success: function(vali) {
             //console.log("ajax1");
-            //console.log(vali);
+            console.log(vali);
             if (vali == 1) {
                 crearFormValidador();
                 //console.log("json recibido")
@@ -24,9 +24,9 @@ $(document).ready(function() {
 
 
             } else if (vali == "") {
-                alert.log("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
+                alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
             } else {
-                alert.log("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
+                alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -90,7 +90,14 @@ function validar() {
             url: "./ajax/perfil.php",
             success: function(vali) {
                 console.log(vali)
-                window.location.reload();
+                if (vali == 1) {
+                    window.location.reload();
+                } else if (vali == -2 || vali == -3) {
+                    alert("error de programación, contactese con el administrador");
+                } else {
+                    $(".inputValidar").addClass("error");
+                }
+
             }
         });
     } else {

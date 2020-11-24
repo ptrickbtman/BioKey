@@ -14,8 +14,10 @@
             $cerradura = new cerraduraBD (null,null,null,null,null,null,null,null);
             $cerradura->set_id_usuario_cerradura($user[0]);
             $json = $cerradura->jsonCerraduraPorId();
+            
             print_r($json);  
         }
+        
         
         
     }
@@ -27,7 +29,8 @@
         print_r($user); 
         if($user[0] != "" && $data !="" ){
             $cerradura->set_serial_cerradura($data);        
-            print_r($cerradura);   
+            //print_r($cerradura);  
+            
             if($cerradura->validarCerradura()){
                 $cerradura->set_id_usuario_cerradura($user[0]);
                 $cerradura->set_estado_cerradura(1);
@@ -37,17 +40,18 @@
                     if($usuario->modificarEstadoUsuario()){
                         $user[4] = 2;
                         $_SESSION["usuario"] = $user;
-                        echo "paso";
+                        echo 1; // paso
                     }else{
-                        echo "no paso usuario";
+                        echo 0; // no modifico usuario
                     }
                 }else{
-                    echo "no cambio cerradura";
+                    echo -3; // no cambio el estado de la cerradura
                 }
             }else{
                 echo -2; //no cerradura
             }
-            print_r($cerradura);
+
+            //print_r($cerradura);
         }else{
             echo "datos";
         }

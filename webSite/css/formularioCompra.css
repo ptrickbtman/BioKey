@@ -1,0 +1,115 @@
+* {
+  background-color: #080238;
+  color: white;
+}
+
+.contP {
+  margin-top: 80px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.contP .contF {
+  width: 90%;
+}
+.contP .contF .formCompra {
+  width: 100%;
+  text-align: left;
+}
+.contP .contF .formCompra label,
+.contP .contF .formCompra input,
+.contP .contF .formCompra h1,
+.contP .contF .formCompra h2 {
+  display: block;
+}
+.contP .contF .formCompra h1 {
+  text-align: left;
+  font-size: 40px;
+  line-height: 30px;
+}
+.contP .contF .formCompra h2 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: #f75bdd;
+}
+.contP .contF .formCompra label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+.contP .contF .formCompra .inputTxt {
+  width: 100%;
+  height: 30px;
+  color: 20px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1.3px solid #f75bdd;
+  color: rgba(247, 91, 221, 0.8);
+  margin-bottom: 25px;
+}
+.contP .contF .formCompra .inputSelect {
+  width: 100%;
+  height: 30px;
+  color: 20px;
+  font-size: 17px;
+  border: none;
+  margin-bottom: 10px;
+  border-bottom: 1.3px solid #f75bdd;
+  background-color: #f75bdd;
+  color: white;
+}
+.contP .contF .formCompra #btnContinuar {
+  width: 95%;
+  height: 40px;
+  background-color: #f75bdd;
+  box-shadow: 0 0 0 10px #f75bdd;
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 992px) {
+  .contP {
+    width: 55%;
+  }
+  .contP .contF {
+    width: 70%;
+  }
+  .contP .contF .formCompra #btnContinuar {
+    width: 40%;
+    float: right;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .contP .contF .formCompra #btnContinuar:hover {
+    letter-spacing: 2px;
+  }
+}
+
+#particles-js {
+  width: 100%;
+  height: 0vh;
+  position: fixed;
+  z-index: 990;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 992px) {
+  #particles-js {
+    width: 40%;
+    height: 70vh;
+    top: 15vh;
+    right: 5%;
+    position: fixed;
+    z-index: 990;
+  }
+}
+
+/*# sourceMappingURL=formularioCompra.css.map */

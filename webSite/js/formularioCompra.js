@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
 
+    particlesJS.load('particles-js', 'assets/particlesRegis.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
+
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
@@ -10,10 +14,10 @@ $(document).ready(function() {
         success: function(regisData) {
             regisData = JSON.parse(regisData);
             for (var i = 0; i < Object.keys(regisData[0]).length; i++) {
-                $('#regFC').append("<option value='"+regisData[0][i].ID_REGION+"' >"+regisData[0][i].NOM_REGION+"</option>");
+                $('#regFC').append("<option value='" + regisData[0][i].ID_REGION + "' >" + regisData[0][i].NOM_REGION + "</option>");
             }
             for (var i = 0; i < Object.keys(regisData[1]).length; i++) {
-                $('#ciuFC').append("<option value='"+regisData[1][i].ID_CIU+"' >"+regisData[1][i].NOM_CIU+"</option>");
+                $('#ciuFC').append("<option value='" + regisData[1][i].ID_CIU + "' >" + regisData[1][i].NOM_CIU + "</option>");
             }
         }
     });
@@ -39,7 +43,7 @@ $(document).ready(function() {
                     console.log(regisData);
 
                     if (regisData == "1") {
-                        location.href="confirmarCompra.php";
+                        location.href = "confirmarCompra.php";
                     }
                 }
             });
@@ -49,7 +53,7 @@ $(document).ready(function() {
 
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-    dataObj = {};
+        dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });

@@ -212,6 +212,7 @@ body {
   border: none;
   border-bottom: 1.3px solid #f759dd;
   height: 35px;
+  color: #f759dd;
   font-size: 18px;
 }
 .coverVali .contCoverVali form .btnValidar {
