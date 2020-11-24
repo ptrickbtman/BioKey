@@ -1,6 +1,6 @@
 <?php
-
-class direccion{
+include 'metodoPago.php';
+class direccion extends metodoPago{
 
     protected $id_dir;
     protected $id_bol;

@@ -1,5 +1,4 @@
 <?php
-
 class cliente{
     protected $rut_cliente;
     protected $nom_cliente;
@@ -59,7 +58,7 @@ class cliente{
         $this->est_log_cliente = $i;
     }
 
-    function get_corr_cliente()
+    function get_est_log_cliente()
     {
         return $this->est_log_cliente;
     }
