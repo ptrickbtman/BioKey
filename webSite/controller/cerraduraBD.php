@@ -16,7 +16,7 @@
     class cerraduraBD extends cerradura {
 
         public function jsonCerraduraPorId(){
-            $con = conexion0();
+            $con = conexion();
             $jsondata = array();
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
             if ($result = $con->query($sql)) {
