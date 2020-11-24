@@ -4,13 +4,15 @@ class cliente{
     protected $nom_cliente;
     protected $ape_cliente;
     protected $corr_cliente;
+    protected $tel_cliente;
     protected $est_log_cliente;
 
-    function __construct($rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente, $est_log_cliente){
+    function __construct($rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente,$tel_cliente, $est_log_cliente){
         $this->rut_cliente = $rut_cliente;
         $this->nom_cliente = $nom_cliente;
         $this->ape_cliente = $ape_cliente;
         $this->corr_cliente = $corr_cliente;
+        $this->tel_cliente = $tel_cliente;
         $this->est_log_cliente = $est_log_cliente;
     }
 
@@ -53,6 +55,17 @@ class cliente{
     {
         return $this->corr_cliente;
     }
+
+    function set_tel_cliente($i)
+    {
+        $this->tel_cliente = $i;
+    }
+
+    function get_tel_cliente()
+    {
+        return $this->tel_cliente;
+    }
+
     function set_est_log_cliente($i)
     {
         $this->est_log_cliente = $i;

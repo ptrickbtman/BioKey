@@ -5,14 +5,16 @@ class boleta extends cliente {
     protected $id_bol;
     protected $id_metpag;
     protected $id_metenv;
+    protected $orden_bol;
     protected $total_bol;
     protected $fecha_bol;
     protected $est_log_bol;
 
-    function __construct ($id_bol , $id_metpag , $id_metenv , $total_bol , $fecha_bol,$rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente, $est_log_bol){
+    function __construct ($id_bol , $id_metpag , $id_metenv, $orden_bol , $total_bol , $fecha_bol,$rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente, $est_log_bol){
         $this->id_bol = $id_bol;
         $this->id_metpag = $id_metpag;
         $this->id_metenv = $id_metenv;
+        $this->orden_bol = $orden_bol;
         $this->total_bol = $total_bol;
         $this->fecha_bol = $fecha_bol;
         $this->rut_cliente = $rut_cliente;
@@ -28,7 +30,7 @@ class boleta extends cliente {
 
     function get_id_bol()
     {
-       return $this->id_bol ;
+        return $this->id_bol ;
     }
 
     function get_id_metpag()
@@ -40,12 +42,12 @@ class boleta extends cliente {
     {
         return $this->id_metenv ;
     }
-/*
-    function get_rut_cli_bol()
+
+    function get_orden_bol()
     {
-        return $this->rut_cli ;
+        return $this->orden_bol ;
     }
-*/
+
     function get_total_bol()
     {
         return $this->total_bol ;
@@ -60,7 +62,7 @@ class boleta extends cliente {
         return $this->est_log_bol ;
     }
 
-    
+
 
 
 
@@ -78,12 +80,12 @@ class boleta extends cliente {
     {
         $this->id_metenv = $i;
     }
-/*
-    function set_rut_cli_bol($i)
+
+    function set_orden_bol($i)
     {
-        $this->rut_cli = $i;
+        $this->orden_bol = $i;
     }
-*/
+    
     function set_total_bol($i)
     {
         $this->total_bol = $i;
