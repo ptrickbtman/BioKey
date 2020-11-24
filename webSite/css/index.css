@@ -1,5 +1,119 @@
 body {
-  background-color: #f39f7b;
+  background-color: #080238;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  z-index: 10;
+}
+@media screen and (min-width: 992px) {
+  #particles-js {
+    float: right;
+    right: 0;
+    width: 50%;
+  }
+}
+
+.cover {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 11;
+  position: absolute;
+}
+.cover .contCover {
+  width: 90%;
+  color: white;
+  text-align: center;
+  background-color: #080238;
+}
+.cover .contCover .tittleCover {
+  text-transform: uppercase;
+  font-size: 70px;
+  margin-top: 50px;
+  font-weight: 700;
+}
+.cover .contCover .subTittle {
+  font-size: 17px;
+}
+.cover .contCover .botones {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.cover .contCover .botones .btn {
+  cursor: pointer;
+  width: 45%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+.cover .contCover .botones .btn.btn1 {
+  border: 1.4px solid #fff;
+  color: white;
+  float: left;
+  margin-left: 2.5%;
+}
+.cover .contCover .botones .btn.btn2 {
+  background-color: #fff;
+  color: #080238;
+  float: right;
+  margin-right: 2.5%;
+}
+.cover .contCover .botones .btn:hover {
+  letter-spacing: 2px;
+}
+@media screen and (min-width: 992px) {
+  .cover {
+    width: 50%;
+    margin-left: 20px;
+  }
+  .cover .contCover {
+    width: 86%;
+    text-align: left;
+  }
+  .cover .contCover .tittleCover {
+    font-size: calc(90px + 8vh);
+    line-height: calc(90px + 5vh);
+    font-weight: 700;
+    letter-spacing: -3px;
+    color: #f75bdd;
+  }
+  .cover .contCover .subTittle {
+    font-size: calc(20px + 2vh);
+  }
+  .cover .contCover .botones .btn {
+    width: 40%;
+    border-radius: 0px;
+    height: calc(20px + 3vh);
+    font-size: calc(14px + 1vh);
+  }
+  .cover .contCover .botones .btn.btn1 {
+    border: 1.4px solid white;
+    color: white;
+    float: left;
+    margin: 0%;
+  }
+  .cover .contCover .botones .btn.btn2 {
+    background-color: white;
+    border: 1.4px solid white;
+    color: #080238;
+    float: left;
+    margin: 0%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

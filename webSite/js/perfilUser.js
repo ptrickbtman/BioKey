@@ -47,7 +47,7 @@ function crearModalVali() {
 
 function crearFormulariosCerraduras(dataO) {
     for (var i = 0; i < Object.keys(dataO).length; i++) {
-        var data = '<div class="contForm"><form class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
+        var data = '<div class="contForm"><form method="POST" action="gestionarCerradura.php" class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '" name="idC"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
         //console.log(dataO[i].COD_CERR + " - " + dataO[i].SERIAL_CERR);
         //console.log(data)
         var add = '<div class="contAdd" onclick="crearModalVali()"><i class="fa fa-plus" aria-hidden="true"></i></div> '

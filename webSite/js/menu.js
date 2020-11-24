@@ -14,6 +14,7 @@ function menu() {
 
 $(".access").on("click", function() {
     $(".loginCont").toggleClass("loginContOn");
+
 });
 
 $(".access2").on("click", function() {

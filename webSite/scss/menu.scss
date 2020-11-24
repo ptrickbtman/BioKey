@@ -1,301 +1,396 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-$color1: rgb(60, 85, 166);
-$color2: rgb(35, 32, 37);
-$color3: rgb(243, 159, 123);
-$color4: rgb(8, 2, 56);
-//
-@mixin centrado() {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.loading {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    z-index: 1000;
-    top: 0px;
-    background-color: $color3;
-    @include centrado();
-    opacity: 1;
-    transition: 0.5s;
-    .circular {
-        animation: rotate 2s linear infinite;
-        height: 100px;
-        transform-origin: center center;
-        width: 100px;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
-    .path {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-        stroke: white;
-        animation: dash 1.5s ease-in-out infinite;
-        stroke-linecap: round;
-    }
-    @keyframes rotate {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    @keyframes dash {
-        0% {
-            stroke-dasharray: 1, 200;
-            stroke-dashoffset: 0;
-        }
-        50% {
-            stroke-dasharray: 89, 200;
-            stroke-dashoffset: -35px;
-        }
-        100% {
-            stroke-dasharray: 89, 200;
-            stroke-dashoffset: -124px;
-            stroke: orange;
-        }
-    }
-}
-
-//// menuuuuuuuuu
-.menu {
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 999;
-    .login,
-    .hamburger {
-        width: 90px;
-        height: 100%;
-        float: right;
-        display: inline;
-    }
-    .hamburger {
-        cursor: pointer;
-        @include centrado();
-        .stick {
-            position: absolute;
-            width: 42px;
-            height: 3px;
-            background-color: white;
-            transition: 0.3s;
-            &.stick1 {
-                transform: translateY(-5px);
+            * {
+                padding: 0;
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
             }
-            &.stick2 {
-                transform: translateY(5px);
+            
+            $color1: rgb(60, 85, 166);
+            $color2: rgb(35, 32, 37);
+            $color3: rgb(247, 91, 221);
+            $color4: rgb(8, 2, 56);
+            //
+            @mixin centrado() {
+                justify-content: center;
+                align-items: center;
+                display: flex;
             }
-            &.stick1On {
-                transform: translateY(0px) rotate(45deg);
+            
+            .loading {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                z-index: 1000;
+                top: 0px;
+                background-color: $color4;
+                @include centrado();
+                opacity: 1;
+                transition: 0.5s;
+                .circular {
+                    animation: rotate 2s linear infinite;
+                    height: 100px;
+                    transform-origin: center center;
+                    width: 100px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+                .path {
+                    stroke-dasharray: 1, 200;
+                    stroke-dashoffset: 0;
+                    stroke: white;
+                    animation: dash 1.5s ease-in-out infinite;
+                    stroke-linecap: round;
+                }
+                @keyframes rotate {
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                @keyframes dash {
+                    0% {
+                        stroke-dasharray: 1, 200;
+                        stroke-dashoffset: 0;
+                    }
+                    50% {
+                        stroke-dasharray: 89, 200;
+                        stroke-dashoffset: -35px;
+                    }
+                    100% {
+                        stroke-dasharray: 89, 200;
+                        stroke-dashoffset: -124px;
+                        stroke: orange;
+                    }
+                }
             }
-            &.stick2On {
-                transform: translateY(0px) rotate(-45deg);
-            }
-        }
-    }
-    .login {
-        width: auto;
-        @include centrado();
-        i {
-            padding: 2px;
-            color: white;
-            cursor: pointer;
-            font-size: calc(14px + 1vh);
-            /*
+            
+            //// menuuuuuuuuu
+            .menu {
+                width: 100%;
+                height: 80px;
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 999;
+                .login,
+                .hamburger {
+                    width: 90px;
+                    height: 100%;
+                    float: right;
+                    display: inline;
+                }
+                .hamburger {
+                    cursor: pointer;
+                    @include centrado();
+                    .stick {
+                        position: absolute;
+                        width: 42px;
+                        height: 3px;
+                        background-color: white;
+                        transition: 0.3s;
+                        &.stick1 {
+                            transform: translateY(-5px);
+                        }
+                        &.stick2 {
+                            transform: translateY(5px);
+                        }
+                        &.stick1On {
+                            transform: translateY(0px) rotate(45deg);
+                        }
+                        &.stick2On {
+                            transform: translateY(0px) rotate(-45deg);
+                        }
+                    }
+                }
+                .login {
+                    width: auto;
+                    @include centrado();
+                    i {
+                        padding: 2px;
+                        color: white;
+                        cursor: pointer;
+                        font-size: calc(14px + 1vh);
+                        /*
             &:hover {
                 color: $color1;
             }
             */
-        }
-    }
-}
-
-/// login contenedor:
-.loginCont {
-    overflow: hidden;
-    width: 100%;
-    height: 0vh;
-    position: fixed;
-    z-index: 997;
-    background-color: white;
-    bottom: 0;
-    opacity: 0;
-    transition: 1s;
-    .leftForm {
-        width: 100%;
-        height: 100%;
-        @include centrado();
-        form {
-            width: 90%;
-            text-align: center;
-            p,
-            label,
-            input,
-            button {
-                display: block;
-                margin: 0 auto;
-                transition: 0.3s;
-            }
-            .tittleForm {
-                font-size: calc(20px + 6vh);
-                line-height: calc(20px + 4vh);
-                font-weight: 600;
-                color: $color1;
-                letter-spacing: -1.3px;
-                color: $color4;
-                &.tittleForm2 {
-                    font-size: calc(13px + 1.2vh);
-                    font-weight: 400;
-                    color: rgba($color: $color1, $alpha: 1.0);
-                    margin-bottom: 30px;
-                }
-            }
-            label {
-                margin-top: 20px;
-                font-size: calc(13px + 1vh);
-                color: rgba($color: $color2, $alpha: 0.7);
-                &.error {
-                    color: rgb(240, 86, 86);
-                }
-            }
-            .inputLogin {
-                width: 90%;
-                height: 35px;
-                border: none;
-                margin-top: 10px;
-                box-shadow: 0px 0px 10px 0.2px gray;
-                &.error {
-                    box-shadow: 0px 0px 4px red;
-                }
-            }
-            .btnLogin {
-                width: 90%;
-                height: 50px;
-                margin-top: 25px;
-                margin-bottom: 10px;
-                background: $color1;
-                font-family: 'Roboto', sans-serif;
-                color: white;
-                text-transform: capitalize;
-                letter-spacing: 2px;
-                border: none;
-                border-radius: 10px;
-            }
-            .recuperar {
-                span {
-                    color: green;
-                    cursor: pointer;
-                    transition: 0.2s;
-                    &:hover {
-                        letter-spacing: 2px;
                     }
                 }
             }
-        }
-    }
-    @media screen and(min-width:992px) {
-        .leftForm {
-            width: 50%;
-            height: 100%;
-            float: left;
-            form {
-                text-align: left;
-                width: 80%;
-                display: block;
-                .tittleForm {
-                    font-size: calc(24px + 8vh);
-                    line-height: calc(24px + 8vh);
-                    font-weight: 600;
-                    color: $color1;
-                    text-align: left;
-                    color: $color4;
-                    &.tittleForm2 {
-                        font-size: calc(14px + 1.2vh);
-                        line-height: calc(15px + 1.2vh);
-                        margin-bottom: 15px;
-                        color: $color3;
-                        letter-spacing: 1.3px;
-                    }
-                }
-                label {
+            
+            /// login contenedor:
+            .loginCont {
+                overflow: hidden;
+                width: 100%;
+                height: 0vh;
+                position: fixed;
+                z-index: 997;
+                background-color: $color4;
+                bottom: 0;
+                opacity: 0;
+                transition: 1s;
+                .leftForm {
                     width: 100%;
-                    display: block;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    opacity: 0.7;
-                    height: calc(12px + 1vh);
-                    font-size: calc(12px + 1vh);
-                }
-                .inputLogin {
-                    width: 100%;
-                    float: left;
-                    display: block;
-                    margin-bottom: 9px;
-                    box-shadow: 0px 0px 4px $color3;
-                    &.inputLogin2 {
-                        margin-top: 30px;
-                    }
-                }
-                .btnLogin {
-                    width: 100%;
-                    float: left;
-                    margin-top: 15px;
-                    display: block;
-                    height: calc(25px + 4vh);
-                    cursor: pointer;
-                    transition: 0.5s;
-                    border: 2px solid $color1;
-                    font-size: calc(14px + 1vh);
-                    &:hover {
-                        letter-spacing: 4px;
-                        color: $color1;
-                        background-color: white;
-                    }
-                }
-                .recuperar {
-                    position: relative;
-                    display: block;
-                    width: 100%;
-                    height: 30px;
-                    bottom: 0%;
-                    text-align: center;
-                    span {
-                        color: green;
-                        cursor: pointer;
-                        transition: 0.2s;
-                        &:hover {
+                    height: 100%;
+                    @include centrado();
+                    form {
+                        width: 90%;
+                        text-align: center;
+                        p,
+                        label,
+                        input,
+                        button {
+                            display: block;
+                            margin: 0 auto;
+                            transition: 0.3s;
+                        }
+                        .tittleForm {
+                            font-size: calc(20px + 6vh);
+                            line-height: calc(20px + 4vh);
+                            font-weight: 600;
+                            color: white;
+                            letter-spacing: -1.3px;
+                            //color: $color4;
+                            &.tittleForm2 {
+                                font-size: calc(13px + 1.2vh);
+                                font-weight: 400;
+                                color: rgba($color: $color1, $alpha: 1.0);
+                                margin-bottom: 30px;
+                            }
+                        }
+                        label {
+                            margin-top: 20px;
+                            font-size: calc(13px + 1vh);
+                            text-align: left;
+                            margin-left: 5%;
+                            color: rgba($color: white, $alpha: 0.7);
+                            &.error {
+                                color: rgb(240, 86, 86);
+                            }
+                        }
+                        .inputLogin {
+                            width: 90%;
+                            height: 35px;
+                            border: none;
+                            margin-top: 10px;
+                            box-shadow: 0px 0px 10px 0.2px gray;
+                            &.error {
+                                box-shadow: 0px 0px 4px red;
+                            }
+                        }
+                        .btnLogin {
+                            width: 90%;
+                            height: 50px;
+                            margin-top: 25px;
+                            margin-bottom: 10px;
+                            font-family: 'Roboto', sans-serif;
+                            text-transform: capitalize;
                             letter-spacing: 2px;
+                            border: none;
+                            font-size: 20px;
+                            font-weight: 300;
+                            border: 1px solid white;
+                            border-radius: 10px;
+                            background-color: $color4;
+                            color: white;
+                            letter-spacing: 2px;
+                        }
+                        .contRe {
+                            .recuperar {
+                                color: white;
+                                span {
+                                    color: $color3;
+                                    cursor: pointer;
+                                    transition: 0.2s;
+                                    font-weight: 400;
+                                    letter-spacing: 1px;
+                                    &:hover {
+                                        letter-spacing: 3px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            }
-        }
-        .rightForm {
-            width: 50%;
-            height: 100vh;
-            float: right;
-            background-color: $color1;
+                @media screen and(min-width:992px) {
+                    .leftForm {
+                        width: 50%;
+                        height: 100%;
+                        float: left;
+                        form {
+                            text-align: left;
+                            width: 80%;
+                            .tittleForm {
+                                font-size: calc(24px + 8vh);
+                                line-height: calc(24px + 8vh);
+                                font-weight: 600;
+                                color: white;
+                                text-align: left;
+                                &.tittleForm2 {
+                                    font-size: calc(14px + 1.2vh);
+                                    line-height: calc(15px + 1.2vh);
+                                    margin-bottom: 15px;
+                                    color: $color3;
+                                    letter-spacing: 1.3px;
+                                }
+                            }
+                            label {
+                                width: 100%;
+                                margin: 0;
+                                display: block;
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                                opacity: 0.7;
+                                height: calc(11px + 1vh);
+                                font-weight: 300;
+                                font-size: calc(12px + 1vh);
+                                color: white;
+                            }
+                            .inputLogin {
+                                width: 100%;
+                                float: left;
+                                display: block;
+                                margin-bottom: 9px;
+                                box-shadow: 0px 0px 4px $color3;
+                                &.inputLogin2 {
+                                    margin-top: 30px;
+                                }
+                            }
+                            .btnLogin {
+                                width: 30%;
+                                float: right;
+                                margin-top: 15px;
+                                display: block;
+                                height: calc(25px + 3vh);
+                                cursor: pointer;
+                                transition: 0.5s;
+                                border: 1px solid white;
+                                font-size: calc(12px + 1vh);
+                                font-weight: 400;
+                                &:hover {
+                                    letter-spacing: 4px;
+                                    color: $color4;
+                                    background-color: white;
+                                }
+                            }
+                            .contRe {
+                                margin-top: 15px;
+                                width: 70%;
+                                bottom: 0;
+                                float: left;
+                                height: calc(25px + 4vh);
+                                @include centrado();
+                                .recuperar {
+                                    position: relative;
+                                    display: block;
+                                    width: 100%;
+                                    height: 30px;
+                                    bottom: 0%;
+                                    font-size: calc(10px + 1.3vh);
+                                    text-align: center;
+                                    font-weight: 300;
+                                    span {
+                                        color: $color3;
+                                        cursor: pointer;
+                                        transition: 0.2s;
+                                        &:hover {
+                                            letter-spacing: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .rightForm {
+                        width: 50%;
+                        height: 100vh;
+                        float: right;
+                        overflow: hidden;
+                        overflow-x: hidden;
+                        /*background-color: $color1;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-image: url("../medias/geo2.jpg");
-            transform: rotate(180deg);
-        }
-    }
-}
-
-.loginContOn {
-    height: 100vh;
-    opacity: 1;
-}
+              transform: rotate(180deg);
+              
+            */
+                        .editorial {
+                            display: block;
+                            width: 50%;
+                            height: 200px;
+                            max-height: 200px;
+                            margin: 0;
+                            z-index: 5;
+                            bottom: 0;
+                            position: absolute;
+                            right: 0px;
+                            float: right;
+                        }
+                        .parallax1>use {
+                            animation: move-forever1 10s linear infinite;
+                            &:nth-child(1) {
+                                animation-delay: -2s;
+                            }
+                        }
+                        .parallax2>use {
+                            animation: move-forever2 8s linear infinite;
+                            &:nth-child(1) {
+                                animation-delay: -2s;
+                            }
+                        }
+                        .parallax3>use {
+                            animation: move-forever3 6s linear infinite;
+                            &:nth-child(1) {
+                                animation-delay: -2s;
+                            }
+                        }
+                        .parallax4>use {
+                            animation: move-forever4 4s linear infinite;
+                            &:nth-child(1) {
+                                animation-delay: -2s;
+                            }
+                        }
+                        @keyframes move-forever1 {
+                            0% {
+                                transform: translate(85px, 0%);
+                            }
+                            100% {
+                                transform: translate(-90px, 0%);
+                            }
+                        }
+                        @keyframes move-forever2 {
+                            0% {
+                                transform: translate(-90px, 0%);
+                            }
+                            100% {
+                                transform: translate(85px, 0%);
+                            }
+                        }
+                        @keyframes move-forever3 {
+                            0% {
+                                transform: translate(85px, 0%);
+                            }
+                            100% {
+                                transform: translate(-90px, 0%);
+                            }
+                        }
+                        @keyframes move-forever4 {
+                            0% {
+                                transform: translate(-90px, 0%);
+                            }
+                            100% {
+                                transform: translate(85px, 0%);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .loginContOn {
+                height: 100vh;
+                opacity: 1;
+            }

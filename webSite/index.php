@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/index.css">
 
-
+    <script src="js/particles.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/validacion.js"></script>
     <script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
@@ -22,13 +22,30 @@
     <?php
         include "view/menu.php";
         session_start();
+        session_destroy();
         menu();
+        
     ?>
     <!--   menu  -->
+
+    <div id="particles-js"></div>
+    
+    <div class="cover">
+        <div class="contCover">
+            <p class="tittleCover">BioKey</p>
+            <p class="subTittle">La seguridad está al alcance de tus manos</p>
+            <div class="botones">
+                <div class="btn btn1"><p class="btnTxt">Ver</p></div>
+                <div class="btn btn2"><p class="btnTxt">Comprar</p></div>
+            </div>
+
+        </div>
+    </div>
    
 
 
 </body>
+<script src="js/index.js"></script>
 <script src="js/menu.js"></script>
 
 </html>
