@@ -1,5 +1,6 @@
 $(window).on("load", function() {
     cerrarModalEspera();
+
 });
 
 $(".hamburger").on("click", function() {
@@ -65,6 +66,12 @@ $(".btnLogin").on("click", function() {
             url: "./ajax/access.php",
             success: function(loginVerify) {
                 console.log(loginVerify);
+                if (loginVerify == 1) {
+                    window.location.href = "http://192.168.64.2/BioKey/webSite/perfilUser.php?";
+                } else {
+                    $(".log1").addClass("error");
+                    $(".log2").addClass("error")
+                }
             }
         });
     }

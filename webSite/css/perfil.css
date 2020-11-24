@@ -1,5 +1,5 @@
 body {
-  background-color: #3c55a6;
+  background-color: #080238;
 }
 
 .cover {
@@ -20,29 +20,64 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
-  height: 150px;
-  background-color: white;
+  height: 170px;
+  background-color: transparent;
   border-radius: 20px;
   margin-bottom: 15px;
+  background-image: linear-gradient(45deg, #3c55a6, #3c55a6, #080238);
+  color: white;
+}
+.cover .contCover .contForm .contActive {
+  position: absolute;
+  width: 20%;
+  margin-left: -55%;
+  margin-top: -29%;
+  text-align: left;
+}
+.cover .contCover .contForm .contActive .circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+}
+.cover .contCover .contForm .contActive .circle.circleOn {
+  background-color: white;
+  border: 5px solid #f759dd;
+  box-shadow: 0 0 10px 5px #f759dd;
+}
+.cover .contCover .contForm .contActive .circle.circleOff {
+  background-color: white;
+  border: 5px solid gray;
+  box-shadow: 0 0 10px gray;
 }
 .cover .contCover .contForm .formCerraduras {
-  width: 100%;
+  width: 70%;
   margin-bottom: 15px;
+  color: white;
+  margin-top: 80px;
 }
 .cover .contCover .contForm .formCerraduras .cerraduraTi {
   font-size: 20px;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1.2px;
 }
 .cover .contCover .contForm .formCerraduras .inputCerr {
-  width: 80%;
+  margin-left: 5%;
+  left: 0;
+  width: 90%;
   height: 35px;
-  font-size: 20px;
-  margin-top: 5px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin-top: 3px;
   border-radius: 5px;
-  color: white;
-  background-color: #60b960;
-  border: none;
+  color: #f759dd;
+  background-color: #080238;
+  border: 2px solid #080238;
   cursor: pointer;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   transition: 0.3s;
+  color: white;
 }
 .cover .contCover .contForm .formCerraduras .inputCerr:hover {
   letter-spacing: 2px;
@@ -52,20 +87,85 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  background-color: white;
+  background-color: #f759dd;
   justify-content: center;
   align-items: center;
   display: flex;
   float: right;
   transition: 0.5s;
 }
+.cover .contCover .contAdd i {
+  color: white;
+  font-size: 20px;
+}
 .cover .contCover .contAdd:hover {
   transform: rotate(360deg);
 }
 @media screen and (min-width: 992px) {
+  .cover {
+    justify-content: left;
+    align-items: left;
+    display: flex;
+  }
   .cover .contCover {
     width: 50%;
+    margin-left: 5%;
+  }
+  .cover .contCover .contForm {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 170px;
+    background-color: transparent;
+    border-radius: 0px;
+    margin-bottom: 15px;
+    color: white;
+  }
+  .cover .contCover .contForm .contActive {
+    position: absolute;
+    width: 20%;
+    margin-left: -15%;
+    margin-top: -100px;
+    text-align: left;
+  }
+  .cover .contCover .contForm .contActive .circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+  }
+  .cover .contCover .contForm .contActive .circle.circleOn {
+    background-color: white;
+    border: 5px solid #f759dd;
+    box-shadow: 0 0 10px 5px #f759dd;
+  }
+  .cover .contCover .contForm .contActive .circle.circleOff {
+    background-color: white;
+    border: 5px solid gray;
+    box-shadow: 0 0 10px gray;
+  }
+  .cover .contCover .contForm .formCerraduras {
+    margin-top: 30px;
+  }
+  .cover .contCover .contAdd {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #f759dd;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     float: right;
+    transition: 0.5s;
+    margin-right: 10%;
+  }
+  .cover .contCover .contAdd i {
+    color: white;
+    font-size: 20px;
+  }
+  .cover .contCover .contAdd:hover {
+    transform: rotate(360deg);
   }
 }
 
@@ -79,12 +179,11 @@ body {
   transition: 1s;
   position: fixed;
   top: 0;
-  background-color: #3c55a6;
+  background-color: #080238;
 }
 .coverVali .contCoverVali {
   width: 90%;
   border-radius: 10px;
-  background-color: #fff;
 }
 .coverVali .contCoverVali form {
   width: 100%;
@@ -93,21 +192,25 @@ body {
 .coverVali .contCoverVali form .tittleFormVali {
   margin-top: 40px;
   font-size: 40px;
-  color: #3c55a6;
+  color: #f759dd;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .coverVali .contCoverVali form .subTittleFormVali {
   padding: 5px;
   font-size: 18px;
-  color: #60b960;
+  color: white;
 }
 .coverVali .contCoverVali form input {
   width: 90%;
   margin: 0 auto;
+  border: none;
+  background-color: transparent;
 }
 .coverVali .contCoverVali form .inputValidar {
   text-align: center;
   border: none;
-  border-bottom: 1px solid #60b960;
+  border-bottom: 1.3px solid #f759dd;
   height: 35px;
   font-size: 18px;
 }
@@ -136,6 +239,37 @@ body {
 }
 .coverVali .contCoverVali form .back:hover {
   letter-spacing: 2px;
+}
+@media screen and (min-width: 992px) {
+  .coverVali {
+    background-color: rgba(8, 2, 56, 0.8);
+    transition: 0.4s;
+  }
+  .coverVali .contCoverVali {
+    width: 50%;
+    background-color: #080238;
+  }
+}
+
+#particles-js {
+  width: 90%;
+  margin: 0 auto;
+  height: 20vh;
+  margin-top: 80px;
+  right: 5%;
+  z-index: 990;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 992px) {
+  #particles-js {
+    width: 40%;
+    height: 70vh;
+    top: 15vh;
+    right: 5%;
+    position: fixed;
+    z-index: 990;
+  }
 }
 
 /*# sourceMappingURL=perfil.css.map */

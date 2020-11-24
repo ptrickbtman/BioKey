@@ -3,6 +3,11 @@ $(".btnModalReg").on("click", function() {
 });
 
 
+particlesJS.load('particles-js', 'assets/particlesRegis.json', function() {
+    console.log('callback - particles.js config loaded');
+});
+
+
 // es requerido importal el script validacion.js en el html
 
 $(".registrar").on("click", function() {

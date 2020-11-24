@@ -6,6 +6,8 @@ include 'conexion.php';
 
 class usuariosDB extends usuario {
 	
+	//*** login accesss.php en ajax */
+
 	public function accessUsu(){
 		$con = conexion();
 		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
@@ -19,26 +21,31 @@ class usuariosDB extends usuario {
 
 		if ($resultado = $con->query($sql)) {
 			$dataQueryPass = $resultado->fetch_assoc();
-			if(hashVerify($dataQueryPass['PASS_USU'] , $this->get_pass())){
-				$this->set_id_user($dataQueryPass['ID_USU']);
-				$this->set_name($dataQueryPass['NOM_USU']);
-				$this->set_surname($dataQueryPass['APE_USU']);
-				$this->set_alias($dataQueryPass['ALIAS_USU']);
-				$this->set_name($dataQueryPass['NOM_USU']);
-				$this->set_estado($dataQueryPass['EST_USU']);
-				$this->set_pass("");
-				$con->close();
-				return True;
+			
+				if(hashVerify($dataQueryPass['PASS_USU'] , $this->get_pass())){
+					$this->set_id_user($dataQueryPass['ID_USU']);
+					$this->set_name($dataQueryPass['NOM_USU']);
+					$this->set_surname($dataQueryPass['APE_USU']);
+					$this->set_alias($dataQueryPass['ALIAS_USU']);
+					$this->set_name($dataQueryPass['NOM_USU']);
+					$this->set_estado($dataQueryPass['EST_USU']);
+					$this->set_pass("");
+					$con->close();
+					return True;
 				
-			}else{
-				$con->close();
-				return False;
-			}
+				}else{
+					$con->close();
+					return False;
+				}
+			
 		}else{
 			$con->close();
-			return -3;
+			return False;
 		}
 	}
+
+
+
 
 	public function modificarEstadoUsuario(){
 		$con = conexion();

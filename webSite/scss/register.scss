@@ -3,21 +3,19 @@ $color2: rgb(35, 32, 37);
 $color3: #f39f7b;
 $color4: rgb(8, 2, 56);
 $color5: rgb(96, 185, 96);
+$color6: rgb(247, 91, 221);
 @mixin centrado() {
     justify-content: center;
     align-items: center;
     display: flex;
 }
 
+body {
+    background-color: $color4;
+}
+
 .cover {
     width: 100%;
-    height: 100vh;
-    background-color: rgba($color: $color1, $alpha: 0.4);
-    background-size: cover;
-    background-image: url("../medias/bg4.jpg");
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    background-repeat: no-repeat;
     .leftCover {
         width: 100%;
         height: 0%;
@@ -45,9 +43,10 @@ $color5: rgb(96, 185, 96);
                 line-height: calc(20px + 5vh);
                 font-weight: 600;
                 color: white;
+                margin-top: 40px;
             }
             label {
-                margin-top: 8px;
+                margin-top: 10px;
                 color: rgba(255, 255, 255, 1);
                 transition: 0.3s;
                 &.error {
@@ -58,9 +57,16 @@ $color5: rgb(96, 185, 96);
                 width: 100%;
                 border: none;
                 height: 25px;
+                border-bottom: 1.3px solid $color6;
+                color: white;
+                font-weight: 400;
+                &.inputData {
+                    background-color: transparent;
+                    background: linear-gradient(to top, rgba($color: $color6, $alpha: 0.5), $color4, $color4, $color4);
+                }
             }
             .registrar {
-                background-color: $color3; //$color1;
+                background-color: $color6; //$color1;
                 height: 40px;
                 margin-top: 10px;
                 color: white;
@@ -71,6 +77,7 @@ $color5: rgb(96, 185, 96);
                 border-radius: 5px;
                 transition: 0.3s;
                 cursor: pointer;
+                margin-bottom: 40px;
                 &:hover {
                     letter-spacing: 2.5px;
                 }
@@ -92,6 +99,10 @@ $color5: rgb(96, 185, 96);
                 input {
                     margin-top: 10px;
                 }
+                .registrar {
+                    width: 50%;
+                    float: right;
+                }
             }
         }
     }
@@ -107,7 +118,7 @@ $color5: rgb(96, 185, 96);
     opacity: 0;
     transition-delay: 0.3s;
     transition: 0.7s;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba($color: $color4, $alpha: 0.8);
     .contModal {
         width: 90%;
         height: 80%;
@@ -145,5 +156,25 @@ $color5: rgb(96, 185, 96);
             width: 60%;
             height: 40%;
         }
+    }
+}
+
+#particles-js {
+    width: 100%;
+    height: 0vh;
+    position: fixed;
+    z-index: 990;
+    overflow: hidden;
+    //height: 0;
+}
+
+@media screen and(min-width:992px) {
+    #particles-js {
+        width: 40%;
+        height: 70vh;
+        top: 15vh;
+        right: 5%;
+        position: fixed;
+        z-index: 990;
     }
 }

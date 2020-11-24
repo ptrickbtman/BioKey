@@ -3,6 +3,7 @@ $color2: rgb(35, 32, 37);
 $color3: rgb(243, 159, 123);
 $color4: rgb(8, 2, 56);
 $color5: rgb(96, 185, 96);
+$color6: rgb(247, 89, 221);
 @mixin centrado() {
     justify-content: center;
     align-items: center;
@@ -10,7 +11,7 @@ $color5: rgb(96, 185, 96);
 }
 
 body {
-    background-color: $color1;
+    background-color: $color4;
 }
 
 .cover {
@@ -25,27 +26,64 @@ body {
         overflow: hidden;
         .contForm {
             @include centrado();
-            height: 150px;
-            background-color: white;
+            height: 170px;
+            background-color: transparent;
             border-radius: 20px;
+            //border: 1.4px solid white;
             margin-bottom: 15px;
+            background-image: linear-gradient(45deg, $color1, $color1, $color4);
+            color: white;
+            .contActive {
+                position: absolute;
+                width: 20%;
+                margin-left: -55%;
+                margin-top: -29%;
+                text-align: left;
+                .circle {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 100%;
+                    &.circleOn {
+                        background-color: white;
+                        border: 5px solid $color6;
+                        box-shadow: 0 0 10px 5px $color6;
+                    }
+                    &.circleOff {
+                        background-color: white;
+                        border: 5px solid gray;
+                        box-shadow: 0 0 10px gray;
+                    }
+                }
+            }
             .formCerraduras {
-                width: 100%;
+                width: 70%;
                 margin-bottom: 15px;
+                color: white;
+                margin-top: 80px;
+                //background-color: $color6;
                 .cerraduraTi {
                     font-size: 20px;
+                    color: white;
+                    font-weight: 500;
+                    letter-spacing: 1.2px;
                 }
                 .inputCerr {
-                    width: 80%;
+                    margin-left: 5%;
+                    left: 0;
+                    width: 90%;
                     height: 35px;
-                    font-size: 20px;
-                    margin-top: 5px;
+                    font-size: 17px;
+                    letter-spacing: 1px;
+                    margin-top: 3px;
                     border-radius: 5px;
-                    color: white;
-                    background-color: $color5;
-                    border: none;
+                    color: $color6;
+                    background-color: $color4;
+                    border: 2px solid $color4;
                     cursor: pointer;
+                    border-top-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
                     transition: 0.3s;
+                    color: white;
                     &:hover {
                         letter-spacing: 2px;
                     }
@@ -57,19 +95,80 @@ body {
             width: 50px;
             height: 50px;
             border-radius: 100%;
-            background-color: white;
+            background-color: $color6;
             @include centrado();
             float: right;
             transition: 0.5s;
+            i {
+                color: white;
+                font-size: 20px;
+            }
             &:hover {
                 transform: rotate(360deg);
             }
         }
     }
     @media screen and(min-width:992px) {
+        justify-content: left;
+        align-items: left;
+        display: flex;
         .contCover {
             width: 50%;
-            float: right;
+            margin-left: 5%;
+            .contForm {
+                width: 80%;
+                @include centrado();
+                height: 170px;
+                background-color: transparent;
+                border-radius: 0px;
+                //border: 1.4px solid white;
+                margin-bottom: 15px;
+                //background-image: linear-gradient(to right, $color1, $color1, $color1, $color4);
+                color: white;
+                .contActive {
+                    position: absolute;
+                    width: 20%;
+                    margin-left: -15%;
+                    margin-top: -100px;
+                    text-align: left;
+                    .circle {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 100%;
+                        &.circleOn {
+                            background-color: white;
+                            border: 5px solid $color6;
+                            box-shadow: 0 0 10px 5px $color6;
+                        }
+                        &.circleOff {
+                            background-color: white;
+                            border: 5px solid gray;
+                            box-shadow: 0 0 10px gray;
+                        }
+                    }
+                }
+                .formCerraduras {
+                    margin-top: 30px;
+                }
+            }
+            .contAdd {
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                background-color: $color6;
+                @include centrado();
+                float: right;
+                transition: 0.5s;
+                margin-right: 10%;
+                i {
+                    color: white;
+                    font-size: 20px;
+                }
+                &:hover {
+                    transform: rotate(360deg);
+                }
+            }
         }
     }
 }
@@ -83,32 +182,36 @@ body {
     transition: 1s;
     position: fixed;
     top: 0;
-    background-color: $color1;
+    background-color: $color4;
     .contCoverVali {
         width: 90%;
         border-radius: 10px;
-        background-color: #fff;
+        //background-color: #fff;
         form {
             width: 100%;
             text-align: center;
             .tittleFormVali {
                 margin-top: 40px;
                 font-size: 40px;
-                color: $color1;
+                color: $color6;
+                font-weight: 600;
+                text-transform: uppercase;
             }
             .subTittleFormVali {
                 padding: 5px;
                 font-size: 18px;
-                color: $color5;
+                color: white;
             }
             input {
                 width: 90%;
                 margin: 0 auto;
+                border: none;
+                background-color: transparent;
             }
             .inputValidar {
                 text-align: center;
                 border: none;
-                border-bottom: 1px solid $color5;
+                border-bottom: 1.3px solid $color6;
                 height: 35px;
                 font-size: 18px;
             }
@@ -139,5 +242,34 @@ body {
                 }
             }
         }
+    }
+    @media screen and(min-width:992px) {
+        background-color: rgba($color: $color4, $alpha: 0.8);
+        transition: 0.4s;
+        .contCoverVali {
+            width: 50%;
+            background-color: $color4;
+        }
+    }
+}
+
+#particles-js {
+    width: 90%;
+    margin: 0 auto;
+    height: 20vh;
+    margin-top: 80px;
+    right: 5%;
+    z-index: 990;
+    margin-bottom: 5px;
+}
+
+@media screen and(min-width:992px) {
+    #particles-js {
+        width: 40%;
+        height: 70vh;
+        top: 15vh;
+        right: 5%;
+        position: fixed;
+        z-index: 990;
     }
 }

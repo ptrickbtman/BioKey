@@ -7,13 +7,15 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     $user = new usuariosDB(null,null,null,null,null,null,null,null,null);
     
     if(validarEmail($data["user"]) ){
+        //echo "paso email";
         $user->set_email($data["user"]);
     }else{
+        //echo "paso alias";
         $user->set_alias($data["user"]);
     }
- 
     $user->set_pass($data["pass"]);
     
+    ////print_r($user);
     if($user->accessUsu($user)){
         session_start();
         session_regenerate_id();
@@ -23,7 +25,7 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     }else{
         echo -1;
     }
-      
+    //print_r($user);
 }
 
 ?>
