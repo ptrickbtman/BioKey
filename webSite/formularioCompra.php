@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario compra</title>
 	
-	
+	<script src="js/validacion.js"></script>
 	<script src="js/particles.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/formularioCompra.js"></script>
@@ -26,6 +26,7 @@
     ?>
 	<!--   menu  -->
 	<div id="particles-js"></div>
+
 	<div class="contP">
 		<div class="contF">
 			<form class="formCompra">
