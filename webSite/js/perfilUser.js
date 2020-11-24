@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "./ajax/perfil.php",
         success: function(vali) {
             //console.log("ajax1");
-            console.log(vali);
+            //console.log(vali);
             if (vali == 1) {
                 crearFormValidador();
                 //console.log("json recibido")
