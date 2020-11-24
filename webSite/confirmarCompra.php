@@ -9,8 +9,10 @@ if (isset($_SESSION["cliente"])) {
 
 	$item = new MercadoPago\Item();
 	$item->title = 'Cerradura BioKey 1.1';
-	$item->quantity = $_SESSION["cliente"]['cantiFC'];
-	$item->unit_price = '90000';
+	//$item->quantity = $_SESSION["cliente"]['cantiFC'];
+	//$item->unit_price = '90000';
+	$item->quantity = 1;
+	$item->unit_price = 100;
 	$preference->items = array($item);
 
 	$payer = new MercadoPago\Payer();
@@ -22,9 +24,9 @@ if (isset($_SESSION["cliente"])) {
 	$preference->payer = $payer;
 
 	$preference->back_urls = array(
-		"success" => "http://localhost/mundofinal/mundoLejano/controladores/registrarPago.php",
-		"failure" => "http://localhost/mundofinal/mundoLejano/reprobado.php",
-		"pending" => "http://localhost/mundofinal/mundoLejano/reprobado.php"
+		"success" => "http://localhost/webSite/registrarVenta.php",
+		"failure" => "http://localhost/webSite/finCompra.php?resp=0",
+		"pending" => "http://localhost/webSite/finCompra.php?resp=0"
 	);
 
 	$preference->payment_methods = array(
@@ -48,17 +50,19 @@ if (isset($_SESSION["cliente"])) {
 	</head>
 	<body>
 		<?php 
-		print_r($_SESSION["cliente"]);
+		//print_r($_SESSION["cliente"]);
 		?>
 		<div class="contP">
 			<div class="contF">
 				<h1>Confirmación de datos para el pedido</h1>
+
 				<h2>Datos del comprador:</h2>
 				<span class="spnTDatos">Rut: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["rutFC"]; ?></span><br>
 				<span class="spnTDatos">Nombre: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["nomFC"]; ?></span><br>
 				<span class="spnTDatos">Apellido: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["apeFC"]; ?></span><br>
 				<span class="spnTDatos">Email: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["corFC"]; ?></span><br>
 				<span class="spnTDatos">Telefono: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["telFC"]; ?></span><br>
+
 				<h2>Datos para el envio:</h2>
 				<input type="hidden" id="inptIdReg" value="<?php echo $_SESSION["cliente"]["regFC"]; ?>">
 				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>">
@@ -78,12 +82,18 @@ if (isset($_SESSION["cliente"])) {
 
 					?>
 				</span><br>
-				<span class="spnTDatos">Metodo de pago: </span><br>
-				<div id="opcMetP">
-					
-				</div>
+				<span class="spnTDatos">Metodo de pago: </span><br><div id="opcMetP"></div>
 				
-				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar">
+				<h2>Detalles de la compra:</h2>
+				<span class="spnTDatos">Cantidad de cerraduras: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["cantiFC"]; ?></span><br>
+				<span class="spnTDatos">Precio unitario ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preUnitFC"]; ?></span><br>
+				<span class="spnTDatos">Precio total ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preTotFC"]; ?></span><br>
+				<br><br>
+				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span><br>
+				<br><br>
+
+	
+				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar con MercadoPago">
 			</div>
 		</div>
 		<br>

@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/perfil.css">
 
-    <script src="js/particles.js"></script>
     <script src="js/validacion.js"></script>
     <script src="js/jquery.js"></script>
     <script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
@@ -35,8 +34,6 @@
         menu();
        
     ?>
-
-    <div id="particles-js"></div>
 
     <div class="cover">
         <div class="contCover">
