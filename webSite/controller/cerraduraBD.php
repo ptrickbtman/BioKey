@@ -11,12 +11,13 @@
 */
     
     require_once "../models/cerraduras.php";
-    include_once 'conexion.php';
+    include_once 'conexion2.php';
+    //include_once 'conexion.php';
 
     class cerraduraBD extends cerradura {
 
         public function jsonCerraduraPorId(){
-            $con = conexion();
+            $con = conexion2();
             $jsondata = array();
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . "";
             if ($result = $con->query($sql)) {
@@ -34,7 +35,7 @@
 
 
         public function validarCerradura(){
-            $con = conexion();
+            $con = conexion2();
             $sql = "SELECT * FROM cerraduras WHERE `EST_CERR`= 4 AND `SERIAL_CERR` = '". $this->serial_cerradura . "'";
             $this->set_estado_cerradura($sql);
             if ($resultado = $con->query($sql)) {
@@ -49,7 +50,7 @@
 
 
         public function cambiarUsuarioEstadoCerradura(){
-            $con = conexion();
+            $con = conexion2();
             $sql = "UPDATE `cerraduras` SET `ID_USU`= '". $this->id_usuario_cerradura."' , `EST_CERR`= 1 WHERE  `SERIAL_CERR` = '". $this->serial_cerradura . "'";
             if ($resultado = $con->query($sql)) {
                 return true;
@@ -59,7 +60,7 @@
         } 
 
         public function actualizarCerradura(){
-            $con = conexion();
+            $con = conexion2();
             $sql = "UPDATE `cerraduras` SET `DATE_CERR`= '". $this->fecha_cerradura."' WHERE  `COD_CERR` = ". $this->cod_cerradura . "";
             if($con->query($sql)){
                 $sql = "SELECT `SSID_RED`, `PASS_RED`, `PASS_CERR` FROM cerraduras WHERE `COD_CERR` = ".$this->cod_cerradura;
@@ -82,7 +83,7 @@
         } 
 
         public function selectCerradurasDeUsuario(){
-            $con = conexion();
+            $con = conexion2();
 
             $sql = "SELECT `COD_CERR`, `SERIAL_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED` FROM `cerraduras` WHERE `ID_USU` =".$this->id_usuario_cerradura;
             $datos = $con->query($sql);
@@ -98,7 +99,7 @@
         }
 
         public function selectCerradura(){
-            $con = conexion();
+            $con = conexion2();
             $jsondata = array();
             $sql = "SELECT `COD_CERR`, `SERIAL_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED` FROM `cerraduras` WHERE `COD_CERR` =".$this->cod_cerradura;
             if ($result = $con->query($sql)) {
@@ -118,11 +119,9 @@
 
 
         public function updateContraseñaCerr(){
-
-            $con = conexion();
-
-            $sql = "UPDATE `cerraduras` SET `PASS_CERR`=".$this->pass_cerradura.",`DATE_CERR`='".$this->fecha_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
-
+            $con = conexion2();
+            $sql = "UPDATE `cerraduras` SET `PASS_CERR`='".$this->pass_cerradura."',`DATE_CERR`='".$this->fecha_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
+            //$this->set_ssid_cerradura($sql);
             if ($con->query($sql) === true) {
                 $con->close();
                 return 1;
@@ -135,7 +134,7 @@
 
         public function updateRedCerr(){
 
-            $con = conexion();
+            $con = conexion2();
 
             $sql = "UPDATE `cerraduras` SET `DATE_CERR`='".$this->fecha_cerradura."', `SSID_RED`='".$this->ssid_cerradura."',`PASS_RED`='".$this->passRed_cerradura."' WHERE `COD_CERR` =".$this->cod_cerradura;
             
@@ -149,7 +148,7 @@
         }
 
         public function buscarCerraduraSerialValidar(){
-            $con = conexion();
+            $con = conexion2();
             $sql = "SELECT * FROM `cerraduras` WHERE SERIAL_CERR='".$this->serial_cerradura."' ";
             if ($resultado = $con->query($sql)) {
                 $row_cnt = $resultado->num_rows;
@@ -168,7 +167,7 @@
         }
 
         public function validarCerraduraPorId(){
-            $con = conexion();
+            $con = conexion2();
             $sql = "UPDATE `cerraduras` SET `EST_CERR`=1 , `ID_USU`=".$this->id_usuario_cerradura."  WHERE `COD_CERR` =".$this->cod_cerradura." AND `EST_CERR`=3 AND `ID_USU`=''";
             if ($con->query($sql)) {
                 $con->close();

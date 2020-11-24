@@ -15,5 +15,8 @@ if (isset($_POST['datosForm'])) {
 		echo $cerradura->updateRedCerr();
 
 	}
+
+	//print_r($cerradura);
+	//print_r($_POST['datosForm']);
 }
 ?>
