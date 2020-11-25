@@ -27,10 +27,104 @@ $(document).ready(function() {
 
         var count = 0;
 
+        //rut
 
+        if (vacio(data["rutFC"])) {
+            $(".lblComp1").removeClass("error");
+
+        } else {
+            count += 1;
+            $(".lblComp1").addClass("error");
+        }
+
+        // nom
+        if (vacio(data["nomFC"]) && validarTextoMasNum(data["nomFC"]) === false) {
+            $(".lblComp2").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp2").addClass("error");
+        }
+        // ape
+        if (vacio(data["apeFC"]) && validarTextoMasNum(data["apeFC"]) === false) {
+            $(".lblComp3").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp3").addClass("error");
+        }
+
+        // email
+
+        if (vacio(data["corFC"]) && validarEmail(data["corFC"]) === false) {
+            $(".lblComp4").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp4").addClass("error");
+        }
+
+        // cel
+
+        if (vacio(data["telFC"])) {
+            $(".lblComp5").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp5").addClass("error");
+        }
+
+        // region
+
+        if (vacio(data["regFC"])) {
+            $(".lblComp6").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp6").addClass("error");
+        }
+
+        // ciudad
+
+        if (vacio(data["ciuFC"])) {
+            $(".lblComp7").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp7").addClass("error");
+        }
+
+        // comuna
+
+        if (vacio(data["comFC"]) && validarTextoMasNum(data["comFC"]) === false) {
+            $(".lblComp8").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp8").addClass("error");
+        }
+
+        // calle
+
+        if (vacio(data["call1FC"]) && validarTextoMasNum(data["call1FC"]) === false) {
+            $(".lblComp9").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp9").addClass("error");
+        }
+
+        // numeroCalle
+
+        if (vacio(data["numFC"])) {
+            $(".lblComp11").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp11").addClass("error");
+        }
+
+        // cantidad
+
+        if (vacio(data["cantiFC"])) {
+            $(".lblComp14").removeClass("error");
+        } else {
+            count += 1;
+            $(".lblComp14").addClass("error");
+        }
 
         if (count == 0) {
-
             $.ajaxPrefilter(function(options, original_Options, jqXHR) {
                 options.async = true;
             });
@@ -49,6 +143,12 @@ $(document).ready(function() {
             });
         }
     });
+
+
+
+
+
+
 });
 
 function obtenerDatosForm(nombreForm) {
