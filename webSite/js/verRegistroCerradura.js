@@ -13,6 +13,12 @@ $(document).ready(function() {
         url: "./ajax/registrosCerradura.php",
         success: function(registros) {
             console.log(registros)
+            if (registros == -2) {
+                $(".txtPortada").text('No tienes autorización para ver los registros de esta cerradura.');
+            } else if (registros == -1) {
+                alert("Error de ingreso de datos")
+                window.location.href = "perfil.php";
+            }
 
             /*regisData = JSON.parse(regisData);
             for (var i = 0; i < Object.keys(regisData[0]).length; i++) {

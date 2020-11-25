@@ -1,5 +1,5 @@
 $(".btnModalReg").on("click", function() {
-    window.location.href = "https://cambiardireccion.js";
+    window.location.href = "registrar.php";
 });
 
 

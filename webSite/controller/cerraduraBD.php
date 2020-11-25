@@ -15,7 +15,23 @@
     //include_once 'conexion.php';
 
     class cerraduraBD extends cerradura {
-
+        
+        
+        public function buscarCerraduraPorIds(){
+            $con = conexion2();
+            $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . " AND `COD_CERR`= ".$this->cod_cerradura." ";
+            if ($result = $con->query($sql)) {
+                if( $result->num_rows == 1 ) {
+                    return True;
+                }else{
+                    $con->close();
+                    return False; 
+                }
+            }else{
+                $con->close();
+                return False;
+            }
+        }
 
         public function crearPedidoCerradura(){
             $con = conexion();
