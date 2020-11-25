@@ -1,7 +1,16 @@
+$(document).ready(function() {
+    $(".irRegis").on("click", function() {
+        window.location.href = "registrar.php";
+    });
+});
+
+
 $(window).on("load", function() {
     cerrarModalEspera();
 
 });
+
+
 
 $(".hamburger").on("click", function() {
     menu();
@@ -19,7 +28,7 @@ $(".access").on("click", function() {
 });
 
 $(".access2").on("click", function() {
-    window.location.href = "http://192.168.64.2/BioKey/webSite/perfilUser.php?";
+    window.location.href = "perfilUser.php";
 });
 
 
@@ -67,7 +76,7 @@ $(".btnLogin").on("click", function() {
             success: function(loginVerify) {
                 console.log(loginVerify);
                 if (loginVerify == 1) {
-                    window.location.href = "http://192.168.64.2/BioKey/webSite/perfilUser.php?";
+                    window.location.href = "perfilUser.php";
                 } else {
                     $(".log1").addClass("error");
                     $(".log2").addClass("error")

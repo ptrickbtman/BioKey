@@ -21,6 +21,11 @@ $(document).ready(function() {
         console.log('callback - particles.js config loaded');
     });
 
+    $(".btnRegis").on("click", function() {
+        id = $("#idC").val();
+        url = "registrosCerradura.php?idC=" + id;
+        window.location.href = url;
+    });
 
 });
 
