@@ -42,7 +42,12 @@ if ($nOrden!="") {
 			<input type="text" name="idMetPagFC" value="<?php echo $_SESSION['cliente']['idMetPagFC']; ?>" >
 			
 		</form>
-	</body>
+		
+		<!-- 
+		aqui va el modal de carga solamente	
+		-->
+
+	</body>	
 	</html>
 	<?php
 }else{

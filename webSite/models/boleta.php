@@ -1,26 +1,22 @@
 <?php
-include "cliente.php";
 
-class boleta extends cliente {
+class boleta{
     protected $id_bol;
     protected $id_metpag;
-    protected $id_metenv;
+    protected $cant_env_bol;
     protected $orden_bol;
     protected $total_bol;
     protected $fecha_bol;
     protected $est_log_bol;
 
-    function __construct ($id_bol , $id_metpag , $id_metenv, $orden_bol , $total_bol , $fecha_bol,$rut_cliente,$nom_cliente,$ape_cliente,$corr_cliente, $est_log_bol){
+    function __construct ($id_bol , $id_metpag , $cant_env_bol, $orden_bol , $total_bol , $fecha_bol,$rut_cliente, $est_log_bol){
         $this->id_bol = $id_bol;
         $this->id_metpag = $id_metpag;
-        $this->id_metenv = $id_metenv;
+        $this->cant_env_bol = $cant_env_bol;
         $this->orden_bol = $orden_bol;
         $this->total_bol = $total_bol;
         $this->fecha_bol = $fecha_bol;
         $this->rut_cliente = $rut_cliente;
-        $this->nom_cliente = $nom_cliente;
-        $this->ape_cliente = $ape_cliente;
-        $this->corr_cliente = $corr_cliente;
         $this->est_log_bol = $est_log_bol;
     }
 
@@ -38,9 +34,9 @@ class boleta extends cliente {
         return $this->id_metpag ;
     }
 
-    function get_id_metenv()
+    function get_cant_env_bol()
     {
-        return $this->id_metenv ;
+        return $this->cant_env_bol ;
     }
 
     function get_orden_bol()
@@ -56,6 +52,11 @@ class boleta extends cliente {
     function get_fecha_bol()
     {
         return $this->fecha_bol ;
+    } 
+
+    function get_rut_cliente()
+    {
+        return $this->rut_cliente ;
     } 
     function get_est_log_bol()
     {
@@ -76,9 +77,9 @@ class boleta extends cliente {
         $this->id_metpag = $i;
     }
 
-    function set_id_metenv($i)
+    function set_cant_env_bol($i)
     {
-        $this->id_metenv = $i;
+        $this->cant_env_bol = $i;
     }
 
     function set_orden_bol($i)
@@ -95,6 +96,11 @@ class boleta extends cliente {
     {
         $this->fecha_bol = $i;
     }
+    function set_rut_cliente($i)
+    {
+        $this->rut_cliente = $i;
+    }
+    
     function set_est_log_bol($i)
     {
         $this->est_log_bol = $i;

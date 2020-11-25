@@ -18,6 +18,7 @@ class direccion extends metodoPago{
         $this->id_dir = $id_dir;
         $this->id_bol = $id_bol;
         $this->id_region = $id_region;
+        $this->id_ciu = $id_ciu;
         $this->comuna_dir = $comuna_dir;
         $this->calle1_dir = $calle1_dir;
         $this->calle2_dir = $calle2_dir;
