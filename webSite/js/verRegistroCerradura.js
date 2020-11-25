@@ -6,6 +6,7 @@ $(document).ready(function() {
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
+    console.log("enviando post");
     $.ajax({
         async: true,
         data: { "idC": idC },
@@ -16,18 +17,16 @@ $(document).ready(function() {
             if (registros == -2) {
                 $(".txtPortada").text('No tienes autorización para ver los registros de esta cerradura.');
             } else if (registros == -1) {
-                alert("Error de ingreso de datos")
-                window.location.href = "perfil.php";
+                $(".txtPortada").text('No hay registros disponibles.');
+
+                //window.location.href = "perfilUser.php";
+            } else if (/^[\],:{}\s]*$/.test(registros.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("Registros encontrados");
+                data = JSON.parse(registros);
+                crearRegistros(data);
             }
 
-            /*regisData = JSON.parse(regisData);
-            for (var i = 0; i < Object.keys(regisData[0]).length; i++) {
-                $('#regFC').append("<option value='" + regisData[0][i].ID_REGION + "' >" + regisData[0][i].NOM_REGION + "</option>");
-            }
-            for (var i = 0; i < Object.keys(regisData[1]).length; i++) {
-                $('#ciuFC').append("<option value='" + regisData[1][i].ID_CIU + "' >" + regisData[1][i].NOM_CIU + "</option>");
-            }
-            */
+
         }
     });
 
@@ -38,4 +37,9 @@ $(document).ready(function() {
 function crearPortada() {
     data = '<div class="portada"><p class="txtPortada">Espere un momento <br><span>...</span></div>';
     $("body").append(data);
+}
+
+
+function crearRegistros(dataO) {
+
 }

@@ -53,7 +53,7 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 
 
 			
-
+				
 				<input type="hidden" name="idC" id="idC" value="<?php echo $IDC; ?>">
 				<input type="hidden" name="idOp" value="1">
 				<input class="btnAct" type="button" name="btn" value="Actualizar contraseña" onclick="updateCerr('formNPass')">

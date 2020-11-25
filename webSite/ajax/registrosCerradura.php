@@ -13,7 +13,7 @@ if(isset($_POST["idC"]) && isset($_SESSION["usuario"])){
     if($cerradura->buscarCerraduraPorIds()){
             $registroCerradura = new registroCerrBD(null,$idC,null,null,null,null);
             $json = $registroCerradura->obtenerRegistrosPorIdCerradura();
-            print_r($registroCerradura);
+            //print_r($registroCerradura);
             print_r($json);
             
 
