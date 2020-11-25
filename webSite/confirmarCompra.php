@@ -25,8 +25,8 @@ if (isset($_SESSION["cliente"])) {
 
 	$preference->back_urls = array(
 		"success" => "http://localhost/webSite/registrarVenta.php",
-		"failure" => "http://localhost/webSite/finCompra.php?resp=0",
-		"pending" => "http://localhost/webSite/finCompra.php?resp=0"
+		"failure" => "http://localhost/webSite/compraRechazada.php",
+		"pending" => "http://localhost/webSite/compraRechazada.php"
 	);
 
 	$preference->payment_methods = array(

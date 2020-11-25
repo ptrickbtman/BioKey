@@ -10,9 +10,9 @@ $(document).ready(function() {
         type: "POST",
         url: "./ajax/registrarVenta.php",
         success: function(regisData) {
-            
-            console.log(regisData);
-            
+            if (regisData==1) {
+                window.location.href = "compraAprobada.php";
+            }
         }
     });
 

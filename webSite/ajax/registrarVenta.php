@@ -3,11 +3,10 @@ include '../controller/clienteBD.php';
 include '../controller/boletaBD.php';
 include '../controller/direccionBD.php';
 include '../controller/cerraduraBD.php';
-include '../controller/generarGodigo.php';
+include '../controller/generarCodigo.php';
+include '../controller/ventaBD.php';
 
 if ( isset($_POST['datosVenta']) ) {
-	print_r($_POST['datosVenta']);
-	session_start();
 	$respuesta = 1;
 	$obj = new clienteBD($_POST['datosVenta']['rutFC'],$_POST['datosVenta']['nomFC'],$_POST['datosVenta']['apeFC'],$_POST['datosVenta']['corFC'],$_POST['datosVenta']['telFC'], 1);
 	$respuesta = $obj->insertarClienteVenta();
@@ -27,12 +26,12 @@ if ( isset($_POST['datosVenta']) ) {
 	}
 	if ($respuesta == 1) {
 
-		for ($i=0; $i <count(intval($_POST['datosVenta']['cantiFC'])) ; $i++) { 
+		for ($i=0; $i <intval($_POST['datosVenta']['cantiFC']) ; $i++) { 
 			$obj = new cerraduraBD(null, null, generarCodigo(), null, null, 4,null, null);
 			$respuesta = $obj->crearPedidoCerradura();
 			
-			$obj = new cerraduraBD(null, null, generarCodigo(), null, null, 4,null, null);
-			$respuesta = $obj->crearPedidoCerradura();
+			$obj = new ventaBD(null, $respuesta, $idBol, $_POST['datosVenta']['preUnitFC'], 1);
+			$respuesta = $obj->insertarVenta();
 		}
 		
 	}
