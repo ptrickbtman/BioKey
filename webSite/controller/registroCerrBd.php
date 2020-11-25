@@ -17,5 +17,25 @@ class registroCerrBD extends registroCerradura {
 		return $registros;
 	} 
 
+	public function obtenerRegistrosPorIdCerradura(){
+		$con = conexion();
+		$jsondata = array();
+		$sql = "SELECT * FROM registros_cerr WHERE  `COD_CERR` = ". $this->cod_cerradura . "";
+		$this->descripcion_registro_cerr =$sql;
+		if ($result = $con->query($sql)) {
+			if( $result->num_rows > 0 ) {
+				while( $row = $result->fetch_object() ) {
+					array_push($jsondata, $row);
+				}
+				return json_encode($jsondata);
+			}else{
+				return -1; // registros no asociados
+			}
+		}else{
+			$con->close();
+			return -2; // error de datos desloguear usuario
+		}
+	}
+
 }
 ?>
