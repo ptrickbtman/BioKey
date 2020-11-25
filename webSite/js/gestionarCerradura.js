@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     $(".btnRegis").on("click", function() {
         id = $("#idC").val();
-        url = "registrosCerradura.php?idC=" + id;
+        url = "verRegistrosCerradura.php?idC=" + id;
         window.location.href = url;
     });
 

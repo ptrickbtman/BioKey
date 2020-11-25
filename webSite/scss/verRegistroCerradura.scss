@@ -1,0 +1,34 @@
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: #f39f7b;
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+$color6: rgb(247, 91, 221);
+@mixin centrado {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.portada {
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    background-color: $color4;
+    @include centrado();
+    .txtPortada {
+        color: white;
+        font-size: calc(20px + 2vh);
+        text-align: center;
+        span {
+            animation: loaderData 0.3s infinite alternate;
+            text-align: center;
+        }
+    }
+}
+
+@keyframes loaderData {
+    to {
+        letter-spacing: 4px;
+    }
+}
