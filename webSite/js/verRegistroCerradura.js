@@ -41,5 +41,36 @@ function crearPortada() {
 
 
 function crearRegistros(dataO) {
+    data1 = '<div class="cover"><h1>Registros</h1></div>';
+    btnVoler = '<button class="btnColver" onclick="volver()" >Volver</button>'
+    $("body").append(data1);
+    var estado;
 
+
+    console.log(dataO);
+
+    for (var i = 0; i < Object.keys(dataO).length; i++) {
+
+        if (dataO[i].ID_TIPREGIS == 1) {
+            estado = "Acesso permitido.";
+        } else if (dataO[i].ID_TIPREGIS == 2) {
+            estado = "Acesso denegado.";
+        } else if (dataO[i].ID_TIPREGIS == 3) {
+            estado = "Cambio contraseña.";
+        } else {
+            estado = "Indefinido"
+        }
+
+        data2 = '<div class="row"><div class="left"><p class="date">' + dataO[i].FECH_REGIS + '</p></div> <div class="right"><p class="date">' + estado + '</p></div></div>'
+        $(".cover").append(data2);
+
+    }
+    $(".cover").append(btnVoler);
+    $(".portada").remove();
+
+}
+
+
+function volver() {
+    window.location.href = "perfilUser.php";
 }
