@@ -45,13 +45,24 @@ if (isset($_SESSION["cliente"])) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Confirmar pedido</title>
+
+		<link rel="stylesheet" href="css/menu.css">
+		<link rel="stylesheet" href="css/confirmarCompra.css">
+		<script src="js/particles.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/confirmarCompra.js"></script>
+		<script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<?php 
 		//print_r($_SESSION["cliente"]);
+			include "view/menu.php";
+       		menu();
 		?>
+
+	<div id="particles-js"></div>
 		<div class="contP">
 			<div class="contF">
 				<h1>Confirmación de datos para el pedido</h1>
@@ -64,8 +75,6 @@ if (isset($_SESSION["cliente"])) {
 				<span class="spnTDatos">Telefono: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["telFC"]; ?></span><br>
 
 				<h2>Datos para el envio:</h2>
-				<input type="hidden" id="inptIdReg" value="<?php echo $_SESSION["cliente"]["regFC"]; ?>">
-				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>">
 				<span class="spnTDatos">Region: </span><span class="spnDatos" id="spnDReg"></span><br>
 				<span class="spnTDatos">Ciudad: </span><span class="spnDatos" id="spnDCiu"></span><br>
 				<span class="spnTDatos">Comuna: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["comFC"]; ?></span><br>
@@ -81,16 +90,18 @@ if (isset($_SESSION["cliente"])) {
 					} 
 
 					?>
-				</span><br>
-				<span class="spnTDatos">Metodo de pago: </span><br><div id="opcMetP"></div>
+				</span>
+				<input type="hidden" id="inptIdReg" value="<?php echo $_SESSION["cliente"]["regFC"]; ?>"><br>
+				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>"><br>
 				
+				<h2 class="spnTDatos">Metodo de pago: </h2><br><div id="opcMetP"></div>
 				<h2>Detalles de la compra:</h2>
 				<span class="spnTDatos">Cantidad de cerraduras: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["cantiFC"]; ?></span><br>
 				<span class="spnTDatos">Precio unitario ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preUnitFC"]; ?></span><br>
 				<span class="spnTDatos">Precio total ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preTotFC"]; ?></span><br>
-				<br><br>
-				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span><br>
-				<br><br>
+				
+				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span>
+				
 
 	
 				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar con MercadoPago">
@@ -99,6 +110,7 @@ if (isset($_SESSION["cliente"])) {
 		<br>
 		
 	</body>
+		<script src="js/menu.js"></script>
 	</html>
 	<?php  
 }
