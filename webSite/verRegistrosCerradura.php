@@ -3,8 +3,6 @@
     if(isset($_GET["idC"]) && isset($_SESSION["usuario"]) ){
         $idC = $_GET["idC"];
         $user=$_SESSION["usuario"];
-        //print_r($user);
-        //echo $idC;
     }else{
         header("Location:index.php");
     }

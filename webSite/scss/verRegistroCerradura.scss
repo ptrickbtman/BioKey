@@ -1,13 +1,18 @@
 $color1: rgb(60, 85, 166);
 $color2: rgb(35, 32, 37);
 $color3: #f39f7b;
-$color4: rgb(8, 2, 56);
+$color4: rgb(8, 2, 54);
 $color5: rgb(96, 185, 96);
 $color6: rgb(247, 91, 221);
 @mixin centrado {
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+body {
+    background-color: $color4;
+    color: white;
 }
 
 .portada {
@@ -30,5 +35,55 @@ $color6: rgb(247, 91, 221);
 @keyframes loaderData {
     to {
         letter-spacing: 4px;
+    }
+}
+
+.cover {
+    color: $color4;
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+    h1 {
+        display: block;
+        color: $color6;
+        margin-bottom: 5px;
+        font-size: 60px;
+    }
+    .row {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        background-color: red;
+        margin-top: 10px;
+        .left,
+        .right {
+            float: left;
+            height: 100%;
+            @include centrado();
+            color: white;
+            margin-top: 20px;
+            font-size: calc(16px + 1vh);
+        }
+        .left {
+            width: 40%;
+            text-align: left;
+            background-color: $color6;
+            .date {
+                color: $color4;
+            }
+        }
+        .right {
+            width: 60%;
+        }
+    }
+    .btnColver {
+        width: 90%;
+        margin: 0 auto;
+        background-color: $color6;
+        height: 40px;
+        font-size: 18px;
+        color: white;
+        border: none;
+        margin-top: 30px;
     }
 }
