@@ -30,6 +30,7 @@ if ( isset($_POST['datosVenta']) ) {
 		for ($i=0; $i <count(intval($_POST['datosVenta']['cantiFC'])) ; $i++) { 
 			$obj = new cerraduraBD(null, null, generarCodigo(), null, null, 4,null, null);
 			$respuesta = $obj->crearPedidoCerradura();
+			
 			$obj = new cerraduraBD(null, null, generarCodigo(), null, null, 4,null, null);
 			$respuesta = $obj->crearPedidoCerradura();
 		}
