@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario compra</title>
 	
-	<script src="js/validacion.js"></script>
-	<script src="js/particles.js"></script>
+	
 	<script src="js/jquery.js"></script>
 	<script src="js/formularioCompra.js"></script>
+	<script src="js/validacion.js"></script>
+	<script src="js/particles.js"></script>
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/formularioCompra.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -96,7 +97,7 @@
 				<label class="lblComp14" for="cantPFC">Cantidad de cerraduras: </label>
 				<input class="inputTxt" type="number" name="cantiFC" value="1" min="1" max="5" class="asd">
 
-				<input type="button" value="Continuar" id="btnContinuar">
+				<input type="button" value="Continuar" id="btnContinuar" onclick="continuarCompra()">
 				
 			</form>
 
