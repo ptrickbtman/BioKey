@@ -122,7 +122,7 @@ function continuarCompra(){
         $(".lblComp14").addClass("error");
     }
 
-    alert(count);
+
     if (count == 0) {
         $.ajaxPrefilter(function(options, original_Options, jqXHR) {
             options.async = true;
