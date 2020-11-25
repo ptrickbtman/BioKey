@@ -16,6 +16,22 @@
 
     class cerraduraBD extends cerradura {
 
+
+        public function crearPedidoCerradura(){
+            $con = conexion();
+
+            $sql = "INSERT INTO `cerraduras`(`SERIAL_CERR`, `EST_CERR`) VALUES ('".$this->serial_cerradura."', ".$this->estado_cerradura.")";
+
+            if($con->query($sql)){
+                $respuesta = $con->insert_id;
+            }else{
+                $respuesta = 0;
+            }
+
+            $con->close();
+            return $respuesta;
+        } 
+
         public function jsonCerraduraPorId(){
             $con = conexion2();
             $jsondata = array();

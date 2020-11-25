@@ -14,6 +14,6 @@
         }
         return $data;
     }
-    echo generarCodigo();
+    //echo generarCodigo();
 
 ?>
