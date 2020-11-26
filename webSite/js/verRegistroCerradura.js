@@ -1,6 +1,10 @@
 $(document).ready(function() {
     crearPortada();
 
+    particlesJS.load('particles-js', 'assets/particlesRegis.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
+
     var idC = $("#idCe").val();
 
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
@@ -29,7 +33,6 @@ $(document).ready(function() {
 
         }
     });
-
 
 });
 

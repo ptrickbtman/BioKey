@@ -26,8 +26,10 @@
 
 </head>
 <body>
-
-	<?php
+    
+    <div id="particles-js"></div>
+    
+    <?php
         include "view/menu.php";
         menu();
         echo '<input type="hidden" class="idC" name="idC" id="idCe" value="'.$idC.'" >';

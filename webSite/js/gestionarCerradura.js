@@ -27,6 +27,10 @@ $(document).ready(function() {
         window.location.href = url;
     });
 
+    $(".atras").on("click", function() {
+        window.location.href = "perfilUser.php";
+    });
+
 });
 
 function updateCerr(form) {

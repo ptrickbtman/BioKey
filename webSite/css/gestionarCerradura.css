@@ -15,7 +15,7 @@ body {
 .contP .formNPass h1,
 .contP .formNWifi h1 {
   margin-top: 20px;
-  font-size: 30px;
+  font-size: 35px;
   display: block;
 }
 .contP .formNPass h1 span,
@@ -73,6 +73,30 @@ body {
 .contP .formNPass .btnAct:hover,
 .contP .formNWifi .btnAct:hover {
   letter-spacing: 2px;
+}
+.contP .btnRegis {
+  background-color: white;
+  color: #f75bdd;
+  width: 40%;
+  border: none;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 18px;
+  display: inline;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.contP .atras {
+  background-color: transparent;
+  color: #f75bdd;
+  width: 20%;
+  border: none;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 18px;
+  display: inline;
+  border: 1px solid white;
+  cursor: pointer;
 }
 @media screen and (min-width: 992px) {
   .contP {
