@@ -105,11 +105,24 @@ function continuarCompra(){
 
     //correo//
 
-    if (vacio(data["corFC"]) && validarEmail(data["corFC"]) === true) {
+    if (vacio(data["corFC"]) ) {
         $(".lblComp4").removeClass("error");
+        $("#spnValComp4").text("");
+        if (validarEmail(data["corFC"]) === true) {
+            $(".lblComp4").removeClass("error");
+            $("#spnValComp4").text("");
+        } else {
+            count += 1;
+            $(".lblComp3").addClass("error");
+            $("#spnValComp3").text("Correo ingresado no valido.");
+            $("#apeFC").focus();
+        }
+
     } else {
         count += 1;
         $(".lblComp4").addClass("error");
+        $("#spnValComp4").text("Este campo es obligatorio.");
+        $("#corFC").focus();
     }
 
     //telefono//
