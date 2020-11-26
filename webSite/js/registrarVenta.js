@@ -11,7 +11,8 @@ $(document).ready(function() {
         type: "POST",
         url: "./ajax/registrarVenta.php",
         success: function(regisData) {
-            if (regisData==1) {
+            console.log(regisData)
+            if (regisData == 1) {
                 window.location.href = "compraAprobada.php";
             }
         }
@@ -20,9 +21,10 @@ $(document).ready(function() {
 
 
 });
+
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-    dataObj = {};
+        dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });

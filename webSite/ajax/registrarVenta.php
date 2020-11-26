@@ -10,6 +10,9 @@ if ( isset($_POST['datosVenta']) ) {
 	$respuesta = 1;
 	$obj = new clienteBD($_POST['datosVenta']['rutFC'],$_POST['datosVenta']['nomFC'],$_POST['datosVenta']['apeFC'],$_POST['datosVenta']['corFC'],$_POST['datosVenta']['telFC'], 1);
 	$respuesta = $obj->insertarClienteVenta();
+	
+	//print($respuesta);
+
 	if ($respuesta == 0) {
 		$respuesta = $obj->updateClienteVenta();
 	}

@@ -1,0 +1,63 @@
+* {
+  background-color: #080238;
+  color: white;
+}
+
+.contP {
+  width: 100%;
+  margin-top: 80px;
+}
+.contP .contF {
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+}
+.contP .contF h1 {
+  color: #f75bdd;
+  margin-bottom: 30px;
+}
+.contP .contF h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.contP .contF .botonFalso {
+  width: 100%;
+  height: 40px;
+  background-color: #f75bdd;
+  box-shadow: 0 0 0 10px #f75bdd;
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 1px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 992px) {
+  .contP {
+    width: 38%;
+    margin-left: 100px;
+  }
+}
+
+#particles-js {
+  width: 100%;
+  height: 0vh;
+  position: fixed;
+  z-index: 990;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 992px) {
+  #particles-js {
+    width: 40%;
+    height: 70vh;
+    top: 15vh;
+    right: 5%;
+    position: fixed;
+    z-index: 990;
+  }
+}
+
+/*# sourceMappingURL=confirmarCompra.css.map */
