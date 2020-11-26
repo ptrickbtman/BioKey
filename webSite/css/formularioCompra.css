@@ -41,7 +41,7 @@
   margin-bottom: 5px;
   margin-top: 20px;
 }
-.contP .contF .formCompra label.error {
+.contP .contF .formCompra .error {
   color: #f05656;
 }
 .contP .contF .formCompra .inputTxt {

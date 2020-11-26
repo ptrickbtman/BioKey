@@ -33,24 +33,24 @@
 				<h2>Datos del comprador</h2>
 
 				
-				<label class="lblComp1" for="rutFC">Rut(*): </label>
-				<input class="inputTxt" type="text" name="rutFC" placeholder="11111111-1" required="">
+				<label class="lblComp1" for="rutFC">Rut(*): <span class="lblComp1" id="spnValComp1"></span></label>
+				<input class="inputTxt" type="text" name="rutFC" id="rutFC" placeholder="11111111-1" required="" maxlength="12">
 				
 				
 				<label class="lblComp2" for="nomFC">Nombre(*): </label>
-				<input class="inputTxt" type="text" name="nomFC" placeholder="Ejemplo" required="">
+				<input class="inputTxt" type="text" name="nomFC" placeholder="Ejemplo" required="" maxlength="25">
 				
 				
 				<label class="lblComp3" for="apeFC">Apellido(*): </label>
-				<input class="inputTxt" type="text" name="apeFC" placeholder="Ejemplo" required="">
+				<input class="inputTxt" type="text" name="apeFC" placeholder="Ejemplo" required="" maxlength="25">
 				
 				
 				<label class="lblComp4" for="corFC">Email(*): </label>
-				<input class="inputTxt" type="text" name="corFC" placeholder="Ejemplo@algo.cl" required="">
+				<input class="inputTxt" type="text" name="corFC" placeholder="Ejemplo@algo.cl" required="" maxlength="40">
 				
 				
 				<label class="lblComp5" for="telFC">N° Telefonico(*): </label>
-				<input class="inputTxt" type="text" name="telFC" placeholder="9 12345678" required="">
+				<input class="inputTxt" type="text" name="telFC" placeholder="9 12345678" required="" maxlength="12">
 				
 
 				<h2>Datos para entrega</h2>
@@ -70,32 +70,32 @@
 
 
 				<label class="lblComp8" for="comFC">Comuna(*): </label>
-				<input  class="inputTxt" type="text" name="comFC" placeholder="Ejemplo" required="">
+				<input  class="inputTxt" type="text" name="comFC" placeholder="Ejemplo" required="" maxlength="40">
 
 
 				<label class="lblComp9" for="call1FC">Calle 1(*): </label>
-				<input class="inputTxt" type="text" name="call1FC" placeholder="Ejemplo" required="">
+				<input class="inputTxt" type="text" name="call1FC" placeholder="Ejemplo" required="" maxlength="40">
 
 
 				<label class="lblComp10" for="call2FC">Calle 2: </label>
-				<input class="inputTxt" type="text" name="call2FC" placeholder="Opcional">
+				<input class="inputTxt" type="text" name="call2FC" placeholder="Opcional" maxlength="40">
 
 
 				<label class="lblComp11" for="numFC">Numero(*): </label>
-				<input class="inputTxt" type="text" name="numFC" placeholder="1111" required="">
+				<input class="inputTxt" type="text" name="numFC" placeholder="1111" required="" maxlength="8">
 
 
 				<label class="lblComp12" for="villFC">Villa: </label>
-				<input class="inputTxt" type="text" name="villFC" placeholder="Opcional">
+				<input class="inputTxt" type="text" name="villFC" placeholder="Opcional" maxlength="40">
 
 
 				<label class="lblComp13" for="blockFC">Block: </label>
-				<input class="inputTxt" type="text" name="blockFC" placeholder="Opcional">
+				<input class="inputTxt" type="text" name="blockFC" placeholder="Opcional" maxlength="3">
 
 				<h2>Detalle del pedido</h2>
 
 				<label class="lblComp14" for="cantPFC">Cantidad de cerraduras: </label>
-				<input class="inputTxt" type="number" name="cantiFC" value="1" min="1" max="5" class="asd">
+				<input class="inputTxt" type="number" name="cantiFC" value="1" min="1" max="10" class="asd">
 
 				<input type="button" value="Continuar" id="btnContinuar" onclick="continuarCompra()">
 				

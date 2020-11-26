@@ -6,8 +6,9 @@ if (isset($_GET['collection_id']) && !empty($_GET['collection_id'])) {
 if (isset($_GET['payment_id']) && !empty($_GET['payment_id'])) {
 	$nOrden= $_GET['payment_id'];
 }
-if ($nOrden!="") {
 	session_start();
+if ($nOrden!="" && isset($_SESSION['cliente'])) {
+
 
 
 	?>
@@ -51,6 +52,7 @@ if ($nOrden!="") {
 	</html>
 	<?php
 }else{
-	echo "error";
+	echo '<script language="javascript">window.location.href = "formularioCompra.php";</script>';
+	
 }
 ?>

@@ -26,16 +26,21 @@ function continuarCompra(){
     data = obtenerDatosForm("formCompra");
     var count = 0;
 
-
+    //Rut//
 
     if (vacio(data["rutFC"])) {
         $(".lblComp1").removeClass("error");
-
+        $("#spnValComp1").text("");
     } else {
         count += 1;
         $(".lblComp1").addClass("error");
+        $("#spnValComp1").text("Este campo es obligatorio");
+        $("#rutFC").focus();
+
     }
 
+
+    //Nombre//
 
     if (vacio(data["nomFC"]) && validarTextoMasNum(data["nomFC"]) === false) {
         $(".lblComp2").removeClass("error");
@@ -43,6 +48,11 @@ function continuarCompra(){
         count += 1;
         $(".lblComp2").addClass("error");
     }
+
+
+
+
+
 
     if (vacio(data["apeFC"]) && validarTextoMasNum(data["apeFC"]) === false) {
         $(".lblComp3").removeClass("error");

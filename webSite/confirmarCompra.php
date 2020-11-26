@@ -52,17 +52,17 @@ if (isset($_SESSION["cliente"])) {
 		<script src="js/jquery.js"></script>
 		<script src="js/confirmarCompra.js"></script>
 		<script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<?php 
 		//print_r($_SESSION["cliente"]);
-			include "view/menu.php";
-       		menu();
+		include "view/menu.php";
+		menu();
 		?>
 
-	<div id="particles-js"></div>
+		<div id="particles-js"></div>
 		<div class="contP">
 			<div class="contF">
 				<h1>Confirmación de datos para el pedido</h1>
@@ -103,14 +103,14 @@ if (isset($_SESSION["cliente"])) {
 				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span>
 				
 
-	
+				
 				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar con MercadoPago">
 			</div>
 		</div>
 		<br>
 		
 	</body>
-		<script src="js/menu.js"></script>
+	<script src="js/menu.js"></script>
 	</html>
 	<?php  
 }
