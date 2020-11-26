@@ -1,0 +1,99 @@
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: #f39f7b;
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+$color6: rgb(247, 91, 221);
+@mixin centrado() {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+body {
+    background-color: $color4;
+}
+
+.contSimbolo {
+    width: 100%;
+    height: 300px;
+    //background-color: red;
+    margin-top: 100px;
+    .contLogo {
+        margin: 0 auto;
+        display: block;
+        width: calc(40vw + 0px);
+        height: calc(40vw + 0px);
+        background-color: $color5;
+        border-radius: 100%;
+        @include centrado();
+        border: 5px solid white;
+        text-align: center;
+        box-shadow: 0px 0 30px 5px $color5;
+        svg {
+            width: 60%;
+            path {
+                position: absolute;
+                fill: white;
+            }
+            animation: aprobado2 2s infinite linear;
+        }
+    }
+    .contApro {
+        margin-top: 30px;
+        width: 100%;
+        text-align: center;
+        .aproTxt {
+            color: white;
+            text-transform: uppercase;
+            font-size: 40px;
+            display: block;
+        }
+        .volver {
+            width: 90%;
+            margin: 0 auto;
+            height: 40px;
+            font-size: 19px;
+            margin-top: 10px;
+            background-color: $color6;
+            color: white;
+            border: none;
+        }
+    }
+    @media screen and (min-width:992px) {
+        width: 50%;
+        height: calc(100vh - 90px);
+        position: fixed;
+        left: 0;
+        top: 90px;
+        .contLogo {
+            width: calc(10vw + 0px);
+            height: calc(10vw + 0px);
+        }
+        .contApro {
+            .aproTxt {
+                color: white;
+                text-transform: uppercase;
+                font-size: calc(20px + 6vh);
+                font-weight: 600;
+                display: block;
+            }
+            .volver {
+                width: 50%;
+                margin: 0 auto;
+                height: 40px;
+                font-size: 19px;
+                margin-top: 10px;
+                background-color: $color6;
+                color: white;
+                border: none;
+                box-shadow: 0px 0 10px 1px $color6;
+                transition: 0.4s;
+                cursor: pointer;
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+}
