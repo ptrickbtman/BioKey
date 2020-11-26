@@ -31,10 +31,20 @@ function continuarCompra(){
     if (vacio(data["rutFC"])) {
         $(".lblComp1").removeClass("error");
         $("#spnValComp1").text("");
+
+        if (validarRut(data["rutFC"]) == true) {
+            $(".lblComp1").removeClass("error");
+            $("#spnValComp1").text("");
+        } else {
+            count += 1;
+            $(".lblComp1").addClass("error");
+            $("#spnValComp1").text("Rut ingresado no valido.");
+            $("#rutFC").focus();
+        }
     } else {
         count += 1;
         $(".lblComp1").addClass("error");
-        $("#spnValComp1").text("Este campo es obligatorio");
+        $("#spnValComp1").text("Este campo es obligatorio.");
         $("#rutFC").focus();
 
     }
@@ -42,26 +52,58 @@ function continuarCompra(){
 
     //Nombre//
 
-    if (vacio(data["nomFC"]) && validarTextoMasNum(data["nomFC"]) === false) {
+    if (vacio(data["nomFC"])) {
         $(".lblComp2").removeClass("error");
+        $("#spnValComp2").text("");
+
+        if (validarTextoMasNum(data["nomFC"]) === false) {
+            $(".lblComp2").removeClass("error");
+            $("#spnValComp2").text("");
+        } else {
+            count += 1;
+            $(".lblComp2").addClass("error");
+            $("#spnValComp2").text("Este campo no puede contener numeros.");
+            $("#nomFC").focus();
+        }
+
     } else {
         count += 1;
         $(".lblComp2").addClass("error");
+        $("#spnValComp2").text("Este campo es obligatorio.");
+        $("#nomFC").focus();
     }
 
+    
+
+
+    //apellido//
 
 
 
-
-
-    if (vacio(data["apeFC"]) && validarTextoMasNum(data["apeFC"]) === false) {
+    if (vacio(data["apeFC"])) {
         $(".lblComp3").removeClass("error");
+        $("#spnValComp3").text("");
+
+        if (validarTextoMasNum(data["apeFC"]) === false) {
+            $(".lblComp3").removeClass("error");
+            $("#spnValComp3").text("");
+        } else {
+            count += 1;
+            $(".lblComp3").addClass("error");
+            $("#spnValComp3").text("Este campo no puede contener numeros.");
+            $("#apeFC").focus();
+        }
+
     } else {
         count += 1;
         $(".lblComp3").addClass("error");
+        $("#spnValComp3").text("Este campo es obligatorio.");
+        $("#apeFC").focus();
     }
 
 
+
+    //correo//
 
     if (vacio(data["corFC"]) && validarEmail(data["corFC"]) === true) {
         $(".lblComp4").removeClass("error");
@@ -70,7 +112,7 @@ function continuarCompra(){
         $(".lblComp4").addClass("error");
     }
 
-
+    //telefono//
 
     if (vacio(data["telFC"])) {
         $(".lblComp5").removeClass("error");

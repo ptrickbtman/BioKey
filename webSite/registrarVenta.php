@@ -6,9 +6,10 @@ if (isset($_GET['collection_id']) && !empty($_GET['collection_id'])) {
 if (isset($_GET['payment_id']) && !empty($_GET['payment_id'])) {
 	$nOrden= $_GET['payment_id'];
 }
-	session_start();
-if ($nOrden!="" && isset($_SESSION['cliente'])) {
 
+
+if ($nOrden!="") {
+session_start();
 
 
 	?>

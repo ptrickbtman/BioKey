@@ -37,12 +37,12 @@
 				<input class="inputTxt" type="text" name="rutFC" id="rutFC" placeholder="11111111-1" required="" maxlength="12">
 				
 				
-				<label class="lblComp2" for="nomFC">Nombre(*): </label>
-				<input class="inputTxt" type="text" name="nomFC" placeholder="Ejemplo" required="" maxlength="25">
+				<label class="lblComp2" for="nomFC">Nombre(*): <span class="lblComp2" id="spnValComp2"></span></label>
+				<input class="inputTxt" type="text" name="nomFC" id="nomFC" placeholder="Ejemplo" required="" maxlength="25">
 				
 				
-				<label class="lblComp3" for="apeFC">Apellido(*): </label>
-				<input class="inputTxt" type="text" name="apeFC" placeholder="Ejemplo" required="" maxlength="25">
+				<label class="lblComp3" for="apeFC">Apellido(*): <span class="lblComp3" id="spnValComp3"></span></label>
+				<input class="inputTxt" type="text" name="apeFC" id="apeFC" placeholder="Ejemplo" required="" maxlength="25">
 				
 				
 				<label class="lblComp4" for="corFC">Email(*): </label>

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     datos = obtenerDatosForm("datosCompra");
 
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
@@ -19,7 +20,6 @@ $(document).ready(function() {
 
 
 });
-
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
     dataObj = {};
