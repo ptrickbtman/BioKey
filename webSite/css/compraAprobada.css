@@ -1,0 +1,90 @@
+body {
+  background-color: #080238;
+}
+
+.contSimbolo {
+  width: 100%;
+  height: 300px;
+  margin-top: 100px;
+}
+.contSimbolo .contLogo {
+  margin: 0 auto;
+  display: block;
+  width: calc(40vw + 0px);
+  height: calc(40vw + 0px);
+  background-color: #60b960;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 5px solid white;
+  text-align: center;
+  box-shadow: 0px 0 30px 5px #60b960;
+}
+.contSimbolo .contLogo svg {
+  width: 60%;
+  animation: aprobado2 2s infinite linear;
+}
+.contSimbolo .contLogo svg path {
+  position: absolute;
+  fill: white;
+}
+.contSimbolo .contApro {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+.contSimbolo .contApro .aproTxt {
+  color: white;
+  text-transform: uppercase;
+  font-size: 40px;
+  display: block;
+}
+.contSimbolo .contApro .volver {
+  width: 90%;
+  margin: 0 auto;
+  height: 40px;
+  font-size: 19px;
+  margin-top: 10px;
+  background-color: #f75bdd;
+  color: white;
+  border: none;
+}
+@media screen and (min-width: 992px) {
+  .contSimbolo {
+    width: 50%;
+    height: calc(100vh - 90px);
+    position: fixed;
+    left: 0;
+    top: 90px;
+  }
+  .contSimbolo .contLogo {
+    width: calc(10vw + 0px);
+    height: calc(10vw + 0px);
+  }
+  .contSimbolo .contApro .aproTxt {
+    color: white;
+    text-transform: uppercase;
+    font-size: calc(20px + 6vh);
+    font-weight: 600;
+    display: block;
+  }
+  .contSimbolo .contApro .volver {
+    width: 50%;
+    margin: 0 auto;
+    height: 40px;
+    font-size: 19px;
+    margin-top: 10px;
+    background-color: #f75bdd;
+    color: white;
+    border: none;
+    box-shadow: 0px 0 10px 1px #f75bdd;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  .contSimbolo .contApro .volver:hover {
+    letter-spacing: 2px;
+  }
+}
+
+/*# sourceMappingURL=compraAprobada.css.map */
