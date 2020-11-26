@@ -21,6 +21,11 @@ body {
   animation: loaderData 0.3s infinite alternate;
   text-align: center;
 }
+@media screen and (min-width: 992px) {
+  .portada {
+    width: 50%;
+  }
+}
 
 @keyframes loaderData {
   to {
@@ -35,7 +40,7 @@ body {
 }
 .cover h1 {
   display: block;
-  color: #f75bdd;
+  color: white;
   margin-bottom: 5px;
   font-size: 60px;
 }
@@ -43,7 +48,6 @@ body {
   width: 90%;
   margin: 0 auto;
   display: block;
-  background-color: red;
   margin-top: 10px;
 }
 .cover .row .left,
@@ -55,18 +59,21 @@ body {
   display: flex;
   color: white;
   margin-top: 20px;
-  font-size: calc(16px + 1vh);
+  font-size: calc(13px + 1vh);
+  height: 30px;
+  cursor: pointer;
 }
 .cover .row .left {
-  width: 40%;
+  width: 38%;
   text-align: left;
-  background-color: #f75bdd;
-}
-.cover .row .left .date {
-  color: #080236;
+  border: 1.3px solid #f75bdd;
+  color: white;
 }
 .cover .row .right {
   width: 60%;
+  border: 1.3px solid #f75bdd;
+  float: left;
+  background-color: #f75bdd;
 }
 .cover .btnColver {
   width: 90%;
@@ -77,6 +84,35 @@ body {
   color: white;
   border: none;
   margin-top: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.cover .btnColver:hover {
+  letter-spacing: 2px;
+}
+@media screen and (min-width: 992px) {
+  .cover {
+    width: 45%;
+  }
+}
+
+#particles-js {
+  width: 100%;
+  height: 0vh;
+  position: fixed;
+  z-index: 990;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 992px) {
+  #particles-js {
+    width: 40%;
+    height: 70vh;
+    top: 15vh;
+    right: 5%;
+    position: fixed;
+    z-index: 990;
+  }
 }
 
 /*# sourceMappingURL=verRegistroCerradura.css.map */

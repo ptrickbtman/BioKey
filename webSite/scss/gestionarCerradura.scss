@@ -24,7 +24,7 @@ body {
         margin: 0 auto;
         h1 {
             margin-top: 20px;
-            font-size: 30px;
+            font-size: 35px;
             display: block;
             span {
                 font-size: 25px;
@@ -74,6 +74,30 @@ body {
                 letter-spacing: 2px;
             }
         }
+    }
+    .btnRegis {
+        background-color: white;
+        color: $color6;
+        width: 40%;
+        border: none;
+        margin-top: 10px;
+        height: 30px;
+        font-size: 18px;
+        display: inline;
+        border: 1px solid white;
+        cursor: pointer;
+    }
+    .atras {
+        background-color: transparent;
+        color: $color6;
+        width: 20%;
+        border: none;
+        margin-top: 10px;
+        height: 30px;
+        font-size: 18px;
+        display: inline;
+        border: 1px solid white;
+        cursor: pointer;
     }
     @media screen and(min-width:992px) {
         width: 40%;

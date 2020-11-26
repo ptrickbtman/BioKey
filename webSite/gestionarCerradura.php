@@ -40,7 +40,7 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 			
 			<form class="formNPass">	
 				<h1>Gestionar cerradura <span id="serGes"></span></h1>
-				<button class="btnRegis">Ver registros.</button>
+				<button class="atras">Atras</button><button class="btnRegis">Ver registros</button>
 				<h3>Cambiar contraseña cerradura (numerica)</h3>
 		
 				<span>Ingrese nueva coontraseña: </span>				
