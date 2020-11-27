@@ -105,7 +105,7 @@ function continuarCompra(){
 
     //correo//
 
-    if (vacio(data["corFC"]) ) {
+    if (vacio(data["corFC"])) {
         $(".lblComp4").removeClass("error");
         $("#spnValComp4").text("");
         if (validarEmail(data["corFC"]) === true) {
@@ -115,7 +115,7 @@ function continuarCompra(){
             count += 1;
             $(".lblComp3").addClass("error");
             $("#spnValComp3").text("Correo ingresado no valido.");
-            $("#apeFC").focus();
+            $("#corFC").focus();
         }
 
     } else {

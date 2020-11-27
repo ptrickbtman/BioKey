@@ -25,6 +25,14 @@ function validarTextoMasNum(valor) {
     return false;
 
 }
+function validarNumero(valor) {
+    if (/^[0-9]$/.test(valor)) {
+        return true;
+    }
+    return false;
+
+}
+
 
 function validarRut(rut) {
     var respu = null;
