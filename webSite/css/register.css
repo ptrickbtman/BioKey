@@ -4,6 +4,7 @@ body {
 
 .cover {
   width: 100%;
+  margin-top: 80px;
 }
 .cover .leftCover {
   width: 100%;

@@ -37,6 +37,7 @@ body {
 .contP .formNWifi span,
 .contP .formNWifi input {
   display: block;
+  color: white;
 }
 .contP .formNPass span,
 .contP .formNWifi span {

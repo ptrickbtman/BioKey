@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "./ajax/perfil.php",
         success: function(vali) {
             //console.log("ajax1");
-            //console.log(vali);
+            console.log(vali);
             if (vali == 1) {
                 crearFormValidador();
                 //console.log("json recibido")
@@ -20,13 +20,11 @@ $(document).ready(function() {
                 data = JSON.parse(vali);
                 crearFormulariosCerraduras(data);
                 crearActivador(data);
-                console.log(data[0]);
-
-
+                console.log(data[0])
             } else if (vali == "") {
-                alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
+                //alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
             } else {
-                alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
+                //alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
