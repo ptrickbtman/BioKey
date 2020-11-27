@@ -18,27 +18,27 @@ class regionBD extends region
 				return $jsondata;
 			}else{
 				$con->close();
-				return False;
+				return "error";
 			}
 		}else{
 			$con->close();
-			return False;
+			return "error";
 		}
 	}
 
 	public function buscarRegionId(){
 
 		$con = conexion();
+		$jsondata = array();
 		$sql = "SELECT `NOM_REGION` FROM `region` WHERE `ID_REGION` =".$this->id_region;
 		if ($result = $con->query($sql)) {
-			if( $result->num_rows > 0 ) {
-				$con->close();
-				return $result;
+			if( $result->num_rows == 1 ) {
+				$row = $result->fetch_array(MYSQLI_BOTH);
+				return $row[0];
 			}else{
 				$con->close();
 				return "error";
 			}
-
 		}else{
 			$con->close();
 			return "error";

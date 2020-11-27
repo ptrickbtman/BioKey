@@ -18,27 +18,23 @@ class ciudadBD extends ciudad
 				return $jsondata;
 			}else{
 				$con->close();
-				return "False";
+				return "error";
 			}
 
 		}else{
 			$con->close();
-			return False;
+			return "error";
 		}
 	}
 
 	public function buscarCiudadId(){
-
 		$con = conexion();
 		$jsondata = array();
 		$sql = "SELECT `NOM_CIU` FROM `ciudad` WHERE `ID_CIU` = ".$this->id_ciudad;
 		if ($result = $con->query($sql)) {
-			if( $result->num_rows > 0 ) {
-				while( $row = $result->fetch_object() ) {
-					array_push($jsondata, $row);
-				}
-				$con->close();
-				return $jsondata;
+			if( $result->num_rows == 1 ) {
+				$row = $result->fetch_array(MYSQLI_BOTH);
+				return $row[0];
 			}else{
 				$con->close();
 				return "error";

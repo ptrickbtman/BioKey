@@ -13,12 +13,10 @@
                 
 
                 <div class="right"><div class="contText"><p><?php echo $valor ?></p></div></div>
-            <?
+            <?php
             $count+=1;
         }   
 
         echo'<button class="btnDescargar">Descargar PDF</button>';
-
     }
-
 ?>
