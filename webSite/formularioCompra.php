@@ -45,35 +45,35 @@
 				<input class="inputTxt" type="text" name="apeFC" id="apeFC" placeholder="Ejemplo" required="" maxlength="25">
 				
 				
-				<label class="lblComp4" for="corFC">Email(*): </label>
-				<input class="inputTxt" type="text" name="corFC" placeholder="Ejemplo@algo.cl" required="" maxlength="40">
+				<label class="lblComp4" for="corFC">Email(*): <span class="lblComp4" id="spnValComp4"></span></label>
+				<input class="inputTxt" type="text" name="corFC" id="corFC" placeholder="Ejemplo@algo.cl" required="" maxlength="40">
 				
 				
-				<label class="lblComp5" for="telFC">N° Telefonico(*): </label>
-				<input class="inputTxt" type="text" name="telFC" placeholder="9 12345678" required="" maxlength="12">
+				<label class="lblComp5" for="telFC">N° Telefonico(*): <span class="lblComp5" id="spnValComp5"></span></label>
+				<input class="inputTxt" type="text" name="telFC" id="telFC" placeholder="9 12345678" required="" maxlength="12">
 				
 
 				<h2>Datos para entrega</h2>
 
 
-				<label class="lblComp6" for="regFC">Region(*): </label>
+				<label class="lblComp6" for="regFC">Region(*): <span class="lblComp6" id="spnValComp6"></span></label>
 				<select class="inputSelect" name="regFC" id="regFC" required="">
 					<option value=""id="regFC">Seleccione...</option>
 				</select>
 
 
-				<label class="lblComp7" for="ciuFC">Ciudad(*): </label>
+				<label class="lblComp7" for="ciuFC">Ciudad(*): <span class="lblComp7" id="spnValComp7"></span></label>
 				<select class="inputSelect" name="ciuFC" id="ciuFC" required="">
 					<option value="">Seleccione...</option>
 				</select>
 
 
 
-				<label class="lblComp8" for="comFC">Comuna(*): </label>
+				<label class="lblComp8" for="comFC">Comuna(*): <span class="lblComp8" id="spnValComp8"></span></label>
 				<input  class="inputTxt" type="text" name="comFC" placeholder="Ejemplo" required="" maxlength="40">
 
 
-				<label class="lblComp9" for="call1FC">Calle 1(*): </label>
+				<label class="lblComp9" for="call1FC">Calle 1(*): <span class="lblComp9" id="spnValComp9"></span></label>
 				<input class="inputTxt" type="text" name="call1FC" placeholder="Ejemplo" required="" maxlength="40">
 
 
@@ -81,7 +81,7 @@
 				<input class="inputTxt" type="text" name="call2FC" placeholder="Opcional" maxlength="40">
 
 
-				<label class="lblComp11" for="numFC">Numero(*): </label>
+				<label class="lblComp11" for="numFC">Numero(*): <span class="lblComp11" id="spnValComp11"></span></label>
 				<input class="inputTxt" type="text" name="numFC" placeholder="1111" required="" maxlength="8">
 
 
@@ -89,12 +89,12 @@
 				<input class="inputTxt" type="text" name="villFC" placeholder="Opcional" maxlength="40">
 
 
-				<label class="lblComp13" for="blockFC">Block: </label>
+				<label class="lblComp13" for="blockFC">Block: <span class="lblComp13" id="spnValComp13"></span></label>
 				<input class="inputTxt" type="text" name="blockFC" placeholder="Opcional" maxlength="3">
 
 				<h2>Detalle del pedido</h2>
 
-				<label class="lblComp14" for="cantPFC">Cantidad de cerraduras: </label>
+				<label class="lblComp14" for="cantPFC">Cantidad de cerraduras: <span class="lblComp14" id="spnValComp14"></span></label>
 				<input class="inputTxt" type="number" name="cantiFC" value="1" min="1" max="10" class="asd">
 
 				<input type="button" value="Continuar" id="btnContinuar" onclick="continuarCompra()">

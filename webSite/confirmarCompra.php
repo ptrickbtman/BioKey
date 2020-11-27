@@ -37,7 +37,6 @@ if (isset($_SESSION["cliente"])) {
 	);
 
 	$preference->save();
-
 	?>
 	<!DOCTYPE html>
 	<html lang="es">
@@ -75,8 +74,8 @@ if (isset($_SESSION["cliente"])) {
 				<span class="spnTDatos">Telefono: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["telFC"]; ?></span><br>
 
 				<h2>Datos para el envio:</h2>
-				<span class="spnTDatos">Region: </span><span class="spnDatos" id="spnDReg"></span><br>
-				<span class="spnTDatos">Ciudad: </span><span class="spnDatos" id="spnDCiu"></span><br>
+				<span class="spnTDatos">Region: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["nomRegFC"]; ?></span><br>
+				<span class="spnTDatos">Ciudad: </span><span class="spnDatos"></span><br>
 				<span class="spnTDatos">Comuna: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["comFC"]; ?></span><br>
 				<span class="spnTDatos">Direccion: </span>
 				<span class="spnDatos">

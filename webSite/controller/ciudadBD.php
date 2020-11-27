@@ -16,6 +16,9 @@ class ciudadBD extends ciudad
 				}
 				$con->close();
 				return $jsondata;
+			}else{
+				$con->close();
+				return "False";
 			}
 
 		}else{
@@ -24,7 +27,28 @@ class ciudadBD extends ciudad
 		}
 	}
 
-	
+	public function buscarCiudadId(){
+
+		$con = conexion();
+		$jsondata = array();
+		$sql = "SELECT `NOM_CIU` FROM `ciudad` WHERE `ID_CIU` = ".$this->id_ciudad;
+		if ($result = $con->query($sql)) {
+			if( $result->num_rows > 0 ) {
+				while( $row = $result->fetch_object() ) {
+					array_push($jsondata, $row);
+				}
+				$con->close();
+				return $jsondata;
+			}else{
+				$con->close();
+				return "error";
+			}
+
+		}else{
+			$con->close();
+			return "error";
+		}
+	}
 	
 }
 

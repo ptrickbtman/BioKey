@@ -113,8 +113,8 @@ function continuarCompra(){
             $("#spnValComp4").text("");
         } else {
             count += 1;
-            $(".lblComp3").addClass("error");
-            $("#spnValComp3").text("Correo ingresado no valido.");
+            $(".lblComp4").addClass("error");
+            $("#spnValComp4").text("Correo ingresado no valido.");
             $("#corFC").focus();
         }
 
@@ -129,62 +129,135 @@ function continuarCompra(){
 
     if (vacio(data["telFC"])) {
         $(".lblComp5").removeClass("error");
+        $("#spnValComp5").text("");
+
+        if (validarNumero(data["telFC"]) === false) {
+            $(".lblComp5").removeClass("error");
+            $("#spnValComp5").text("");
+        } else {
+            count += 1;
+            $(".lblComp5").addClass("error");
+            $("#spnValComp5").text("Este campo solo puede contener numeros.");
+            $("#telFC").focus();
+        }
+
     } else {
         count += 1;
         $(".lblComp5").addClass("error");
+        $("#spnValComp5").text("Este campo es obligatorio.");
+        $("#spnValComp5").text("");
     }
 
-
+    //region//
 
     if (vacio(data["regFC"])) {
         $(".lblComp6").removeClass("error");
     } else {
         count += 1;
         $(".lblComp6").addClass("error");
+        $("#spnValComp6").text("Debe seleccionar una opcion.");
+        $("#regFC").focus();
     }
 
+    //ciudad//
 
     if (vacio(data["ciuFC"])) {
         $(".lblComp7").removeClass("error");
     } else {
         count += 1;
         $(".lblComp7").addClass("error");
+        $("#spnValComp7").text("Debe seleccionar una opcion.");
+        $("#ciuFC").focus();
     }
 
+    //comuna//
 
-
-    if (vacio(data["comFC"]) && validarTextoMasNum(data["comFC"]) === false) {
+    if (vacio(data["comFC"])) {
         $(".lblComp8").removeClass("error");
+        $("#spnValComp8").text("");
+
+        if (validarTextoMasNum(data["comFC"]) === false) {
+            $(".lblComp8").removeClass("error");
+            $("#spnValComp8").text("");
+        } else {
+            count += 1;
+            $(".lblComp8").addClass("error");
+            $("#spnValComp8").text("Este campo no puede contener numeros.");
+            $("#comFC").focus();
+        }
     } else {
         count += 1;
         $(".lblComp8").addClass("error");
+        $("#spnValComp8").text("Este campo es obligatorio.");
+        $("#comFC").focus();
     }
 
+    //calle 1//
 
-
-    if (vacio(data["call1FC"]) && validarTextoMasNum(data["call1FC"]) === false) {
+    if (vacio(data["call1FC"])) {
         $(".lblComp9").removeClass("error");
+        $("#spnValComp9").text("");
+
+        if (validarTextoMasNum(data["call1FC"]) === false) {
+            $(".lblComp9").removeClass("error");
+            $("#spnValComp9").text("");
+        } else {
+            count += 1;
+            $(".lblComp9").addClass("error");
+            $("#spnValComp9").text("Este campo no puede contener numeros.");
+            $("#call1FC").focus();
+        }
     } else {
         count += 1;
         $(".lblComp9").addClass("error");
+        $("#spnValComp9").text("Este campo es obligatorio.");
+        $("#call1FC").focus();
     }
 
-
+    //numero//
 
     if (vacio(data["numFC"])) {
         $(".lblComp11").removeClass("error");
+        $("#spnValComp11").text("");
+
+        if (validarNumero(data["numFC"]) === false) {
+            $(".lblComp11").removeClass("error");
+            $("#spnValComp11").text("");
+        } else {
+            count += 1;
+            $(".lblComp11").addClass("error");
+            $("#spnValComp11").text("Este campo solo puede contener numeros.");
+            $("#numFC").focus();
+        }
     } else {
         count += 1;
         $(".lblComp11").addClass("error");
+        $("#spnValComp11").text("Este campo es obligatorio.");
+        $("#numFC").focus();
     }
 
 
+    //cantidad//
 
     if (vacio(data["cantiFC"])) {
         $(".lblComp14").removeClass("error");
+        $("#spnValComp14").text("");
+
+        if (parseInt(data["cantiFC"])>0 && parseInt(data["cantiFC"])<=10) {
+            $(".lblComp14").removeClass("error");
+            $("#spnValComp14").text("");
+        } else {
+            count += 1;
+            $(".lblComp14").addClass("error");
+            $("#spnValComp14").text("Por ahora solo se pueden comprar de 1 a 10 cerradudas.");
+            $("#cantiFC").focus();
+        }
+
     } else {
         count += 1;
         $(".lblComp14").addClass("error");
+        $("#spnValComp14").text("Este campo es obligatorio.");
+        $("#cantiFC").focus();
     }
 
 
