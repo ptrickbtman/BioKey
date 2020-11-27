@@ -43,7 +43,7 @@
             }else{
                 $respuesta = 0;
             }
-
+            $this->set_serial_cerradura($sql);
             $con->close();
             return $respuesta;
         } 

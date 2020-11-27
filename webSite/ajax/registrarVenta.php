@@ -16,16 +16,19 @@ if ( isset($_POST['datosVenta']) ) {
 	if ($respuesta == 0) {
 		$respuesta = $obj->updateClienteVenta();
 	}
+	
 	if ($respuesta == 1) {
 		date_default_timezone_set("America/Santiago");
-		$fecha_act = date("d-m-Y G:i");
+		$fecha_act = date("d-m-Y");
 		$obj = new boletaBD(null , $_POST['datosVenta']['idMetPagFC'] , $_POST['datosVenta']['cantiFC'], $_POST['datosVenta']['ordFC'] , $_POST['datosVenta']['preTotFC'] , $fecha_act, $_POST['datosVenta']['rutFC'], 1);
 		$respuesta = $obj->insertarBoleta();
+		//print_r($obj);
 	}
 	$idBol = $respuesta;
 	if ($respuesta >= 0) {
 		$obj = new direccionBD(null,$idBol,$_POST['datosVenta']['regFC'],$_POST['datosVenta']['ciuFC'], $_POST['datosVenta']['comFC'],$_POST['datosVenta']['call1FC'],$_POST['datosVenta']['call2FC'],$_POST['datosVenta']['numFC'],$_POST['datosVenta']['villFC'],$_POST['datosVenta']['blockFC'], 1);
 		$respuesta = $obj->insertarDireccion();
+		//print_r($obj);
 	}
 	if ($respuesta == 1) {
 
@@ -33,6 +36,7 @@ if ( isset($_POST['datosVenta']) ) {
 			$obj = new cerraduraBD(null, null, generarCodigo(), null, null, 4,null, null);
 			$respuesta = $obj->crearPedidoCerradura();
 			
+			//print_r($obj);
 			$obj = new ventaBD(null, $respuesta, $idBol, $_POST['datosVenta']['preUnitFC'], 1);
 			$respuesta = $obj->insertarVenta();
 		}
