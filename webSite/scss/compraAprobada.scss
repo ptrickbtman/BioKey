@@ -58,6 +58,7 @@ body {
             background-color: $color6;
             color: white;
             border: none;
+            box-shadow: 0px 0 10px 1px $color6;
         }
     }
     @media screen and (min-width:992px) {
@@ -87,13 +88,94 @@ body {
                 background-color: $color6;
                 color: white;
                 border: none;
-                box-shadow: 0px 0 10px 1px $color6;
                 transition: 0.4s;
                 cursor: pointer;
                 &:hover {
                     letter-spacing: 2px;
                 }
             }
+        }
+    }
+}
+
+.contInfoDetalle {
+    width: 100%;
+    height: 100%;
+    color: white;
+    .left,
+    .right {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        .contText {
+            margin-top: 5px;
+            width: 100%;
+            text-align: ledt;
+            h1 {
+                text-align: center;
+            }
+            p {
+                margin-top: 2px;
+                font-size: 22px;
+            }
+        }
+    }
+    .right {
+        .contText {
+            p {
+                margin-right: 20px;
+            }
+        }
+    }
+    .btnDescargar {
+        width: 90%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        height: 40px;
+        font-size: 19px;
+        margin-top: 10px;
+        background-color: white;
+        color: $color6;
+        border: none;
+        box-shadow: 0px 0 10px 1px white;
+        margin-bottom: 40px;
+    }
+    @media screen and(min-width:992px) {
+        width: 45%;
+        margin-right: 5%;
+        float: right;
+        margin-top: 110px;
+        .left,
+        .right {
+            .contText {
+                text-align: left;
+                h1 {
+                    text-align: left;
+                    font-size: calc(30px + 2vh);
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .left {
+            width: 100%;
+        }
+        .right {
+            width: 50%;
+            float: left;
+            .contText {
+                display: inline;
+                p {
+                    display: block;
+                    font-size: calc(16px + 1vh);
+                }
+            }
+        }
+        .btnDescargar {
+            margin: 0;
+            width: 60%;
+            display: block;
+            margin-left: 0%;
+            transform: translateY(30px);
         }
     }
 }

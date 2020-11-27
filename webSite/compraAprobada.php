@@ -18,6 +18,8 @@
 <body>
 	<?php 
 		include "view/menu.php";
+		include "view/compraAprobada.php";
+		session_start();
 		menu();
 	?>
 
@@ -41,7 +43,9 @@
 
 
 <div class="contInfoDetalle">
-
+	<?php
+		desplegarRegistros();
+	?>
 </div>
 
 
