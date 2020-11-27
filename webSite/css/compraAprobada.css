@@ -49,6 +49,7 @@ body {
   background-color: #f75bdd;
   color: white;
   border: none;
+  box-shadow: 0px 0 10px 1px #f75bdd;
 }
 @media screen and (min-width: 992px) {
   .contSimbolo {
@@ -78,12 +79,93 @@ body {
     background-color: #f75bdd;
     color: white;
     border: none;
-    box-shadow: 0px 0 10px 1px #f75bdd;
     transition: 0.4s;
     cursor: pointer;
   }
   .contSimbolo .contApro .volver:hover {
     letter-spacing: 2px;
+  }
+}
+
+.contInfoDetalle {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.contInfoDetalle .left,
+.contInfoDetalle .right {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+.contInfoDetalle .left .contText,
+.contInfoDetalle .right .contText {
+  margin-top: 5px;
+  width: 100%;
+  text-align: ledt;
+}
+.contInfoDetalle .left .contText h1,
+.contInfoDetalle .right .contText h1 {
+  text-align: center;
+}
+.contInfoDetalle .left .contText p,
+.contInfoDetalle .right .contText p {
+  margin-top: 2px;
+  font-size: 22px;
+}
+.contInfoDetalle .right .contText p {
+  margin-right: 20px;
+}
+.contInfoDetalle .btnDescargar {
+  width: 90%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  font-size: 19px;
+  margin-top: 10px;
+  background-color: white;
+  color: #f75bdd;
+  border: none;
+  box-shadow: 0px 0 10px 1px white;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 992px) {
+  .contInfoDetalle {
+    width: 45%;
+    margin-right: 5%;
+    float: right;
+    margin-top: 110px;
+  }
+  .contInfoDetalle .left .contText,
+.contInfoDetalle .right .contText {
+    text-align: left;
+  }
+  .contInfoDetalle .left .contText h1,
+.contInfoDetalle .right .contText h1 {
+    text-align: left;
+    font-size: calc(30px + 2vh);
+    margin-bottom: 20px;
+  }
+  .contInfoDetalle .left {
+    width: 100%;
+  }
+  .contInfoDetalle .right {
+    width: 50%;
+    float: left;
+  }
+  .contInfoDetalle .right .contText {
+    display: inline;
+  }
+  .contInfoDetalle .right .contText p {
+    display: block;
+    font-size: calc(16px + 1vh);
+  }
+  .contInfoDetalle .btnDescargar {
+    margin: 0;
+    width: 60%;
+    display: block;
+    margin-left: 0%;
+    transform: translateY(30px);
   }
 }
 
