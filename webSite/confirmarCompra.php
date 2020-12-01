@@ -24,9 +24,9 @@ if (isset($_SESSION["cliente"])) {
 	$preference->payer = $payer;
 
 	$preference->back_urls = array(
-		"success" => "http://localhost/webSite/registrarVenta.php",
-		"failure" => "http://localhost/webSite/compraRechazada.php",
-		"pending" => "http://localhost/webSite/compraRechazada.php"
+		"success" => "http://127.0.0.1:8080/BioKey/webSite/registrarVenta.php",
+		"failure" => "http://127.0.0.1:8080/BioKey/webSite/compraRechazada.php",
+		"pending" => "http://127.0.0.1:8080/BioKey/webSite/compraRechazada.php"
 	);
 
 	$preference->payment_methods = array(
@@ -103,7 +103,7 @@ if (isset($_SESSION["cliente"])) {
 				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span>
 				
 
-				
+				<?php //print_r($_SESSION['cliente']) ?>
 				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar con MercadoPago">
 			</div>
 		</div>

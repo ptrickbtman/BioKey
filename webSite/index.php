@@ -22,8 +22,9 @@
     <?php
         include "view/menu.php";
         session_start();
-        unset($_SESSION["cliente"]);
         //session_destroy();
+        unset($_SESSION["cliente"]);
+        session_destroy();
         menu();
         
     ?>
