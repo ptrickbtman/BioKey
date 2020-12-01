@@ -27,7 +27,6 @@ class regionBD extends region
 	}
 
 	public function buscarRegionId(){
-
 		$con = conexion();
 		$jsondata = array();
 		$sql = "SELECT `NOM_REGION` FROM `region` WHERE `ID_REGION` =".$this->id_region;
