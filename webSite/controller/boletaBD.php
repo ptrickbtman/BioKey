@@ -14,7 +14,7 @@ class boletaBD extends boleta {
 		}else{
 			$respuesta = 0;
 		}
-
+		$this->set_id_metpag($sql);
 		$con->close();
 		return $respuesta;
 	} 
