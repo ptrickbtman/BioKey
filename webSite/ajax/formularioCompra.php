@@ -14,7 +14,7 @@ if ( isset($_POST['regisData']) ) {
 	$obj = new ciudadBD($_SESSION["cliente"]['ciuFC'],null, null);
 	$_SESSION["cliente"]['nomCiuFC'] = $obj->buscarCiudadId();
 
-
+	//print_r($_SESSION["cliente"]);
 	echo "1";
 
 }else{

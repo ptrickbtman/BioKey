@@ -23,7 +23,7 @@
         include "view/menu.php";
         session_start();
         //session_destroy();
-        unset($_SESSION["cliente"]);
+        //unset($_SESSION["cliente"]);
         session_destroy();
         menu();
         
@@ -37,7 +37,7 @@
             <p class="tittleCover">BioKey</p>
             <p class="subTittle">La seguridad está al alcance de tus manos</p>
             <div class="botones">
-                <div class="btn btn1"><p class="btnTxt">Ver</p></div>
+                <div class="btn btn1"><p class="btnTxt">Login</p></div>
                 <div class="btn btn2"><p class="btnTxt">Comprar</p></div>
             </div>
 

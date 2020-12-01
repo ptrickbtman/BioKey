@@ -16,7 +16,7 @@ function menu(){?>
         </div>
 
         <div class="login">
-            <i class="fas fa-sign-in-alt <?php 
+            <i class="fas fa-users <?php 
             if (isset($_SESSION["usuario"]) && !empty($_SESSION["usuario"]) && $_SESSION["usuario"][0]!= "" ){echo "access2";}else{echo "access";} ?>"></i>
         </div>
 
@@ -35,7 +35,7 @@ function menu(){?>
                 <input type="button" class="btnLogin" value="Entrar">
                
                 <div class="contRe">
-                    <p class="recuperar">¿no tienes cuenta? registrate <span>aquí!</span></p>
+                    <p class="recuperar">¿no tienes cuenta? registrate <span onclick="window.location.href = 'registrar.php'; ">aquí!</span></p>
                 </div>
 
             </form>

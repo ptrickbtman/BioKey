@@ -24,6 +24,7 @@ session_start();
 	</head>
 	<body>
 		<form class="datosCompra">
+		<?php // print_r($_SESSION["cliente"]) ?>
 			<input type="hidden" name="ordFC" value="<?php echo $nOrden; ?>" >
 			<input type="hidden" name="rutFC" value="<?php echo $_SESSION['cliente']['rutFC']; ?>" >
 			<input type="hidden" name="nomFC" value="<?php echo $_SESSION['cliente']['nomFC']; ?>" >

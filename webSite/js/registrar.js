@@ -131,8 +131,13 @@ function obtenerDatosForm(nombreForm) {
 }
 
 function crearModalValidado() {
-    var data = '<div class="modalRegistrado"><div class="contModal"><form action=""><p class="tittleModalReg">Bienvenido!</p><p class="subModalReg">Usuario correctamente registrado</p><input type="button" class="btnModalReg" value="aceptar" name="qweqwe"></form></div></div>';
+    var data = '<div class="modalRegistrado"><div class="contModal"><form action=""><p class="tittleModalReg">Bienvenido!</p><p class="subModalReg">Usuario correctamente registrado</p><input type="button" class="btnModalReg" onclick="salir()" value="aceptar" name="qweqwe"></form></div></div>';
     $("body").append(data)
     $(".modalRegistrado").css("opacity", "1");
 
+}
+
+
+function salir() {
+    window.location.href = "registrar.php";
 }
