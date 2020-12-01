@@ -1,13 +1,11 @@
 #include <EEPROM.h>
 #include <SoftwareSerial.h>
-#include <ArduinoJson.h>
 
 SoftwareSerial SerialESP8266(3, 2); // RX, TX
 //datos cerraduras
 int IDCerr = 1;
-int IDUsu = 0;
 String pin = "";
-char cst[7] = "*1998#";
+//char cst[7] = "*1998#";
 
 //datos conexion
 String ssid = "AndradesS";
@@ -27,7 +25,7 @@ void setup() {
   Serial.begin(9600);
   SerialESP8266.setTimeout(2000);
 
-  SerialESP8266.println("AT+RST");
+  SerialESP8266.println("AT");
   if (SerialESP8266.find("OK")) { //checkeo de conexion con modulo ESP8266
     Serial.println("Respuesta AT correcto");
   } else {
@@ -36,6 +34,10 @@ void setup() {
   SerialESP8266.println("AT+CWMODE=1");
   if (SerialESP8266.find("OK")) {
     Serial.println("ESP8266 en modo Estacion");
+  }
+  SerialESP8266.println("AT+CIPMUX=0");
+  if (SerialESP8266.find("OK")) {
+    Serial.println("multiconexiones deshabilitadas");
   }
   Serial.println("");
   Serial.println("");
@@ -49,9 +51,11 @@ void setup() {
 
 
 void loop() {
-  //actualizar();
+  
+  actualizar();
   //agregarRegistro("1");
   //agregarRegistro("2");
+ 
 }
 
 
@@ -59,6 +63,7 @@ void loop() {
 
 void conectar()//conexion a red wifi
 {
+
   if (estadoCon == 0) {
     SerialESP8266.println("AT+CWJAP=\"" + ssid + "\",\"" + pass + "\"");
     Serial.println("Conectandose a la red " + ssid);
@@ -82,12 +87,14 @@ void conectar()//conexion a red wifi
 
 void actualizar() {//actualiza y trae datos para el funcionamiento de la cerradura
   if ( estadoCon == 1) {
-    SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",80");//IP de XAMPP server (LAN)
-    if ( SerialESP8266.find("OK")) {
-      Serial.println("ESP8266 conectado con el servidor");
-
+    SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",8080");//IP de XAMPP server (LAN)
+     if (SerialESP8266.available()) {
+      Serial.write(SerialESP8266.read());
     }
-    peticionHTTP = "GET /webSite/controller/actualizarCerr.php?idc=" + String(IDCerr) + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
+    if ( SerialESP8266.find("CONNECT")) {
+      Serial.println("ESP8266 conectado con el servidor");
+    }
+    peticionHTTP = "GET BioKey/BioKey/webSite/webSite/controller/actualizarCerr.php?idc=" + String(IDCerr) + " HTTP/1.1\r\nHost: 192.168.18.10\r\n";
     SerialESP8266.print("AT+CIPSEND=");
     SerialESP8266.println(peticionHTTP.length() + 4);
     if (SerialESP8266.find(">"))
@@ -161,11 +168,11 @@ void actualizar() {//actualiza y trae datos para el funcionamiento de la cerradu
 void agregarRegistro(String tipoRegistro) {//Crea registros de cerraduras en la base de datos (1 = Acceso permitido; 2 = Acceso denegado)
   if ( estadoCon == 1) {
     SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",80");//IP de XAMPP server (LAN)
-    if ( SerialESP8266.find("OK")) {
+    if ( SerialESP8266.find("C")) {
       Serial.println("ESP8266 conectado con el servidor");
 
     }
-    peticionHTTP = "GET /webSite/controller/agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=" + tipoRegistro + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
+    peticionHTTP = "GET BioKey/BioKey/webSite/controller/agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=" + tipoRegistro + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
     SerialESP8266.print("AT+CIPSEND=");
     SerialESP8266.println(peticionHTTP.length() + 4);
     if (SerialESP8266.find(">"))
