@@ -22,6 +22,24 @@ function ir(data) {
     if (data == 4) {
         window.location.href = "politicasPC.php";
     }
+
+    if (data == 5) {
+        crearModalEspera();
+        $.ajax({
+            async: true,
+            data: { "ex": "ex" },
+            type: "POST",
+            url: "cerrarSession.php",
+            success: function(a) {
+                console.log(a);
+                if (a == 1) {
+                    setTimeout(function() { window.location.href = "index.php"; }, 100);
+                }
+
+
+            }
+        });
+    }
 }
 
 $(window).on("load", function() {

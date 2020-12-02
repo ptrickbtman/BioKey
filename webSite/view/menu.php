@@ -65,10 +65,14 @@ function menu(){?>
     <div class="contItemsMenu">
         <div class="contItems">
             <div class="item"><p onclick="ir(0)">Inicio</p></div>
+           
             <div class="item"><p onclick="ir(1)">Mi cuenta</p></div>
             <div class="item"><p onclick="ir(2)">Compra de la cerradura</p></div>
             <div class="item"><p onclick="ir(3)">Politica de reembolso</p></div>
             <div class="item"><p onclick="ir(4)">Politicas de privacidad de datos</p></div>
+            <?php if(isset($_SESSION["usuario"])){ ?> 
+            <div class="item"><p onclick="ir(5)">Cerrar Sesión.</p></div>
+            <?php } ?>
         </div>
     </div>
 

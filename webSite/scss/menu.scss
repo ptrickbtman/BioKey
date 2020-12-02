@@ -435,6 +435,7 @@ background-image: url("../medias/geo2.jpg");
     width: 100%;
     height: 0vh;
     overflow: hidden;
+    top: 0;
     @include centrado();
     .contItems {
         width: 90%;
