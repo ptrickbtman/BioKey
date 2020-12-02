@@ -424,3 +424,68 @@ background-image: url("../medias/geo2.jpg");
     height: 100vh;
     opacity: 1;
 }
+
+.contItemsMenu {
+    opacity: 1;
+    transition: 0.8s;
+    background-color: $color4;
+    position: fixed;
+    right: 0;
+    z-index: 998;
+    width: 100%;
+    height: 0vh;
+    overflow: hidden;
+    top: 0;
+    @include centrado();
+    .contItems {
+        width: 90%;
+        .item {
+            width: 100%;
+            text-align: center;
+            font-size: 19px;
+            color: white;
+            margin-top: 13px;
+            font-size: calc(16px + 1vh);
+            cursor: pointer;
+            &:hover {
+                animation: itemMenu 0.2s linear;
+            }
+            @keyframes itemMenu {
+                25% {
+                    transform: translateX(-5px);
+                }
+                75% {
+                    transform: translateX(5px);
+                }
+                100% {
+                    transform: translateX(0px);
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 992px) {
+        width: 30%;
+    }
+}
+
+.contItemsMenuOn {
+    height: 100vh;
+    opacity: 1;
+}
+
+.tapeContItemsMenu {
+    background-color: rgba($color: $color4, $alpha: 0.7);
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+    height: calc(100vh);
+    transition: 1s;
+    @include centrado();
+}
+
+@media screen and(min-width:992px) {
+    .tapeContItemsMenuOn {
+        transition: 1s;
+        width: 70%;
+    }
+}

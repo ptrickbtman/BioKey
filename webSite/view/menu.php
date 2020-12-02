@@ -2,7 +2,7 @@
 <?php 
 
 function menu(){?>
-<div class="loading">
+    <div class="loading">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
           </svg>
@@ -58,6 +58,21 @@ function menu(){?>
             <g class="parallax4">
                 <use xlink:href="#gentle-wave" x="50" y="6" fill="#fff"/>  
             </g>
+        </div>
+    </div>
+
+    <div class="tapeContItemsMenu"></div>
+    <div class="contItemsMenu">
+        <div class="contItems">
+            <div class="item"><p onclick="ir(0)">Inicio</p></div>
+           
+            <div class="item"><p onclick="ir(1)">Mi cuenta</p></div>
+            <div class="item"><p onclick="ir(2)">Compra de la cerradura</p></div>
+            <div class="item"><p onclick="ir(3)">Politica de reembolso</p></div>
+            <div class="item"><p onclick="ir(4)">Politicas de privacidad de datos</p></div>
+            <?php if(isset($_SESSION["usuario"])){ ?> 
+            <div class="item"><p onclick="ir(5)">Cerrar Sesión.</p></div>
+            <?php } ?>
         </div>
     </div>
 
