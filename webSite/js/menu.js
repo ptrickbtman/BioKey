@@ -2,12 +2,30 @@ $(document).ready(function() {
     $(".irRegis").on("click", function() {
         window.location.href = "registrar.php";
     });
+
 });
 
+function ir(data) {
+    if (data == 0) {
+        window.location.href = "index.php";
+    }
+    if (data == 1) {
+        menu();
+        $(".loginCont").toggleClass("loginContOn");
+    }
+    if (data == 2) {
+        window.location.href = "formularioCompra.php";
+    }
+    if (data == 3) {
+        window.location.href = "politicasR.php";
+    }
+    if (data == 4) {
+        window.location.href = "politicasPC.php";
+    }
+}
 
 $(window).on("load", function() {
     cerrarModalEspera();
-
 });
 
 
@@ -19,6 +37,8 @@ $(".hamburger").on("click", function() {
 function menu() {
     $(".stick1").toggleClass("stick1On");
     $(".stick2").toggleClass("stick2On");
+    $(".contItemsMenu").toggleClass("contItemsMenuOn");
+    $(".tapeContItemsMenu").toggleClass("tapeContItemsMenuOn    ");
 }
 
 

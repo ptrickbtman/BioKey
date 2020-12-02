@@ -419,4 +419,74 @@
   opacity: 1;
 }
 
+.contItemsMenu {
+  opacity: 1;
+  transition: 0.8s;
+  background-color: #080238;
+  position: fixed;
+  right: 0;
+  z-index: 998;
+  width: 100%;
+  height: 0vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.contItemsMenu .contItems {
+  width: 90%;
+}
+.contItemsMenu .contItems .item {
+  width: 100%;
+  text-align: center;
+  font-size: 19px;
+  color: white;
+  margin-top: 13px;
+  font-size: calc(16px + 1vh);
+  cursor: pointer;
+}
+.contItemsMenu .contItems .item:hover {
+  animation: itemMenu 0.2s linear;
+}
+@keyframes itemMenu {
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@media screen and (min-width: 992px) {
+  .contItemsMenu {
+    width: 30%;
+  }
+}
+
+.contItemsMenuOn {
+  height: 100vh;
+  opacity: 1;
+}
+
+.tapeContItemsMenu {
+  background-color: rgba(8, 2, 56, 0.7);
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  height: calc(100vh);
+  transition: 1s;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@media screen and (min-width: 992px) {
+  .tapeContItemsMenuOn {
+    transition: 1s;
+    width: 70%;
+  }
+}
+
 /*# sourceMappingURL=menu.css.map */
