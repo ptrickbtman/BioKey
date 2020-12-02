@@ -33,26 +33,26 @@
                 <form class="formRegisterUser">
                     <p class="tittleFormReg">Crea tu <br> cuenta</p>
 
-                    <label class="reg1">Nombre Usuario:</label>
-                    <input class="inputData" type="text" name="usuario">
+                    <label class="reg1">Nombre Usuario: <span class="reg1" id="spnReg1"></span></label>
+                    <input class="inputData" type="text" name="usuario" id="usuario">
 
-                    <label class="reg2">Email:</label>
+                    <label class="reg2">Email: <span class="reg2" id="spnReg2"></span></label>
                     <input class="inputData" type="email" name="email" id="email">
 
-                    <label class="reg3">Nombre:</label>
-                    <input class="inputData" type="text" name="nombre">
+                    <label class="reg3">Nombre: <span class="reg3" id="spnReg3"></span></label>
+                    <input class="inputData" type="text" name="nombre" id="nombre">
 
-                    <label class="reg4">Apellido:</label>
-                    <input class="inputData" type="text" name="apellido">
+                    <label class="reg4">Apellido: <span class="reg4" id="spnReg4"></span></label>
+                    <input class="inputData" type="text" name="apellido" id="apellido">
 
-                    <label class="reg7">Numero telefonico (+569 ...):</label>
-                    <input class="inputData" type="text" name="num">
+                    <label class="reg5">Numero telefonico (+569 ...): <span class="reg5" id="spnReg5"></span></label>
+                    <input class="inputData" type="text" name="num" id="num">
 
-                    <label class="reg5">Contraseña (Debe contar con numeros y letras):</label>
-                    <input class="inputData" type="password" name="pass1">
+                    <label class="reg6">Contraseña (Debe contar con numeros y letras): <span class="reg6" id="spnReg6"></span></label>
+                    <input class="inputData" type="password" name="pass1" id="pass1">
 
-                    <label class="reg6">Repetir contraseña:</label>
-                    <input class="inputData" type="password" name="pass2">
+                    <label class="reg7">Repetir contraseña: <span class="reg7" id="spnReg7"></span></label>
+                    <input class="inputData" type="password" name="pass2" id="pass2">
 
                     <input class="registrar" value="registrar" type="button">
                 </form>

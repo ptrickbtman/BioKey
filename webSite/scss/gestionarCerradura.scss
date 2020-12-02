@@ -39,7 +39,9 @@ body {
             margin-top: 30px;
             text-align: left;
         }
-        span,
+        span {
+            color: white;
+        }
         input {
             display: block;
             color: white;

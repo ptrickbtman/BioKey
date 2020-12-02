@@ -145,7 +145,7 @@ function continuarCompra(){
         count += 1;
         $(".lblComp5").addClass("error");
         $("#spnValComp5").text("Este campo es obligatorio.");
-        $("#spnValComp5").text("");
+        $("#spnValComp5").focus("");
     }
 
     //region//

@@ -17,6 +17,7 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 		<script src="js/jquery.js"></script>
 		<script src="js/particles.js"></script>
 		<script src="js/gestionarCerradura.js"></script>
+		<script src="js/validacion.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
 
@@ -43,13 +44,13 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 				<button class="atras">Atras</button><button class="btnRegis">Ver registros</button>
 				<h3>Cambiar contraseña cerradura (numerica)</h3>
 		
-				<span>Ingrese nueva coontraseña: </span>				
-				<input class="inputTxt" class="inputTxt" type="text" name="NPass" required="" maxlength="6" placeholder="XXXXXXX">
+				<span class="lblGes1">Ingrese nueva coontraseña: <span class="lblGes1" id="spanGes1"></span></span>				
+				<input class="inputTxt" class="inputTxt" type="password" name="NPass" id="NPass" required="" maxlength="6" placeholder="XXXXXXX">
 
 			
 
-				<span>Repita nueva coontraseña: </span>
-				<input placeholder="XXXXXXX" class="inputTxt" type="text" name="RNPass" required="" maxlength="6" placeholder="*******">
+				<span class="lblGes2">Repita nueva coontraseña: <span class="lblGes2" id="spanGes2"></span></span>
+				<input placeholder="XXXXXXX" class="inputTxt" type="password" name="RNPass" id="RNPass" id="RNPass" required="" maxlength="6" placeholder="*******">
 
 
 			
@@ -71,14 +72,14 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 					
 
 
-				<span>Ingrese nueva SSID: </span>
-				<input placeholder="XXXXXXX" class="inputTxt" type="text" name="NSsid" required="" maxlength="30">
-				<span>SSID actual: </span><span id="ssidActGes"></span>
+				<span class="lblGes3">Ingrese nueva SSID: <span class="lblGes3" id="spanGes3">(SSID actual: <span class="lblGes3" id="ssidActGes"></span>)</span></span>
+				<input placeholder="XXXXXXX" class="inputTxt" type="text" name="NSsid" id="NSsid" required="" maxlength="30">
+				
 
 				
 
-				<span>Ingrese nueva coontraseña de Wifi: </span>
-				<input placeholder="XXXXXXX" class="inputTxt" type="text" name="NWFPass" required="" maxlength="30">
+				<span class="lblGes4">Ingrese nueva coontraseña de Wifi: <span class="lblGes4" id="spanGes4"></span></span>
+				<input placeholder="XXXXXXX" class="inputTxt" type="text" name="NWFPass" id="NWFPass" required="" maxlength="30">
 
 				
 

@@ -33,8 +33,10 @@ body {
   text-align: left;
 }
 .contP .formNPass span,
+.contP .formNWifi span {
+  color: white;
+}
 .contP .formNPass input,
-.contP .formNWifi span,
 .contP .formNWifi input {
   display: block;
   color: white;
