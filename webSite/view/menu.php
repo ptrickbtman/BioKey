@@ -28,10 +28,10 @@ function menu(){?>
             <form class="formLogin">
                 <p class="tittleForm tittleForm1">Bienvenido!</p>
                 <p class="tittleForm tittleForm2">Gracias por ser nuestro cliente.</p>
-                <label class="log1">Usuario o email:</label>
-                <input class="inputLogin inputLogin1" type="text" name="user">
-                <label class="log2" >Contraseña:</label>
-                <input class="inputLogin inputLogin2" type="password" name="pass">
+                <label class="log1">Usuario o email: <span class="log1" id="spnLog1"></span></label>
+                <input class="inputLogin inputLogin1" id="inputLogin1" type="text" name="user">
+                <label class="log2" >Contraseña: <span class="log2" id="spnLog2"></span></label>
+                <input class="inputLogin inputLogin2" id="inputLogin2" type="password" name="pass">
                 <input type="button" class="btnLogin" value="Entrar">
                
                 <div class="contRe">

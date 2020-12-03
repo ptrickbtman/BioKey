@@ -86,18 +86,25 @@ function cerrarModalEspera() {
 $(".btnLogin").on("click", function() {
     var count = 0;
     data = obtenerDatosForm("formLogin");
+
     if (vacio(data["user"])) {
         $(".log1").removeClass("error");
+        $("#spnLog1").text("");
     } else {
         count += 1;
         $(".log1").addClass("error");
+        $("#spnLog1").text("Este campo es obligatorio.");
+        $("#inputLogin1").focus();
     }
 
     if (vacio(data["pass"])) {
         $(".log2").removeClass("error");
+        $("#spnLog2").text("");
     } else {
         count += 1;
         $(".log2").addClass("error");
+        $("#spnLog2").text("Este campo es obligatorio.");
+        $("#inputLogin2").focus();
     }
 
     if (count == 0) {
@@ -114,10 +121,15 @@ $(".btnLogin").on("click", function() {
             success: function(loginVerify) {
                 console.log(loginVerify);
                 if (loginVerify == 1) {
+                    $(".log1").removeClass("error");
+                    $(".log2").removeClass("error");
+                    $("#spnLog1").text("");
                     window.location.href = "perfilUser.php";
                 } else {
                     $(".log1").addClass("error");
-                    $(".log2").addClass("error")
+                    $(".log2").addClass("error");
+                    $("#spnLog1").text("Usuario y/o contraseña incorrectos.");
+                    $("#inputLogin1").focus();
                 }
             }
         });
