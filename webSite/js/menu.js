@@ -134,3 +134,19 @@ function obtenerDatosForm(nombreForm) {
     });
     return dataObj;
 }
+
+
+
+//crearModalAcepto("Estas Seguro?", "Confirmar desasociación")
+
+function crearModalAcepto(tittle, mensaje) {
+
+    var container = '<div class="coverContAcep"><div class="ContAcepInfo"><div class="alingContAc"></div></div></div>';
+    var texto = '<h1>' + tittle + '</h1><p class="textMensajeAcep">' + mensaje + '</p>';
+    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1">Atras</button><button class="btnAcep btnAcep2">Aceptar</button></div>'
+
+    $("body").append(container);
+    $(".alingContAc").append(texto);
+    $(".alingContAc").append(botones);
+
+}

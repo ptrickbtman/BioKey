@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: rgb(243, 159, 123);
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+$color6: rgb(247, 89, 221);
+//
+@mixin centrado() {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+body {
+    background-color: $color4;
+    color: white;
+}
+
+.coverInfoReem {
+    margin-top: 80px;
+    .divContInfoRem {
+        width: 90%;
+        margin: 0 auto;
+        h1 {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: calc(20px + 4vh);
+            color: $color6;
+            text-shadow: 0 0 5px $color6;
+        }
+        p {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: calc(14px + 1vh);
+        }
+        h2 {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: calc(20px + 1vh);
+            color: $color5;
+        }
+    }
+}
