@@ -112,5 +112,31 @@ class usuariosDB extends usuario {
 			return False;
         }   
 	}
+
+	public function setPassByIdUser(){
+		$con = conexion();
+		$sql = "UPDATE `usuarios` SET `PASS_USU`='".$this->pass."' WHERE `ID_USU`=".$this->id."";
+		if ($con->query($sql)) {
+			$con->close();
+			return True;
+		} else {
+			$con->close();
+			$this->alias = $sql;
+			return False;
+        }   
+	}
+
+	public function setCellByIdUser(){
+		$con = conexion();
+		$sql = "UPDATE `usuarios` SET `TEL_USU`='".$this->cell."' WHERE `ID_USU`=".$this->id."";
+		if ($con->query($sql)) {
+			$con->close();
+			return True;
+		} else {
+			$con->close();
+			$this->alias = $sql;
+			return False;
+        }  
+	}
 }
 ?>

@@ -49,10 +49,10 @@ if(isset($_SESSION["usuario"])){
                 <input class="btnAct btnSetPass" type="button" name="btn" value="Actualizar contraseña" onclick="">
             </form>
             <form class="formNum">    
-                <h3>Cambio de numero telefonico:</h3>
-                
+                <h3>Cambio de numero telefonico (solo digitos)</h3>
+                <span class="lblGes3">Numero:</span>
                 <input class="inputTxt" class="inputTxt" type="number" name="num_tel" id="num_tel" required="" maxlength="9" placeholder="999999999">
-                <input class="btnAct" type="button" name="btn" value="Actualizar numero" onclick="">
+                <input class="btnAct btnSetNum" type="button" name="btn" value="Actualizar numero" onclick="">
             </form>
         </div>
     </div>

@@ -7,8 +7,51 @@ $(document).ready(function() {
     $(".btnSetPass").on("click", function() {
         changePass();
     });
+
+    $(".btnSetNum").on("click", function() {
+        changeNum();
+    });
 });
 
+function changeNum() {
+    data = obtenerDatosForm("formNum");
+    if (vacio(data["num_tel"])) {
+        if (data["num_tel"] >= 10000000) {
+            $(".lblGes3").text("Numero:");
+            $(".lblGes3").removeClass("error");
+            setNumUser(data);
+        } else {
+            $(".lblGes3").text("Formato invalido:");
+            $(".lblGes3").addClass("error");
+        }
+    } else {
+        $(".lblGes3").text("Complete el campo:");
+        $(".lblGes3").addClass("error");
+    }
+}
+
+function setNumUser(data) {
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        data: { "numUser": data["num_tel"] },
+        type: "POST",
+        url: "./ajax/miCuenta.php",
+        success: function(dataV) {
+            console.log(dataV);
+            if (dataV == 1) {
+                location.reload();
+            } else {
+                cerrarModalEspera();
+                alert("Error interno, intentelo nuevamente")
+            }
+
+
+        }
+    });
+}
 
 
 function changePass() {
@@ -40,5 +83,24 @@ function changePass() {
 
 
 function setDataUser(data) {
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        data: { "passUser": data["pass1"] },
+        type: "POST",
+        url: "./ajax/miCuenta.php",
+        success: function(dataV) {
+            console.log(dataV);
+            if (dataV == 1) {
+                location.reload();
+            } else {
+                cerrarModalEspera();
+                alert("Error interno, intentelo nuevamente")
+            }
 
+
+        }
+    });
 }
