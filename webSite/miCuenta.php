@@ -4,7 +4,6 @@ session_start();
     //print_r($_SESSION["usuario"]);
 if(isset($_SESSION["usuario"])){
     $datos  = $_SESSION["usuario"];
-    print_r($datos);
 }else{
     header("Location:http://192.168.64.2/BioKey/webSite/");
 } 
@@ -17,21 +16,49 @@ if(isset($_SESSION["usuario"])){
 	<title>Mi cuenta</title>
 </head>
 <body>
-	<h1>Datos de mi cuenta.</h1>
 
-    <label for="">Usuario: </label>
-    <input type="text">
+    <h1>Datos de mi cuenta.</h1>
 
-    <br>
-
-    <label for="">Correo elecctronico: </label>
-    <input type="text">
+    <label>Usuario: </label>
+    <span><?php echo $datos[1]; ?></span>
 
     <br>
 
-    <label for="">Nombre usuario: </label>
-    <input type="text">
+    <label>Correo elecctronico: </label>
+    <span><?php echo $datos[5]; ?></span>
 
     <br>
+
+    <label>Nombre: </label>
+    <span><?php echo $datos[2]; ?></span>
+
+    <br>
+
+    <label>Apellido: </label>
+    <span><?php echo $datos[3]; ?></span>
+
+    <br>
+    <form class="formNPass">    
+
+        <h3>Cambiar contraseña (Debe contar con numeros y letras)</h3>
+
+        <span class="lblGes1">Ingrese nueva coontraseña: <span class="lblGes1" id="spanGes1"></span></span>             
+        <input class="inputTxt" class="inputTxt" type="password" name="NPass" id="NPass" required="" maxlength="30" placeholder="*********">
+
+        <br>
+
+
+        <span class="lblGes2">Repita nueva coontraseña: <span class="lblGes2" id="spanGes2"></span></span>
+        <input class="inputTxt" type="password" name="RNPass" id="RNPass" id="RNPass" required="" maxlength="30" placeholder="*********">
+
+
+
+
+        <input type="hidden" name="idU" id="idU" value="<?php echo $datos[0]; ?>">
+        <input class="btnAct" type="button" name="btn" value="Actualizar contraseña" onclick="">
+
+
+
+    </form>
 </body>
 </html>

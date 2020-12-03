@@ -1,5 +1,5 @@
 <?php 
- session_start();
+session_start();
 if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar variable de sesion
 	
 	$IDC = $_POST['idC'];
@@ -27,33 +27,36 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 	</style>
 	<body>
 
-	<?php
-        include "view/menu.php";
-       
+		<?php
+		include "view/menu.php";
+
         //session_destroy();
-        menu();
-        
-    ?>
+		menu();
+
+		?>
 
 		<div id="particles-js"></div>
 
 		<div class="contP">
-			
+
+
 			<form class="formNPass">	
 				<h1>Gestionar cerradura <span id="serGes"></span></h1>
 				<button class="atras">Atras</button><button class="btnRegis">Ver registros</button><button class="">Desasociar</button>
+				
+
 				<h3>Cambiar contraseña cerradura (numerica)</h3>
-		
+
 				<span class="lblGes1">Ingrese nueva coontraseña: <span class="lblGes1" id="spanGes1"></span></span>				
 				<input class="inputTxt" class="inputTxt" type="password" name="NPass" id="NPass" required="" maxlength="6" placeholder="XXXXXXX">
 
-			
+
 
 				<span class="lblGes2">Repita nueva coontraseña: <span class="lblGes2" id="spanGes2"></span></span>
-				<input placeholder="XXXXXXX" class="inputTxt" type="password" name="RNPass" id="RNPass" id="RNPass" required="" maxlength="6" placeholder="*******">
+				<input class="inputTxt" type="password" name="RNPass" id="RNPass" id="RNPass" required="" maxlength="6" placeholder="XXXXXXX">
 
 
-			
+
 				
 				<input type="hidden" name="idC" id="idC" value="<?php echo $IDC; ?>">
 				<input type="hidden" name="idOp" value="1">
@@ -69,7 +72,7 @@ if (isset($_POST['idC']) && isset($_SESSION['usuario'])) { //if para validar var
 				<h3>Cambiar red WiFi de cerradura</h3>
 
 
-					
+
 
 
 				<span class="lblGes3">Ingrese nueva SSID: <span class="lblGes3" id="spanGes3">(SSID actual: <span class="lblGes3" id="ssidActGes"></span>)</span></span>
