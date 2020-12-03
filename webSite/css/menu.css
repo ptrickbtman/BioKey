@@ -398,7 +398,7 @@
     background-image: url("../medias/geo2.jpg");
       transform: rotate(180deg);
 
-    */
+      */
   }
   .loginCont .rightForm .editorial {
     display: block;
@@ -520,6 +520,7 @@
 }
 .coverContAcep .ContAcepInfo .alingContAc p {
   margin-top: 10px;
+  color: #080238;
 }
 .coverContAcep .ContAcepInfo .alingContAc .contBotnes {
   width: 100%;

@@ -140,7 +140,7 @@ $(".btnLogin").on("click", function() {
 
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-        dataObj = {};
+    dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });
@@ -155,10 +155,14 @@ function crearModalAcepto(tittle, mensaje) {
 
     var container = '<div class="coverContAcep"><div class="ContAcepInfo"><div class="alingContAc"></div></div></div>';
     var texto = '<h1>' + tittle + '</h1><p class="textMensajeAcep">' + mensaje + '</p>';
-    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1">Atras</button><button class="btnAcep btnAcep2">Aceptar</button></div>'
+    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1" onclick="cerrarModalAcepto();">Cancelar</button><button class="btnAcep btnAcep2">Aceptar</button></div>'
 
     $("body").append(container);
     $(".alingContAc").append(texto);
     $(".alingContAc").append(botones);
 
+}
+
+function cerrarModalAcepto() {
+    $(".coverContAcep").remove();
 }

@@ -101,6 +101,18 @@ body {
   border: 1px solid white;
   cursor: pointer;
 }
+.contP .desasociar {
+  background-color: transparent;
+  color: #f75bdd;
+  width: 24%;
+  border: none;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 18px;
+  display: inline;
+  border: 1px solid white;
+  cursor: pointer;
+}
 @media screen and (min-width: 992px) {
   .contP {
     width: 40%;

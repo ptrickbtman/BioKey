@@ -30,6 +30,10 @@ $(document).ready(function() {
         window.location.href = "perfilUser.php";
     });
 
+
+    $(".desasociar").on("click", function() {
+       crearModalAcepto('hola','test');
+    });
 });
 
 function updateCerr(form) {
