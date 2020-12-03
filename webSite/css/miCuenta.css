@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #080238;
+  color: white;
+}
+
+.containerMiCuenta {
+  width: 100%;
+  margin-top: 80px;
+}
+.containerMiCuenta .contInfoMiCuenta {
+  width: 90%;
+  margin: 0 auto;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta {
+  width: 95%;
+  margin: 0 auto;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta h1 {
+  color: #f759dd;
+  display: block;
+  font-size: calc(20px + 2vh);
+  margin-top: 20px;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta label {
+  margin-top: 5px;
+  display: block;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta h3 {
+  margin-top: 20px;
+  color: #60b960;
+  margin-bottom: 10px;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form {
+  width: 100%;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form h3,
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form span,
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form input {
+  display: block;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form h3.error,
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form span.error,
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form input.error {
+  color: red;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form input {
+  width: 100%;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.3px solid #f759dd;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 18px;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form .btnAct {
+  background-color: #f759dd;
+  height: 45px;
+  color: white;
+  font-size: 20px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.containerMiCuenta .contInfoMiCuenta .dataMiCuenta form .btnAct:hover {
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 992px) {
+  .containerMiCuenta {
+    width: 50%;
+  }
+}
+#particles-js {
+  position: fixed;
+  width: 0%;
+  overflow: hidden;
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  z-index: 10;
+  top: 0;
+}
+@media screen and (min-width: 992px) {
+  #particles-js {
+    float: right;
+    right: 0;
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=miCuenta.css.map */
