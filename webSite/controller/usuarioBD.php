@@ -10,7 +10,7 @@ class usuariosDB extends usuario {
 
 	public function accessUsu(){
 		$con = conexion();
-		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
+		$sql = "SELECT `ID_USU`, `ALIAS_USU`, `CORREO_USU`, `NOM_USU` , `APE_USU`  ,`PASS_USU`, `EST_USU`  FROM usuarios WHERE";
 		$data = $this->email;
 
 		if($data == "" ){
@@ -27,6 +27,7 @@ class usuariosDB extends usuario {
 					$this->set_name($dataQueryPass['NOM_USU']);
 					$this->set_surname($dataQueryPass['APE_USU']);
 					$this->set_alias($dataQueryPass['ALIAS_USU']);
+					$this->set_email($dataQueryPass['CORREO_USU']);
 					$this->set_name($dataQueryPass['NOM_USU']);
 					$this->set_estado($dataQueryPass['EST_USU']);
 					$this->set_pass("");

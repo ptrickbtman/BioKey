@@ -19,7 +19,7 @@ if(isset($_POST['loginAccess']) && !empty($_POST['loginAccess']) ){
     if($user->accessUsu($user)){
         session_start();
         session_regenerate_id();
-        $usuario =[$user->get_id_user(), $user->get_alias(),$user->get_name(),$user->get_surname(),$user->get_estado()];
+        $usuario =[$user->get_id_user(), $user->get_alias(),$user->get_name(),$user->get_surname(),$user->get_estado(), $user->get_email()];
         $_SESSION["usuario"] = $usuario;
         echo 1;
     }else{
