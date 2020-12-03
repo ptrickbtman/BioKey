@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: rgb(243, 159, 123);
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+$color6: rgb(247, 89, 221);
+//
+@mixin centrado() {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+body {
+    background-color: $color4;
+    color: white;
+}
+
+.containerMiCuenta {
+    width: 100%;
+    margin-top: 80px;
+    .contInfoMiCuenta {
+        width: 90%;
+        margin: 0 auto;
+        .dataMiCuenta {
+            width: 95%;
+            margin: 0 auto;
+            h1 {
+                color: $color6;
+                display: block;
+                font-size: calc(20px + 2vh);
+                margin-top: 20px;
+            }
+            label {
+                margin-top: 5px;
+                display: block;
+            }
+            h3 {
+                margin-top: 20px;
+                color: $color5;
+                margin-bottom: 10px;
+            }
+            form {
+                width: 100%;
+                h3,
+                span,
+                input {
+                    display: block;
+                    &.error {
+                        color: red;
+                    }
+                }
+                input {
+                    width: 100%;
+                    height: 35px;
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1.3px solid $color6;
+                    margin-bottom: 15px;
+                    color: white;
+                    font-size: 18px;
+                }
+                .btnAct {
+                    background-color: $color6;
+                    height: 45px;
+                    color: white;
+                    font-size: 20px;
+                    transition: 0.2s;
+                    cursor: pointer;
+                    &:hover {
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(min-width:992px) {
+    .containerMiCuenta {
+        width: 50%;
+    }
+}
+
+#particles-js {
+    position: fixed;
+    width: 0%;
+    overflow: hidden;
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    z-index: 10;
+    top: 0;
+    @media screen and(min-width: 992px) {
+        float: right;
+        right: 0;
+        width: 50%;
+    }
+}
