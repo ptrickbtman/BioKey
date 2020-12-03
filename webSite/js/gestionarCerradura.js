@@ -141,3 +141,7 @@ function obtenerDatosForm(nombreForm) {
     });
     return dataObj;
 }
+
+function desasociarCerr(){
+    
+}
