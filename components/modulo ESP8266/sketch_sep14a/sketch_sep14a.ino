@@ -89,7 +89,6 @@ void conectar()//conexion a red wifi
   delay(1000);
 }
 
-//"actualizarCerr.php?idc=" + String(IDCerr)
 
 void peticionPHP(String ruta) {//interaciones con la bd
 
