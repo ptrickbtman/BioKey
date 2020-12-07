@@ -1,7 +1,10 @@
-#include <EEPROM.h>
+
 #include <SoftwareSerial.h>
 
-SoftwareSerial SerialESP8266(3, 2); // RX, TX
+
+SoftwareSerial SerialESP8266(13, 12);
+
+
 //datos cerraduras
 int IDCerr = 1;
 String pin = "";
@@ -51,11 +54,12 @@ void setup() {
 
 
 void loop() {
-  
-  actualizar();
-  //agregarRegistro("1");
-  //agregarRegistro("2");
- 
+
+  //peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
+  peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=1"); //agregar registro aprobado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=2"); //agregar registro denegado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=3"); //agregar registro cambio pass
+
 }
 
 
@@ -85,153 +89,82 @@ void conectar()//conexion a red wifi
   delay(1000);
 }
 
-void actualizar() {//actualiza y trae datos para el funcionamiento de la cerradura
-  if ( estadoCon == 1) {
-    SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",8080");//IP de XAMPP server (LAN)
-     if (SerialESP8266.available()) {
-      Serial.write(SerialESP8266.read());
-    }
-    if ( SerialESP8266.find("CONNECT")) {
-      Serial.println("ESP8266 conectado con el servidor");
-    }
-    peticionHTTP = "GET BioKey/BioKey/webSite/webSite/controller/actualizarCerr.php?idc=" + String(IDCerr) + " HTTP/1.1\r\nHost: 192.168.18.10\r\n";
-    SerialESP8266.print("AT+CIPSEND=");
-    SerialESP8266.println(peticionHTTP.length() + 4);
-    if (SerialESP8266.find(">"))
-    {
-      Serial.println("Enviando HTTP . . .");
-      SerialESP8266.println(peticionHTTP + "\r\n\r\n\r\n");
-      if ( SerialESP8266.find("OK"))
-      {
-        estadoCon = 2;
-        Serial.println("Peticion HTTP enviada:");
-        Serial.println();
-        Serial.println(peticionHTTP);
-        Serial.println("Esperando respuesta");
+//"actualizarCerr.php?idc=" + String(IDCerr)
 
-        tiempo_inicio = millis();
-        cadena = "";
+void peticionPHP(String ruta) {//interaciones con la bd
 
-        while (estadoCon == 2)
-        {
-          while (SerialESP8266.available() > 0)
-          {
-            char c = SerialESP8266.read();
-            Serial.write(c);
-            cadena.concat(c);
-          }
-          if (cadena.length() > 500)
-          {
-            Serial.println("La respuesta a excedido el tamaño maximo");
-
-            SerialESP8266.println("AT+CIPCLOSE");
-            if ( SerialESP8266.find("OK"))
-              Serial.println("Conexion finalizada");
-            estadoCon = 3;
-          }
-          if ((millis() - tiempo_inicio) > 10000) //Finalizamos si ya han transcurrido 10 seg
-          {
-            Serial.println("Tiempo de espera agotado");
-            SerialESP8266.println("AT+CIPCLOSE");
-            if ( SerialESP8266.find("OK"))
-              Serial.println("Conexion finalizada");
-            estadoCon = 3;
-          }
-          if (cadena.indexOf("CLOSED") > 0)
-          {
-            Serial.println();
-            Serial.println("Cadena recibida correctamente, conexion finalizada");
-            estadoCon = 3;
-          }
-        }
-        Serial.println();
-        Serial.println();
-        if (cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-")) == "error") {
-          Serial.println("No se pudo actualizar cerradura");
-        } else {
-
-          cadena = cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-"));
-          ssid = cadena.substring(0, cadena.indexOf(","));
-          pass = cadena.substring(cadena.indexOf(",") + 1, cadena.indexOf(";"));
-          Serial.println(ssid);
-          Serial.println(pass);
-          estadoCon = 0;
-          conectar();
-          estadoCon = 3;
-          Serial.println("Cerradura actualizada");
-        }
-      }
-    }
-  }
-}
-
-void agregarRegistro(String tipoRegistro) {//Crea registros de cerraduras en la base de datos (1 = Acceso permitido; 2 = Acceso denegado)
   if ( estadoCon == 1) {
     SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",80");//IP de XAMPP server (LAN)
-    if ( SerialESP8266.find("C")) {
+    if ( SerialESP8266.find("CONNECT")) {
       Serial.println("ESP8266 conectado con el servidor");
 
-    }
-    peticionHTTP = "GET BioKey/BioKey/webSite/controller/agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=" + tipoRegistro + " HTTP/1.1\r\nHost: 192.168.0.3\r\n";
-    SerialESP8266.print("AT+CIPSEND=");
-    SerialESP8266.println(peticionHTTP.length() + 4);
-    if (SerialESP8266.find(">"))
-    {
-      Serial.println("Enviando HTTP . . .");
-      SerialESP8266.println(peticionHTTP + "\r\n\r\n\r\n");
-      if ( SerialESP8266.find("OK"))
+      peticionHTTP = "GET /BioKey/BioKey/webSite/controller/" + ruta + " HTTP/1.1\r\nHost: 192.168.18.10\r\n";
+      SerialESP8266.print("AT+CIPSEND=");
+      SerialESP8266.println(peticionHTTP.length() + 10);
+      if (SerialESP8266.find(">"))
       {
-        Serial.println("Peticion HTTP enviada:");
-        Serial.println();
-        Serial.println(peticionHTTP);
-        Serial.println("Esperando respuesta");
-        estadoCon = 2;
-        tiempo_inicio = millis();
-        cadena = "";
-
-        while (estadoCon == 2)
+        Serial.println("Enviando HTTP . . .");
+        SerialESP8266.println(peticionHTTP + "\r\n\r\n\r\n\r\n\r\n");
+        if ( SerialESP8266.find("OK"))
         {
-          while (SerialESP8266.available() > 0)
-          {
-            char c = SerialESP8266.read();
-            Serial.write(c);
-            cadena.concat(c);
-          }
-          if (cadena.length() > 500)
-          {
-            Serial.println("La respuesta a excedido el tamaño maximo");
+          estadoCon = 2;
+          Serial.println("Peticion HTTP enviada:");
+          Serial.println();
+          Serial.println(peticionHTTP);
+          Serial.println("Esperando respuesta");
 
-            SerialESP8266.println("AT+CIPCLOSE");
-            if ( SerialESP8266.find("OK"))
-              Serial.println("Conexion finalizada");
-            estadoCon = 3;
-          }
-          if ((millis() - tiempo_inicio) > 10000) //Finalizamos si ya han transcurrido 10 seg
-          {
-            Serial.println("Tiempo de espera agotado");
-            SerialESP8266.println("AT+CIPCLOSE");
-            if ( SerialESP8266.find("OK"))
-              Serial.println("Conexion finalizada");
-            estadoCon = 3;
-          }
-          if (cadena.indexOf("CLOSED") > 0)
-          {
-            Serial.println();
-            Serial.println("Cadena recibida correctamente, conexion finalizada");
-            estadoCon = 3;
-          }
-        }
-        Serial.println();
-        Serial.println();
-        if (cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-")) == "error") {
-          Serial.println("No se pudo agregar el registro");
-        } else {
+          tiempo_inicio = millis();
+          cadena = "";
 
-          cadena = cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-"));
+          while (estadoCon == 2)
+          {
+            while (SerialESP8266.available() > 0)
+            {
+              char c = SerialESP8266.read();
+              Serial.write(c);
+              cadena.concat(c);
+            }
+            if (cadena.length() > 500)
+            {
+              Serial.println("La respuesta a excedido el tamaño maximo");
 
-          Serial.println(cadena);
+              SerialESP8266.println("AT+CIPCLOSE");
+              if ( SerialESP8266.find("OK"))
+                Serial.println("Conexion finalizada");
+              estadoCon = 3;
+            }
+            if ((millis() - tiempo_inicio) > 10000) //Finalizamos si ya han transcurrido 10 seg
+            {
+              Serial.println("Tiempo de espera agotado");
+              SerialESP8266.println("AT+CIPCLOSE");
+              if ( SerialESP8266.find("OK"))
+                Serial.println("Conexion finalizada");
+              estadoCon = 3;
+            }
+            if (cadena.indexOf("CLOSED") > 0)
+            {
+              Serial.println();
+              Serial.println("Cadena recibida correctamente, conexion finalizada");
+              estadoCon = 3;
+            }
+          }
+          Serial.println();
+          Serial.println();
+          if (cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-")) == "error") {
+            Serial.println("Error en php");
+          } else if (cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-")) == "Agregado") {
+            Serial.println("Registro agregado");
+          } else {
+            cadena = cadena.substring(cadena.indexOf("-0#") + 3, cadena.indexOf("#0-"));
+            ssid = cadena.substring(0, cadena.indexOf(","));
+            pass = cadena.substring(cadena.indexOf(",") + 1, cadena.indexOf(";"));
+            estadoCon = 3;
+            Serial.println("Cerradura actualizada");
+          }
         }
       }
+    } else {
+      Serial.println("Error al conectar con el servidor");
     }
   }
 }
