@@ -112,12 +112,14 @@ $(".btnLogin").on("click", function() {
             type: "POST",
             url: "./ajax/access.php",
             success: function(loginVerify) {
-                console.log(loginVerify);
+                //console.log(loginVerify);
                 if (loginVerify == 1) {
                     window.location.href = "perfilUser.php";
-                } else {
+                } else if (loginVerify == -1) {
                     $(".log1").addClass("error");
-                    $(".log2").addClass("error")
+                    $(".log2").addClass("error");
+                } else if (loginVerify == 2) {
+                    window.location.href = "/BioKey/webSite/AddiData/index.php";
                 }
             }
         });

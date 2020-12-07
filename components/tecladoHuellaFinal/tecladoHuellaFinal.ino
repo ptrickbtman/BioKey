@@ -10,9 +10,12 @@ Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 // capturamos los pines del teclado
 const byte ROWS = 4; 
 const byte COLS = 3; 
+byte rowPins[ROWS] = {2,3,4,5}; 
+byte colPins[COLS] = {6, 7, 8}; 
+
+
 
 // arquitectura teclado
-
 char keys[ROWS][COLS] = {
 {'1','2','3'},
 {'4','5','6'},
@@ -20,8 +23,6 @@ char keys[ROWS][COLS] = {
 {'*','0','#'}
 };
 
- byte rowPins[ROWS] = {2,3,4,5}; 
- byte colPins[COLS] = {6, 7, 8}; 
 
 
 

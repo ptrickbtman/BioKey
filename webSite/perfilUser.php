@@ -4,6 +4,9 @@
     //print_r($_SESSION["usuario"]);
     if(isset($_SESSION["usuario"])){
         $datos  = $_SESSION["usuario"];
+        if($datos[4]==2){
+            header("Location:http://192.168.64.2/BioKey/webSite/AddiData/index.php");
+        }
     }else{
         header("Location:http://192.168.64.2/BioKey/webSite/");
     } 
