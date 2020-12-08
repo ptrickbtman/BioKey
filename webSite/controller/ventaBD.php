@@ -19,6 +19,22 @@ class ventaBD extends venta
 		$con->close();
 		return $respuesta;
 	} 
+
+
+	public function allVentas(){
+		$con = conexion();
+		
+		$sql = "SELECT `ID_VENT`, `COD_CERR`, `ID_BOL`, `SUBTOT_VENT`, `EST_LOG_VENT` FROM `ventas`";
+
+		if($con->query($sql)){
+			$respuesta = 1;
+		}else{
+			$respuesta = 0;
+		}
+
+		$con->close();
+		return $respuesta;
+	} 
 	
 }
 

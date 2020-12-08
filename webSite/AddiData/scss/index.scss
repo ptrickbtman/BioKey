@@ -1,0 +1,49 @@
+$color1: rgb(60, 85, 166);
+$color2: rgb(35, 32, 37);
+$color3: #f39f7b;
+$color4: rgb(8, 2, 56);
+$color5: rgb(96, 185, 96);
+$color6: rgb(247, 91, 221);
+@mixin centrado {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.containerVenta {
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    @include centrado();
+    background-color: $color4;
+    color: white;
+    .contContainerVenta {
+        width: 90%;
+        @include centrado();
+        .alignVentas {
+            width: 95%;
+            margin: 0 auto;
+            .row {
+                width: 100%;
+                height: 30px;
+                .contInfoVenta {
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    @include centrado();
+                }
+                .contInfoVenta5 {
+                    width: 20%;
+                    float: left;
+                    text-align: center;
+                    @include centrado();
+                }
+                .infoT {
+                    background-color: $color6;
+                    color: white;
+                }
+            }
+        }
+    }
+}

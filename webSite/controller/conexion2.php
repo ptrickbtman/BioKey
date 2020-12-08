@@ -5,8 +5,8 @@ function conexion2(){
     $server = "localhost";
 	$user = "root";
 	$pass = "";
-	$bd = "bdbiokey";
-
+	//$bd = "bdbiokey";
+	$bd = "bdBioKey4";
 	$con = mysqli_connect($server, $user, $pass, $bd);
 	$con->set_charset("utf8");
 	//if (!$con) {
