@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="css/index.css">
+    
 </head>
 <body>
 
@@ -25,4 +27,5 @@ if(isset($_SESSION["usuario"]) && $_SESSION["usuario"][4]==2){
 </body>
 <script src="../js/jquery.js"></script>
 <script src="../js/menu.js"></script>
+<script src="js/menuAdmin.js"></script>
 </html>

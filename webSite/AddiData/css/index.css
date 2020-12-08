@@ -1,0 +1,47 @@
+.containerVenta {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #080238;
+  color: white;
+}
+.containerVenta .contContainerVenta {
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerVenta .contContainerVenta .alignVentas {
+  width: 95%;
+  margin: 0 auto;
+}
+.containerVenta .contContainerVenta .alignVentas .row {
+  width: 100%;
+  height: 30px;
+}
+.containerVenta .contContainerVenta .alignVentas .row .contInfoVenta {
+  height: 100%;
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerVenta .contContainerVenta .alignVentas .row .contInfoVenta5 {
+  width: 20%;
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerVenta .contContainerVenta .alignVentas .row .infoT {
+  background-color: #f75bdd;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
