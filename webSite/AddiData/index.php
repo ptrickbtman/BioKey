@@ -22,6 +22,19 @@ if(isset($_SESSION["usuario"]) && $_SESSION["usuario"][4]==2){
 
 ?>
 
+<div class="coverAdminIndex">
+    <div class="contCover">
+        <h1>Bienvenido Admin!</h1>
+        <p class="subTittle">¿Qué desea ver?</p>
+        <div class="contInput">
+        <button onclick="btnIndex(0)">Ventas</button>
+        <button>Boltetas</button>
+        <button onclick="btnIndex(1)">Cerraduras</button>
+    
+        </div>
+    </div>
+</div>
+
 
     
 </body>

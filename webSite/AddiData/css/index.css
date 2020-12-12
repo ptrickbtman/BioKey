@@ -1,7 +1,9 @@
-.containerVenta {
+.containerDatos {
+  z-index: 10;
   width: 100%;
   position: fixed;
-  height: 100vh;
+  height: calc(100% - 80px);
+  margin-top: 80px;
   overflow-y: auto;
   justify-content: center;
   align-items: center;
@@ -9,21 +11,30 @@
   background-color: #080238;
   color: white;
 }
-.containerVenta .contContainerVenta {
+.containerDatos .subContainerDatos {
   width: 90%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.containerVenta .contContainerVenta .alignVentas {
+.containerDatos .subContainerDatos .alignDatos {
   width: 95%;
   margin: 0 auto;
 }
-.containerVenta .contContainerVenta .alignVentas .row {
+.containerDatos .subContainerDatos .alignDatos .row {
   width: 100%;
-  height: 30px;
+  height: 35px;
+  margin-top: 4px;
 }
-.containerVenta .contContainerVenta .alignVentas .row .contInfoVenta {
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData {
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData5 {
+  width: 20%;
   height: 100%;
   float: left;
   text-align: center;
@@ -31,17 +42,111 @@
   align-items: center;
   display: flex;
 }
-.containerVenta .contContainerVenta .alignVentas .row .contInfoVenta5 {
-  width: 20%;
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData3 {
+  width: 33.3333%;
   float: left;
+  height: 100%;
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.containerVenta .contContainerVenta .alignVentas .row .infoT {
+.containerDatos .subContainerDatos .alignDatos .row .infoT {
   background-color: #f75bdd;
   color: white;
+}
+.containerDatos .subContainerDatos .alignDatos .row .infoInput {
+  width: 30px;
+  float: left;
+  height: 80%;
+  border: none;
+}
+.containerDatos .subContainerDatos .alignDatos .row .btnInput {
+  width: 60%;
+  border: none;
+  float: left;
+  background-color: #60b960;
+  font-size: 19px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+}
+.containerDatos .subContainerDatos .alignDatos .contFilter {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+.containerDatos .subContainerDatos .alignDatos .contFilter .contTiFiler {
+  width: 100%;
+}
+.containerDatos .subContainerDatos .alignDatos .contFilter .contTiFiler h1 {
+  font-size: 30px;
+  color: #f75bdd;
+  margin-bottom: 10px;
+}
+.containerDatos .subContainerDatos .alignDatos .contFilter label,
+.containerDatos .subContainerDatos .alignDatos .contFilter input {
+  margin-left: 10px;
+  display: inline;
+  width: 60px;
+}
+.containerDatos .subContainerDatos .alignDatos .contFilter label input,
+.containerDatos .subContainerDatos .alignDatos .contFilter input input {
+  margin-left: 0px;
+}
+
+.coverAdminIndex {
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #080238;
+}
+.coverAdminIndex .contCover {
+  width: 60%;
+  background-color: #f75bdd;
+  text-align: center;
+  border-radius: 20px;
+}
+.coverAdminIndex .contCover h1 {
+  font-size: calc(40px);
+  color: white;
+  margin-top: 20px;
+}
+.coverAdminIndex .contCover .subTittle {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.coverAdminIndex .contCover .contInput {
+  width: 80%;
+  margin: 0 auto;
+  height: 40px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.coverAdminIndex .contCover .contInput button {
+  width: 30%;
+  float: left;
+  display: inline;
+  border: none;
+  height: 100%;
+  border: 1.3px solid #080238;
+  cursor: pointer;
+  transition: 0.4s;
+  color: #080238;
+  margin: 2px;
+  background-color: #080238;
+  color: white;
+  font-size: 20px;
+}
+.coverAdminIndex .contCover .contInput button:hover {
+  letter-spacing: 2px;
 }
 
 /*# sourceMappingURL=index.css.map */

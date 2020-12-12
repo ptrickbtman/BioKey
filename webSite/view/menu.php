@@ -108,11 +108,9 @@ function menu2(){?>
         <div class="contItems">
             <div class="item"><p onclick="irAd(0)">Ventas</p></div>
             <div class="item"><p onclick="irAd(1)">Pedidos</p></div>
-            <div class="item"><p onclick="irAd(2)">Boletas</p></div>
-            <div class="item"><p onclick="irAd(3)">Dirección</p></div>
-            <div class="item"><p onclick="irAd(4)">Usuarios</p></div>
+            <div class="item"><p onclick="irAd(2)">Usuarios</p></div>
             <?php if(isset($_SESSION["usuario"])){ ?> 
-            <div class="item"><p onclick="irAd(5)">Cerrar Sesión.</p></div>
+            <div class="item"><p onclick="irAd(4)">Cerrar Sesión.</p></div>
             <?php } ?>
         </div>
     </div>

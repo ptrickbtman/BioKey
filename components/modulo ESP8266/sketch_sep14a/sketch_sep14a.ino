@@ -1,18 +1,14 @@
-
+#include "Keypad.h"
+#include <Adafruit_Fingerprint.h>
 #include <SoftwareSerial.h>
-
-
-SoftwareSerial SerialESP8266(13, 12);
-
-
+/*SoftwareSerial SerialESP8266(13, 12);
 //datos cerraduras
+*/
 int IDCerr = 1;
 String pin = "";
-//char cst[7] = "*1998#";
-
 //datos conexion
-String ssid = "AndradesS";
-String pass = "Ab1Cd2Ef30";
+String ssid = "capuchino";
+String pass = "casaverde123";
 
 //variables para conexion y consultas
 int estadoCon = 0;
@@ -21,10 +17,26 @@ String peticionHTTP = "";
 String cadena = "";
 
 
+SoftwareSerial mySerial(9, 10);
+Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
+
+
 
 void setup() {
-
-  SerialESP8266.begin(9600);
+   while (!Serial);
+    delay(100);
+    finger.begin(57600);
+    delay(100);
+    if (finger.verifyPassword()) {
+      Serial.println("Sensor encontrado");
+    } else {
+      Serial.println("Sensor no esta conectado :(");
+      while (1) {
+        delay(1);
+      }
+    }
+   
+  /*SerialESP8266.begin(9600);
   Serial.begin(9600);
   SerialESP8266.setTimeout(2000);
 
@@ -49,11 +61,30 @@ void setup() {
   conectar();
   delay(1000);
 
-
+  finger.available(); 
+  delay(100);
+  finger.begin(57600);
+  delay(5);
+  if (finger.verifyPassword()) {
+    Serial.println("Sensor encontrado");
+  } else {
+    Serial.println("Sensor no esta conectado :(");
+    while (1) {
+      delay(1);
+    }
+  
+*/
 }
 
+void loop(){
+  
+ //peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=1"); //agregar registro aprobado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=2"); //agregar registro denegado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=3"); //agregar registro cambio pass
+}
 
-
+/*
 
 void conectar()//conexion a red wifi
 {
@@ -83,11 +114,11 @@ void conectar()//conexion a red wifi
 void peticionPHP(String ruta) {//interaciones con la bd
 
   if ( estadoCon == 1) {
-    SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.18.10\",80");//IP de XAMPP server (LAN)
+    SerialESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.1.11\",80");//IP de XAMPP server (LAN)
     if ( SerialESP8266.find("CONNECT")) {
       Serial.println("ESP8266 conectado con el servidor");
 
-      peticionHTTP = "GET /BioKey/BioKey/webSite/controller/" + ruta + " HTTP/1.1\r\nHost: 192.168.18.10\r\n";
+      peticionHTTP = "GET /BioKey/webSite/controller/" + ruta + " HTTP/1.1\r\nHost: 192.168.1.11\r\n";
       SerialESP8266.print("AT+CIPSEND=");
       SerialESP8266.println(peticionHTTP.length() + 10);
       if (SerialESP8266.find(">"))
@@ -156,4 +187,4 @@ void peticionPHP(String ruta) {//interaciones con la bd
       Serial.println("Error al conectar con el servidor");
     }
   }
-}
+}*/
