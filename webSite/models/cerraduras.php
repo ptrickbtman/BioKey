@@ -102,4 +102,10 @@ class cerradura
     }
 }
 
+
+
+function crearPassCerraduraWifi(){
+
+}
+
 ?>

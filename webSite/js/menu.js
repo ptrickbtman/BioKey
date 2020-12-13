@@ -40,6 +40,14 @@ function ir(data) {
             }
         });
     }
+    if (data == 6) {
+        window.location.href = "miCuenta.php";
+    }
+    if (data == 7) {
+        window.location.href = "perfilUser.php";
+    }
+
+
 }
 
 $(window).on("load", function() {
@@ -145,7 +153,7 @@ function crearModalAcepto(tittle, mensaje) {
 
     var container = '<div class="coverContAcep"><div class="ContAcepInfo"><div class="alingContAc"></div></div></div>';
     var texto = '<h1>' + tittle + '</h1><p class="textMensajeAcep">' + mensaje + '</p>';
-    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1">Atras</button><button class="btnAcep btnAcep2">Aceptar</button></div>'
+    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1">Atras</button><button class="btnAcep btnAcep2" onclick="aceptarModal()">Aceptar</button></div>'
 
     $("body").append(container);
     $(".alingContAc").append(texto);

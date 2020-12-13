@@ -32,9 +32,30 @@ $(document).ready(function() {
 
 
     $(".desasociar").on("click", function() {
-       crearModalAcepto('hola','test');
+        crearModalAcepto('¿Estas seguro?', 'Pulsa aceptar para desasociar la cerradura');
     });
+
 });
+
+function aceptarModal() {
+    //console.log("hola");
+    var idc = $('#idC').val();
+    console.log(idc);
+    $.ajax({
+        async: true,
+        data: { "idC": idc },
+        type: "POST",
+        url: "./ajax/desasociarC.php",
+        success: function(desasociarC) {
+            console.log(desasociarC);
+            if (desasociarC == 1) {
+                window.location.href = "perfilUser.php";
+            } else if (desasociarC == -2) {
+                alert("error de programacion");
+            }
+        }
+    });
+}
 
 function updateCerr(form) {
 
@@ -67,7 +88,7 @@ function updateCerr(form) {
                     $("#spanGes1").text("Las contraseñas no coinciden.");
                     $("#RNPass").focus();
                 }
-            }else{
+            } else {
                 count += 1;
                 $(".lblGes1").addClass("error");
                 $(".lblGes2").addClass("error");
@@ -102,7 +123,7 @@ function updateCerr(form) {
             $("#spanGes4").text("Este campo es obligatorio.");
             $("#NWFPass").focus();
         }
-        
+
     }
 
     if (count == 0) {
@@ -139,13 +160,13 @@ function updateCerr(form) {
 
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-    dataObj = {};
+        dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });
     return dataObj;
 }
 
-function desasociarCerr(){
-    
+function desasociarCerr() {
+
 }

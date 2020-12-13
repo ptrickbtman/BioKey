@@ -9,14 +9,25 @@
     funciones get_ && set_ + variable
 
 */
-    
+
     require_once "../models/cerraduras.php";
     include_once 'conexion2.php';
     //include_once 'conexion.php';
 
     class cerraduraBD extends cerradura {
         
-        
+        public function desasociarCerradura(){
+            $con = conexion2(); 
+            $pass = crearPassCerraduraWifi();
+            $sql = "UPDATE `cerraduras` SET `ID_USU`=NULL,`DATE_CERR`='".$this->fecha_cerradura."',`EST_CERR`=2 WHERE `COD_CERR`=".$this->cod_cerradura." ";
+            if ($result = $con->query($sql)) {
+                return True;
+            }else{
+                $this->fecha_cerradura = $sql;
+                return False;
+            }
+        }
+
         public function buscarCerraduraPorIds(){
             $con = conexion2();
             $sql = "SELECT * FROM cerraduras WHERE  `ID_USU` = ". $this->id_usuario_cerradura . " AND `COD_CERR`= ".$this->cod_cerradura." ";
@@ -68,7 +79,7 @@
 
         public function validarCerradura(){
             $con = conexion2();
-            $sql = "SELECT * FROM cerraduras WHERE `EST_CERR`= 4 AND `SERIAL_CERR` = '". $this->serial_cerradura . "'";
+            $sql = "SELECT * FROM cerraduras WHERE `SERIAL_CERR` = '". $this->serial_cerradura . "' AND (`EST_CERR`=3 OR `EST_CERR`=2)";
             $this->set_estado_cerradura($sql);
             if ($resultado = $con->query($sql)) {
                 $row_cnt = $resultado->num_rows;
@@ -208,6 +219,24 @@
                 $con->close();
                 return false;
             }
+        }
+
+
+
+
+        // metodos
+
+        public function crearPassCerraduraWifi(){
+            $data = "";
+            for($i = 0 ; $i<=10 ; $i++){
+                if($i==2 && $i==4 && $i==7){
+                    $data .= (String)rand(1,9);
+                }else{
+                    $data .= chr(rand(ord("a"), ord("z")));
+                }
+                
+            }
+            return $data;
         }
     }
 
