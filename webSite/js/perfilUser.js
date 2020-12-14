@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "./ajax/perfil.php",
         success: function(vali) {
             //console.log("ajax1");
-            console.log(vali);
+            //console.log(vali);
             if (vali == 1) {
                 crearFormValidador();
                 //console.log("json recibido")
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 function crearModalVali() {
     crearFormValidador();
-    var data = '<p class="back" onclick="cerrarModalVali()" >Atras</p>';
+    var data = '<p class="back" onclick="cerrarModalVali()">Atras</p>';
     $(".formValid").append(data);
     setTimeout(function() {
         $(".back").css("opacity", "1")
@@ -47,9 +47,15 @@ function crearModalVali() {
 
 function crearActivador(dataO) {
     var data1 = '<div class="contActive"><div class="circle circleOn"></div></div>';
-    var data2 = '<div class="contActive"><div class="circle circleOff"></div><</div>';
+    var data2 = '<div class="contActive"><div class="circle circleOff"></div></div>';
     for (var i = 0; i < Object.keys(dataO).length; i++) {
-        $(" .contForm" + i + "").append(data1);
+
+        if (dataO[i].EST_CERR == 0) {
+            $(" .contForm" + i + "").append(data2);
+            console.log("off");
+        } else {
+            $(" .contForm" + i + "").append(data1);
+        }
     }
 }
 
@@ -58,7 +64,7 @@ function crearActivador(dataO) {
 
 function crearFormulariosCerraduras(dataO) {
     for (var i = 0; i < Object.keys(dataO).length; i++) {
-        var data = '<div class="contForm contForm' + i + '"><form method="POST" action="gestionarCerradura.php" class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '" name="idC"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
+        var data = '<div class="contForm contForm' + i + '"><form method="POST" action="gestionarCerradura.php" class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '" name="idC"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><p class="cerraduraTi">' + dataO[i].DATE_CERR + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
         //console.log(dataO[i].COD_CERR + " - " + dataO[i].SERIAL_CERR);
         //console.log(data)
         var add = '<div class="contAdd" onclick="crearModalVali()"><i class="fa fa-plus" aria-hidden="true"></i></div> '

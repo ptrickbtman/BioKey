@@ -11,8 +11,12 @@ $(document).ready(function() {
         url: "./ajax/buscarCerradura.php",
         success: function(datCerr) {
             datCerr = JSON.parse(datCerr);
+            console.log(datCerr);
             $('#serGes').text(datCerr[0].SERIAL_CERR);
             $('#ssidActGes').text(datCerr[0].SSID_RED);
+            if (datCerr[0].EST_CERR == 0) {
+                desbloquearCerradura();
+            }
         }
     });
 
@@ -35,7 +39,33 @@ $(document).ready(function() {
         crearModalAcepto('¿Estas seguro?', 'Pulsa aceptar para desasociar la cerradura');
     });
 
+
 });
+
+function desbloquear() {
+    crearModalEspera();
+    let idc = $('#idC').val();
+    $.ajax({
+        async: true,
+        data: { "idC": idc },
+        type: "POST",
+        url: "./ajax/desbloquearCerradura.php",
+        success: function(datCerr) {
+            if (datCerr == 1) {
+                window.location.reload();
+            } else {
+                alert("error al desbloquear, consultar con el administrador");
+            }
+        }
+    });
+}
+
+function desbloquearCerradura() {
+    //console.log("crer btn Desbloqueo");
+    data = '<form class="desbloquearCerr"><input type="button" value="Desbloquear" class="btnDesbloqueo" onclick="desbloquear()"></form>';
+    $(".contP").append(data);
+}
+
 
 function aceptarModal() {
     //console.log("hola");
@@ -60,7 +90,6 @@ function aceptarModal() {
 function updateCerr(form) {
 
     datos = obtenerDatosForm(form);
-
     $(".lblGes1").removeClass("error");
     $(".lblGes2").removeClass("error");
     $(".lblGes3").removeClass("error");

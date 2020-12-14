@@ -15,7 +15,31 @@
     //include_once 'conexion.php';
 
     class cerraduraBD extends cerradura {
-        
+
+        public function desbloquear(){
+            $con = conexion2();
+            $sql = "SELECT * FROM cerraduras WHERE `COD_CERR`=".$this->cod_cerradura." AND `ID_USU`=".$this->id_usuario_cerradura." ";
+            if ($result = $con->query($sql)) {
+                if( $result->num_rows == 1 ) {
+                    $sql2 = "UPDATE `cerraduras` SET `EST_CERR`=1 WHERE `COD_CERR`=".$this->cod_cerradura." ";
+                    if ($result = $con->query($sql2)) {
+                        $con->close();
+                        $this->pass_cerradura = $sql2;
+                        return True;
+                    }else{
+                        $con->close();
+                        return False;
+                    }
+                }else{
+                    $con->close();
+                    return False; 
+                }
+            }else{
+                $con->close();
+                return False;
+            }
+        }
+
         public function desasociarCerradura(){
             $con = conexion2(); 
             $pass = crearPassCerraduraWifi();
