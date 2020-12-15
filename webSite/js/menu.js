@@ -73,7 +73,7 @@ function crearModalContacto() {
     input[1] = '<label>Email:</label><input type="email"  name="emailCon" placeholder="xxxx@biokey.com" class="inputTxt">';
     input[2] = '<label>Celular:</label><input type="number"  name="cellCon" placeholder="9999909" class="inputTxt">';
     input[3] = '<label>Motivo:</label><textarea class="txtAreaContacto" name="txtAreaContacto">';
-    input[4] = '<input class="btnContacto" value="contacto" type="button" >';
+    input[4] = '<div class="contBtnCont"><input class="btnContactoBack" value="atras" type="button" ><input class="btnContacto" value="contacto" type="button" ></div>';
 
 
     for (var i = 0; i <= 4; i++) {

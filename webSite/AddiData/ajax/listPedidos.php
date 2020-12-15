@@ -3,8 +3,12 @@
 include '../controller/pedidosBD.php';
 session_start();
 
+if(isset($_POST["pedidoID"]) && $_SESSION["usuario"][4]==2 ){
+    $cerradura = new cerraduraBD($_POST["pedidoID"], null, null, null, null, null,null, null);
+    print_r($cerradura->cerraduraPorId());
+}
 
-if(isset($_POST["dataFilter"])/* && $_SESSION["usuario"][4]==2 */){
+if(isset($_POST["dataFilter"]) && $_SESSION["usuario"][4]==2 ){
     $cerradura = new cerraduraBD(null, null, null, null, null, null,null, null);
     $filter = $_POST["dataFilter"];
     $count =0;

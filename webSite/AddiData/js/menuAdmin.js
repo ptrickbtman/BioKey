@@ -12,6 +12,11 @@ function irAd(option) {
         eliminarModal();
         menu();
         verPedidos();
+    } else if (option == 2) {
+        crearModalEspera();
+        eliminarModal();
+        menu();
+        verBoletas();
     }
 }
 
@@ -26,14 +31,56 @@ function btnIndex(data) {
     } else if (data == 1) {
         crearModalEspera();
         eliminarModal();
-        menu();
+        //menu();
         verPedidos();
+    } else if (data == 2) {
+        crearModalEspera();
+        eliminarModal();
+        setTimeout(function() {
+            verBoletas();
+        }, 100)
+    }
+}
+
+
+function verBoletas() {
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "boletas": 1 },
+        url: "./ajax/listBoleta.php",
+        success: function(datCerr) {
+            console.log(datCerr);
+
+            if (datCerr == -2) {
+                alert("no hay boletas asociadas");
+                cerrarModalEspera();
+            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("es json")
+                data = JSON.parse(datCerr);
+                crearModalListadoBoletas(data)
+                setTimeout(function() {
+                    cerrarModalEspera();
+                }, 200)
+            }
+
+        }
+    });
+}
+
+function crearModalListadoBoletas(data) {
+    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"></div></div></div>';
+    $("body").append(container);
+    let row = '<div class="row row0"><div class="contInfoData contInfoData5 infoT">ID_BOLETA</div><div class="contInfoData contInfoData5">RUT_CLI</div><div class="contInfoData contInfoData5 infoT">CANT_PROD_BOL</div><div class="contInfoData contInfoData5" infoT>FECH_BOL</div><div class="contInfoData contInfoData5 infoT">ORDEN_BOL</div></div>';
+    $(".alignDatos").append(row);
+    for (var i = 0; i < Object.keys(data).length; i++) {
+
+        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].RUT_CLI + '</div><div class="contInfoData contInfoData5">' + data[i].CANT_PROD_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].FECH_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].ORDEN_BOL + '</div></div>';
+        $(".alignDatos").append(row);
     }
 }
 
 function verVentas() {
-
-
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
@@ -67,13 +114,35 @@ function crearModalListadoVenta(data) {
     $(".alignDatos").append(row);
     for (var i = 0; i < Object.keys(data).length; i++) {
 
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].COD_CERR + '</div><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
+        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
         $(".alignDatos").append(row);
     }
 
 }
 
+
+
 //datos pedidos
+
+function filtraCerrId(id) {
+    crearModalEspera();
+    eliminarModal();
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "pedidoID": id },
+        url: "./ajax/listPedidos.php",
+        success: function(pedido) {
+            console.log(pedido);
+            if (/^[\],:{}\s]*$/.test(pedido.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("es json")
+                data = JSON.parse(pedido);
+                crearModalListadoPedidos(data);
+                cerrarModalEspera();
+            }
+        }
+    });
+}
 
 function verPedidos() {
 
@@ -171,7 +240,7 @@ function crearModalListadoPedidos(data) {
 function eliminarModal() {
     if ($(".containerDatos")) {
         $(".containerDatos").remove();
-        console.log("eliminado");
+        //console.log("eliminado");
     } else {
         console.log("No modal");
     }

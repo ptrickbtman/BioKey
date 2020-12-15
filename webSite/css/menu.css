@@ -559,8 +559,8 @@
 
 .contContacto {
   width: 100%;
-  height: 100vh;
-  top: 0;
+  height: calc(100% - 80px);
+  top: 80px;
   position: fixed;
   z-index: 996;
   background-color: #080238;
@@ -573,6 +573,7 @@
   text-align: left;
   margin: 0 auto;
   background-color: #080238;
+  overflow-y: auto;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -621,14 +622,41 @@
   border: none;
   margin-top: 5px;
 }
-.contContacto .InfoContacto1 form .btnContacto {
-  width: 100%;
+.contContacto .InfoContacto1 form .contBtnCont .btnContactoBack {
+  width: 49%;
+  display: inline;
+  height: 40px;
+  background-color: #080238;
+  border: none;
+  border: 1px solid #f75bdd;
+  margin-top: 10px;
+  color: white;
+  transition: 0.4s;
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  float: left;
+}
+.contContacto .InfoContacto1 form .contBtnCont .btnContactoBack:hover {
+  letter-spacing: 2px;
+}
+.contContacto .InfoContacto1 form .contBtnCont .btnContacto {
+  width: 49%;
+  float: right;
+  border: 1px solid #f75bdd;
+  display: inline;
   height: 40px;
   background-color: #f75bdd;
   border: none;
   margin-top: 10px;
   color: white;
+  transition: 0.4s;
   font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+.contContacto .InfoContacto1 form .contBtnCont .btnContacto:hover {
+  letter-spacing: 2px;
 }
 @media screen and (min-width: 992px) {
   .contContacto .InfoContacto1 {
