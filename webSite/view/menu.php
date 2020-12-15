@@ -64,6 +64,7 @@ function menu(){?>
     <div class="contItemsMenu">
         <div class="contItems">
             <div class="item"><p onclick="ir(0)">Inicio</p></div>
+            <div class="item"><p onclick="ir(9)">Contacto</p></div>
             <?php if(isset($_SESSION["usuario"])){?>
             <div class="item"><p onclick="ir(7)">Perfil</p></div>
             <div class="item"><p onclick="ir(6)">Mi cuenta</p></div>

@@ -8,22 +8,16 @@ $(document).ready(function() {
 function ir(data) {
     if (data == 0) {
         window.location.href = "index.php";
-    }
-    if (data == 1) {
+    } else if (data == 1) {
         menu();
         $(".loginCont").toggleClass("loginContOn");
-    }
-    if (data == 2) {
+    } else if (data == 2) {
         window.location.href = "formularioCompra.php";
-    }
-    if (data == 3) {
+    } else if (data == 3) {
         window.location.href = "politicasR.php";
-    }
-    if (data == 4) {
+    } else if (data == 4) {
         window.location.href = "politicasPC.php";
-    }
-
-    if (data == 5) {
+    } else if (data == 5) {
         crearModalEspera();
         $.ajax({
             async: true,
@@ -39,12 +33,14 @@ function ir(data) {
 
             }
         });
-    }
-    if (data == 6) {
+    } else if (data == 6) {
         window.location.href = "miCuenta.php";
-    }
-    if (data == 7) {
+    } else if (data == 7) {
         window.location.href = "perfilUser.php";
+    } else if (data == 7) {
+        window.location.href = "perfilUser.php";
+    } else if (data == 9) {
+        crearModalContacto();
     }
 
 
@@ -53,7 +49,6 @@ function ir(data) {
 $(window).on("load", function() {
     cerrarModalEspera();
 });
-
 
 
 $(".hamburger").on("click", function() {
@@ -65,6 +60,27 @@ function menu() {
     $(".stick2").toggleClass("stick2On");
     $(".contItemsMenu").toggleClass("contItemsMenuOn");
     $(".tapeContItemsMenu").toggleClass("tapeContItemsMenuOn    ");
+}
+
+function crearModalContacto() {
+    //<div class=""></div>
+    input = [];
+    let container = '<div class="contContacto"><div class="InfoContacto InfoContacto1"></div><div class="InfoContacto InfoContacto2"></div></div>'
+    $("body").append(container);
+    let form = '<form class="formContacto"><h1>Contacto</h1><p class="subTittle">Completa todos los campos!</p></form>'
+    $(".InfoContacto1").append(form);
+    input[0] = '<label>Nombre:</label><input type="text" name="nombreCon" placeholder="juan" class="inputTxt">';
+    input[1] = '<label>Email:</label><input type="email"  name="emailCon" placeholder="xxxx@biokey.com" class="inputTxt">';
+    input[2] = '<label>Celular:</label><input type="number"  name="cellCon" placeholder="9999909" class="inputTxt">';
+    input[3] = '<label>Motivo:</label><textarea class="txtAreaContacto" name="txtAreaContacto">';
+    input[4] = '<input class="btnContacto" value="contacto" type="button" >';
+
+
+    for (var i = 0; i <= 4; i++) {
+        $(".formContacto").append(input[i]);
+    }
+
+    menu();
 }
 
 
