@@ -14,7 +14,7 @@ $(document).ready(function() {
             regisData = JSON.parse(regisData);
             console.log(regisData);
             for (var i = 0; i < Object.keys(regisData).length; i++) {
-                $('#opcMetP').append('<input type="radio" name="idMetP" value="'+i+'" onclick="actualizarSession(' + regisData[i].ID_METPAG + ')" class="metPag"><span class="spnDatos">' + regisData[i].NOM_METPAG + '</span><br>');
+                $('#opcMetP').append('<input type="radio" name="idMetP" value="'+i+'" onclick="actualizarSession(' + regisData[i].ID_METPAG + ',\''+regisData[i].NOM_METPAG+'\')" class="metPag"><span class="spnDatos">' + regisData[i].NOM_METPAG + '</span><br>');
             }
         }
     });
@@ -24,13 +24,13 @@ $(document).ready(function() {
 });
 
 
-function actualizarSession(id) {
+function actualizarSession(id, nom) {
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
     $.ajax({
         async: true,
-        data: { "idMetPag": id },
+        data: { "idMetPagFC": id, "nomMetPagFC": nom},
         type: "POST",
         url: "./ajax/actSessCompra.php",
         success: function(respuesta) {
@@ -45,12 +45,17 @@ function continuar(){
     var count= 0;
     if (met === undefined) {
         count +=1;
-        $(".err1").text("");
+        $("#err1").text("Debe seleccionar un metodo de pago.");
+        $("#err1").focus();
     }else{
-        $(".err").text("Debe seleccionar un metodo de pago.");
+        $("#err1").text("");
     }
     if (!$('.check').is(':checked')) {
         count +=1;
+        $("#err2").text("Debe aceptar nuestras politicas de seguridad.");
+        $("#err2").focus();
+    }else{
+        $("#err2").text("");
     }
     if (count == 0) {
         location.href = $('.urlFinal').val();

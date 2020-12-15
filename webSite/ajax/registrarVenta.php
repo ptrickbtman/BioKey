@@ -7,22 +7,24 @@ include '../controller/generarCodigo.php';
 include '../controller/ventaBD.php';
 
 if ( isset($_POST['datosVenta']) ) {
+	$obj = new boletaBD(null, null, null, $_POST['datosVenta']['ordFC'] , null, null, null, null);
+	if ($obj->validarOrdenCompra()==False) {
 	$respuesta = 1;
 	$obj = new clienteBD($_POST['datosVenta']['rutFC'],$_POST['datosVenta']['nomFC'],$_POST['datosVenta']['apeFC'],$_POST['datosVenta']['corFC'],$_POST['datosVenta']['telFC'], 1);
 	$respuesta = $obj->insertarClienteVenta();
 	
-	print($respuesta);
+	
 
 	if ($respuesta == 0) {
 		$respuesta = $obj->updateClienteVenta();
 	}
-	
+
 	if ($respuesta == 1) {
 		date_default_timezone_set("America/Santiago");
-		$fecha_act = date("d-m-Y");
+		$fecha_act = date("d-m-Y G:i");
 		$obj = new boletaBD(null , $_POST['datosVenta']['idMetPagFC'] , $_POST['datosVenta']['cantiFC'], $_POST['datosVenta']['ordFC'] , $_POST['datosVenta']['preTotFC'] , $fecha_act, $_POST['datosVenta']['rutFC'], 1);
 		$respuesta = $obj->insertarBoleta();
-		//print_r($obj);
+
 	}
 	$idBol = $respuesta;
 	if ($respuesta >= 0) {
@@ -30,6 +32,7 @@ if ( isset($_POST['datosVenta']) ) {
 		$respuesta = $obj->insertarDireccion();
 		//print_r($obj);
 	}
+
 	if ($respuesta == 1) {
 
 		for ($i=0; $i <intval($_POST['datosVenta']['cantiFC']) ; $i++) { 
@@ -42,8 +45,13 @@ if ( isset($_POST['datosVenta']) ) {
 		}
 		
 	}
+	session_start();
+	$_SESSION["cliente"]['ordFC'] = $_POST['datosVenta']['ordFC'];
+	$_SESSION["cliente"]['fechFC'] = $fecha_act;
 	echo $respuesta;
-	
+	}else{
+		echo "-2";
+	}
 
 }else{
 	echo "-1";

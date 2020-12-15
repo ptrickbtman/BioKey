@@ -14,6 +14,8 @@ $(document).ready(function() {
             console.log(regisData)
             if (regisData == 1) {
                 window.location.href = "compraAprobada.php";
+            }else{
+                //window.location.href = "compraRechazada.php";
             }
         }
     });

@@ -131,7 +131,7 @@ function continuarCompra(){
         $(".lblComp5").removeClass("error");
         $("#spnValComp5").text("");
 
-        if (validarNumero(data["telFC"]) === false) {
+        if (validarNumero(data["telFC"]) == false) {
             $(".lblComp5").removeClass("error");
             $("#spnValComp5").text("");
         } else {
@@ -176,7 +176,7 @@ function continuarCompra(){
         $(".lblComp8").removeClass("error");
         $("#spnValComp8").text("");
 
-        if (validarTextoMasNum(data["comFC"]) === false) {
+        if (validarTextoMasNum(data["comFC"]) == false) {
             $(".lblComp8").removeClass("error");
             $("#spnValComp8").text("");
         } else {

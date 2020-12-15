@@ -19,6 +19,18 @@ class boletaBD extends boleta {
 		return $respuesta;
 	} 
 
+ 	public function validarOrdenCompra(){
+            $con = conexion();
+            $sql = "SELECT * FROM boletas WHERE `ORDEN_BOL` = '". $this->orden_bol."'";
+             if ($resultado = $con->query($sql)) {
+                $row_cnt = $resultado->num_rows;
+                if($row_cnt==1){
+                    return True;
+                }
+            }else{
+                return False;
+            }
+        }
 }
 
 

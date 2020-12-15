@@ -43,6 +43,7 @@ session_start();
 			<input type="hidden" name="preUnitFC" value="<?php echo $_SESSION['cliente']['preUnitFC']; ?>" >
 			<input type="hidden" name="preTotFC" value="<?php echo $_SESSION['cliente']['preTotFC']; ?>" >
 			<input type="hidden" name="idMetPagFC" value="<?php echo $_SESSION['cliente']['idMetPagFC']; ?>" >
+			<input type="hidden" name="nomMetPagFC" value="<?php echo $_SESSION['cliente']['nomMetPagFC']; ?>" >
 			
 		</form>
 		

@@ -93,12 +93,12 @@ if (isset($_SESSION["cliente"])) {
 				<input type="hidden" id="inptIdReg" value="<?php echo $_SESSION["cliente"]["regFC"]; ?>"><br>
 				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>">
 				
-				<h2>Metodo de pago(*): <span id="err1"></span></h2><div id="opcMetP"></div>
+				<h2>Metodo de pago(*): <span class="error" id="err1"></span></h2><div id="opcMetP"></div>
 				<h2>Detalles de la compra:</h2>
 				<span class="spnTDatos">Cantidad de cerraduras: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["cantiFC"]; ?></span><br>
 				<span class="spnTDatos">Precio unitario ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preUnitFC"]; ?></span><br>
 				<span class="spnTDatos">Precio total ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preTotFC"]; ?></span><br>
-				<h2>Antes de continuar(*): <span id="err2"></span></h2>
+				<h2>Antes de continuar(*): <span class="error" id="err2"></span></h2>
 				<img class="imgPago" src="medias/metP1.png"><img class="imgPago" src="medias/wp.png">
 				<span class="spnDatos">Con mercado pago puedes pagar con tarjetas de Crédito o Débito (Redcompra / webpay).</span><br><br>
 				<span class="spnDatos">Porfavor revise nuestras politicas de seguridad y reembolso:</span><br>
