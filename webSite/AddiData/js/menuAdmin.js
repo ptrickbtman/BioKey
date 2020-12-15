@@ -114,13 +114,35 @@ function crearModalListadoVenta(data) {
     $(".alignDatos").append(row);
     for (var i = 0; i < Object.keys(data).length; i++) {
 
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].COD_CERR + '</div><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
+        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
         $(".alignDatos").append(row);
     }
 
 }
 
+
+
 //datos pedidos
+
+function filtraCerrId(id) {
+    crearModalEspera();
+    eliminarModal();
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "pedidoID": id },
+        url: "./ajax/listPedidos.php",
+        success: function(pedido) {
+            console.log(pedido);
+            if (/^[\],:{}\s]*$/.test(pedido.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("es json")
+                data = JSON.parse(pedido);
+                crearModalListadoPedidos(data);
+                cerrarModalEspera();
+            }
+        }
+    });
+}
 
 function verPedidos() {
 

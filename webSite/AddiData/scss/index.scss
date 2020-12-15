@@ -41,6 +41,9 @@ $color6: rgb(247, 91, 221);
                     float: left;
                     text-align: center;
                     @include centrado();
+                    p {
+                        cursor: pointer;
+                    }
                 }
                 .contInfoData3 {
                     width: 33.3333%;
@@ -48,6 +51,9 @@ $color6: rgb(247, 91, 221);
                     height: 100%;
                     text-align: center;
                     @include centrado();
+                    p {
+                        cursor: pointer;
+                    }
                 }
                 .infoT {
                     background-color: $color6;
