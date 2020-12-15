@@ -28,7 +28,7 @@ if(isset($_SESSION["usuario"]) && $_SESSION["usuario"][4]==2){
         <p class="subTittle">¿Qué desea ver?</p>
         <div class="contInput">
         <button onclick="btnIndex(0)">Ventas</button>
-        <button>Boltetas</button>
+        <button onclick="btnIndex(2)">Boltetas</button>
         <button onclick="btnIndex(1)">Cerraduras</button>
     
         </div>
