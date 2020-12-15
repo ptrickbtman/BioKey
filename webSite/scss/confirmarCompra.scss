@@ -15,6 +15,7 @@ $color6: rgb(247, 91, 221);
     display: flex;
 }
 
+
 .contP {
     width: 100%;
     margin-top: 80px;
@@ -31,8 +32,34 @@ $color6: rgb(247, 91, 221);
             font-weight: 500;
             margin-top: 20px;
         }
+        span{
+            display: inline-block;
+            margin: 5px 0px
+        }
         .spnTDatos{
-            
+            width: 190px;
+        }
+        .imgPago{
+            display: inline-block;
+            max-width: 45%
+        }
+        .metPag,.check{
+            margin-right: 5px;
+        }
+        .polit{
+            display:block;
+            margin: 5px;
+            margin: 8px 6px;
+            color: $color6;
+            transition: 2s;
+        }
+        .err1,.err2{
+            color: rgb(240, 86, 86);
+        }
+        .polit:hover{
+            transition: 2s;
+            text-decoration:underline;
+            cursor: pointer; 
         }
         .botonFalso {
             width: 100%;

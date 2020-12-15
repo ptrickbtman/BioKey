@@ -53,7 +53,7 @@
 				<input class="inputTxt" type="text" name="telFC" id="telFC" placeholder="9 12345678" required="" maxlength="12">
 				
 
-				<h2>Datos para entrega</h2>
+				<h2>Datos para entrega (Por ahora solo ventas en Santiago)</h2>
 
 
 				<label class="lblComp6" for="regFC">Region(*): <span class="lblComp6" id="spnValComp6"></span></label>
@@ -92,7 +92,7 @@
 				<label class="lblComp13" for="blockFC">Block: <span class="lblComp13" id="spnValComp13"></span></label>
 				<input class="inputTxt" type="text" name="blockFC" placeholder="Opcional" maxlength="3">
 
-				<h2>Detalle del pedido</h2>
+				<h2>Detalle del pedido (Por ahora solo pedidos de 1 a 10 cerraduras)</h2>
 
 				<label class="lblComp14" for="cantPFC">Cantidad de cerraduras: <span class="lblComp14" id="spnValComp14"></span></label>
 				<input class="inputTxt" type="number" name="cantiFC" value="1" min="1" max="10" class="asd">

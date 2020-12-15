@@ -78,7 +78,7 @@ if (isset($_SESSION["cliente"])) {
 				<span class="spnTDatos">Region: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["nomRegFC"]; ?></span><br>
 				<span class="spnTDatos">Ciudad: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["nomCiuFC"]; ?></span><br>
 				<span class="spnTDatos">Comuna: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["comFC"]; ?></span><br>
-				<span class="spnTDatos">Direccion: </span>
+				<span class="spnTDatos">Direccion:</span>
 				<span class="spnDatos">
 					<?php 
 					echo $_SESSION["cliente"]["call1FC"]." #".$_SESSION["cliente"]["numFC"];
@@ -88,27 +88,31 @@ if (isset($_SESSION["cliente"])) {
 					if (!empty($_SESSION["cliente"]["blockFC"])) {
 						echo ", block ".$_SESSION["cliente"]["blockFC"];
 					} 
-
 					?>
 				</span>
 				<input type="hidden" id="inptIdReg" value="<?php echo $_SESSION["cliente"]["regFC"]; ?>"><br>
-				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>"><br>
+				<input type="hidden" id="inptIdCiu" value="<?php echo $_SESSION["cliente"]["ciuFC"]; ?>">
 				
-				<h2 class="spnTDatos">Metodo de pago: </h2><br><div id="opcMetP"></div>
+				<h2>Metodo de pago(*): <span id="err1"></span></h2><div id="opcMetP"></div>
 				<h2>Detalles de la compra:</h2>
 				<span class="spnTDatos">Cantidad de cerraduras: </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["cantiFC"]; ?></span><br>
 				<span class="spnTDatos">Precio unitario ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preUnitFC"]; ?></span><br>
 				<span class="spnTDatos">Precio total ($CLP): </span><span class="spnDatos"><?php echo $_SESSION["cliente"]["preTotFC"]; ?></span><br>
-				
-				<input type="checkbox"><span >Acepto haber leído las políticas del sitio web.</span>
+				<h2>Antes de continuar(*): <span id="err2"></span></h2>
+				<img class="imgPago" src="medias/metP1.png"><img class="imgPago" src="medias/wp.png">
+				<span class="spnDatos">Con mercado pago puedes pagar con tarjetas de Crédito o Débito (Redcompra / webpay).</span><br><br>
+				<span class="spnDatos">Porfavor revise nuestras politicas de seguridad y reembolso:</span><br>
+				<p class="polit" onclick="window.open('politicasPC.php', '_blank'); ">Politica de privacidad y cookies</p>
+				<p class="polit" onclick="window.open('politicasR.php', '_blank'); ">Política de reembolso</p>
+				<input type="checkbox" class="check"><span >Acepto haber leído las políticas del sitio web.</span>
 				
 
 				<?php //print_r($_SESSION['cliente']) ?>
-				<input type="button" class="botonFalso" onclick="location.href='<?php echo $preference->init_point; ?>'" value="Continuar con MercadoPago">
+				<input type="button" class="botonFalso" onclick="continuar();" value="Continuar con MercadoPago">
+				
 			</div>
 		</div>
-		<br>
-		
+		<input type="hidden" class="urlFinal" value="<?php echo $preference->init_point; ?>">
 	</body>
 	<script src="js/menu.js"></script>
 	</html>

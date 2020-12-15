@@ -14,7 +14,7 @@ $(document).ready(function() {
             regisData = JSON.parse(regisData);
             console.log(regisData);
             for (var i = 0; i < Object.keys(regisData).length; i++) {
-                $('#opcMetP').append('<input type="radio" name="idMetP" onclick="actualizarSession(' + regisData[i].ID_METPAG + ')" class="metPag"><span class="spnDatos">' + regisData[i].NOM_METPAG + '</span><br>');
+                $('#opcMetP').append('<input type="radio" name="idMetP" value="'+i+'" onclick="actualizarSession(' + regisData[i].ID_METPAG + ')" class="metPag"><span class="spnDatos">' + regisData[i].NOM_METPAG + '</span><br>');
             }
         }
     });
@@ -38,4 +38,21 @@ function actualizarSession(id) {
         }
     });
 
+}
+
+function continuar(){
+    var met = $('input:radio[name=idMetP]:checked').val();
+    var count= 0;
+    if (met === undefined) {
+        count +=1;
+        $(".err1").text("");
+    }else{
+        $(".err").text("Debe seleccionar un metodo de pago.");
+    }
+    if (!$('.check').is(':checked')) {
+        count +=1;
+    }
+    if (count == 0) {
+        location.href = $('.urlFinal').val();
+    }
 }

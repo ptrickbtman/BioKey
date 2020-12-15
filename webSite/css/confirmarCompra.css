@@ -21,6 +21,35 @@
   font-weight: 500;
   margin-top: 20px;
 }
+.contP .contF span {
+  display: inline-block;
+  margin: 5px 0px;
+}
+.contP .contF .spnTDatos {
+  width: 190px;
+}
+.contP .contF .imgPago {
+  display: inline-block;
+  max-width: 45%;
+}
+.contP .contF .metPag, .contP .contF .check {
+  margin-right: 5px;
+}
+.contP .contF .polit {
+  display: block;
+  margin: 5px;
+  margin: 8px 6px;
+  color: #f75bdd;
+  transition: 2s;
+}
+.contP .contF .err1, .contP .contF .err2 {
+  color: #f05656;
+}
+.contP .contF .polit:hover {
+  transition: 2s;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .contP .contF .botonFalso {
   width: 100%;
   height: 40px;
