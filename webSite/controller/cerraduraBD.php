@@ -39,10 +39,29 @@
                 return False;
             }
         }
+         public function bloquear(){
+            $con = conexion2(); 
+            $sql = "UPDATE `cerraduras` SET `EST_CERR`=0 WHERE `COD_CERR`=".$this->cod_cerradura." ";
+            if ($result = $con->query($sql)) {
+               echo "-0#Agregado#0-";
+            }else{
+                $this->fecha_cerradura = $sql;
+                echo "-0#error#0-";
+            }
+        }
+        public function actualizarFecha(){
+            $con = conexion2(); 
+            $sql = "UPDATE `cerraduras` SET `DATE_CERR`='".$this->fecha_cerradura."' WHERE `COD_CERR`=".$this->cod_cerradura." ";
+            if ($result = $con->query($sql)) {
+                return True;
+            }else{
+                $this->fecha_cerradura = $sql;
+                return False;
+            }
+        }
 
         public function desasociarCerradura(){
             $con = conexion2(); 
-            $pass = crearPassCerraduraWifi();
             $sql = "UPDATE `cerraduras` SET `ID_USU`=NULL,`DATE_CERR`='".$this->fecha_cerradura."',`EST_CERR`=2 WHERE `COD_CERR`=".$this->cod_cerradura." ";
             if ($result = $con->query($sql)) {
                 return True;
