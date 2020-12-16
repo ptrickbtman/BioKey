@@ -131,7 +131,7 @@ function continuarCompra(){
         $(".lblComp5").removeClass("error");
         $("#spnValComp5").text("");
 
-        if (validarNumero(data["telFC"]) == false) {
+        if (validarNumero(data["telFC"]) == true) {
             $(".lblComp5").removeClass("error");
             $("#spnValComp5").text("");
         } else {
@@ -220,7 +220,7 @@ function continuarCompra(){
         $(".lblComp11").removeClass("error");
         $("#spnValComp11").text("");
 
-        if (validarNumero(data["numFC"]) === false) {
+        if (validarNumero(data["numFC"]) == true) {
             $(".lblComp11").removeClass("error");
             $("#spnValComp11").text("");
         } else {

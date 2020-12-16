@@ -26,7 +26,7 @@ function validarTextoMasNum(valor) {
 
 }
 function validarNumero(valor) {
-    if (/^[0-9]$/.test(valor)) {
+    if (/^[0-9]+$/.test(valor)) {
         return true;
     }
     return false;
