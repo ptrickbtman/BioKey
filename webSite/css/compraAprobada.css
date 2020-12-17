@@ -118,8 +118,6 @@ body {
 }
 .contInfoDetalle .btnDescargar {
   width: 90%;
-  margin-left: 50%;
-  transform: translateX(-50%);
   height: 40px;
   font-size: 19px;
   margin-top: 10px;

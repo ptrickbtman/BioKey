@@ -13,7 +13,7 @@
 	<script src="https://kit.fontawesome.com/fd543783d4.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-	<script src="js/menu.js"></script>
+
 </head>
 <body>
 	<?php 
@@ -23,7 +23,6 @@
 	if (isset($_SESSION["cliente"]['ordFC'])==false){
 		echo '<script language="javascript">window.location.href = "formularioCompra.php";</script>';
 	}
-	
 	?>
 	<div class="contSimbolo">
 		<div class="contLogo">
@@ -41,6 +40,7 @@
 		</div>
 
 	</div>
+
 	<div class="contInfoDetalle">
 		<div class="left">
 			<div class="contText"><h1>Datos de comprador</h1></div>
@@ -114,5 +114,10 @@
 			<input type="submit" class="btnDescargar" value="Descargar boleta">
 		</form>
 	</div>
+
+
+	<script src="js/menu.js"></script>
+	<!--<script src="js/menu.js"></script>-->
+
 </body>
 </html>
