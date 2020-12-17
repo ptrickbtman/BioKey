@@ -23,6 +23,7 @@
 	if (isset($_SESSION["cliente"]['ordFC'])==false){
 		echo '<script language="javascript">window.location.href = "sda.php";</script>';
 	}
+	
 	?>
 
 	<div class="contSimbolo">
