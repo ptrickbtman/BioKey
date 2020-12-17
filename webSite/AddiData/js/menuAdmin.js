@@ -42,6 +42,29 @@ function btnIndex(data) {
     }
 }
 
+function filtraBoletaId(idBol) {
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "filterIdBoleta": idBol },
+        url: "./ajax/listBoleta.php",
+        success: function(datCerr) {
+            console.log(datCerr);
+            if (datCerr == -2) {
+                alert("no hay boletas asociadas");
+                cerrarModalEspera();
+            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("es json")
+                data = JSON.parse(datCerr);
+                crearModalListadoBoletas(data)
+                setTimeout(function() {
+                    cerrarModalEspera();
+                }, 200)
+            }
+
+        }
+    });
+}
 
 function verBoletas() {
     $.ajax({
@@ -69,7 +92,7 @@ function verBoletas() {
 }
 
 function crearModalListadoBoletas(data) {
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"></div></div></div>';
+    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Boletas </h3></div></div></div>';
     $("body").append(container);
     let row = '<div class="row row0"><div class="contInfoData contInfoData5 infoT">ID_BOLETA</div><div class="contInfoData contInfoData5">RUT_CLI</div><div class="contInfoData contInfoData5 infoT">CANT_PROD_BOL</div><div class="contInfoData contInfoData5" infoT>FECH_BOL</div><div class="contInfoData contInfoData5 infoT">ORDEN_BOL</div></div>';
     $(".alignDatos").append(row);
@@ -108,13 +131,13 @@ function verVentas() {
 
 function crearModalListadoVenta(data) {
     console.log(data);
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"></div></div></div>';
+    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Ventas</h3></div></div></div>';
     $("body").append(container);
     let row = '<div class="row row0"><div class="contInfoData contInfoData5 infoT">ID_VENTA</div><div class="contInfoData contInfoData5">COD_CERR</div><div class="contInfoData contInfoData5 infoT">ID_BOL</div><div class="contInfoData contInfoData5" infoT>SUBTOT_VENT</div><div class="contInfoData contInfoData5 infoT">EST_LOG_VENTA</div></div>';
     $(".alignDatos").append(row);
     for (var i = 0; i < Object.keys(data).length; i++) {
 
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
+        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData5"><p onclick="filtraBoletaId(' + data[i].ID_BOL + ')">' + data[i].ID_BOL + '</p></div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
         $(".alignDatos").append(row);
     }
 
@@ -224,7 +247,7 @@ function filtarPedidos() {
 }
 
 function crearModalListadoPedidos(data) {
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"></div></div></div>';
+    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Cerraduras</h3></div></div></div>';
     $("body").append(container);
     let row = '<div class="row row0"><div class="contInfoData contInfoData3 infoT">COD_CERR</div><div class="contInfoData contInfoData3">SERIAL_CERR</div><div class="contInfoData contInfoData3 infoT">EST_CERR</div></div>';
     $(".alignDatos").append(row);

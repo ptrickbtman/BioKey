@@ -22,7 +22,7 @@ if ( isset($_POST['datosVenta']) ) {
 	if ($respuesta == 1) {
 		date_default_timezone_set("America/Santiago");
 		$fecha_act = date("d-m-Y G:i");
-		$obj = new boletaBD(null , $_POST['datosVenta']['idMetPagFC'] , $_POST['datosVenta']['cantiFC'], $_POST['datosVenta']['ordFC'] , $_POST['datosVenta']['preTotFC'] , $fecha_act, $_POST['datosVenta']['rutFC'], 1);
+		$obj = new boletaBD(null , $_POST['datosVenta']['idMetPagFC'] , $_POST['datosVenta']['cantiFC'], $_POST['datosVenta']['ordFC'] , $_POST['datosVenta']['preTotFC'] , $fecha_act, $_POST['datosVenta']['rutFC'], 2);
 		$respuesta = $obj->insertarBoleta();
 
 	}

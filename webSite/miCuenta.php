@@ -36,10 +36,8 @@ if(isset($_SESSION["usuario"])){
            
             <label>Correo elecctronico:  <span><?php echo $datos[5]; ?></span> </label>
            
-            <label>Nombre: <span><?php echo $datos[2]; ?></span> </label>
-            
-            <label>Apellido: <span><?php echo $datos[3]; ?></span> </label>
-            
+            <label>Nombre: <span><?php echo $datos[2]." ". $datos[3] ; ?></span> </label>
+                    
             <form class="formNPass">    
                 <h3>Cambiar contraseña (Debe contar con numeros y letras)</h3>
                 <span class="lblGes1">Ingrese nueva coontraseña: <span class="lblGes1" id="spanGes1"></span></span>             

@@ -31,6 +31,29 @@ include_once 'conexion.php';
             return -3; // consulta error
         }
     }
+
+    public function verAIdBoletas(){
+        $con = conexion();
+        $jsondata = array();
+		$sql = "SELECT * FROM `boletas` WHERE `ID_BOL`=".$this->id_bol;
+        $this->total_bol = $sql;
+        if ($result = $con->query($sql)) {
+            if( $result->num_rows == 1 ) {
+                while( $row = $result->fetch_object() ) {
+					array_push($jsondata, $row);
+                }
+                $con->close();
+				return json_encode($jsondata);
+            }else{
+                $con->close();
+                return -2; // no cerradiras
+            }
+        }else{
+            $con->close();
+            return -3; // consulta error
+        }
+        
+    }
 }
 
 ?>

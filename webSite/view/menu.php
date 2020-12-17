@@ -70,7 +70,7 @@ function menu(){?>
             <div class="item"><p onclick="ir(6)">Mi cuenta</p></div>
             <?php }else{
                 ?>
-                <div class="item"><p onclick="ir(1)">Login</p></div>
+                <div class="item"><p onclick="ir(1)">Iniciar sesión</p></div>
                 <?php
             } ?>
             <div class="item"><p onclick="ir(2)">Compra de la cerradura</p></div>

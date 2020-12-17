@@ -23,7 +23,7 @@
 		<div class="left">
 			<div class="contInfo contInfoLeft">
 				<div class="imgInfo">
-				
+					<i class="fas fa-times"></i>
 				</div>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 				<h1>Lo lamentamos!</h1>
 				<p class="subTittle">Su compra ha sido rechazada</p>
 				<p class="infoUtil">En caso de haber efectuado correctamente la transaccións y ve este mensaje, por favor contactar directamente al "+569 9999999" o al "test@abiokey.cl"</p>
-				<button>Volver</button>
+				<button onclick="ir(0)">Volver</button>
 			</div>
 		</div>
 	</div>

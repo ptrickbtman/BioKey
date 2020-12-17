@@ -4,6 +4,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    overflow: hidden;
+}
+
 $color1: rgb(60, 85, 166);
 $color2: rgb(35, 32, 37);
 $color3: #f39f7b;
@@ -26,7 +30,20 @@ $color6: rgb(247, 91, 221);
         margin-top: 80px;
         @include centrado();
         .contInfo {
+            @include centrado();
             width: 90%;
+            .imgInfo {
+                width: calc(20vw + 10px);
+                height: calc(20vw + 10px);
+                border: 2px solid $color6;
+                border-radius: 100%;
+                @include centrado();
+                .fa-times {
+                    color: $color6;
+                    font-size: calc(10vw + 10px);
+                    ;
+                }
+            }
         }
     }
     .right {
@@ -35,9 +52,9 @@ $color6: rgb(247, 91, 221);
         .contInfo {
             width: 90%;
             h1 {
-                margin-top: 20px;
                 color: $color6;
                 font-size: 40px;
+                margin-top: 20px;
             }
             .subTittle {
                 color: $color5;
@@ -66,7 +83,7 @@ $color6: rgb(247, 91, 221);
     }
     @media screen and(min-width:992px) {
         .left {
-            width: 35%;
+            width: 30%;
             margin-top: 0px;
             height: 100vh;
             border: none;
@@ -76,7 +93,7 @@ $color6: rgb(247, 91, 221);
             }
         }
         .right {
-            width: 65%;
+            width: 70%;
             margin-top: 0px;
             height: 100vh;
             border: none;
