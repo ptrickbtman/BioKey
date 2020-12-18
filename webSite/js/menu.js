@@ -150,7 +150,8 @@ $(".btnLogin").on("click", function() {
                     $(".log1").addClass("error");
                     $(".log2").addClass("error");
                 } else if (loginVerify == 2) {
-                    window.location.href = "/BioKey/webSite/AddiData/index.php";
+                    //window.location.href = "/BioKey/webSite/AddiData/index.php";
+                    window.location.href = "AddiData/index.php";
                 }
             }
         });

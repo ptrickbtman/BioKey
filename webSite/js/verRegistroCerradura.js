@@ -20,10 +20,11 @@ $(document).ready(function() {
             console.log(registros)
             if (registros == -2) {
                 $(".txtPortada").text('No tienes autorización para ver los registros de esta cerradura.');
+                $(".txtPortada").append("<p class='btnFalsoBack'>Volver</p>")
             } else if (registros == -1) {
                 $(".txtPortada").text('No hay registros disponibles.');
-
-                //window.location.href = "perfilUser.php";
+                $(".txtPortada").append("<p class='btnFalsoBack' onclick='volverPerfil()'>Volver</p>")
+                    //window.location.href = "perfilUser.php";
             } else if (/^[\],:{}\s]*$/.test(registros.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
                 console.log("Registros encontrados");
                 data = JSON.parse(registros);
@@ -35,6 +36,10 @@ $(document).ready(function() {
     });
 
 });
+
+function volverPerfil() {
+    window.location.href = "perfilUser.php";
+}
 
 
 function crearPortada() {

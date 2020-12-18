@@ -21,9 +21,28 @@ body {
   animation: loaderData 0.3s infinite alternate;
   text-align: center;
 }
+.portada .txtPortada .txtTittle {
+  display: block;
+}
+.portada .txtPortada .btnFalsoBack {
+  width: 90%;
+  height: 40px;
+  font-size: 20px;
+  background: #f75bdd;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.portada .txtPortada .btnFalsoBack:hover {
+  letter-spacing: 2px;
+}
 @media screen and (min-width: 992px) {
   .portada {
     width: 50%;
+    margin-left: 30px;
   }
 }
 

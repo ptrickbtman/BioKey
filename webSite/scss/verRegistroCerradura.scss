@@ -29,9 +29,26 @@ body {
             animation: loaderData 0.3s infinite alternate;
             text-align: center;
         }
+        .txtTittle {
+            display: block;
+        }
+        .btnFalsoBack {
+            width: 90%;
+            height: 40px;
+            font-size: 20px;
+            background: $color6;
+            @include centrado();
+            margin: 0 auto;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                letter-spacing: 2px;
+            }
+        }
     }
     @media screen and(min-width:992px) {
         width: 50%;
+        margin-left: 30px;
     }
 }
 

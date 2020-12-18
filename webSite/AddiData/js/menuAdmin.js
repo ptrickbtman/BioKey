@@ -183,9 +183,9 @@ function filtraCerrId(id) {
     });
 }
 
-function verPedidos() {
+function() {
 
-    crearModalEspera();
+
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
         options.async = true;
     });
@@ -199,7 +199,7 @@ function verPedidos() {
             if (/^[\],:{}\s]*$/.test(pedido.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
                 console.log("es json")
                 data = JSON.parse(pedido);
-                crearModalListadoPedidos(data);
+                rearModalListadoPedidos(data);
                 cerrarModalEspera();
             }
         }
