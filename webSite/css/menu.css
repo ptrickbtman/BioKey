@@ -499,6 +499,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  transition: 0.3;
 }
 .coverContAcep .ContAcepInfo {
   width: 90%;
@@ -562,6 +563,7 @@
   height: calc(100% - 80px);
   top: 80px;
   position: fixed;
+  transition: 0.3s;
   z-index: 996;
   background-color: #080238;
   justify-content: center;

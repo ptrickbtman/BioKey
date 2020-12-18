@@ -501,6 +501,7 @@ background-image: url("../medias/geo2.jpg");
     top: 0;
     background-color: rgba($color: $color4, $alpha: 0.5);
     @include centrado();
+    transition: 0.3;
     .ContAcepInfo {
         width: 90%;
         border-radius: 20px;
@@ -558,6 +559,7 @@ background-image: url("../medias/geo2.jpg");
     height: calc(100% - 80px);
     top: 80px;
     position: fixed;
+    transition: 0.3s;
     z-index: 996;
     background-color: $color4;
     @include centrado();

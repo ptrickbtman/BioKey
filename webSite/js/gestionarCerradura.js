@@ -60,6 +60,8 @@ function desbloquear() {
     });
 }
 
+
+
 function desbloquearCerradura() {
     //console.log("crer btn Desbloqueo");
     data = '<form class="desbloquearCerr"><input type="button" value="Desbloquear" class="btnDesbloqueo" onclick="desbloquear()"></form>';
@@ -85,6 +87,13 @@ function aceptarModal() {
             }
         }
     });
+}
+
+function rechazarrModal() {
+    $(".coverContAcep").css("opacity", "0");
+    setTimeout(function() {
+        $(".coverContAcep").remove();
+    }, 300)
 }
 
 function updateCerr(form) {

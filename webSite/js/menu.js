@@ -5,6 +5,13 @@ $(document).ready(function() {
 
 });
 
+function cerrarModalContacto() {
+    $(".contContacto").css("opacity", "0");
+    setTimeout(function() {
+        $(".contContacto").remove();
+    }, 300)
+}
+
 function ir(data) {
     if (data == 0) {
         window.location.href = "index.php";
@@ -73,7 +80,7 @@ function crearModalContacto() {
     input[1] = '<label>Email:</label><input type="email"  name="emailCon" placeholder="xxxx@biokey.com" class="inputTxt">';
     input[2] = '<label>Celular:</label><input type="number"  name="cellCon" placeholder="9999909" class="inputTxt">';
     input[3] = '<label>Motivo:</label><textarea class="txtAreaContacto" name="txtAreaContacto">';
-    input[4] = '<div class="contBtnCont"><input class="btnContactoBack" value="atras" type="button" ><input class="btnContacto" value="contacto" type="button" ></div>';
+    input[4] = '<div class="contBtnCont"><input class="btnContactoBack" value="atras" type="button" onclick="cerrarModalContacto()" ><input class="btnContacto" value="contacto" type="button" ></div>';
 
 
     for (var i = 0; i <= 4; i++) {
@@ -169,7 +176,7 @@ function crearModalAcepto(tittle, mensaje) {
 
     var container = '<div class="coverContAcep"><div class="ContAcepInfo"><div class="alingContAc"></div></div></div>';
     var texto = '<h1>' + tittle + '</h1><p class="textMensajeAcep">' + mensaje + '</p>';
-    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1">Atras</button><button class="btnAcep btnAcep2" onclick="aceptarModal()">Aceptar</button></div>'
+    var botones = '<div class="contBotnes"><button class="btnAcep btnAcep1" onclick="rechazarrModal()">Atras</button><button class="btnAcep btnAcep2" onclick="aceptarModal()">Aceptar</button></div>'
 
     $("body").append(container);
     $(".alingContAc").append(texto);

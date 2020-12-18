@@ -17,6 +17,22 @@ function irAd(option) {
         eliminarModal();
         menu();
         verBoletas();
+    } else if (option == 4) {
+        crearModalEspera();
+        $.ajax({
+            async: true,
+            data: { "ex": "ex" },
+            type: "POST",
+            url: "../cerrarSession.php",
+            success: function(a) {
+                console.log(a);
+                if (a == 1) {
+                    setTimeout(function() { window.location.href = "index.php"; }, 100);
+                }
+
+
+            }
+        });
     }
 }
 
