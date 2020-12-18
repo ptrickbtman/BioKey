@@ -169,7 +169,7 @@ $color6: rgb(247, 91, 221);
                 font-size: calc(13px + 1vh);
                 text-align: left;
                 margin-left: 5%;
-                color: rgba($color: white, $alpha: 0.7);
+                color: rgba($color: $color6, $alpha: 0.7);
                 &.error {
                     color: rgb(240, 86, 86);
                 }
@@ -179,8 +179,8 @@ $color6: rgb(247, 91, 221);
                 height: 35px;
                 border: none;
                 margin-top: 10px;
-                border-bottom: 1.3px solid $color3;
-                border-left: 1.3px solid $color3;
+                border-bottom: 1.3px solid $color6;
+                border-left: 1.3px solid $color6;
                 background-color: transparent;
                 color: white;
                 font-size: 18px;
@@ -191,7 +191,7 @@ $color6: rgb(247, 91, 221);
                     color: rgb(206, 206, 206);
                 }
                 &.error {
-                    box-shadow: 0px 0px 4px $color3;
+                    box-shadow: 0px 0px 4px red;
                 }
             }
             .btnLogin {
@@ -215,7 +215,7 @@ $color6: rgb(247, 91, 221);
                 .recuperar {
                     color: white;
                     span {
-                        color: $color3;
+                        color: $color5;
                         cursor: pointer;
                         transition: 0.2s;
                         font-weight: 400;
