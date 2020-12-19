@@ -39,7 +39,7 @@
                 return False;
             }
         }
-         public function bloquear(){
+        public function bloquear(){
             $con = conexion2(); 
             $sql = "UPDATE `cerraduras` SET `EST_CERR`=0 WHERE `COD_CERR`=".$this->cod_cerradura." ";
             if ($result = $con->query($sql)) {

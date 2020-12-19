@@ -22,7 +22,12 @@ $color6: rgb(247, 91, 221);
     color: white;
     .subContainerDatos {
         width: 90%;
-        @include centrado();
+        
+        .alignFiltros {
+           width: 95%;
+            margin: 0 auto; 
+        }
+
         .alignDatos {
             width: 95%;
             margin: 0 auto;
@@ -43,6 +48,26 @@ $color6: rgb(247, 91, 221);
                 }
                 .contInfoData5 {
                     width: 20%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    @include centrado();
+                    p {
+                        cursor: pointer;
+                    }
+                }
+                .contInfoData6 {
+                    width: 16.5%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    @include centrado();
+                    p {
+                        cursor: pointer;
+                    }
+                }
+                .contInfoData7 {
+                    width: 14%;
                     height: 100%;
                     float: left;
                     text-align: center;

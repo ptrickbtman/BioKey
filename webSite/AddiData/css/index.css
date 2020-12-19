@@ -13,13 +13,20 @@
 }
 .containerDatos .subContainerDatos {
   width: 90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+}
+.containerDatos .subContainerDatos .alignFiltros {
+  width: 95%;
+  margin: 0 auto;
 }
 .containerDatos .subContainerDatos .alignDatos {
   width: 95%;
   margin: 0 auto;
+}
+.containerDatos .subContainerDatos .alignDatos h1,
+.containerDatos .subContainerDatos .alignDatos h2,
+.containerDatos .subContainerDatos .alignDatos h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 .containerDatos .subContainerDatos .alignDatos .row {
   width: 100%;
@@ -42,6 +49,33 @@
   align-items: center;
   display: flex;
 }
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData5 p {
+  cursor: pointer;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData6 {
+  width: 16.5%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData6 p {
+  cursor: pointer;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData7 {
+  width: 14%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData7 p {
+  cursor: pointer;
+}
 .containerDatos .subContainerDatos .alignDatos .row .contInfoData3 {
   width: 33.3333%;
   float: left;
@@ -50,6 +84,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData3 p {
+  cursor: pointer;
 }
 .containerDatos .subContainerDatos .alignDatos .row .infoT {
   background-color: #f75bdd;

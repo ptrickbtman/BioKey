@@ -1,3 +1,5 @@
+
+
 function irAd(option) {
     if (option == 0) {
         crearModalEspera();
@@ -6,17 +8,26 @@ function irAd(option) {
         setTimeout(function() {
             verVentas();
         }, 100)
-
     } else if (option == 1) {
         crearModalEspera();
         eliminarModal();
         menu();
-        verPedidos();
+        setTimeout(function() {
+            verVentas();
+        }, 100)
+
+
     } else if (option == 2) {
         crearModalEspera();
         eliminarModal();
         menu();
         verBoletas();
+    } else if (option == 3) {
+        crearModalEspera();
+        eliminarModal();
+        menu();
+        verPedidos();
+        
     } else if (option == 4) {
         crearModalEspera();
         $.ajax({
@@ -36,6 +47,9 @@ function irAd(option) {
     }
 }
 
+
+
+
 function btnIndex(data) {
     if (data == 0) {
         crearModalEspera();
@@ -48,15 +62,254 @@ function btnIndex(data) {
         crearModalEspera();
         eliminarModal();
         //menu();
-        verPedidos();
+        setTimeout(function() {
+            verVentas();
+        }, 100)
+
+
+
     } else if (data == 2) {
         crearModalEspera();
         eliminarModal();
         setTimeout(function() {
             verBoletas();
         }, 100)
+    } else if (data == 3) {
+        crearModalEspera();
+        eliminarModal();
+        //menu();
+        verPedidos();
     }
 }
+
+function eliminarModal() {
+    if ($(".containerDatos")) {
+        $(".containerDatos").remove();
+        //console.log("eliminado");
+    } else {
+        console.log("No modal");
+    }
+}
+
+//TODO DE VENTAS
+
+function verVentas() {
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "vent": 1 },
+        url: "./ajax/listVenta.php",
+        success: function(datCerr) {
+            //console.log(datCerr);
+
+            if (datCerr == -2) {
+                alert("No hay ventas asociadas");
+                cerrarModalEspera();
+            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                //console.log("es json")
+                data = JSON.parse(datCerr);
+                crearModalListadoVenta(data)
+                cerrarModalEspera();
+            }
+        }
+    });
+}
+
+
+function crearModalListadoVenta(data) {
+    //console.log(data);
+    let est = '';
+    let btn = '';
+    let row = '';
+
+
+    $("body").append('<div class="containerDatos"><div class="subContainerDatos"><div class="alignFiltros"></div></br><div class="alignDatos"><h3>Boletas:</h3></div></div></div>');
+    $(".alignFiltros").append('<select class="selEsts" onchange="filtrar()"><option value="Activa">Activas</option><option value="Enviada">Enviadas</option><option value="Anulada">Anuladas</option></select>');
+    $(".alignDatos").append('<div class="row"><div class="contInfoData contInfoData7 infoT">ID:</div><div class="contInfoData contInfoData7">N° Orden:</div><div class="contInfoData contInfoData7 infoT">Rut cliente</div><div class="contInfoData contInfoData7" infoT>Fecha venta</div><div class="contInfoData contInfoData7 infoT">Total a pagar</div><div class="contInfoData contInfoData7" infoT>Estado</div><div class="contInfoData contInfoData7 infoT">Opciones</div></div>');
+    for (var i = 0; i < Object.keys(data).length; i++) {
+        est = 'Activa';
+        btn = '<button onclick="crearModalAcepto(\'Anular venta\',\'¿estas segur@ de querer anular esta venta?\',\'anularVenta('+data[i].ID_BOL+')\')">Anular</button>';
+        if (data[i].EST_LOG_BOL=='2') {
+            est = 'Enviada';
+        }else if(data[i].EST_LOG_BOL=='0'){
+            est = 'Anulada';
+            btn = '<button onclick="crearModalAcepto(\'Deshacer anulacion\',\'¿estas segur@ de querer reincorporar esta venta?\',\'deshacerAnul('+data[i].ID_BOL+')\')">Deshacer</button>';        }
+        //row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData6">' + data[i].ID_BOL  + '</div><div class="contInfoData contInfoData6"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData6"><p onclick="filtraBoletaId(' + data[i].ID_BOL + ')">' + data[i].ID_BOL + '</p></div><div class="contInfoData contInfoData6">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData6">' + data[i].EST_LOG_VENT + '</div></div>';
+        row = '<div class="row rows"><div class="contInfoData contInfoData7">' + data[i].ID_BOL  + '</div><div class="contInfoData contInfoData7">' + data[i].ORDEN_BOL   + ' </div><div class="contInfoData contInfoData7">' + data[i].RUT_CLI  + ' </div><div class="contInfoData contInfoData7">' + data[i].FECH_BOL + '</div><div class="contInfoData contInfoData7">' + data[i].TOT_BOL + '</div><div class="contInfoData contInfoData7 tdEstado">' + est + '</div><div class="contInfoData contInfoData7"><button onclick="verDetalles(' + data[i].ID_BOL + ')">Ver detalles</button>'+btn+'</div></div>';
+        $(".alignDatos").append(row);
+    }
+    let rows = document.getElementsByClassName('rows');
+    let estado = document.getElementsByClassName('tdEstado');
+    //alert(rows.length);//cantidad de registros
+    for (var i = 0; i < rows.length; i++) {
+        if (estado[i].innerText.includes("Activa") ) {
+            rows[i].style.display = 'flex';
+        }else{
+            rows[i].style.display = 'none';
+        }
+    }
+    if (rows.length==0) {
+       //validar vacio
+   }else{
+        //validar lleno
+    }
+}
+
+
+function filtrar(){
+    let rows = document.getElementsByClassName('rows');
+    let estado = document.getElementsByClassName('tdEstado');
+
+    for (var i = 0; i < rows.length; i++) {
+        if (estado[i].innerText.includes($(".selEsts").val()) ) {
+            rows[i].style.display = 'flex';
+        }else{
+            rows[i].style.display = 'none';
+        }
+    }
+    
+}
+
+function verDetalles(idBol){
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "IdBoleta": idBol },
+        url: "./ajax/verDetalles.php",
+        success: function(datCerr) {
+            console.log(datCerr);
+            if (datCerr == -2) {
+                alert("No hay detalles asociados");
+                cerrarModalEspera();
+            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                console.log("es json")
+                data = JSON.parse(datCerr);
+                crearModalListadoBoletas(data)
+                setTimeout(function() {
+                    cerrarModalEspera();
+                }, 200)
+            }
+
+        }
+    });
+}
+
+
+function anularVenta(idBol){
+    cerrarModalAcepto();
+    crearModalEspera();
+    eliminarModal();
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "IdBoleta": idBol },
+        url: "./ajax/anularVenta.php",
+        success: function(datCerr) {
+            console.log(datCerr);
+            if (datCerr == 1) {
+                verVentas();
+            }else if (datCerr == -2) {
+                alert("No hay ventas asociadas");
+                cerrarModalEspera();
+            }
+        }
+    });
+
+}
+
+function deshacerAnul(idBol){
+    cerrarModalAcepto();
+    crearModalEspera();
+    eliminarModal();
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "IdBoleta": idBol },
+        url: "./ajax/deshacerAnul.php",
+        success: function(datCerr) {
+            console.log(datCerr);
+            if (datCerr == 1) {
+                verVentas();
+            }else if (datCerr == -2) {
+                alert("No hay ventas asociadas");
+                cerrarModalEspera();
+            }
+        }
+    });
+
+}
+
+
+
+
+
+
+//TODO DE CERRADURAS
+
+
+function verCerraduras() {
+    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
+        options.async = true;
+    });
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: { "vent": 1 },
+        url: "./ajax/listCerraduras.php",
+        success: function(datCerr) {
+            //console.log(datCerr);
+
+            if (datCerr == -2) {
+                alert("No hay ventas asociadas");
+                cerrarModalEspera();
+            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                //console.log("es json")
+                data = JSON.parse(datCerr);
+                crearModalListadoVenta(data)
+                cerrarModalEspera();
+            }
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function filtraBoletaId(idBol) {
     $.ajax({
@@ -81,6 +334,22 @@ function filtraBoletaId(idBol) {
         }
     });
 }
+
+function crearModalListadoVentas(data) {
+    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Cerraduras</h3></div></div></div>';
+    $("body").append(container);
+    let row = '<div class="row row0"><div class="contInfoData contInfoData3 infoT">COD_CERR</div><div class="contInfoData contInfoData3">SERIAL_CERR</div><div class="contInfoData contInfoData3 infoT">EST_CERR</div></div>';
+    $(".alignDatos").append(row);
+    for (var i = 0; i < Object.keys(data).length; i++) {
+        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData3">' + data[i].COD_CERR + '</div><div class="contInfoData3">' + data[i].SERIAL_CERR + '</div><div class="contInfoData3"><input type="text" class="infoInput" value="' + data[i].EST_CERR + '"><input type="button" class="btnInput" value="cambiar"></div></div>';
+        $(".alignDatos").append(row);
+    }
+    //<label><input type="checkbox" id="cbox1Ce">Compradas</label><label><input type="checkbox" id="cbox2Ce">Activas</label>
+    let filters = '<div class="contFilter"><div class="contTiFiler"><h1>Filtros<h1></div><label>Estado: <input type="text" name="estInput" class="inputFilterTxt" placeholder=" 0,1,2,3,4"><label><label>Serial: <input type="text" name="serialInput" class="inputFilterTxt"><label><label>Id: <input type="text" name="idInput" class="inputFilterTxt"><label><input type="button" class="filterBtn" value="filtar" onclick="filtarPedidos()" ></div> ';
+    $(".alignDatos").append(filters);
+}
+
+
 
 function verBoletas() {
     $.ajax({
@@ -107,57 +376,10 @@ function verBoletas() {
     });
 }
 
-function crearModalListadoBoletas(data) {
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Boletas </h3></div></div></div>';
-    $("body").append(container);
-    let row = '<div class="row row0"><div class="contInfoData contInfoData5 infoT">ID_BOLETA</div><div class="contInfoData contInfoData5">RUT_CLI</div><div class="contInfoData contInfoData5 infoT">CANT_PROD_BOL</div><div class="contInfoData contInfoData5" infoT>FECH_BOL</div><div class="contInfoData contInfoData5 infoT">ORDEN_BOL</div></div>';
-    $(".alignDatos").append(row);
-    for (var i = 0; i < Object.keys(data).length; i++) {
-
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].RUT_CLI + '</div><div class="contInfoData contInfoData5">' + data[i].CANT_PROD_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].FECH_BOL + '</div><div class="contInfoData contInfoData5">' + data[i].ORDEN_BOL + '</div></div>';
-        $(".alignDatos").append(row);
-    }
-}
-
-function verVentas() {
-    $.ajaxPrefilter(function(options, original_Options, jqXHR) {
-        options.async = true;
-    });
-    $.ajax({
-        async: true,
-        type: "POST",
-        data: { "vent": 1 },
-        url: "./ajax/listVenta.php",
-        success: function(datCerr) {
-            console.log(datCerr);
-
-            if (datCerr == -2) {
-                alert("no hay ventas asociadas");
-                cerrarModalEspera();
-            } else if (/^[\],:{}\s]*$/.test(datCerr.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-                console.log("es json")
-                data = JSON.parse(datCerr);
-                crearModalListadoVenta(data)
-                cerrarModalEspera();
-            }
-        }
-    });
-}
 
 
-function crearModalListadoVenta(data) {
-    console.log(data);
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Ventas</h3></div></div></div>';
-    $("body").append(container);
-    let row = '<div class="row row0"><div class="contInfoData contInfoData5 infoT">ID_VENTA</div><div class="contInfoData contInfoData5">COD_CERR</div><div class="contInfoData contInfoData5 infoT">ID_BOL</div><div class="contInfoData contInfoData5" infoT>SUBTOT_VENT</div><div class="contInfoData contInfoData5 infoT">EST_LOG_VENTA</div></div>';
-    $(".alignDatos").append(row);
-    for (var i = 0; i < Object.keys(data).length; i++) {
 
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData contInfoData5">' + data[i].ID_VENT + '</div><div class="contInfoData contInfoData5"><p onclick="filtraCerrId(' + data[i].COD_CERR + ')">Ver Cerr id: ' + data[i].COD_CERR + '<p></div><div class="contInfoData contInfoData5"><p onclick="filtraBoletaId(' + data[i].ID_BOL + ')">' + data[i].ID_BOL + '</p></div><div class="contInfoData contInfoData5">' + data[i].SUBTOT_VENT + '</div><div class="contInfoData contInfoData5">' + data[i].EST_LOG_VENT + '</div></div>';
-        $(".alignDatos").append(row);
-    }
 
-}
 
 
 
@@ -183,7 +405,7 @@ function filtraCerrId(id) {
     });
 }
 
-function() {
+function verPedidos() {
 
 
     $.ajaxPrefilter(function(options, original_Options, jqXHR) {
@@ -199,14 +421,14 @@ function() {
             if (/^[\],:{}\s]*$/.test(pedido.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
                 console.log("es json")
                 data = JSON.parse(pedido);
-                rearModalListadoPedidos(data);
+                crearModalListadoPedidos(data);
                 cerrarModalEspera();
             }
         }
     });
 }
 
-function filtarPedidos() {
+function filtarVentas() {
     crearModalEspera();
 
     console.log("Filtando...");
@@ -262,25 +484,4 @@ function filtarPedidos() {
 
 }
 
-function crearModalListadoPedidos(data) {
-    let container = '<div class="containerDatos"><div class="subContainerDatos"><div class="alignDatos"><h3>Cerraduras</h3></div></div></div>';
-    $("body").append(container);
-    let row = '<div class="row row0"><div class="contInfoData contInfoData3 infoT">COD_CERR</div><div class="contInfoData contInfoData3">SERIAL_CERR</div><div class="contInfoData contInfoData3 infoT">EST_CERR</div></div>';
-    $(".alignDatos").append(row);
-    for (var i = 0; i < Object.keys(data).length; i++) {
-        row = '<div class="row row' + (i + 1) + '"><div class="contInfoData3">' + data[i].COD_CERR + '</div><div class="contInfoData3">' + data[i].SERIAL_CERR + '</div><div class="contInfoData3"><input type="text" class="infoInput" value="' + data[i].EST_CERR + '"><input type="button" class="btnInput" value="cambiar"></div></div>';
-        $(".alignDatos").append(row);
-    }
-    //<label><input type="checkbox" id="cbox1Ce">Compradas</label><label><input type="checkbox" id="cbox2Ce">Activas</label>
-    let filters = '<div class="contFilter"><div class="contTiFiler"><h1>Filtros<h1></div><label>Estado: <input type="text" name="estInput" class="inputFilterTxt" placeholder=" 0,1,2,3,4"><label><label>Serial: <input type="text" name="serialInput" class="inputFilterTxt"><label><label>Id: <input type="text" name="idInput" class="inputFilterTxt"><label><input type="button" class="filterBtn" value="filtar" onclick="filtarPedidos()" ></div> ';
-    $(".alignDatos").append(filters);
-}
 
-function eliminarModal() {
-    if ($(".containerDatos")) {
-        $(".containerDatos").remove();
-        //console.log("eliminado");
-    } else {
-        console.log("No modal");
-    }
-}
