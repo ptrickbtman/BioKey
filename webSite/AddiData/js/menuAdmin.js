@@ -15,7 +15,18 @@ function irAd(option) {
             verCerraduras();
         }, 100)
 
- 
+
+    } else if (option == 2) {
+        crearModalEspera();
+        eliminarModal();
+        menu();
+        verBoletas();
+    } else if (option == 3) {
+        crearModalEspera();
+        eliminarModal();
+        menu();
+        verPedidos();
+        
     } else if (option == 4) {
         crearModalEspera();
         $.ajax({
@@ -56,6 +67,18 @@ function btnIndex(data) {
 
 
 
+    } else if (data == 2) {
+        crearModalEspera();
+        eliminarModal();
+        setTimeout(function() {
+            verBoletas();
+        }, 100)
+    } else if (data == 3) {
+        crearModalEspera();
+        eliminarModal();
+        //menu();
+        verPedidos();
+    }
 }
 
 function eliminarModal() {
