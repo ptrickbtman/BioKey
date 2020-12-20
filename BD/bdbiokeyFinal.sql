@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2020 a las 17:54:06
+-- Tiempo de generación: 20-12-2020 a las 18:37:13
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -159,9 +159,9 @@ CREATE TABLE `registros_cerr` (
   `ID_REGIS` bigint(20) NOT NULL,
   `COD_CERR` bigint(20) DEFAULT NULL,
   `ID_TIPREGIS` int(11) DEFAULT NULL,
-  `DESC_REGIS` varchar(500) NOT NULL,
-  `FECH_REGIS` char(16) NOT NULL,
-  `EST_LOG_REGIS` bit(1) NOT NULL
+  `DESC_REGIS` varchar(500) DEFAULT NULL,
+  `FECH_REGIS` char(16) DEFAULT NULL,
+  `EST_LOG_REGIS` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
