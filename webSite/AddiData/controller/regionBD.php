@@ -1,13 +1,13 @@
 <?php  
-include_once "../../models/metodoPago.php";
+include_once "../../models/region.php";
 include_once 'conexion.php';
 
-class metodoPagoBD extends metodoPago {
+class regionBD extends region {
 
-	public function buscarMetPorId(){
+	public function buscarRegPorId(){
 		$con = conexion();
 		$jsondata = array();
-		$sql = "SELECT * FROM `metodo_pago` WHERE `ID_METPAG` = '".$this->id_menEnv."'";
+		$sql = "SELECT * FROM `region` WHERE `ID_REGION` = '".$this->id_region."'";
 		if ($result = $con->query($sql)) {
 			if( $result->num_rows == 1 ) {
 				while( $row = $result->fetch_object() ) {

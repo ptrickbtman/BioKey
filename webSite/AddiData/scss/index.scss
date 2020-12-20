@@ -46,6 +46,16 @@ $color6: rgb(247, 91, 221);
                     text-align: center;
                     @include centrado();
                 }
+                .contInfoData1 {
+                    width: 100%;
+                    height: 100%;
+                    margin: 10px 0px;
+                    text-align: center;
+                    @include centrado();
+                    p {
+                        cursor: pointer;
+                    }
+                }
                 .contInfoData5 {
                     width: 20%;
                     height: 100%;
@@ -133,6 +143,8 @@ $color6: rgb(247, 91, 221);
     }
 }
 
+
+
 .coverAdminIndex {
     z-index: 1;
     width: 100%;
@@ -181,4 +193,25 @@ $color6: rgb(247, 91, 221);
             }
         }
     }
+}
+
+
+.contListMod{
+    width: 100%;
+}
+.listMod{
+    width: 80%;
+    margin: 0px auto;
+}
+.trListMod{
+    width: 100%;
+    text-align: left;
+}
+.tdListMod{
+    width: 32.5%;
+    text-align: center;
+    display: inline-block;
+}
+.th span{
+    font-weight: 600;
 }

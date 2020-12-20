@@ -120,8 +120,8 @@ $color6: rgb(247, 91, 221);
     color: $color1;
 }
 */
-        }
-    }
+}
+}
 }
 
 /// login contenedor:
@@ -406,20 +406,20 @@ background-image: url("../medias/geo2.jpg");
   transform: rotate(180deg);
   
   */
-            .editorial {
-                display: block;
-                width: 100%;
-                height: 200px;
-                max-height: 200px;
-                margin: 0;
-                z-index: 5;
-                bottom: 0;
-                position: absolute;
-                right: 0px;
-                float: right;
-            }
-        }
-    }
+  .editorial {
+    display: block;
+    width: 100%;
+    height: 200px;
+    max-height: 200px;
+    margin: 0;
+    z-index: 5;
+    bottom: 0;
+    position: absolute;
+    right: 0px;
+    float: right;
+}
+}
+}
 }
 
 .loginContOn {
@@ -552,7 +552,15 @@ background-image: url("../medias/geo2.jpg");
             width: 40%;
         }
     }
+    .ContAcepInfo2{
+        width: 80%;
+        height: auto;
+        @media screen and(min-width:992px) {
+            width: 80%;
+        }
+    }
 }
+
 
 .contContacto {
     width: 100%;

@@ -40,6 +40,18 @@
   align-items: center;
   display: flex;
 }
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData1 {
+  width: 100%;
+  height: 100%;
+  margin: 10px 0px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerDatos .subContainerDatos .alignDatos .row .contInfoData1 p {
+  cursor: pointer;
+}
 .containerDatos .subContainerDatos .alignDatos .row .contInfoData5 {
   width: 20%;
   height: 100%;
@@ -184,6 +196,30 @@
 }
 .coverAdminIndex .contCover .contInput button:hover {
   letter-spacing: 2px;
+}
+
+.contListMod {
+  width: 100%;
+}
+
+.listMod {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.trListMod {
+  width: 100%;
+  text-align: left;
+}
+
+.tdListMod {
+  width: 32.5%;
+  text-align: center;
+  display: inline-block;
+}
+
+.th span {
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.css.map */

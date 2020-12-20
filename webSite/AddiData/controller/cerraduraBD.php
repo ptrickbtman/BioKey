@@ -15,7 +15,7 @@ class cerraduraBD extends cerradura
                 while( $row = $result->fetch_object() ) {
                     array_push($jsondata, $row);
                 }
-                return json_encode($jsondata);
+                return $jsondata;
             }
         }else{
             $con->close();
@@ -24,19 +24,19 @@ class cerraduraBD extends cerradura
     }
 
 
-	public function buscarPedidos(){
+    public function verAllCerraduras(){
         $con = conexion();
         $jsondata = array();
-		$sql = "SELECT `COD_CERR`, `ID_USU`, `SERIAL_CERR`, `PASS_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED`, `PASS_RED` FROM `cerraduras` WHERE 1";
+        $sql = "SELECT `COD_CERR`, `ID_USU`, `SERIAL_CERR`, `PASS_CERR`, `DATE_CERR`, `EST_CERR`, `SSID_RED`, `PASS_RED` FROM `cerraduras` WHERE 1";
         if ($result = $con->query($sql)) {
             if( $result->num_rows > 0 ) {
                 while( $row = $result->fetch_object() ) {
-					array_push($jsondata, $row);
-                }
-                $con->close();
-				return json_encode($jsondata);
-            }else{
-                $con->close();
+                   array_push($jsondata, $row);
+               }
+               $con->close();
+               return json_encode($jsondata);
+           }else{
+            $con->close();
                 return -2; // no cerradiras
             }
         }else{
@@ -52,17 +52,42 @@ class cerraduraBD extends cerradura
         if ($result = $con->query($sql)) {
             if( $result->num_rows > 0 ) {
                 while( $row = $result->fetch_object() ) {
-					array_push($jsondata, $row);
-                }
-                $con->close();
-				return json_encode($jsondata);
-            }else{
-                $con->close();
+                   array_push($jsondata, $row);
+               }
+               $con->close();
+               return json_encode($jsondata);
+           }else{
+            $con->close();
                 return -2; // no cerradiras
             }
         }else{
             $con->close();
             return -3; // consulta error
+        }
+    }
+
+    public function confirmarCerr(){
+        $con = conexion(); 
+        $sql = "UPDATE `cerraduras` SET `EST_CERR`= 3 WHERE `COD_CERR`=".$this->cod_cerradura." ";
+        if ($result = $con->query($sql)) {
+            $con->close();
+            return 1;
+        }else{
+            $con->close();
+            $this->fecha_cerradura = $sql;
+            return -2;  
+        }
+    }
+    public function revertirConfirCerr(){
+        $con = conexion(); 
+        $sql = "UPDATE `cerraduras` SET `EST_CERR`= 4 WHERE `COD_CERR`=".$this->cod_cerradura." ";
+        if ($result = $con->query($sql)) {
+            $con->close();
+            return 1;
+        }else{
+            $con->close();
+            $this->fecha_cerradura = $sql;
+            return -2;  
         }
     }
 }

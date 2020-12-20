@@ -557,6 +557,15 @@
     width: 40%;
   }
 }
+.coverContAcep .ContAcepInfo2 {
+  width: 80%;
+  height: auto;
+}
+@media screen and (min-width: 992px) {
+  .coverContAcep .ContAcepInfo2 {
+    width: 80%;
+  }
+}
 
 .contContacto {
   width: 100%;
