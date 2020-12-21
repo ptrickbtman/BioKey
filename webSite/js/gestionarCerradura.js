@@ -112,7 +112,7 @@ function updateCerr(form) {
     if (datos.idOp == '1') {
 
         if (vacio(datos["NPass"])) {
-            if (validarNumero(datos["num"]) == true) {
+            if (validarNumero(datos["NPass"]) === true) {
                 $(".lblGes1").removeClass("error");
                 $(".lblGes2").removeClass("error");
                 $("#spanGes1").text("");

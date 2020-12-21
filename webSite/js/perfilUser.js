@@ -16,15 +16,13 @@ $(document).ready(function() {
                 //console.log("json recibido")
             } else if (/^[\],:{}\s]*$/.test(vali.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
                 //console.log("es json")
-                console.log(vali)
+                //console.log(vali)
                 data = JSON.parse(vali);
                 crearFormulariosCerraduras(data);
                 crearActivador(data);
                 console.log(data[0])
-            } else if (vali == "") {
-                //alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
             } else {
-                //alert("Error de programacion: se solicita contacto con el administrado, muchas gracias ");
+                crearFormValidador();
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
