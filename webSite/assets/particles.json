@@ -51,7 +51,7 @@
         "move": {
             "enable": true,
             "speed": 10,
-            "direction": "none",
+            "direction": "bottom-lef",
             "random": true,
             "straight": false,
             "out_mode": "bounce",

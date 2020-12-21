@@ -12,7 +12,7 @@ class registroCerrBD extends registroCerradura {
 		}else{
 			$registros = "error";
 		}
-
+		$this->cod_cerradura = $sql;
 		$con->close();
 		return $registros;
 	} 
