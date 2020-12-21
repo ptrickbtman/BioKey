@@ -81,11 +81,8 @@ void setup() {
 
 void loop(){
   
- //peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
-  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=1"); //agregar registro aprobado
-  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=2"); //agregar registro denegado
-  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=3"); //agregar registro cambio pass
-  peticionPHP("bloquearCerr.php?idc=" + String(IDCerr)); //agregar registro cambio pass
+ peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
+ 
 }
 
 
