@@ -24,9 +24,9 @@ if (isset($_SESSION["cliente"])) {
 	$preference->payer = $payer;
 
 	$preference->back_urls = array(
-		"success" => "localhost/BioKey/BioKey/webSite/registrarVenta.php",
-		"failure" => "localhost/BioKey/BioKey/webSite/compraRechazada.php",
-		"pending" => "localhost/BioKey/BioKey/webSite/compraRechazada.php"
+		"success" => "localhost:8080/BioKey/webSite/registrarVenta.php",
+		"failure" => "localhost:8080/BioKey/webSite/compraRechazada.php",
+		"pending" => "localhost:8080/BioKey/webSite/compraRechazada.php"
 	);
 
 	$preference->payment_methods = array(

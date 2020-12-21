@@ -111,6 +111,8 @@
                         array_push($jsondata, $row);
                     }
                     return json_encode($jsondata);
+                }else{
+                    return 1;
                 }
             }else{
                 $con->close();
@@ -125,7 +127,8 @@
             $this->set_estado_cerradura($sql);
             if ($resultado = $con->query($sql)) {
                 $row_cnt = $resultado->num_rows;
-                if($row_cnt==1){
+                //$this->set_estado_cerradura($row_cnt);
+                if($row_cnt>0){
                     return True;
                 }
             }else{

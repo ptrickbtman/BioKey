@@ -47,6 +47,7 @@
                     echo -3; // no cambio el estado de la cerradura
                 }
             }else{
+                print_r($cerradura);
                 echo -2; //no cerradura
             }
 
