@@ -17,15 +17,15 @@ String peticionHTTP = "";
 String cadena = "";
 
 /*
-SoftwareSerial mySerial(9, 10);
-Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
+  SoftwareSerial mySerial(9, 10);
+  Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 */
 
 
 
 void setup() {
   /*
-   while (!Serial);
+    while (!Serial);
     delay(100);
     finger.begin(57600);
     delay(100);
@@ -37,7 +37,7 @@ void setup() {
         delay(1);
       }
     }
-   
+
   */
   SerialESP8266.begin(9600);
   Serial.begin(9600);
@@ -63,26 +63,31 @@ void setup() {
   delay(1000);
   conectar();
   delay(1000);
-/*
-  finger.available(); 
-  delay(100);
-  finger.begin(57600);
-  delay(5);
-  if (finger.verifyPassword()) {
-    Serial.println("Sensor encontrado");
-  } else {
-    Serial.println("Sensor no esta conectado :(");
-    while (1) {
-      delay(1);
-    }
-  
-*/
+  /*
+    finger.available();
+    delay(100);
+    finger.begin(57600);
+    delay(5);
+    if (finger.verifyPassword()) {
+      Serial.println("Sensor encontrado");
+    } else {
+      Serial.println("Sensor no esta conectado :(");
+      while (1) {
+        delay(1);
+      }
+
+  */
 }
 
-void loop(){
-  
- peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
- 
+
+
+void loop() {
+
+  //peticionPHP("actualizarCerr.php?idc=" + String(IDCerr)); //actualizar
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=1"); //agregar registro aprobado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=2"); //agregar registro denegado
+  //peticionPHP("agregarRegistroCerr.php?idc=" + String(IDCerr) + "&idt=3"); //agregar registro cambio pass
+  peticionPHP("bloquearCerr.php?idc=" + String(IDCerr)); //agregar registro cambio pass
 }
 
 
