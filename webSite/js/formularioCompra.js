@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 });
 
-function continuarCompra(){
+function continuarCompra() {
     data = obtenerDatosForm("formCompra");
     var count = 0;
 
@@ -32,7 +32,7 @@ function continuarCompra(){
         $(".lblComp1").removeClass("error");
         $("#spnValComp1").text("");
 
-        if (validarRut(data["rutFC"]) == true) {
+        if (validarRut(data["rutFC"]) == true && data["rutFC"].length > 4) {
             $(".lblComp1").removeClass("error");
             $("#spnValComp1").text("");
         } else {
@@ -73,7 +73,7 @@ function continuarCompra(){
         $("#nomFC").focus();
     }
 
-    
+
 
 
     //apellido//
@@ -243,7 +243,7 @@ function continuarCompra(){
         $(".lblComp14").removeClass("error");
         $("#spnValComp14").text("");
 
-        if (parseInt(data["cantiFC"])>0 && parseInt(data["cantiFC"])<=10) {
+        if (parseInt(data["cantiFC"]) > 0 && parseInt(data["cantiFC"]) <= 10) {
             $(".lblComp14").removeClass("error");
             $("#spnValComp14").text("");
         } else {
@@ -284,7 +284,7 @@ function continuarCompra(){
 
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-    dataObj = {};
+        dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });

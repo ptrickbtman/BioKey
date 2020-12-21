@@ -37,7 +37,7 @@
 
 		<div class="contApro">
 			<p class="aproTxt">Aprobado!</p>
-			<button class="volver">Volver</button>
+			<button class="volver" onclick=" window.location.href = 'index.php';">Volver</button>
 		</div>
 
 	</div>

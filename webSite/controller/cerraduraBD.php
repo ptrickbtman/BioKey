@@ -90,8 +90,7 @@
         public function crearPedidoCerradura(){
             $con = conexion();
 
-            $sql = "INSERT INTO `cerraduras`(`SERIAL_CERR`, `EST_CERR`) VALUES ('".$this->serial_cerradura."', ".$this->estado_cerradura.")";
-
+            $sql = "INSERT INTO `cerraduras`(`SERIAL_CERR`, `EST_CERR` , `PASS_CERR`, `SSID_RED`,`PASS_RED`) VALUES ('".$this->serial_cerradura."', ".$this->estado_cerradura.", ". $this->crearPassCerradura()." , 'BioKey' , '123123' ) " ;
             if($con->query($sql)){
                 $respuesta = $con->insert_id;
             }else{
@@ -100,7 +99,7 @@
             $this->set_serial_cerradura($sql);
             $con->close();
             return $respuesta;
-        } 
+        }
 
         public function jsonCerraduraPorId(){
             $con = conexion2();
@@ -269,13 +268,33 @@
 
         // metodos
 
+        public function crearPassCerradura(){
+            $data = "";
+            for($i = 0 ; $i<=5 ; $i++){
+                $data .= (String)rand(1,9);                
+            }
+            return $data;
+        }
+
+        public function crearSSID(){
+            $data = "BioKey";
+            for($i = 0 ; $i=3 ; $i++){
+                if($i == 1 && $i ==2){
+                    $data .= chr(rand(ord("a"), ord("z")));
+                }  else{
+                    $data .= (String)rand(1,9);
+                }          
+            }
+            return $data;
+        }
+
         public function crearPassCerraduraWifi(){
             $data = "";
-            for($i = 0 ; $i<=10 ; $i++){
-                if($i==2 && $i==4 && $i==7){
-                    $data .= (String)rand(1,9);
+            for($i = 0 ; $i<=5 ; $i++){
+                if($i==2 && $i==3){
+                    $data .= (String)rand(1,8);
                 }else{
-                    $data .= chr(rand(ord("a"), ord("z")));
+                    $data .= (rand(ord("a"), ord("z")));
                 }
                 
             }

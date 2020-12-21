@@ -95,7 +95,7 @@ $(".registrar").on("click", function() {
         $(".reg5").removeClass("error");
         $("#spnReg5").text("");
 
-        if (validarNumero(data["num"]) === false) {
+        if (validarNumero(data["num"]) == true) {
             $(".reg5").removeClass("error");
             $("#spnReg5").text("");
         } else {
@@ -130,7 +130,7 @@ $(".registrar").on("click", function() {
                 $("#spnReg6").text("Las contraseñas no coinciden.");
                 $("#pass2").focus();
             }
-        }else{
+        } else {
             count += 1;
             $(".reg6").addClass("error");
             $(".reg7").addClass("error");
@@ -197,7 +197,7 @@ $(".registrar").on("click", function() {
 
 function obtenerDatosForm(nombreForm) {
     var dataArray = $('.' + nombreForm).serializeArray(),
-    dataObj = {};
+        dataObj = {};
     $(dataArray).each(function(i, field) {
         dataObj[field.name] = field.value;
     });

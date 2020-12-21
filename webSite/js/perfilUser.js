@@ -63,8 +63,17 @@ function crearActivador(dataO) {
 ////////////////////// funciones crearFormularios
 
 function crearFormulariosCerraduras(dataO) {
+
+
     for (var i = 0; i < Object.keys(dataO).length; i++) {
-        var data = '<div class="contForm contForm' + i + '"><form method="POST" action="gestionarCerradura.php" class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '" name="idC"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><p class="cerraduraTi">' + dataO[i].DATE_CERR + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
+        let fecha = "";
+
+        if (dataO[i].DATE_CERR == null) {
+            fecha = "Fecha no registrada";
+        } else {
+            fecha = dataO[i].DATE_CERR;
+        }
+        var data = '<div class="contForm contForm' + i + '"><form method="POST" action="gestionarCerradura.php" class="formCerraduras formCerraduras' + i + '"><input type="hidden" value="' + dataO[i].COD_CERR + '" name="idC"><p class="cerraduraTi">' + dataO[i].SERIAL_CERR + '</p><p class="cerraduraTi">' + fecha + '</p><input type="submit" class="inputCerr inputCerr' + i + '" value="Administrar"></form></div>';
         //console.log(dataO[i].COD_CERR + " - " + dataO[i].SERIAL_CERR);
         //console.log(data)
         var add = '<div class="contAdd" onclick="crearModalVali()"><i class="fa fa-plus" aria-hidden="true"></i></div> '

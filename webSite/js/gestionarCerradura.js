@@ -20,9 +20,10 @@ $(document).ready(function() {
         }
     });
 
-    particlesJS.load('particles-js', 'assets/particlesRegis.json', function() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
         console.log('callback - particles.js config loaded');
     });
+
 
     $(".btnRegis").on("click", function() {
         id = $("#idC").val();
@@ -36,7 +37,7 @@ $(document).ready(function() {
 
 
     $(".desasociar").on("click", function() {
-        crearModalAcepto('¿Estas seguro?', 'Pulsa aceptar para desasociar la cerradura');
+        crearModalAcepto('¿Estas seguro?', 'Pulsa aceptar para desasociar la cerradura', 'aceptarModal()');
     });
 
 
@@ -111,7 +112,7 @@ function updateCerr(form) {
     if (datos.idOp == '1') {
 
         if (vacio(datos["NPass"])) {
-            if (validarNumero(datos["num"]) === false) {
+            if (validarNumero(datos["num"]) == true) {
                 $(".lblGes1").removeClass("error");
                 $(".lblGes2").removeClass("error");
                 $("#spanGes1").text("");
